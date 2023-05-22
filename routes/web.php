@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,9 @@ Auth::routes([
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'home', 'middleware' => ['web', 'auth']], function () {
+Route::group(['middleware' => ['web', 'auth']], function () {
     // Home
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // Data Diri
+    Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
 });

@@ -5,10 +5,10 @@
     </div>
     <ul class="list-unstyled components text-secondary">
         <li>
-            <a href=""><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('home') }}"><i class="fas fa-home"></i> Home</a>
         </li>
         <li>
-            <a href=""><i class="fas fa-user"></i> Data Diri</a>
+            <a href="{{ route('data_diri') }}"><i class="fas fa-user"></i> Data Diri</a>
         </li>
         <li>
             <a href=""><i class="fas fa-clipboard-list"></i> Pendidikan Formal</a>
