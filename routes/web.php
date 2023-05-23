@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PengajaranController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
+    // Pengajaran
+    Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
 });

@@ -14,7 +14,7 @@
             <a href=""><i class="fas fa-clipboard-list"></i> Pendidikan Formal</a>
         </li>
         <li>
-            <a href=""><i class="fas fa-graduation-cap"></i> Pengajaran</a>
+            <a href="{{ route('pengajaran') }}"><i class="fas fa-graduation-cap"></i> Pengajaran</a>
         </li>
         <li>
             <a href=""><i class="fas fa-sticky-note"></i> Penelitian</a>
