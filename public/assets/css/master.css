@@ -250,6 +250,10 @@ body {
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.05);
 }
 
+.btn-custom {
+    background-color: #8A00B9;
+}
+
 .btn-rounded {
     border-radius: 10em;
     padding: 6px 8px;

@@ -17,8 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('users')->insert([
+            'nidn' => '111111111',
             'name' => 'admin',
             'email' => 'admin@gmail.test',
+            'no_telpn' => '0853595',
             'password' => Hash::make('admin123')
         ]);
     }
