@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
             'no_telpn' => '0853595',
             'password' => Hash::make('admin123')
         ]);
+        $this->call(RolesTableSeeder::class);
+        $this->call(UserRoleTableSeeder::class);
     }
 }
