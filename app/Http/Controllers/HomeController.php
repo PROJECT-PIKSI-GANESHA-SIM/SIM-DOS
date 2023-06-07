@@ -25,11 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $role = Role::find(1);
-
-        //tampilkan semua users yang terkait dengan data role.
-        dd($role->users);
-
         return view('home.index');
     }
 }

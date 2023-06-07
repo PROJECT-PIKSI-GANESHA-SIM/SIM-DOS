@@ -34,8 +34,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
+    
     // Pengajaran
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
+    Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->name('pengajaran.create');
+
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');

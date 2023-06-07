@@ -19,7 +19,7 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <a href="" class="btn btn-sm btn-success mb-3">TAMBAH</a>
+                                    <a href="{{ route('pengajaran.create') }}" class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                     <div class="card">
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
