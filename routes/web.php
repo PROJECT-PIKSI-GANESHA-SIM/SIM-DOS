@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -37,4 +38,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::resources('/profile', ProfileController::class);
+
+    // Penelitian
+    Route::get('/penelitian', [PenelitianController::class, 'index'])->name('penelitian');
 });
