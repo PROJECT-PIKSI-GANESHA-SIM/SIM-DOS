@@ -37,7 +37,7 @@
                         <div class="mx-5">
                             <select name="program_studi" id="program_studi" class="form-control form-select" data-bs-toggle="dropdown">
                                 @foreach ($program_studi as $p)
-                                    <option value="{{ $p->name }}">{{ $p->name }}</option>
+                                    <option value="{{ $p->id }}">{{ $p->name }}</option>
                                 @endforeach
                             </select>
         
@@ -68,9 +68,9 @@
         
                         <div class="mx-5">
                             <select name="jenis_matkul" id="jenis_matkul" class="form-control form-select" data-bs-toggle="dropdown">
-                                <option value="">Mata Kuliah Wajib</option>
-                                <option value="">Mata Kuliah Umum</option>
-                                <option value="">Mata Kuliah Pilihan</option>
+                                <option value="Mata Kuliah Wajib">Mata Kuliah Wajib</option>
+                                <option value="Mata Kuliah Umum">Mata Kuliah Umum</option>
+                                <option value="Mata Kuliah Pilihan">Mata Kuliah Pilihan</option>
                             </select>
         
                             @error('jenis_matkul')
@@ -102,11 +102,11 @@
                                 
                                 <div class="ms-5">
                                     <select name="sks" id="sks" class="form-control form-select" data-bs-toggle="dropdown">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">5</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 @error('sks')
@@ -118,12 +118,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="kelas" class="col-md-4 col-form-label me-5">{{ __('Kelas') }}</label>
+                                <label for="jumlah_mahasiswa" class="col-md-4 col-form-label me-5">{{ __('Jumlah Mahasiswa') }}</label>
                 
                                 <div class="me-5">
-                                    <input id="kelas" type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" required>
+                                    <input id="jumlah_mahasiswa" type="text" class="form-control @error('jumlah_mahasiswa') is-invalid @enderror" name="jumlah_mahasiswa" required>
                 
-                                    @error('kelas')
+                                    @error('jumlah_mahasiswa')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
