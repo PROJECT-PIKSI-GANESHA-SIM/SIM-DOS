@@ -37,10 +37,10 @@
         
                         <div class="mx-5">
                             <select name="program_studi" id="program_studi" class="form-control form-select" data-bs-toggle="dropdown">
-                                <option value="">Sistem Informasi</option>
-                                <option value="">Teknik Informatika</option>
+                                @foreach ($program_studi as $p)
+                                    <option value="{{ $p->name }}">{{ $p->name }}</option>
+                                @endforeach
                             </select>
-                            {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email"> --}}
         
                             @error('program_studi')
                                 <span class="invalid-feedback" role="alert">
