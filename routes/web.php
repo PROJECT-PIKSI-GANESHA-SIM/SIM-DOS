@@ -38,6 +38,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     // Pengajaran
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
     Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->name('pengajaran.create');
+    Route::post('/pengajaran', [PengajaranController::class, 'store'])->name('pengajaran.store');
 
 
     // Profile

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProgramStudi extends Model
 {
     use HasFactory;
+
+    public function pengajaran() {
+        return $this->hasOne(Pengajaran::class);
+    }
+
 }

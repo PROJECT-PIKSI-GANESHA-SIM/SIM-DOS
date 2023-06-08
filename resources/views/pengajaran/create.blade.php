@@ -14,9 +14,8 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('pengajaran.store') }}" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
                     
                     <div class="mb-3 ">
                         <label for="tahun_ajar" class="col-md-4 col-form-label mx-5">{{ __('Tahun Ajaran') }}</label>

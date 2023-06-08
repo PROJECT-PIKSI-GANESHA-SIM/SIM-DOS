@@ -19,4 +19,12 @@ class PengajaranController extends Controller
             'program_studi' => $program_studi
         ]);
     }
+
+    public function store(Request $request) {
+
+        // Validasi Form
+        $this->validate($request, [
+        ]);
+
+    }
 }
