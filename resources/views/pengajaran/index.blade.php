@@ -37,102 +37,32 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Algoritma dan Pemrograman</td>
-                                                <td>Wajib</td>
-                                                <td>SI-R41/19</td>
-                                                <td>2019 - 2020 (Ganjil)</td>
-                                                <td>20</td>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="col">
-                                                        <div class="row-3 text-center">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
+                                                @foreach ($pengajaran as $p)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $p->nama_mata_kuliah }}</td>
+                                                    <td>{{ $p->jenis_mata_kuliah }}</td>
+                                                    <td>{{ $p->kelas }}</td>
+                                                    <td>{{ $p->tahun_ajaran }}</td>
+                                                    <td>{{ $p->jumlah_mahasiswa }}</td>
+                                                    <td>{{ $p->jumlah_sks }}</td>
+                                                    <td>
+                                                        <div class="col">
+                                                            <div class="row-3 text-center">
+                                                                <a href="">
+                                                                    <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
+                                                                </a>
+                                                                <a href="">
+                                                                    <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
+                                                                </a>
+                                                                <a href="">
+                                                                    <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Algoritma dan Pemrograman</td>
-                                                <td>Wajib</td>
-                                                <td>SI-R41/19</td>
-                                                <td>2019 - 2020 (Ganjil)</td>
-                                                <td>20</td>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="col">
-                                                        <div class="row-3 text-center">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Algoritma dan Pemrograman</td>
-                                                <td>Wajib</td>
-                                                <td>SI-R41/19</td>
-                                                <td>2019 - 2020 (Ganjil)</td>
-                                                <td>20</td>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="col">
-                                                        <div class="row-3 text-center">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Algoritma dan Pemrograman</td>
-                                                <td>Wajib</td>
-                                                <td>SI-R41/19</td>
-                                                <td>2019 - 2020 (Ganjil)</td>
-                                                <td>20</td>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="col">
-                                                        <div class="row-3 text-center">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         </div>

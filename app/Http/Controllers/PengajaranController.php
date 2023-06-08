@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class PengajaranController extends Controller
 {
     public function index() {
-        return view('pengajaran.index');
+        
+        // Get Id User
+        $user = Auth::user();
+
+        $pengajaran = Pengajaran::where('user_id', $user->id)->get();
+
+        return view('pengajaran.index', compact('pengajaran'));
     }
 
     public function create() {
