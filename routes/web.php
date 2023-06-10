@@ -39,6 +39,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
     Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->name('pengajaran.create');
     Route::post('/pengajaran/create', [PengajaranController::class, 'store'])->name('pengajaran.store');
+    Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->name('pengajaran.edit');
+    Route::put('/pengajaran/update', [PengajaranController::class, 'update'])->name('pengajaran.update');
 
 
     // Profile

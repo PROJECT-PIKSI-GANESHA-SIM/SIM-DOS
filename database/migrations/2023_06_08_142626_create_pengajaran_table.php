@@ -22,8 +22,8 @@ class CreatePengajaranTable extends Migration
             $table->string('kelas');
             $table->string('jumlah_sks');
             $table->string('jumlah_mahasiswa');
-            $table->string('bukti_pengajaran');
-            $table->string('bukti_presensi');
+            $table->string('bukti_pengajaran')->nullable();
+            $table->string('bukti_presensi')->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
