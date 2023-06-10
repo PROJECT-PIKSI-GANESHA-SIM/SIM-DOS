@@ -49,15 +49,19 @@
                                                     <td>
                                                         <div class="col">
                                                             <div class="row-3 text-center">
-                                                                <a href="">
-                                                                    <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                                </a>
-                                                                <a href="{{ route('pengajaran.edit', $p->id) }}">
-                                                                    <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
-                                                                </a>
-                                                                <a href="">
-                                                                    <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
-                                                                </a>
+                                                                <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('pengajaran.destroy', $p->id) }} }}">
+                                                                    <a href="">
+                                                                        <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
+                                                                    </a>
+                                                                    <a href="{{ route('pengajaran.edit', $p->id) }}">
+                                                                        <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
+                                                                    </a>
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer">
+                                                                        <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
+                                                                    </button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </td>

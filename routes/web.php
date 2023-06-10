@@ -41,6 +41,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('/pengajaran/create', [PengajaranController::class, 'store'])->name('pengajaran.store');
     Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->name('pengajaran.edit');
     Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->name('pengajaran.update');
+    Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->name('pengajaran.destroy');
 
 
     // Profile

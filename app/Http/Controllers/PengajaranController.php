@@ -270,4 +270,21 @@ class PengajaranController extends Controller
 
         return redirect()->route('pengajaran')->with(['success' => 'Data Berhasil Diupdate!']);
     }
+
+
+    public function destroy($id) {
+        
+        $pengajaran = Pengajaran::findOrFail($id);
+
+        // hapus gambar bukti pengajaran dan bukti presensi
+        Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
+        Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
+        
+        // hapus pengajaran
+        $pengajaran->delete();
+
+        return redirect()->route('pengajaran')->with(['success' => 'Data Berhasil Diupdate!']);
+    }
+
+
 }
