@@ -62,8 +62,8 @@ class ProfileController extends Controller
         //     ]);
         // }
         if (request()->hasFile('image')) {
-            if($user->image && file_exists(storage_path('app/public/dosen/profile/' . $user->image))){
-                Storage::delete('app/public/dosen/profile/'.$user->image);
+            if($user->image && file_exists(storage_path('public/dosen/profile/' . $user->image))){
+                Storage::delete('public/dosen/profile/'.$user->image);
             }
     
             $file = $request->file('image');

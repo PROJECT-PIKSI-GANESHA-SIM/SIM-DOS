@@ -18,6 +18,7 @@
                     @csrf
                     @method('PUT')
                     
+                    <h1>{{ $pengajaran->id }}</h1>
                     <div class="mb-3 ">
                         <label for="tahun_ajar" class="col-md-4 col-form-label mx-5">{{ __('Tahun Ajaran') }}</label>
         

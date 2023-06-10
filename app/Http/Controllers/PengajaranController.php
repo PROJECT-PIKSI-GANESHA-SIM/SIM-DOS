@@ -153,7 +153,10 @@ class PengajaranController extends Controller
         ]);
     }
 
-    public function update(Request $request, Pengajaran $pengajaran) {
+    public function update(Request $request, $id) {
+        $pengajaran = Pengajaran::findOrFail($id);
+        // dd($pengajaran->bukti_presensi);
+
         // Validasi Form
         $this->validate($request, [
             'tahun_ajar' => 'required',
@@ -166,24 +169,27 @@ class PengajaranController extends Controller
             'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
-        // check if all image is uploaded
 
+        // Get Id User
+        $user = Auth::user();
+
+        // Kondisi jika bukti pengajaran dan bukti presensi di upload
         if($request->hasFile('bukti_pengajaran') && $request->hasFile('bukti_presensi')) {
             
+            // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
             
             // upload bukti presensi
             $bukti_presensi = $request->file('bukti_presensi');
             $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
+            
+            // Hapus image terdahulu
+            Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
+            Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
 
+            // Update pengajaran
 
-            // hapus image terdahulu
-            Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'.$pengajaran->bukti_pengajaran);
-            Storage::delete('public/dosen/pengajaran/bukti_presensi/'.$pengajaran->bukti_presensi);
-        
-            // Update pengajaran dengan gambar terbaru
             $pengajaran->update([
                 'tahun_ajaran' => $request->tahun_ajar,
                 'program_studi' => $request->program_studi,
@@ -193,20 +199,22 @@ class PengajaranController extends Controller
                 'jumlah_sks' => $request->sks,
                 'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
                 'bukti_pengajaran' => $bukti_pengajaran->hashName(),
-                'bukti_presensi' => $bukti_presensi->hashName()
+                'bukti_presensi' => $bukti_presensi->hashName(),
+                'user_id' => $user->id,
             ]);
 
         } else if ($request->hasFile('bukti_pengajaran')) {
-            // hanya upload gambar bukti pengajaran
+            // kondisi jika hanya meng upload bukti pengajaran
 
             // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
-            
-            // hapus gambar bukti pengajaran terdahulu
-            Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'.$pengajaran->bukti_pengajaran);
-            
-            // Update pengajaran dengan gambar terbaru
+
+            // Hapus image terdahulu
+            Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
+
+            // Update pengajaran
+
             $pengajaran->update([
                 'tahun_ajaran' => $request->tahun_ajar,
                 'program_studi' => $request->program_studi,
@@ -215,20 +223,23 @@ class PengajaranController extends Controller
                 'kelas' => $request->kelas,
                 'jumlah_sks' => $request->sks,
                 'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
-                'bukti_pengajaran' => $bukti_pengajaran->hashName()
+                'bukti_pengajaran' => $bukti_pengajaran->hashName(),
+                'user_id' => $user->id,
             ]);
 
         } else if ($request->hasFile('bukti_presensi')) {
-            // hanya upload gambar bukti pengajaran
+
+            // kondisi jika hanya meng update bukti presensi saja
 
             // upload bukti presensi
             $bukti_presensi = $request->file('bukti_presensi');
             $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
-            
-            // hapus gambar bukti pengajaran terdahulu
-            Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'.$pengajaran->bukti_pengajaran);
-            
-            // Update pengajaran dengan gambar terbaru
+
+            // Hapus image terdahulu
+            Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
+
+            // Update pengajaran
+
             $pengajaran->update([
                 'tahun_ajaran' => $request->tahun_ajar,
                 'program_studi' => $request->program_studi,
@@ -237,13 +248,14 @@ class PengajaranController extends Controller
                 'kelas' => $request->kelas,
                 'jumlah_sks' => $request->sks,
                 'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
-                'bukti_presensi' => $bukti_presensi->hashName()
+                'bukti_presensi' => $bukti_presensi->hashName(),
+                'user_id' => $user->id,
             ]);
-
         } else {
-            // Tidak Upload gambar
-            
-            // Update pengajaran tanpa gambar
+            // kondisi jika tidak mengupdate image
+
+            // Update pengajaran
+
             $pengajaran->update([
                 'tahun_ajaran' => $request->tahun_ajar,
                 'program_studi' => $request->program_studi,
@@ -251,11 +263,11 @@ class PengajaranController extends Controller
                 'jenis_mata_kuliah' => $request->jenis_matkul,
                 'kelas' => $request->kelas,
                 'jumlah_sks' => $request->sks,
-                'jumlah_mahasiswa' => $request->jumlah_mahasiswa
+                'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
+                'user_id' => $user->id,
             ]);
-            
         }
 
-        return redirect()->route('pengajaran')->with(['success' => 'Data Berhasil DiUpdate!']);
+        return redirect()->route('pengajaran')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 }
