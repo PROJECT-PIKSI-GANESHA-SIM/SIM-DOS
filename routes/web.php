@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\ProfileController;
@@ -51,4 +52,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     // Penelitian
     Route::get('/penelitian', [PenelitianController::class, 'index'])->name('penelitian');
+
+    // Pendidikan
+    Route::get('/pendidikan', [PendidikanController::class, 'index'])->name('pendidikan');
+    Route::get('/pendidikan/create', [PendidikanController::class, 'create'])->name('pendidikan.create');
+    Route::post('/pendidikan/create', [PendidikanController::class, 'store'])->name('pendidikan.store');
 });

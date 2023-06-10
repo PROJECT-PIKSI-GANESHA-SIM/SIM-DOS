@@ -5,22 +5,22 @@
     </div>
     <ul class="list-unstyled components text-secondary">
         <li>
-            <a href="{{ route('home') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ route('home') }}" style="text-decoration: none"><i class="fas fa-home"></i> Home</a>
         </li>
         <li>
-            <a href="{{ route('data_diri') }}"><i class="fas fa-user"></i> Data Diri</a>
+            <a href="{{ route('data_diri') }}" style="text-decoration: none"><i class="fas fa-user"></i> Data Diri</a>
         </li>
         <li>
-            <a href=""><i class="fas fa-clipboard-list"></i> Pendidikan Formal</a>
+            <a href="{{ route('pendidikan') }}" style="text-decoration: none"><i class="fas fa-clipboard-list"></i> Pendidikan Formal</a>
         </li>
         <li>
-            <a href="{{ route('pengajaran') }}"><i class="fas fa-graduation-cap"></i> Pengajaran</a>
+            <a href="{{ route('pengajaran') }}" style="text-decoration: none"><i class="fas fa-graduation-cap"></i> Pengajaran</a>
         </li>
         <li>
-            <a href="{{ route('penelitian') }}"><i class="fas fa-sticky-note"></i> Penelitian</a>
+            <a href="{{ route('penelitian') }}" style="text-decoration: none"><i class="fas fa-sticky-note"></i> Penelitian</a>
         </li>
         <li>
-            <a href=""><i class="fas fa-window-maximize"></i> Pengabdian</a>
+            <a href="" style="text-decoration: none"><i class="fas fa-window-maximize"></i> Pengabdian</a>
         </li>
     </ul>
 </nav>

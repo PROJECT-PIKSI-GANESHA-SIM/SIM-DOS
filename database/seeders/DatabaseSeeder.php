@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\JenjangPendidikan;
 use App\Models\UserRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(UserRoleTableSeeder::class);
         $this->call(ProgramStudiTableSeeder::class);
+        $this->call(JenjangPendidikanTableSeeder::class);
     }
 }
