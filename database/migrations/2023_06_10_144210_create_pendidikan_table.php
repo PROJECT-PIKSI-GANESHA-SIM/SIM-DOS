@@ -21,7 +21,7 @@ class CreatePendidikanTable extends Migration
             $table->string('lokasi_institusi');
             $table->string('dalam_luar_negeri');
             $table->string('nomor_ijazah');
-            $table->string('predikat_kelulusan');
+            $table->foreignId('predikat_kelulusan')->references('id')->on('predikat_kelulusan');
             $table->string('gelar_singkat')->nullable();
             $table->string('gelar_panjang')->nullable();
             $table->date('tanggal_mulai_studi');

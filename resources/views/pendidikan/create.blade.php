@@ -128,11 +128,9 @@
                                 
                                 <div class="me-5">
                                     <select name="predikat_kelulusan" id="predikat_kelulusan" class="form-control form-select" data-bs-toggle="dropdown">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                        @foreach ($predikat_kelulusan as $pk)
+                                            <option value="{{ $pk->id }}">{{ $pk->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 @error('predikat_kelulusan')
