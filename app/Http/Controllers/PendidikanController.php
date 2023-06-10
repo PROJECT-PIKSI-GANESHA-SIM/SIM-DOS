@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\Auth;
 class PendidikanController extends Controller
 {
     public function index() {
-        return view('pendidikan.index');
+
+        // Get Id User
+        $user = Auth::user();
+
+        $pendidikan = Pendidikan::where('user_id', $user->id)->get();
+
+        return view('pendidikan.index', compact('pendidikan'));
     }
 
     public function create() {
@@ -154,4 +160,9 @@ class PendidikanController extends Controller
         return redirect()->route('pendidikan')->with(['success' => 'Data Berhasil Disimpan!']);
 
     }
+
+    public function edit($id) {
+
+    }
+
 }

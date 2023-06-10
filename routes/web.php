@@ -43,13 +43,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->name('pengajaran.edit');
     Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->name('pengajaran.update');
     Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->name('pengajaran.destroy');
-
-
+    
+    
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
     // Route::resources('/profile', ProfileController::class);
-
+    
     // Penelitian
     Route::get('/penelitian', [PenelitianController::class, 'index'])->name('penelitian');
 
@@ -57,4 +57,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pendidikan', [PendidikanController::class, 'index'])->name('pendidikan');
     Route::get('/pendidikan/create', [PendidikanController::class, 'create'])->name('pendidikan.create');
     Route::post('/pendidikan/create', [PendidikanController::class, 'store'])->name('pendidikan.store');
+    Route::get('/pendidikan/{id}/edit', [PendidikanController::class, 'edit'])->name('pendidikan.edit');
 });
