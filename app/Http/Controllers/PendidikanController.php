@@ -318,4 +318,18 @@ class PendidikanController extends Controller
     
     }
 
+    public function destroy($id) {
+        
+        $pendidikan = Pendidikan::findOrFail($id);
+
+        // hapus gambar bukti pengajaran dan bukti presensi
+        Storage::delete('public/dosen/pendidikan/file_ijazah/'. $pendidikan->file_ijazah);
+        Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
+        
+        // hapus pendidikan
+        $pendidikan->delete();
+
+        return redirect()->route('pendidikan')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
 }
