@@ -58,4 +58,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pendidikan/create', [PendidikanController::class, 'create'])->name('pendidikan.create');
     Route::post('/pendidikan/create', [PendidikanController::class, 'store'])->name('pendidikan.store');
     Route::get('/pendidikan/{id}/edit', [PendidikanController::class, 'edit'])->name('pendidikan.edit');
+    Route::put('/pendidikan/update/{id}', [PendidikanController::class, 'update'])->name('pendidikan.update');
 });
