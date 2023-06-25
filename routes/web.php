@@ -7,6 +7,7 @@ use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Pengabdian;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -66,4 +67,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengabdian', [PengabdianController::class, 'index'])->name('pengabdian');
     Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->name('pengabdian.create');
     Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->name('pengabdian.store');
+    Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
 });

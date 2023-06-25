@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengabdian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PengabdianController extends Controller
 {
@@ -150,5 +151,22 @@ class PengabdianController extends Controller
 
         return redirect()->route('pengabdian')->with(['success' => 'Data Berhasil Disimpan!']);
 
+    }
+
+    public function update(Request $request ) {
+
+    }
+
+    public function destroy($id) {
+        $pengabdian = Pengabdian::findOrFail($id);
+
+        // hapus file surat tugas dan laporan kegiatan
+        Storage::delete('public/dosen/pengabdian/surat_tugas/'. $pengabdian->surat_tugas);
+        Storage::delete('public/dosen/pengabdian/laporan_kegiatan/'. $pengabdian->laporan_kegiatan);
+        
+        // hapus pengajaran
+        $pengabdian->delete();
+
+        return redirect()->route('pengabdian')->with(['success' => 'Data Berhasil Didelete!']);
     }
 }
