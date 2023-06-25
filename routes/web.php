@@ -65,4 +65,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     // Pengabdian
     Route::get('/pengabdian', [PengabdianController::class, 'index'])->name('pengabdian');
     Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->name('pengabdian.create');
+    Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->name('pengabdian.store');
 });

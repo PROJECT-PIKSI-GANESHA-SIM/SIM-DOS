@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('pengabdian.store') }}" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="mb-3 ">
@@ -90,13 +90,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="tanggal_pelaksanaan" class="col-md-4 col-form-label ms-5">{{ __('Tanggal Pelaksanaan') }}</label>
+                                <label for="tahun_pelaksanaan" class="col-md-4 col-form-label ms-5">{{ __('Tahun Pelaksanaan') }}</label>
                         
                                 <div class="ms-5">
-                                    <input id="tanggal_pelaksanaan" type="date" class="form-control @error('tanggal_pelaksanaan') is-invalid @enderror datepicker" name="tanggal_pelaksanaan" required>
+                                    <input id="tahun_pelaksanaan" type="date" class="form-control @error('tahun_pelaksanaan') is-invalid @enderror datepicker" name="tahun_pelaksanaan" required>
                                 </div>
                         
-                                @error('tanggal_pelaksanaan')
+                                @error('tahun_pelaksanaan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
