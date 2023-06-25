@@ -35,7 +35,34 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                
+                                                @foreach ($pengabdian as $p)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $p->judul_pengabdian }}</td>
+                                                        <td>{{ $p->bidang_keilmuan }}</td>
+                                                        <td>{{ $p->tahun_pelaksanaan }}</td>
+                                                        <td>{{ $p->lama_kegiatan }}</td>
+                                                        <td>
+                                                            <div class="col">
+                                                                <div class="row-3 text-center">
+                                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="">
+                                                                        <a href="">
+                                                                            <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
+                                                                        </a>
+                                                                        <a href="">
+                                                                            <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
+                                                                        </a>
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer">
+                                                                            <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         </div>
