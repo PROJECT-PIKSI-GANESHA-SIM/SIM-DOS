@@ -20,7 +20,7 @@
             <a href="{{ route('penelitian') }}" style="text-decoration: none"><i class="fas fa-sticky-note"></i> Penelitian</a>
         </li>
         <li>
-            <a href="" style="text-decoration: none"><i class="fas fa-window-maximize"></i> Pengabdian</a>
+            <a href="{{ route('pengabdian') }}" style="text-decoration: none"><i class="fas fa-window-maximize"></i> Pengabdian</a>
         </li>
     </ul>
 </nav>

@@ -4,6 +4,7 @@ use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PenelitianController;
+use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -60,4 +61,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pendidikan/{id}/edit', [PendidikanController::class, 'edit'])->name('pendidikan.edit');
     Route::put('/pendidikan/update/{id}', [PendidikanController::class, 'update'])->name('pendidikan.update');
     Route::delete('/pendidikan/delete/{id}', [PendidikanController::class, 'destroy'])->name('pendidikan.destroy');
+
+    // Pengabdian
+    Route::get('/pengabdian', [PengabdianController::class, 'index'])->name('pengabdian');
+    Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->name('pengabdian.create');
 });
