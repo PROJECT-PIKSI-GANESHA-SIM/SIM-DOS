@@ -67,5 +67,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengabdian', [PengabdianController::class, 'index'])->name('pengabdian');
     Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->name('pengabdian.create');
     Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->name('pengabdian.store');
+    Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->name('pengabdian.edit');
+    Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
 });

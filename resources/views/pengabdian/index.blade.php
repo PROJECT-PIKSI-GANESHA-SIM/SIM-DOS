@@ -49,7 +49,7 @@
                                                                         <a href="">
                                                                             <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                                         </a>
-                                                                        <a href="">
+                                                                        <a href="{{ route('pengabdian.edit', $p->id) }}">
                                                                             <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                                         </a>
                                                                         @csrf
