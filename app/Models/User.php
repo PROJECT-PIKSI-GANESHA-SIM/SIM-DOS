@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function pengabdian() {
         return $this->hasMany(Pengabdian::class);
     }
+
+    public function identitas_diri() {
+        return $this->hasOne(IdentitasDiri::class);
+    }
 }
