@@ -75,5 +75,5 @@ Sistem Informasi Manajemen Dosen (SIM-DOS) adalah bla bla bla
 ## Creator
 - <a href="https://github.com/hendrawijayasubandi"> Hendra Wijaya Subandi </a>
 - <a href="https://github.com/rizalfadiaalfikri"> Rizal Fadia Al Fikri </a>
-- <a href="https://github.com/Amalinanurhasanah"> Amalina Nurhasanah </a>
-- <a href="https://github.com/rizkimhmmdilhamn"> Rizky Muhammad Ilham Nasution </a>
+<!--- <a href="https://github.com/Amalinanurhasanah"> Amalina Nurhasanah </a>
+- <a href="https://github.com/rizkimhmmdilhamn"> Rizky Muhammad Ilham Nasution </a> --->
