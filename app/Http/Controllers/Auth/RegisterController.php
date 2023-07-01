@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\AlamatKontak;
 use App\Models\IdentitasDiri;
+use App\Models\Kepegawaian;
 use App\Models\LainLain;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -114,6 +115,19 @@ class RegisterController extends Controller
             'nama_wajib_pajak' => '-',
             'sinta_id' => '-',
             'user_id' => $user->id
+        ]);
+
+        Kepegawaian::create([
+            'program_studi' => '-',
+            'status_kepegawaian' => '-',
+            'status_keaktifan' => 'Aktif',
+            'jabatan_fungsional' => '-',
+            'no_sk_sertifikasi_dosen' => '-',
+            'no_sk_tmmd' => '-', 
+            'tanggal_menjadi_dosen' => now(),
+            'pangkat_golongan' => '-',
+            'user_id' => $user->id
+
         ]);
 
         UserRole::create([

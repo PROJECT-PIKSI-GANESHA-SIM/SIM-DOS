@@ -170,35 +170,35 @@
                 <div class="items mt-5 me-5 ms-5">
                     <div class="row mb-2">
                         <div class="col-md-6">Program Studi</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->program_studi }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Status Kepegawaian</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->status_kepegawaian }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Status Keaktifan</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->status_keaktifan }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Jabatan Fungsional</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->jabatan_fungsional }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">NO SK Sertifikasi Dosen</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->no_sk_sertifikasi_dosen }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Nomor SK TMMD</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->no_sk_tmmd }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Tanggal Mulai Menjadi Dosen</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->tanggal_menjadi_dosen }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Pangkat/Golongan</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $kepegawaian[0]->pangkat_golongan }}</div>
                     </div>
                 </div>
             </div>

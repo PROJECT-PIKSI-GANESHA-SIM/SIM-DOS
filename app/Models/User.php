@@ -72,4 +72,8 @@ class User extends Authenticatable
     public function lain_lain() {
         return $this->hasOne(LainLain::class);
     }
+
+    public function kepegawaian() {
+        return $this->hasOne(Kepegawaian::class);
+    }
 }
