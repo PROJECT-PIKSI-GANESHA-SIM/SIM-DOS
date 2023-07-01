@@ -33,10 +33,14 @@ Auth::routes([
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['web', 'auth']], function () {
+    
     // Home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
+
+    Route::get('/data_diri/identitas/{id}/edit', [DataDiriController::class, 'edit_identitas'])->name('identitas.edit');
     
     // Pengajaran
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
@@ -70,4 +74,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->name('pengabdian.edit');
     Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
+
 });

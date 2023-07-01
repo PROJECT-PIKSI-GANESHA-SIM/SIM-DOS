@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\IdentitasDiri;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -65,12 +67,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // dd($data);
+
+        $user = User::create([
             'name' => $data['name'],
             'nidn' => $data['nidn'],
             'email' => $data['email'],
             'no_telpn' => null,
             'password' => Hash::make($data['password']),
         ]);
+
+        IdentitasDiri::create([
+            'nidn' => $user->nidn,
+            'nip' => '-',
+            'nik' => '-',
+            'foto' => '-',
+            'nama' => '-',
+            'jenis_kelamin' => '-',
+            'golongan_darah' => '-',
+            'kewarganegaraan' => 'Indonesia',
+            'agama' => '-',
+            'tempat_lahir' => '-',
+            'tanggal_lahir' => now(),
+            'status_perkawinan' => 'Belum Kawin',
+            'user_id' => $user->id
+        ]);
+
+        UserRole::create([
+            'user_id' => $user->id,
+            'role_id' => 1
+        ]);
+
+        return $user;
+
     }
 }

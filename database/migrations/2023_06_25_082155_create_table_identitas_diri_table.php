@@ -15,16 +15,17 @@ class CreateTableIdentitasDiriTable extends Migration
     {
         Schema::create('identitas_diri', function (Blueprint $table) {
             $table->id();
-            $table->string('nip', 50);
-            $table->string('nik', 50);
-            $table->string('nama');
-            $table->string('jenis_kelamin', 50);
-            $table->string('golongan_darah', 50);
-            $table->string('kewarganegaraan', 50);
-            $table->string('agama', 50);
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->string('status_perkawinan', 50);
+            $table->string('nip', 50)->nullable();
+            $table->string('nik', 50)->default("-");
+            $table->string('foto')->default("-");
+            $table->string('nama')->default("-");
+            $table->string('jenis_kelamin', 50)->default("-");
+            $table->string('golongan_darah', 50)->default("-");
+            $table->string('kewarganegaraan', 50)->default("Indonesia");
+            $table->string('agama', 50)->default("-");
+            $table->string('tempat_lahir')->nullable()->default("-");
+            $table->date('tanggal_lahir')->nullable()->default(now());
+            $table->string('status_perkawinan', 50)->default("Belum Kawin");
             $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

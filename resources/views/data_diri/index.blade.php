@@ -11,7 +11,7 @@
             <div class="card-body my-auto">
                 <div class="title d-flex align-items-center justify-content-between">
                     <span class="fw-bold fs-5">Identitas Diri</span>
-                    <a href="" class="justify-content-end">
+                    <a href="{{ route('identitas.edit', $user->id) }}" class="justify-content-end">
                         <img class="" src="{{ asset("assets/edit.png") }}" alt="" width="25px" height="25px">
                     </a>
                 </div>
@@ -22,47 +22,47 @@
                 <div class="items mt-5 me-5 ms-5">
                     <div class="row mb-2">
                         <div class="col-md-6">NIDN</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $user->nidn }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">NIP</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->nip }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">NIK</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->nik }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Nama</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->nama }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Jenis Kelamin</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->jenis_kelamin }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Golongan Darah</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->golongan_darah }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Kewarganegaraan</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->kewarganegaraan }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Agama</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->agama }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Tempat Lahir</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->tempat_lahir }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Tanggal Lahir</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->tanggal_lahir }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Status Perkawinan</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $identitas[0]->status_perkawinan }}</div>
                     </div>
                 </div>
             </div>
