@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function identitas_diri() {
         return $this->hasOne(IdentitasDiri::class);
     }
+
+    public function alamat_kontak() {
+        return $this->hasOne(alamat_kontak::class);
+    }
 }

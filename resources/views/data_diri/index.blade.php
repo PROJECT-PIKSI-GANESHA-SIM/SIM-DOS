@@ -81,47 +81,47 @@
                 <div class="items mt-5 me-5 ms-5">
                     <div class="row mb-2">
                         <div class="col-md-6">Email</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $user->email }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Alamat</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->alamat }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">RT</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->rt }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">RW</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->rw }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">NO</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->no }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Desa/Kelurahan</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->desa_kelurahan }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Kota/Kabupaten</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->kota_kabupaten }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Provinsi</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->provinsi }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Kode Pos</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->kode_pos }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">No Telepon Rumah</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $alamat_kontak[0]->no_telepon_rumah }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">No Handphone</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $user->no_telpn }}</div>
                     </div>
                 </div>
             </div>

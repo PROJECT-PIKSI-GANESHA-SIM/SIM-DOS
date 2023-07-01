@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlamatKontak;
 use App\Models\IdentitasDiri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,18 +13,15 @@ class DataDiriController extends Controller
 
         $user = Auth::user();
         $identitas = IdentitasDiri::where('user_id', $user->id)->get();
+        $alamat_kontak = AlamatKontak::where('user_id', $user->id)->get();
+
 
         return view('data_diri.index', [
             'user' => $user,
-            'identitas' => $identitas
+            'identitas' => $identitas,
+            'alamat_kontak' => $alamat_kontak
         ]);
     }
 
-    public function edit_identitas($id) {
-        $identitas_diri = IdentitasDiri::findOrFail($id);
 
-        return view('data_diri.edit-identitas', [
-            'identitas' => $identitas_diri
-        ]);
-    }
 }

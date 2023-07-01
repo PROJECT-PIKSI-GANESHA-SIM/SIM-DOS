@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\AlamatKontak;
 use App\Models\IdentitasDiri;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -73,7 +74,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'nidn' => $data['nidn'],
             'email' => $data['email'],
-            'no_telpn' => null,
+            'no_telpn' => '-',
             'password' => Hash::make($data['password']),
         ]);
 
@@ -90,6 +91,20 @@ class RegisterController extends Controller
             'tempat_lahir' => '-',
             'tanggal_lahir' => now(),
             'status_perkawinan' => 'Belum Kawin',
+            'user_id' => $user->id
+        ]);
+
+        AlamatKontak::create([
+            'alamat' => '-',
+            'rt' => '-',
+            'rw' => '-',
+            'no' => '-',
+            'desa_kelurahan' => '-',
+            'kota_kabupaten' => '-',
+            'provinsi' => '-',
+            'tempat_lahir' => '-',
+            'kode_pos' => '-',
+            'no_telepon_rumah' => '-',
             'user_id' => $user->id
         ]);
 
