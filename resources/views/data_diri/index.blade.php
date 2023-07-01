@@ -143,15 +143,15 @@
                 <div class="items mt-5 me-5 ms-5">
                     <div class="row mb-2">
                         <div class="col-md-6">NPWP</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $lain_lain[0]->npwp }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">Nama Wajib Pajak</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $lain_lain[0]->nama_wajib_pajak }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">SINTA ID</div>
-                        <div class="col-md-6">sasa</div>
+                        <div class="col-md-6">{{ $lain_lain[0]->sinta_id }}</div>
                     </div>
                 </div>
             </div>

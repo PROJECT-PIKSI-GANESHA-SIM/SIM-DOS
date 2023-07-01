@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\AlamatKontak;
 use App\Models\IdentitasDiri;
+use App\Models\LainLain;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\UserRole;
@@ -105,6 +106,13 @@ class RegisterController extends Controller
             'tempat_lahir' => '-',
             'kode_pos' => '-',
             'no_telepon_rumah' => '-',
+            'user_id' => $user->id
+        ]);
+
+        LainLain::create([
+            'npwp' => '-',
+            'nama_wajib_pajak' => '-',
+            'sinta_id' => '-',
             'user_id' => $user->id
         ]);
 

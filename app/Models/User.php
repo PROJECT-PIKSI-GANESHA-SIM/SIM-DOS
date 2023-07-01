@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function alamat_kontak() {
         return $this->hasOne(alamat_kontak::class);
     }
+
+    public function lain_lain() {
+        return $this->hasOne(LainLain::class);
+    }
 }
