@@ -73,7 +73,7 @@
             <div class="card-body my-auto">
                 <div class="title d-flex align-items-center justify-content-between">
                     <span class="fw-bold fs-5">Alamat Dan Kotak</span>
-                    <a href="" class="justify-content-end">
+                    <a href="{{ route('alamat_kontak.edit', $alamat_kontak[0]->id) }}" class="justify-content-end">
                         <img class="" src="{{ asset("assets/edit.png") }}" alt="" width="25px" height="25px">
                     </a>
                 </div>

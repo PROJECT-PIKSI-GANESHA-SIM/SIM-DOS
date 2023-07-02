@@ -40,4 +40,15 @@ class DataDiriController extends Controller
         ]);
     }
 
+    public function edit_alamat_kontak($id) {
+        $user = Auth::user();
+        $alamat_kontak = AlamatKontak::findOrFail($id);
+
+        return view('data_diri.edit-alamat-kontak', [
+            'user' => $user,
+            'alamat_kontak' => $alamat_kontak
+        ]);
+
+    }
+
 }
