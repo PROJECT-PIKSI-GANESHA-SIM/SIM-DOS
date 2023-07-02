@@ -29,5 +29,15 @@ class DataDiriController extends Controller
         ]);
     }
 
+    public function edit_identitas($id) {
+
+        $user = Auth::user();
+        $identitas = IdentitasDiri::findOrFail($id);
+
+        return view('data_diri.edit-identitas', [
+            'user' => $user,
+            'identitas' => $identitas
+        ]);
+    }
 
 }
