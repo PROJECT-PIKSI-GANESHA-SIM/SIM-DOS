@@ -48,6 +48,16 @@ class DataDiriController extends Controller
             'user' => $user,
             'alamat_kontak' => $alamat_kontak
         ]);
+    }
+
+    public function edit_kepegawaian($id) {
+        $user = Auth::user();
+        $kepegawaian = Kepegawaian::findOrFail($id);
+
+        return view('data_diri.edit-kepegawaian', [
+            'user' => $user,
+            'kepegawaian' => $kepegawaian
+        ]);
 
     }
 

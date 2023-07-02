@@ -42,6 +42,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/data_diri/identitas/{id}/edit', [DataDiriController::class, 'edit_identitas'])->name('identitas.edit');
     Route::get('/data_diri/alamat_kontak/{id}/edit', [DataDiriController::class, 'edit_alamat_kontak'])->name('alamat_kontak.edit');
+    Route::get('/data_diri/kepegawaian/{id}/edit', [DataDiriController::class, 'edit_kepegawaian'])->name('kepegawaian.edit');
     
     // Pengajaran
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
