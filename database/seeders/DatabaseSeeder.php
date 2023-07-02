@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\AlamatKontak;
+use App\Models\IdentitasDiri;
 use App\Models\JenjangPendidikan;
+use App\Models\Kepegawaian;
+use App\Models\LainLain;
 use App\Models\UserRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +29,56 @@ class DatabaseSeeder extends Seeder
             'no_telpn' => '0853595',
             'password' => Hash::make('admin123')
         ]);
+
+        IdentitasDiri::create([
+            'nip' => '-',
+            'nik' => '-',
+            'foto' => '-',
+            'nama' => '-',
+            'jenis_kelamin' => '-',
+            'golongan_darah' => '-',
+            'kewarganegaraan' => 'Indonesia',
+            'agama' => '-',
+            'tempat_lahir' => '-',
+            'tanggal_lahir' => now(),
+            'status_perkawinan' => 'Belum Kawin',
+            'user_id' => 1
+        ]);
+
+        AlamatKontak::create([
+            'alamat' => '-',
+            'rt' => '-',
+            'rw' => '-',
+            'no' => '-',
+            'desa_kelurahan' => '-',
+            'kota_kabupaten' => '-',
+            'provinsi' => '-',
+            'tempat_lahir' => '-',
+            'kode_pos' => '-',
+            'no_telepon_rumah' => '-',
+            'user_id' => 1
+        ]);
+
+        LainLain::create([
+            'npwp' => '-',
+            'nama_wajib_pajak' => '-',
+            'sinta_id' => '-',
+            'user_id' => 1
+        ]);
+
+        Kepegawaian::create([
+            'program_studi' => '-',
+            'status_kepegawaian' => '-',
+            'status_keaktifan' => 'Aktif',
+            'jabatan_fungsional' => '-',
+            'no_sk_sertifikasi_dosen' => '-',
+            'no_sk_tmmd' => '-', 
+            'tanggal_menjadi_dosen' => now(),
+            'pangkat_golongan' => '-',
+            'user_id' => 1
+
+        ]);
+
         $this->call(RolesTableSeeder::class);
         $this->call(UserRoleTableSeeder::class);
         $this->call(ProgramStudiTableSeeder::class);
