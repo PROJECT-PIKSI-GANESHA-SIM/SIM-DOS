@@ -58,6 +58,16 @@ class DataDiriController extends Controller
             'user' => $user,
             'kepegawaian' => $kepegawaian
         ]);
+    }
+
+    public function edit_lain($id) {
+        $user = Auth::user();
+        $lain = LainLain::findOrFail($id);
+
+        return view('data_diri.edit-lain', [
+            'user' => $user,
+            'lain' => $lain
+        ]);
 
     }
 
