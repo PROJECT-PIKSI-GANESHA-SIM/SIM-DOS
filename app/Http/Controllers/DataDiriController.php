@@ -71,4 +71,27 @@ class DataDiriController extends Controller
 
     }
 
+    public function update_lain(Request $request, $id) {
+        
+        $user = Auth::user($id);
+        $lain = LainLain::findOrFail($id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'npwp' => 'required',
+            'nama_wajib_pajak' => 'required',
+            'sinta_id' => 'required'
+        ]);
+
+        
+        $lain->update([
+            'npwp' => $request->npwp,
+            'nama_wajib_pajak' => $request->nama_wajib_pajak,
+            'sinta_id' => $request->sinta_id,
+        ]);
+
+        return redirect()->route('data_diri')->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
 }
