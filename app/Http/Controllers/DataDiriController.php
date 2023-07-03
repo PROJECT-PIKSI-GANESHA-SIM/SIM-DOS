@@ -60,6 +60,36 @@ class DataDiriController extends Controller
         ]);
     }
 
+    public function update_kepegawaian(Request $request, $id) {
+
+        $kepegawaian = Kepegawaian::findOrFail($id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'program_studi' => 'required',
+            'status_kepegawaian' => 'required',
+            'status_keaktifan' => 'required',
+            'no_sk_sertifikasi_dosen' => 'required',
+            'jabatan_fungsional' => 'required',
+            'no_sk_tmmd' => 'required',
+            'tanggal_menjadi_dosen' => 'required',
+            'pangkat_golongan' => 'required'
+        ]);
+
+        $kepegawaian->update([
+            'program_studi' => $request->program_studi,
+            'status_kepegawaian' => $request->status_keaktifan,
+            'status_keaktifan' => $request->status_keaktifan,
+            'no_sk_sertifikasi_dosen' => $request->no_sk_sertifikasi_dosen,
+            'jabatan_fungsional' => $request->jabatan_fungsional,
+            'no_sk_tmmd' => $request->no_sk_tmmd,
+            'tanggal_menjadi_dosen' => $request->tanggal_menjadi_dosen,
+            'pangkat_golongan' => $request->pangkat_golongan
+        ]);
+
+        return redirect()->route('data_diri')->with(['success' => 'Data Berhasil Diupdate!']);
+    }
+
     public function edit_lain($id) {
         $user = Auth::user();
         $lain = LainLain::findOrFail($id);
@@ -83,7 +113,7 @@ class DataDiriController extends Controller
             'sinta_id' => 'required'
         ]);
 
-        
+
         $lain->update([
             'npwp' => $request->npwp,
             'nama_wajib_pajak' => $request->nama_wajib_pajak,

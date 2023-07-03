@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST"  action="{{ route('kepegawaian.update', $kepegawaian->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -156,7 +156,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                     

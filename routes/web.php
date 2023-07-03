@@ -46,6 +46,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/data_diri/lain/{id}/edit', [DataDiriController::class, 'edit_lain'])->name('lain.edit');
     
     Route::put('/data_diri/lain/update/{id}', [DataDiriController::class, 'update_lain'])->name('lain.update');
+    Route::put('/data_diri/kepegawaian/update/{id}', [DataDiriController::class, 'update_kepegawaian'])->name('kepegawaian.update');
 
     // Pengajaran
     Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
