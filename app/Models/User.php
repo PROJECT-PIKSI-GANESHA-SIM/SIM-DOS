@@ -21,7 +21,7 @@ class User extends Authenticatable
         'nidn',
         'name',
         'email',
-        'np_telpn',
+        'no_telpn',
         'image',
         'password',
     ];

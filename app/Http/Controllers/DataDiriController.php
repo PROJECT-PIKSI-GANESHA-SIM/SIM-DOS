@@ -89,6 +89,43 @@ class DataDiriController extends Controller
         ]);
     }
 
+    public function update_alamat_kontak(Request $request, $id) {
+
+        $alamat_kontak = AlamatKontak::findOrFail($id);
+        $user = Auth::user();
+
+        // Validasi Form
+        $this->validate($request, [
+            'alamat' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'no' => 'required',
+            'desa_kelurahan' => 'required',
+            'kota_kabupaten' => 'required',
+            'provinsi' => 'required',
+            'kode_pos' => 'required',
+            'no_telepon_rumah' => 'required',
+            'no_handphone' => 'required',
+        ]);
+
+        $alamat_kontak->update([
+            'alamat' => $request->alamat,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'no' => $request->no,
+            'desa_kelurahan' => $request->desa_kelurahan,
+            'kota_kabupaten' => $request->kota_kabupaten,
+            'provinsi' => $request->provinsi,
+            'kode_pos' => $request->kode_pos,
+            'no_telepon_rumah' => $request->no_telepon_rumah,
+        ]);
+
+        $user->no_telpn = $request->no_handphone;
+
+        return redirect()->route('data_diri')->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
     public function edit_kepegawaian($id) {
         $user = Auth::user();
         $kepegawaian = Kepegawaian::findOrFail($id);

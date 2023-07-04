@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('alamat_kontak.update', $alamat_kontak->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

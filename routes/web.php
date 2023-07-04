@@ -47,6 +47,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     
     Route::put('/data_diri/identitas/update/{id}', [DataDiriController::class, 'update_identitas'])->name('identitas.update');
     Route::put('/data_diri/lain/update/{id}', [DataDiriController::class, 'update_lain'])->name('lain.update');
+    Route::put('/data_diri/alamat_kontak/update/{id}', [DataDiriController::class, 'update_alamat_kontak'])->name('alamat_kontak.update');
     Route::put('/data_diri/kepegawaian/update/{id}', [DataDiriController::class, 'update_kepegawaian'])->name('kepegawaian.update');
 
     // Pengajaran
