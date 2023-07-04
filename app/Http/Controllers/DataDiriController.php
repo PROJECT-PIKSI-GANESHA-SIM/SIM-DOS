@@ -40,6 +40,45 @@ class DataDiriController extends Controller
         ]);
     }
 
+    public function update_identitas(Request $request, $id) {
+
+        $identitas = IdentitasDiri::findOrFail($id);
+        $user = Auth::user();
+
+        // Validasi Form
+        $this->validate($request, [
+            'nidn' => 'required',
+            'nip' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'golongan_darah' => 'required',
+            'kewarganegaraan' => 'required',
+            'agama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'status_perkawinan' => 'required'
+        ]);
+
+        $identitas->update([
+            'nip' => $request->nip,
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'golongan_darah' => $request->golongan_darah,
+            'kewarganegaraan' => $request->kewarganegaraan,
+            'agama' => $request->agama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'status_perkawinan' => $request->status_perkawinan
+        ]);
+
+        $user->nidn = $request->nidn;
+
+        return redirect()->route('data_diri')->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
     public function edit_alamat_kontak($id) {
         $user = Auth::user();
         $alamat_kontak = AlamatKontak::findOrFail($id);
