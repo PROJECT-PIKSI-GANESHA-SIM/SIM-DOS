@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('identitas.update', $identitas->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -210,21 +210,17 @@
 
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="agama" class="col-form-label me-5">{{ __('Agama') }}</label>
+                                <label for="status_perkawinan" class="col-form-label me-5">{{ __('Status Perkawinan') }}</label>
                 
                                 <div class="me-5">
                                     <div>
-                                        <select name="agama" id="agama" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Islam">Islam</option>
-                                            <option value="Protestan">Protestan</option>
-                                            <option value="Katolik">Katolik</option>
-                                            <option value="Hindu">Hindu</option>
-                                            <option value="Buddha">Buddha</option>
-                                            <option value="Khonghucu">Khonghucu</option>
+                                        <select name="status_perkawinan" id="status_perkawinan" class="form-control form-select" data-bs-toggle="dropdown">
+                                            <option value="Belum Kawin">Belum Kawin</option>
+                                            <option value="Kawin">Kawin</option>
                                         </select>
                                     </div>
                 
-                                    @error('agama')
+                                    @error('status_perkawinan')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
