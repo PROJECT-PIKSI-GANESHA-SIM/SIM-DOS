@@ -35,7 +35,12 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($pengabdian as $p)
+                                                @if ($pengabdian->isEmpty())
+                                                    <tr>
+                                                        <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
+                                                    </tr>
+                                                @else()
+                                                    @foreach ($pengabdian as $p)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $p->judul_pengabdian }}</td>
@@ -62,7 +67,8 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                @endforeach
+                                                    @endforeach
+                                                @endif
                                             </tbody>
                                         </table>
                                         </div>

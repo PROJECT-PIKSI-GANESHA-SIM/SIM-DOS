@@ -37,6 +37,11 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                @if ($pengajaran->isEmpty())
+                                                    <tr>
+                                                        <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
+                                                    </tr>
+                                                @endif
                                                 @foreach ($pengajaran as $p)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
