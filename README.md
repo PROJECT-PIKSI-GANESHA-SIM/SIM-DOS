@@ -10,5 +10,5 @@
 
 ## Dummy Account
 
-- email: `admin@gmail.test`
-- password: `admin123`
+- email: `dosen@gmail.test`
+- password: `dosen123`
