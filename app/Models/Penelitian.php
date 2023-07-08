@@ -18,6 +18,7 @@ class Penelitian extends Model
         'lokasi_kegiatan',
         'tahun_usulan',
         'tahun_kegiatan',
+        'lama_kegiatan',
         'jumlah_dana',
         'sumber_dana',
         'nomor_sk_penugasan',

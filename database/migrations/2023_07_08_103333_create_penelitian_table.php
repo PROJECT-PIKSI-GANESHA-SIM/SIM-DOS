@@ -21,6 +21,7 @@ class CreatePenelitianTable extends Migration
             $table->string('lokasi_kegiatan');
             $table->string('tahun_usulan');
             $table->string('tahun_kegiatan');
+            $table->string('lama_kegiatan');
             $table->string('jumlah_dana');
             $table->string('sumber_dana');
             $table->string('nomor_sk_penugasan');

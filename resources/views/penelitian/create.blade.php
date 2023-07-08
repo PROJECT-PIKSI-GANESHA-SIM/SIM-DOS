@@ -16,14 +16,49 @@
             <section class="intro">
                 <form method="POST" action="" enctype="multipart/form-data">
                     @csrf
-                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="status_peneliti" class="col-md-4 col-form-label ms-5">{{ __('Status Peneliti') }}</label>
+                
+                                <div class="ms-5">
+                                    <select name="status_peneliti" id="status_peneliti" class="form-control form-select" data-bs-toggle="dropdown">
+                                        <option value="Ketua">Ketua</option>
+                                        <option value="Anggota">Anggota</option>
+                                    </select>
+                
+                                    @error('program_studi')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 ">
+                                <label for="kelompok_bidang" class="col-md-4 col-form-label me-5">{{ __('Kelompok Bidang') }}</label>
+                
+                                <div class="me-5">
+                                    <input id="kelompok_bidang" type="text" class="form-control @error('kelompok_bidang') is-invalid @enderror" name="kelompok_bidang" required>
+                
+                                    @error('kelompok_bidang')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
                     <div class="mb-3 ">
-                        <label for="judul_pengabdian" class="col-md-4 col-form-label mx-5">{{ __('Judul Pengabdian') }}</label>
+                        <label for="judul_kegiatan" class="col-md-4 col-form-label mx-5">{{ __('Judul Kegiatan') }}</label>
         
                         <div class="mx-5">
-                            <input id="judul_pengabdian" type="text" class="form-control @error('judul_pengabdian') is-invalid @enderror" name="judul_pengabdian">
+                            <textarea id="judul_kegiatan" type="text" class="form-control @error('judul_kegiatan') is-invalid @enderror" name="judul_kegiatan" required style="height: 100px;"></textarea>
         
-                            @error('judul_pengabdian')
+                            @error('judul_kegiatan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -32,49 +67,7 @@
                     </div>
         
                     <div class="mb-3 ">
-                        <label for="bidang_keilmuan" class="col-md-4 col-form-label mx-5">{{ __('Bidang Keilmuan') }}</label>
-        
-                        <div class="mx-5">
-                            <input id="bidang_keilmuan" type="text" class="form-control @error('bidang_keilmuan') is-invalid @enderror" name="bidang_keilmuan" required>
-        
-                            @error('bidang_keilmuan')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-        
-                    <div class="mb-3 ">
-                        <label for="latar_belakang" class="col-md-4 col-form-label mx-5">{{ __('Latar Belakang') }}</label>
-        
-                        <div class="mx-5">
-                            <textarea id="latar_belakang" type="text" class="form-control @error('latar_belakang') is-invalid @enderror" name="latar_belakang" required style="height: 100px;"></textarea>
-        
-                            @error('latar_belakang')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 ">
-                        <label for="manfaat" class="col-md-4 col-form-label mx-5">{{ __('Manfaat') }}</label>
-        
-                        <div class="mx-5">
-                            <textarea id="manfaat" type="text" class="form-control @error('manfaat') is-invalid @enderror" name="manfaat" required style="height: 100px;"></textarea>
-        
-                            @error('manfaat')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 ">
-                        <label for="sasaran" class="col-md-4 col-form-label mx-5">{{ __('Sasaran') }}</label>
+                        <label for="lokasi_kegiatan" class="col-md-4 col-form-label mx-5">{{ __('lokasi Kegiatan') }}</label>
         
                         <div class="mx-5">
                             <input id="sasaran" type="text" class="form-control @error('sasaran') is-invalid @enderror" name="sasaran" required>
@@ -88,24 +81,39 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="tahun_pelaksanaan" class="col-md-4 col-form-label ms-5">{{ __('Tahun Pelaksanaan') }}</label>
-                        
+                        <div class="col-md-4">
+                            <div class="mb-3 ">
+                                <label for="lokasi_kegiatan" class="col-md-4 col-form-label ms-5">{{ __('lokasi Kegiatan') }}</label>
+                
                                 <div class="ms-5">
-                                    <input id="tahun_pelaksanaan" type="date" class="form-control @error('tahun_pelaksanaan') is-invalid @enderror datepicker" name="tahun_pelaksanaan" required>
+                                    <input id="sasaran" type="text" class="form-control @error('sasaran') is-invalid @enderror" name="sasaran" required>
+                
+                                    @error('sasaran')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                        
-                                @error('tahun_pelaksanaan')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="lama_kegiatan" class="col-md-4 col-form-label me-5">{{ __('Lama Kegiatan') }}</label>
+                        <div class="col-md-4">
+                            <div class="mb-3 ">
+                                <label for="tahun_kegiatan" class="col-md-4 col-form-label">{{ __('Tahun Kegiatan') }}</label>
+                
+                                <div class="">
+                                    <input id="tahun_kegiatan" type="text" class="form-control @error('tahun_kegiatan') is-invalid @enderror" name="tahun_kegiatan" required>
+                
+                                    @error('tahun_kegiatan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3 ">
+                                <label for="lama_kegiatan" class="col-md-4 col-form-label me-5">{{ __('lama Kegiatan') }}</label>
                 
                                 <div class="me-5">
                                     <input id="lama_kegiatan" type="text" class="form-control @error('lama_kegiatan') is-invalid @enderror" name="lama_kegiatan" required>
@@ -121,12 +129,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="lokasi_pelaksanaan" class="col-md-4 col-form-label mx-5">{{ __('Lokasi Pelaksanaan') }}</label>
+                        <label for="jumlah_dana" class="col-md-4 col-form-label mx-5">{{ __('Jumlah Dana') }}</label>
         
                         <div class="mx-5">
-                            <input id="lokasi_pelaksanaan" type="text" class="form-control @error('lokasi_pelaksanaan') is-invalid @enderror" name="lokasi_pelaksanaan" required>
+                            <input id="jumlah_dana" type="text" class="form-control @error('jumlah_dana') is-invalid @enderror" name="jumlah_dana" required>
         
-                            @error('lokasi_pelaksanaan')
+                            @error('jumlah_dana')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -135,12 +143,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="biaya_kegiatan" class="col-md-4 col-form-label mx-5">{{ __('Biaya Kegiatan') }}</label>
+                        <label for="sumber_dana" class="col-md-4 col-form-label mx-5">{{ __('Sumber Dana') }}</label>
         
                         <div class="mx-5">
-                            <input id="biaya_kegiatan" type="text" class="form-control @error('biaya_kegiatan') is-invalid @enderror" name="biaya_kegiatan" required>
+                            <input id="sumber_dana" type="text" class="form-control @error('sumber_dana') is-invalid @enderror" name="sumber_dana" required>
         
-                            @error('biaya_kegiatan')
+                            @error('sumber_dana')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -149,12 +157,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="kelompok_target" class="col-md-4 col-form-label mx-5">{{ __('Kelompok/Target') }}</label>
+                        <label for="no_sk_penugasan" class="col-md-4 col-form-label mx-5">{{ __('Nomor SK Penugasan') }}</label>
         
                         <div class="mx-5">
-                            <input id="kelompok_target" type="text" class="form-control @error('kelompok_target') is-invalid @enderror" name="kelompok_target" required>
+                            <input id="no_sk_penugasan" type="text" class="form-control @error('no_sk_penugasan') is-invalid @enderror" name="no_sk_penugasan" required>
         
-                            @error('kelompok_target')
+                            @error('no_sk_penugasan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -162,41 +170,13 @@
                         </div>
                     </div>
 
-                    <div class="mb-3 ">
-                        <label for="kendala" class="col-md-4 col-form-label mx-5">{{ __('Kendala') }}</label>
+                    <div class="mb-3">
+                        <label for="tanggal_sk_penugasan" class="col-md-4 col-form-label mx-5">{{ __('Tanggal SK Penugasan') }}</label>
         
                         <div class="mx-5">
-                            <textarea id="kendala" type="text" class="form-control @error('kendala') is-invalid @enderror" name="kendala" required style="height: 100px;"></textarea>
+                            <input id="tanggal_sk_penugasan" type="date" class="form-control @error('tanggal_sk_penugasan') is-invalid @enderror datepicker" name="tanggal_sk_penugasan" required>
         
-                            @error('kendala')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 ">
-                        <label for="hasil" class="col-md-4 col-form-label mx-5">{{ __('Hasil') }}</label>
-        
-                        <div class="mx-5">
-                            <textarea id="hasil" type="text" class="form-control @error('hasil') is-invalid @enderror" name="hasil" required style="height: 100px;"></textarea>
-        
-                            @error('hasil')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 ">
-                        <label for="evaluasi" class="col-md-4 col-form-label mx-5">{{ __('Evaluasi') }}</label>
-        
-                        <div class="mx-5">
-                            <textarea id="evaluasi" type="text" class="form-control @error('evaluasi') is-invalid @enderror" name="evaluasi" required style="height: 100px;"></textarea>
-        
-                            @error('evaluasi')
+                            @error('tanggal_sk_penugasan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -232,11 +212,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="laporan_kegiatan" class="col-md-4 col-form-label mx-5">{{ __('Laporan Kegiatan') }}</label>
+                        <label for="publikasi" class="col-md-4 col-form-label mx-5">{{ __('Publikasi') }}</label>
                         
                         <div class="mx-5">
-                            <input type="file" class="form-control @error('laporan_kegiatan') is-invalid @enderror" name="laporan_kegiatan">
-                            @error('laporan_kegiatan')
+                            <input type="file" class="form-control @error('publikasi') is-invalid @enderror" name="publikasi">
+                            @error('publikasi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
