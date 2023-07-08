@@ -81,7 +81,7 @@
                                         <ul class="pagination my-3 justify-content-end">
                                             <li class="page-item disabled">
                                                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Back</a>
-                                            </li>
+                                            </li> 
                                             <li class="page-item">
                                                 <a class="page-link" href="#">1</a>
                                             </li>
