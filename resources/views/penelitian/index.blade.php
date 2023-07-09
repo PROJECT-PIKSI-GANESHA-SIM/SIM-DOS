@@ -52,7 +52,7 @@
                                                         <td>
                                                             <div class="col">
                                                                 <div class="row-3 text-center">
-                                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="">
+                                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('penelitian.destroy', $p->id) }}">
                                                                         <a href="">
                                                                             <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                                         </a>

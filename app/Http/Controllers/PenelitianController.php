@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Penelitian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PenelitianController extends Controller
 {
@@ -145,5 +146,18 @@ class PenelitianController extends Controller
 
     }
 
+    public function destroy($id) {
+        
+        $penelitian = Penelitian::findOrFail($id);
+
+        // hapus gambar bukti pengajaran dan bukti presensi
+        Storage::delete('public/dosen/penelitian/surat_tugas/'. $penelitian->surat_tugas);
+        Storage::delete('public/dosen/penelitian/publikasi/'. $penelitian->publikasi);
+        
+        // hapus penelitian
+        $penelitian->delete();
+
+        return redirect()->route('penelitian')->with(['success' => 'Data Berhasil Dihapus']);
+    }
 
 }
