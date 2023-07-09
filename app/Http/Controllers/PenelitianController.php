@@ -167,6 +167,149 @@ class PenelitianController extends Controller
         return view('penelitian.edit', [
             'penelitian' => $penelitian
         ]);
+
+    }
+
+    public function update(Request $request, $id) {
+
+        $penelitian = Penelitian::findOrFail($id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'status_peneliti' => 'required',
+            'kelompok_bidang' => 'required',
+            'judul_penelitian' => 'required',
+            'lokasi_kegiatan' => 'required',
+            'tahun_usulan' => 'required',
+            'tahun_kegiatan' => 'required',
+            'lama_kegiatan' => 'required',
+            'jumlah_dana' => 'required',
+            'sumber_dana' => 'required',
+            'no_sk_penugasan' => 'required',
+            'tanggal_sk_penugasan' => 'required',
+            'link_publikasi' => 'required',
+            'surat_tugas' => 'file|mimes:pdf|max:2048',
+            'publikasi' => 'file|mimes:pdf|max:2048',
+            
+        ]);
+
+        // Get Id User
+        $user = Auth::user();
+
+        // Kondisi jika surat tugas dan publikasi di upload
+
+        if($request->hasFile('surat_tugas') && $request->hasFile('publikasi')) {
+
+            // upload bukti surat tugas
+            $surat_tugas = $request->file('surat_tugas');
+            $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
+            
+            // upload publikasi
+            $publikasi = $request->file('publikasi');
+            $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
+
+            // Hapus file terdahulu
+            Storage::delete('public/dosen/penelitian/surat_tugas/'. $penelitian->surat_tugas);
+            Storage::delete('public/dosen/penelitian/publikasi/'. $penelitian->publikasi);
+
+
+            // Create Penelitian
+            $penelitian->update([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'surat_tugas' => $surat_tugas->hashName(),
+                'publikasi' => $publikasi->hashName(),
+                'user_id' => $user->id
+            ]);
+
+        } else if($request->hasFile('surat_tugas')) {
+
+            // upload bukti surat tugas
+            $surat_tugas = $request->file('surat_tugas');
+            $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
+
+            // Hapus file terdahulu
+            Storage::delete('public/dosen/penelitian/surat_tugas/'. $penelitian->surat_tugas);
+
+
+            // Update Penelitian
+            $penelitian->update([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'surat_tugas' => $surat_tugas->hashName(),
+                'user_id' => $user->id
+            ]);
+
+        } else if($request->hasFile('publikasi')) {
+            
+            // upload publikasi
+            $publikasi = $request->file('publikasi');
+            $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
+
+            // Hapus file terdahulu
+            Storage::delete('public/dosen/penelitian/publikasi/'. $penelitian->publikasi);
+
+
+            // Update Penelitian
+            $penelitian->update([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'publikasi' => $publikasi->hashName(),
+                'user_id' => $user->id
+            ]);
+        } else {
+
+            // Update Penelitian
+
+            $penelitian->update([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'user_id' => $user->id
+            ]);
+        }
+
+        return redirect()->route('penelitian')->with(['success' => 'Data Berhasil Diupdate!']);
+
     }
 
 }

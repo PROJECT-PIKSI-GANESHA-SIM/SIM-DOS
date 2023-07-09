@@ -14,8 +14,10 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="{{ route('penelitian.create') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('penelitian.update', $penelitian->id) }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -227,7 +229,7 @@
                     <div class="mb-3">
                         <div class="mx-5 d-flex justify-content-end align-items-end">
                             {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
-                            <button type="submit" class="btn btn-sm btn-success px-5 mx-3">Simpan</button>
+                            <button type="submit" class="btn btn-sm btn-success px-5 mx-3">Update</button>
                             <button type="submit" class="btn btn-sm btn-danger px-5">Batal</button>
                         </div>
                     </div>

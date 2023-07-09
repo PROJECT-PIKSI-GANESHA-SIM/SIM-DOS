@@ -69,6 +69,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/penelitian/create', [PenelitianController::class, 'create'])->name('penelitian.create');
     Route::post('/penelitian/create', [PenelitianController::class, 'store'])->name('penelitian.store');
     Route::get('/penelitian/{id}/edit', [PenelitianController::class, 'edit'])->name('penelitian.edit');
+    Route::put('/penelitian/update/{id}', [PenelitianController::class, 'update'])->name('penelitian.update');
     Route::delete('/penelitian/delete/{id}', [PenelitianController::class, 'destroy'])->name('penelitian.destroy');
 
 
