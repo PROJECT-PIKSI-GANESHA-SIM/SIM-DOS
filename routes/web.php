@@ -67,6 +67,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     // Penelitian
     Route::get('/penelitian', [PenelitianController::class, 'index'])->name('penelitian');
     Route::get('/penelitian/create', [PenelitianController::class, 'create'])->name('penelitian.create');
+    Route::post('/penelitian/create', [PenelitianController::class, 'store'])->name('penelitian.store');
 
     // Pendidikan
     Route::get('/pendidikan', [PendidikanController::class, 'index'])->name('pendidikan');

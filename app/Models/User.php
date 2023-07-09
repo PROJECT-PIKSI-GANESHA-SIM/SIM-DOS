@@ -76,4 +76,8 @@ class User extends Authenticatable
     public function kepegawaian() {
         return $this->hasOne(Kepegawaian::class);
     }
+
+    public function penelitian() {
+        return $this->hasOne(Penelitian::class);
+    }
 }

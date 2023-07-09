@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('penelitian.create') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -70,9 +70,9 @@
                         <label for="lokasi_kegiatan" class="col-md-4 col-form-label mx-5">{{ __('lokasi Kegiatan') }}</label>
         
                         <div class="mx-5">
-                            <input id="sasaran" type="text" class="form-control @error('sasaran') is-invalid @enderror" name="sasaran" required>
+                            <input id="lokasi_kegiatan" type="text" class="form-control @error('lokasi_kegiatan') is-invalid @enderror" name="lokasi_kegiatan" required>
         
-                            @error('sasaran')
+                            @error('lokasi_kegiatan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -83,12 +83,12 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3 ">
-                                <label for="lokasi_kegiatan" class="col-md-4 col-form-label ms-5">{{ __('lokasi Kegiatan') }}</label>
+                                <label for="tahun_usulan" class="col-md-4 col-form-label ms-5">{{ __('Tahun Usulan') }}</label>
                 
                                 <div class="ms-5">
-                                    <input id="sasaran" type="text" class="form-control @error('sasaran') is-invalid @enderror" name="sasaran" required>
+                                    <input id="tahun_usulan" type="text" class="form-control @error('tahun_usulan') is-invalid @enderror" name="tahun_usulan" required>
                 
-                                    @error('sasaran')
+                                    @error('tahun_usulan')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

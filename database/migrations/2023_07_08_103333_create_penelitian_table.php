@@ -27,8 +27,10 @@ class CreatePenelitianTable extends Migration
             $table->string('nomor_sk_penugasan');
             $table->string('tanggal_sk_penugasan');
             $table->string('link_publikasi');
-            $table->string('surat_tugas');
-            $table->string('publikasi');
+            $table->string('surat_tugas')->nullable();
+            $table->string('publikasi')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

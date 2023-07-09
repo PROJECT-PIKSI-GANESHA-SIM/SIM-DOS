@@ -25,6 +25,11 @@ class Penelitian extends Model
         'tanggal_sk_penugasan',
         'link_publikasi',
         'surat_tugas',
-        'publikasi'
+        'publikasi',
+        'user_id'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
