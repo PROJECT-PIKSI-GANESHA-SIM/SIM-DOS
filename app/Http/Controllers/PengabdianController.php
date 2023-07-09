@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\Storage;
 class PengabdianController extends Controller
 {
     function index() {
-        $pengabdian = Pengabdian::all();
+
+        // Get Id User
+        $user = Auth::user();
+
+        $pengabdian = Pengabdian::where('user_id', $user->id)->paginate(5);
 
         return view('pengabdian.index', compact('pengabdian'));
     }

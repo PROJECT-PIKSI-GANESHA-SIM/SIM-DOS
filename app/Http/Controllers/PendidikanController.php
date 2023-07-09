@@ -16,7 +16,7 @@ class PendidikanController extends Controller
         // Get Id User
         $user = Auth::user();
 
-        $pendidikan = Pendidikan::where('user_id', $user->id)->get();
+        $pendidikan = Pendidikan::where('user_id', $user->id)->paginate(5);
 
         return view('pendidikan.index', compact('pendidikan'));
     }
