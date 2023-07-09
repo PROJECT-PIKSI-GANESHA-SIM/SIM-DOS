@@ -160,4 +160,13 @@ class PenelitianController extends Controller
         return redirect()->route('penelitian')->with(['success' => 'Data Berhasil Dihapus']);
     }
 
+    public function edit($id) {
+
+        $penelitian = Penelitian::findOrFail($id);
+
+        return view('penelitian.edit', [
+            'penelitian' => $penelitian
+        ]);
+    }
+
 }
