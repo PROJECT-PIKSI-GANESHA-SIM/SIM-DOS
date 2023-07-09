@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class PenelitianController extends Controller
 {
     public function index() {
-        return view('penelitian.index');
+        $penelitian = Penelitian::all();
+        return view('penelitian.index', [
+            'penelitian' => $penelitian
+        ]);
     }
 
     public function create() {
@@ -23,7 +26,7 @@ class PenelitianController extends Controller
         $this->validate($request, [
             'status_peneliti' => 'required',
             'kelompok_bidang' => 'required',
-            'judul_kegiatan' => 'required',
+            'judul_penelitian' => 'required',
             'lokasi_kegiatan' => 'required',
             'tahun_usulan' => 'required',
             'tahun_kegiatan' => 'required',
@@ -57,7 +60,7 @@ class PenelitianController extends Controller
             Penelitian::create([
                 'status_peneliti' => $request->status_peneliti,
                 'kelompok_bidang' => $request->kelompok_bidang,
-                'judul_kegiatan' => $request->judul_kegiatan,
+                'judul_penelitian' => $request->judul_penelitian,
                 'lokasi_kegiatan' => $request->lokasi_kegiatan,
                 'tahun_usulan' => $request->tahun_usulan,
                 'tahun_kegiatan' => $request->tahun_kegiatan,
@@ -82,7 +85,7 @@ class PenelitianController extends Controller
             Penelitian::create([
                 'status_peneliti' => $request->status_peneliti,
                 'kelompok_bidang' => $request->kelompok_bidang,
-                'judul_kegiatan' => $request->judul_kegiatan,
+                'judul_penelitian' => $request->judul_penelitian,
                 'lokasi_kegiatan' => $request->lokasi_kegiatan,
                 'tahun_usulan' => $request->tahun_usulan,
                 'tahun_kegiatan' => $request->tahun_kegiatan,
@@ -106,7 +109,7 @@ class PenelitianController extends Controller
             Penelitian::create([
                 'status_peneliti' => $request->status_peneliti,
                 'kelompok_bidang' => $request->kelompok_bidang,
-                'judul_kegiatan' => $request->judul_kegiatan,
+                'judul_penelitian' => $request->judul_penelitian,
                 'lokasi_kegiatan' => $request->lokasi_kegiatan,
                 'tahun_usulan' => $request->tahun_usulan,
                 'tahun_kegiatan' => $request->tahun_kegiatan,
@@ -124,7 +127,7 @@ class PenelitianController extends Controller
             Penelitian::create([
                 'status_peneliti' => $request->status_peneliti,
                 'kelompok_bidang' => $request->kelompok_bidang,
-                'judul_kegiatan' => $request->judul_kegiatan,
+                'judul_penelitian' => $request->judul_penelitian,
                 'lokasi_kegiatan' => $request->lokasi_kegiatan,
                 'tahun_usulan' => $request->tahun_usulan,
                 'tahun_kegiatan' => $request->tahun_kegiatan,
@@ -141,4 +144,6 @@ class PenelitianController extends Controller
         return redirect()->route('penelitian')->with(['success' => 'Data Berhasil Disimpan!']);
 
     }
+
+
 }

@@ -17,7 +17,7 @@ class CreatePenelitianTable extends Migration
             $table->id();
             $table->string('status_peneliti', 50);
             $table->string('kelompok_bidang');
-            $table->string('judul_kegiatan');
+            $table->string('judul_penelitian');
             $table->string('lokasi_kegiatan');
             $table->string('tahun_usulan');
             $table->string('tahun_kegiatan');

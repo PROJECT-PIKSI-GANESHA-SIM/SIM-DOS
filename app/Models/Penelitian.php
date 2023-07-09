@@ -14,7 +14,7 @@ class Penelitian extends Model
     protected $fillable = [
         'status_peneliti',
         'kelompok_bidang',
-        'judul_kegiatan',
+        'judul_penelitian',
         'lokasi_kegiatan',
         'tahun_usulan',
         'tahun_kegiatan',

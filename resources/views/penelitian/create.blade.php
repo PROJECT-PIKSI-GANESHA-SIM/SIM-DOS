@@ -53,12 +53,12 @@
                     </div>
         
                     <div class="mb-3 ">
-                        <label for="judul_kegiatan" class="col-md-4 col-form-label mx-5">{{ __('Judul Kegiatan') }}</label>
+                        <label for="judul_penelitian" class="col-md-4 col-form-label mx-5">{{ __('Judul Penelitian') }}</label>
         
                         <div class="mx-5">
-                            <textarea id="judul_kegiatan" type="text" class="form-control @error('judul_kegiatan') is-invalid @enderror" name="judul_kegiatan" required style="height: 100px;"></textarea>
+                            <textarea id="judul_penelitian" type="text" class="form-control @error('judul_penelitian') is-invalid @enderror" name="judul_penelitian" required style="height: 100px;"></textarea>
         
-                            @error('judul_kegiatan')
+                            @error('judul_penelitian')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
