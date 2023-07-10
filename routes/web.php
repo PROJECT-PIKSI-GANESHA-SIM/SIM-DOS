@@ -26,6 +26,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/dosen', function () {
+    return view('dosen');
+});
+
+Route::get('/detaildosen', function () {
+    return view('dosen');
+});
+
+Route::get('/informationcenter', function () {
+    return view('informationcenter');
+});
+
+Route::get('/detail_informationcenter', function () {
+    return view('detail_informationcenter');
+});
+
 Auth::routes([
     // 'register' => false
 ]);
@@ -33,10 +57,10 @@ Auth::routes([
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['web', 'auth']], function () {
-    
+
     // Home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    
+
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
 
@@ -44,7 +68,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/data_diri/alamat_kontak/{id}/edit', [DataDiriController::class, 'edit_alamat_kontak'])->name('alamat_kontak.edit');
     Route::get('/data_diri/kepegawaian/{id}/edit', [DataDiriController::class, 'edit_kepegawaian'])->name('kepegawaian.edit');
     Route::get('/data_diri/lain/{id}/edit', [DataDiriController::class, 'edit_lain'])->name('lain.edit');
-    
+
     Route::put('/data_diri/identitas/update/{id}', [DataDiriController::class, 'update_identitas'])->name('identitas.update');
     Route::put('/data_diri/lain/update/{id}', [DataDiriController::class, 'update_lain'])->name('lain.update');
     Route::put('/data_diri/alamat_kontak/update/{id}', [DataDiriController::class, 'update_alamat_kontak'])->name('alamat_kontak.update');
@@ -57,13 +81,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->name('pengajaran.edit');
     Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->name('pengajaran.update');
     Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->name('pengajaran.destroy');
-    
-    
+
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
     // Route::resources('/profile', ProfileController::class);
-    
+
     // Penelitian
     Route::get('/penelitian', [PenelitianController::class, 'index'])->name('penelitian');
     Route::get('/penelitian/create', [PenelitianController::class, 'create'])->name('penelitian.create');
@@ -88,5 +112,4 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->name('pengabdian.edit');
     Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
-
 });
