@@ -15,7 +15,8 @@ class PengajaranController extends Controller
         // Get Id User
         $user = Auth::user();
 
-        $pengajaran = Pengajaran::where('user_id', $user->id)->get();
+        $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
+        // $pengajaran = Pengajaran::where('user_id', $user->id)->get();
 
         return view('pengajaran.index', compact('pengajaran'));
     }

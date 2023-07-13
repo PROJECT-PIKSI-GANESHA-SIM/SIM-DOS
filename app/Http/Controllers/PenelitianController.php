@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Storage;
 class PenelitianController extends Controller
 {
     public function index() {
-        $penelitian = Penelitian::all();
+
+        // Get Id User
+        $user = Auth::user();
+
+        $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
+
         return view('penelitian.index', [
             'penelitian' => $penelitian
         ]);
