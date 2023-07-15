@@ -95,4 +95,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     // ROLE AKADEMIK
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
+    Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->name('dosen.edit');
 });

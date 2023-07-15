@@ -39,7 +39,7 @@
                                     <a href="">
                                         <img src="{{ asset("assets/view.png") }}" alt="" width="35px" height="35px">
                                     </a>
-                                    <a href="">
+                                    <a href="{{ route('dosen.edit', $user->id) }}">
                                         <img src="{{ asset("assets/edit.png") }}" alt="" width="35px" height="35px">
                                     </a>
                                     @csrf
