@@ -16,7 +16,10 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
+
+        // Create user dosen
+
+        $dosen = User::create([
             'nidn' => '111111111',
             'name' => 'dosen',
             'email' => 'dosen@gmail.test',
@@ -25,6 +28,19 @@ class UserTableSeeder extends Seeder
         ]);
 
         $dosenRole = Role::findOrFail(1); 
-        $user->assignRole($dosenRole);
+        $dosen->assignRole($dosenRole);
+
+        // Create user akademik
+
+        $akademik = User::create([
+            'nidn' => '1234567',
+            'name' => 'akademik',
+            'email' => 'akademik@gmail.test',
+            'no_telpn' => '08123456',
+            'password' => Hash::make('akademik123')
+        ]);
+
+        $akademikRole = Role::findOrFail(2); 
+        $akademik->assignRole($akademikRole);
     }
 }

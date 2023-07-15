@@ -12,8 +12,16 @@ class ProfileController extends Controller
     public function index() {
 
         $user = User::findOrFail(Auth::id());
+        $roles = $user->getRoleNames();
 
-        return view('profile.index', compact('user'));
+        if ($roles[0] == 'dosen') {
+            return view('profile.index', compact('user'));
+        } elseif ($roles[0] == 'akademik') {
+            return view('akademik.profile.index', compact('user'));
+        } else {
+            return view('profile.index');
+        }
+
     }
 
     public function update(Request $request, $id) {

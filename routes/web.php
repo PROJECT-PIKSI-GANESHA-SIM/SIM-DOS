@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DataDiriController;
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PenelitianController;
@@ -10,6 +11,9 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Pengabdian;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +39,7 @@ Auth::routes([
 Route::group(['middleware' => ['web', 'auth']], function () {
     
     // Home
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->middleware('role:dosen|akademik')->name('home');
     
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
@@ -60,7 +64,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     
     
     // Profile
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->middleware('role:dosen|akademik')->name('profile');
     Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
     // Route::resources('/profile', ProfileController::class);
     
@@ -89,4 +93,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
 
+    // ROLE AKADEMIK
+    Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
 });
