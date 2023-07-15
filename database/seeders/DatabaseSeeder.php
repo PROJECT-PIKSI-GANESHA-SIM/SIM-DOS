@@ -22,13 +22,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        DB::table('users')->insert([
-            'nidn' => '111111111',
-            'name' => 'dosen',
-            'email' => 'dosen@gmail.test',
-            'no_telpn' => '0853595',
-            'password' => Hash::make('dosen123')
-        ]);
+
+        $this->call(RoleTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(ProgramStudiTableSeeder::class);
+        $this->call(JenjangPendidikanTableSeeder::class);
+        $this->call(PredikatKelulusanTableSeeder::class);
 
         IdentitasDiri::create([
             'nip' => '-',
@@ -79,10 +78,5 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        $this->call(RolesTableSeeder::class);
-        $this->call(UserRoleTableSeeder::class);
-        $this->call(ProgramStudiTableSeeder::class);
-        $this->call(JenjangPendidikanTableSeeder::class);
-        $this->call(PredikatKelulusanTableSeeder::class);
     }
 }

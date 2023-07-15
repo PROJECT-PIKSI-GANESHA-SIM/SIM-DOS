@@ -13,6 +13,7 @@ use App\Models\UserRole;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -80,6 +81,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $dosenRole = Role::findOrFail(1); 
+        $user->assignRole($dosenRole);
+
         IdentitasDiri::create([
             'nidn' => $user->nidn,
             'nip' => '-',
@@ -128,11 +132,6 @@ class RegisterController extends Controller
             'pangkat_golongan' => '-',
             'user_id' => $user->id
 
-        ]);
-
-        UserRole::create([
-            'user_id' => $user->id,
-            'role_id' => 1
         ]);
 
         return $user;
