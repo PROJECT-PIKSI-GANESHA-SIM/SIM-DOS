@@ -158,7 +158,7 @@ class PendidikanController extends Controller
             ]);
         }
 
-        return redirect()->route('pendidikan')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('dosen.edit')->with(['success' => 'Data Berhasil Disimpan!']);
 
     }
 

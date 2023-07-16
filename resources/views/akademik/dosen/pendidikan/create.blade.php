@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="{{ route('pendidikan.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dosen.pendidikan.store', $user->id) }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row">

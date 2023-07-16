@@ -99,7 +99,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     
     // Pendidikan
     Route::get('/dosen/{id}/pendidikan/create', [DosenController::class, 'create_pendidikan'])->name('dosen.pendidikan.create');
-
+    Route::post('/dosen/{id}/pendidikan/create', [DosenController::class, 'store_pendidikan'])->name('dosen.pendidikan.store');
+    
 
 
 });
