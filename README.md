@@ -10,5 +10,10 @@
 
 ## Dummy Account
 
+Dosen Account
 - email: `dosen@gmail.test`
 - password: `dosen123`
+
+Academic Account
+- email: `akademik@gmail.test`
+- password: `akademik123`
