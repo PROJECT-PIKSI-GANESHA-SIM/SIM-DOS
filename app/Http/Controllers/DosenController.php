@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pendidikan;
+use App\Models\Penelitian;
 use App\Models\Pengajaran;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,11 +25,13 @@ class DosenController extends Controller
         $user = User::findOrFail($id);
         $pendidikan = Pendidikan::where('user_id', $user->id)->paginate(5);
         $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
+        $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
 
         return view('akademik.dosen.detail', [
             'user' => $user,
             'pendidikan' => $pendidikan,
-            'pengajaran' => $pengajaran
+            'pengajaran' => $pengajaran,
+            'penelitian' => $penelitian
         ]);
     }
 
