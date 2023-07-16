@@ -42,64 +42,64 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/home', [HomeController::class, 'index'])->middleware('role:dosen|akademik')->name('home');
     
     // Data Diri
-    Route::get('/data_diri', [DataDiriController::class, 'index'])->name('data_diri');
+    Route::get('/data_diri', [DataDiriController::class, 'index'])->middleware('role|dosen')->name('data_diri');
 
-    Route::get('/data_diri/identitas/{id}/edit', [DataDiriController::class, 'edit_identitas'])->name('identitas.edit');
-    Route::get('/data_diri/alamat_kontak/{id}/edit', [DataDiriController::class, 'edit_alamat_kontak'])->name('alamat_kontak.edit');
-    Route::get('/data_diri/kepegawaian/{id}/edit', [DataDiriController::class, 'edit_kepegawaian'])->name('kepegawaian.edit');
-    Route::get('/data_diri/lain/{id}/edit', [DataDiriController::class, 'edit_lain'])->name('lain.edit');
+    Route::get('/data_diri/identitas/{id}/edit', [DataDiriController::class, 'edit_identitas'])->middleware('role:dosen')->name('identitas.edit');
+    Route::get('/data_diri/alamat_kontak/{id}/edit', [DataDiriController::class, 'edit_alamat_kontak'])->middleware('role:dosen')->name('alamat_kontak.edit');
+    Route::get('/data_diri/kepegawaian/{id}/edit', [DataDiriController::class, 'edit_kepegawaian'])->middleware('role:dosen')->name('kepegawaian.edit');
+    Route::get('/data_diri/lain/{id}/edit', [DataDiriController::class, 'edit_lain'])->middleware('role:dosen')->name('lain.edit');
     
-    Route::put('/data_diri/identitas/update/{id}', [DataDiriController::class, 'update_identitas'])->name('identitas.update');
-    Route::put('/data_diri/lain/update/{id}', [DataDiriController::class, 'update_lain'])->name('lain.update');
-    Route::put('/data_diri/alamat_kontak/update/{id}', [DataDiriController::class, 'update_alamat_kontak'])->name('alamat_kontak.update');
-    Route::put('/data_diri/kepegawaian/update/{id}', [DataDiriController::class, 'update_kepegawaian'])->name('kepegawaian.update');
+    Route::put('/data_diri/identitas/update/{id}', [DataDiriController::class, 'update_identitas'])->middleware('role:dosen')->name('identitas.update');
+    Route::put('/data_diri/lain/update/{id}', [DataDiriController::class, 'update_lain'])->middleware('role:dosen')->name('lain.update');
+    Route::put('/data_diri/alamat_kontak/update/{id}', [DataDiriController::class, 'update_alamat_kontak'])->middleware('role:dosen')->name('alamat_kontak.update');
+    Route::put('/data_diri/kepegawaian/update/{id}', [DataDiriController::class, 'update_kepegawaian'])->middleware('role:dosen')->name('kepegawaian.update');
 
     // Pengajaran
-    Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
-    Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->name('pengajaran.create');
-    Route::post('/pengajaran/create', [PengajaranController::class, 'store'])->name('pengajaran.store');
-    Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->name('pengajaran.edit');
-    Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->name('pengajaran.update');
-    Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->name('pengajaran.destroy');
+    Route::get('/pengajaran', [PengajaranController::class, 'index'])->middleware('role:dosen')->name('pengajaran');
+    Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->middleware('role:dosen')->name('pengajaran.create');
+    Route::post('/pengajaran/create', [PengajaranController::class, 'store'])->middleware('role:dosen')->name('pengajaran.store');
+    Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->middleware('role:dosen')->name('pengajaran.edit');
+    Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->middleware('role:dosen')->name('pengajaran.update');
+    Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->middleware('role:dosen')->name('pengajaran.destroy');
     
     
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->middleware('role:dosen|akademik')->name('profile');
-    Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/{id}', [ProfileController::class, 'update'])->middleware('role:dosen|akademik')->name('profile.update');
     // Route::resources('/profile', ProfileController::class);
     
     // Penelitian
-    Route::get('/penelitian', [PenelitianController::class, 'index'])->name('penelitian');
-    Route::get('/penelitian/create', [PenelitianController::class, 'create'])->name('penelitian.create');
-    Route::post('/penelitian/create', [PenelitianController::class, 'store'])->name('penelitian.store');
-    Route::get('/penelitian/{id}/edit', [PenelitianController::class, 'edit'])->name('penelitian.edit');
-    Route::put('/penelitian/update/{id}', [PenelitianController::class, 'update'])->name('penelitian.update');
-    Route::delete('/penelitian/delete/{id}', [PenelitianController::class, 'destroy'])->name('penelitian.destroy');
+    Route::get('/penelitian', [PenelitianController::class, 'index'])->middleware('role:dosen')->name('penelitian');
+    Route::get('/penelitian/create', [PenelitianController::class, 'create'])->middleware('role:dosen')->name('penelitian.create');
+    Route::post('/penelitian/create', [PenelitianController::class, 'store'])->middleware('role:dosen')->name('penelitian.store');
+    Route::get('/penelitian/{id}/edit', [PenelitianController::class, 'edit'])->middleware('role:dosen')->name('penelitian.edit');
+    Route::put('/penelitian/update/{id}', [PenelitianController::class, 'update'])->middleware('role:dosen')->name('penelitian.update');
+    Route::delete('/penelitian/delete/{id}', [PenelitianController::class, 'destroy'])->middleware('role:dosen')->name('penelitian.destroy');
 
 
     // Pendidikan
-    Route::get('/pendidikan', [PendidikanController::class, 'index'])->name('pendidikan');
-    Route::get('/pendidikan/create', [PendidikanController::class, 'create'])->name('pendidikan.create');
-    Route::post('/pendidikan/create', [PendidikanController::class, 'store'])->name('pendidikan.store');
-    Route::get('/pendidikan/{id}/edit', [PendidikanController::class, 'edit'])->name('pendidikan.edit');
-    Route::put('/pendidikan/update/{id}', [PendidikanController::class, 'update'])->name('pendidikan.update');
-    Route::delete('/pendidikan/delete/{id}', [PendidikanController::class, 'destroy'])->name('pendidikan.destroy');
+    Route::get('/pendidikan', [PendidikanController::class, 'index'])->middleware('role:dosen')->name('pendidikan');
+    Route::get('/pendidikan/create', [PendidikanController::class, 'create'])->middleware('role:dosen')->name('pendidikan.create');
+    Route::post('/pendidikan/create', [PendidikanController::class, 'store'])->middleware('role:dosen')->name('pendidikan.store');
+    Route::get('/pendidikan/{id}/edit', [PendidikanController::class, 'edit'])->middleware('role:dosen')->name('pendidikan.edit');
+    Route::put('/pendidikan/update/{id}', [PendidikanController::class, 'update'])->middleware('role:dosen')->name('pendidikan.update');
+    Route::delete('/pendidikan/delete/{id}', [PendidikanController::class, 'destroy'])->middleware('role:dosen')->name('pendidikan.destroy');
 
     // Pengabdian
-    Route::get('/pengabdian', [PengabdianController::class, 'index'])->name('pengabdian');
-    Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->name('pengabdian.create');
-    Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->name('pengabdian.store');
-    Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->name('pengabdian.edit');
-    Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
-    Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
+    Route::get('/pengabdian', [PengabdianController::class, 'index'])->middleware('role:dosen')->name('pengabdian');
+    Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->middleware('role:dosen')->name('pengabdian.create');
+    Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->middleware('role:dosen')->name('pengabdian.store');
+    Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->middleware('role:dosen')->name('pengabdian.edit');
+    Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->middleware('role:dosen')->name('pengabdian.update');
+    Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->middleware('role:dosen')->name('pengabdian.destroy');
     
     // ROLE AKADEMIK
-    Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
-    Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->name('dosen.edit');
+    Route::get('/dosen', [DosenController::class, 'index'])->middleware('role:akademik')->name('dosen');
+    Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->middleware('role:akademik')->name('dosen.edit');
     
     // Pendidikan
-    Route::get('/dosen/{id}/pendidikan/create', [DosenController::class, 'create_pendidikan'])->name('dosen.pendidikan.create');
-    Route::post('/dosen/{id}/pendidikan/create', [DosenController::class, 'store_pendidikan'])->name('dosen.pendidikan.store');
+    Route::get('/dosen/{id}/pendidikan/create', [DosenController::class, 'create_pendidikan'])->middleware('role:akademik')->name('dosen.pendidikan.create');
+    Route::post('/dosen/{id}/pendidikan/create', [DosenController::class, 'store_pendidikan'])->middleware('role:akademik')->name('dosen.pendidikan.store');
     
 
 
