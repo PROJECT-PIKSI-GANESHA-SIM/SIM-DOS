@@ -94,7 +94,8 @@
                 <div class="mx-5 d-flex justify-content-end align-items-end">
                     {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
                     <button type="submit" class="btn btn-sm btn-success mx-3">Update Data</button>
-                    <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+                    <a href="{{ route('home') }}" class="btn btn-sm btn-danger px-5">Kembali</a>
+                    {{-- <button type="submit" class="btn btn-sm btn-danger" onclick="history.back(-1)">Kembali</button> --}}
                 </div>
             </div>
         </form>

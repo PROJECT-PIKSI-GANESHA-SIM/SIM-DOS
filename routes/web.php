@@ -92,8 +92,14 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->name('pengabdian.edit');
     Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
-
+    
     // ROLE AKADEMIK
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
     Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->name('dosen.edit');
+    
+    // Pendidikan
+    Route::get('/dosen/{id}/pendidikan/create', [DosenController::class, 'create_pendidikan'])->name('dosen.pendidikan.create');
+
+
+
 });

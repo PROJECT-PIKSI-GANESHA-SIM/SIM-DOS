@@ -209,7 +209,8 @@
                         <div class="mx-5 d-flex justify-content-end align-items-end">
                             {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
                             <button type="submit" class="btn btn-sm btn-success px-5 mx-3">Simpan</button>
-                            <button type="submit" class="btn btn-sm btn-danger px-5">Batal</button>
+                            {{-- <button type="submit" class="btn btn-sm btn-danger px-5">Batal</button> --}}
+                            <button type="submit" class="btn btn-sm btn-danger px-5" onclick="history.back(-1)">Batal</button>
                         </div>
                     </div>
                 </form>

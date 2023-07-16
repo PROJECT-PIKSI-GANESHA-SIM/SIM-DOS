@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenjangPendidikan;
 use App\Models\Pendidikan;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Pengajaran;
+use App\Models\PredikatKelulusan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -35,6 +37,19 @@ class DosenController extends Controller
             'pengajaran' => $pengajaran,
             'penelitian' => $penelitian,
             'pengabdian' => $pengabdian
+        ]);
+    }
+
+    // PENDIDIKAN
+
+    public function create_pendidikan($id) {
+
+        $jenjang_pendidikan = JenjangPendidikan::all();
+        $predikat_kelulusan = PredikatKelulusan::all();
+
+        return view('akademik.dosen.pendidikan.create', [
+            'jenjang_pendidikan' => $jenjang_pendidikan,
+            'predikat_kelulusan' => $predikat_kelulusan
         ]);
     }
 
