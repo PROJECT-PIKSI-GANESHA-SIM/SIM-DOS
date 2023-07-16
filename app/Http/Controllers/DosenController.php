@@ -10,6 +10,7 @@ use App\Models\Pengajaran;
 use App\Models\PredikatKelulusan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
 class DosenController extends Controller
@@ -178,5 +179,25 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
 
     }
+
+    public function edit_pendidikan($id) {
+        
+        // get pendidikan by id
+        $pendidikan = Pendidikan::findOrFail($id);
+
+        // get jenjang pendidikan
+        $jenjang_pendidikan = JenjangPendidikan::all();
+
+        // get predikat kelulusan
+        $predikat_kelulusan = PredikatKelulusan::all();
+        
+        return view('akademik.dosen.pendidikan.edit', [
+            'pendidikan' => $pendidikan,
+            'jenjang_pendidikan' => $jenjang_pendidikan,
+            'predikat_kelulusan' => $predikat_kelulusan
+        ]);
+    }
+
+    
 
 }
