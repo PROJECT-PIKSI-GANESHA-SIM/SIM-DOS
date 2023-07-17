@@ -109,5 +109,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/dosen/{id}/pengajaran/edit', [DosenController::class, 'edit_pengajaran'])->middleware('role:akademik')->name('dosen.pengajaran.edit');
     Route::delete('/dosen/pengajaran/delete/{id}', [DosenController::class, 'destroy_pengajaran'])->middleware('role:akademik')->name('dosen.pengajaran.destroy');
     
+    // Penelitian
+    Route::get('/dosen/{id}/penelitian/create', [DosenController::class, 'create_penelitian'])->middleware('role:akademik')->name('dosen.penelitian.create');
+    Route::post('/dosen/{id}/penelitian/create', [DosenController::class, 'store_penelitian'])->middleware('role:akademik')->name('dosen.penelitian.store');
+    
 
 });

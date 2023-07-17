@@ -353,4 +353,137 @@ class DosenController extends Controller
         return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
+    // PENELITIAN
+
+    public function create_penelitian($id) {
+
+        $user = User::findOrFail($id);
+
+        return view('akademik.dosen.penelitian.create', [
+            'user' => $user,
+        ]);
+    }
+
+    public function store_penelitian(Request $request, $id) {
+
+        // Validasi Form
+        $this->validate($request, [
+            'status_peneliti' => 'required',
+            'kelompok_bidang' => 'required',
+            'judul_penelitian' => 'required',
+            'lokasi_kegiatan' => 'required',
+            'tahun_usulan' => 'required',
+            'tahun_kegiatan' => 'required',
+            'lama_kegiatan' => 'required',
+            'jumlah_dana' => 'required',
+            'sumber_dana' => 'required',
+            'no_sk_penugasan' => 'required',
+            'tanggal_sk_penugasan' => 'required',
+            'link_publikasi' => 'required',
+            'surat_tugas' => 'file|mimes:pdf|max:2048',
+            'publikasi' => 'file|mimes:pdf|max:2048',
+            
+        ]);
+
+        // Kondisi jika surat tugas dan publikasi di upload
+
+        if($request->hasFile('surat_tugas') && $request->hasFile('publikasi')) {
+
+            // upload bukti surat tugas
+            $surat_tugas = $request->file('surat_tugas');
+            $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
+            
+            // upload publikasi
+            $publikasi = $request->file('publikasi');
+            $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
+
+            // Create Penelitian
+            Penelitian::create([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'surat_tugas' => $surat_tugas->hashName(),
+                'publikasi' => $publikasi->hashName(),
+                'user_id' => $id
+            ]);
+
+        } else if($request->hasFile('surat_tugas')) {
+
+            // upload bukti surat tugas
+            $surat_tugas = $request->file('surat_tugas');
+            $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
+
+            // Create Penelitian
+            Penelitian::create([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'surat_tugas' => $surat_tugas->hashName(),
+                'user_id' => $id
+            ]);
+
+        } else if($request->hasFile('publikasi')) {
+            
+            // upload publikasi
+            $publikasi = $request->file('publikasi');
+            $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
+
+            // Create Penelitian
+            Penelitian::create([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'publikasi' => $publikasi->hashName(),
+                'user_id' => $id
+            ]);
+        } else {
+            // Create Penelitian
+            Penelitian::create([
+                'status_peneliti' => $request->status_peneliti,
+                'kelompok_bidang' => $request->kelompok_bidang,
+                'judul_penelitian' => $request->judul_penelitian,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'tahun_usulan' => $request->tahun_usulan,
+                'tahun_kegiatan' => $request->tahun_kegiatan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'jumlah_dana' => $request->jumlah_dana,
+                'sumber_dana' => $request->sumber_dana,
+                'nomor_sk_penugasan' => $request->no_sk_penugasan,
+                'tanggal_sk_penugasan' => $request->tanggal_sk_penugasan,
+                'link_publikasi' => $request->link_publikasi,
+                'user_id' => $id
+            ]);
+        }
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+
+    }
+
 }
