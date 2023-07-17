@@ -328,4 +328,15 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
+    public function edit_pengajaran($id) {
+        
+        $pengajaran = Pengajaran::findOrFail($id);
+        $program_studi = ProgramStudi::all();
+
+        return view('pengajaran.edit', [
+            'pengajaran' => $pengajaran,
+            'program_studi' => $program_studi
+        ]);
+    }
+
 }
