@@ -8,6 +8,7 @@ use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Pengajaran;
 use App\Models\PredikatKelulusan;
+use App\Models\ProgramStudi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -198,6 +199,133 @@ class DosenController extends Controller
         ]);
     }
 
-    
+    public function destroy_pendidikan($id) {
+        
+        $pendidikan = Pendidikan::findOrFail($id);
+
+        // hapus gambar bukti pengajaran dan bukti presensi
+        Storage::delete('public/dosen/pendidikan/file_ijazah/'. $pendidikan->file_ijazah);
+        Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
+        
+        // hapus pendidikan
+        $pendidikan->delete();
+
+        return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+
+    // PENGAJARAN
+
+    public function create_pengajaran($id) {
+
+        $program_studi = ProgramStudi::all();
+        $user = User::findOrFail($id);
+
+        return view('akademik.dosen.pengajaran.create', [
+            'user' => $user,
+            'program_studi' => $program_studi
+        ]);
+    }
+
+    public function store_pengajaran(Request $request, $id) {
+
+        // Validasi Form
+        $this->validate($request, [
+            'tahun_ajar' => 'required',
+            'program_studi' => 'required',
+            'matkul' => 'required',
+            'jenis_matkul' => 'required',
+            'kelas' => 'required',
+            'sks' => 'required',
+            'jumlah_mahasiswa' => 'required',
+            'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        
+        // Kondisi jika bukti pengajaran dan bukti presensi di upload
+        if($request->hasFile('bukti_pengajaran') && $request->hasFile('bukti_presensi')) {
+            
+            // upload bukti pengajaran
+            $bukti_pengajaran = $request->file('bukti_pengajaran');
+            $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
+            
+            // upload bukti presensi
+            $bukti_presensi = $request->file('bukti_presensi');
+            $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
+
+            // Create Pengajaran
+            Pengajaran::create([
+                'tahun_ajaran' => $request->tahun_ajar,
+                'program_studi' => $request->program_studi,
+                'nama_mata_kuliah' => $request->matkul,
+                'jenis_mata_kuliah' => $request->jenis_matkul,
+                'kelas' => $request->kelas,
+                'jumlah_sks' => $request->sks,
+                'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
+                'bukti_pengajaran' => $bukti_pengajaran->hashName(),
+                'bukti_presensi' => $bukti_presensi->hashName(),
+                'user_id' => $id,
+            ]);
+
+        } else if ($request->hasFile('bukti_pengajaran')) {
+            // kondisi jika hanya bukti pengajaran saja yang di uplaod
+
+            // upload bukti pengajaran
+            $bukti_pengajaran = $request->file('bukti_pengajaran');
+            $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
+
+            // Create Pengajaran
+            Pengajaran::create([
+                'tahun_ajaran' => $request->tahun_ajar,
+                'program_studi' => $request->program_studi,
+                'nama_mata_kuliah' => $request->matkul,
+                'jenis_mata_kuliah' => $request->jenis_matkul,
+                'kelas' => $request->kelas,
+                'jumlah_sks' => $request->sks,
+                'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
+                'bukti_pengajaran' => $bukti_pengajaran->hashName(),
+                'user_id' => $id,
+            ]);
+
+        } else if($request->hasFile('bukti_presensi')) {
+            // kondisi jika hanya bukti presensi saja yang di upload
+
+            // upload bukti presensi
+            $bukti_presensi = $request->file('bukti_presensi');
+            $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
+
+            // Create Pengajaran
+            Pengajaran::create([
+                'tahun_ajaran' => $request->tahun_ajar,
+                'program_studi' => $request->program_studi,
+                'nama_mata_kuliah' => $request->matkul,
+                'jenis_mata_kuliah' => $request->jenis_matkul,
+                'kelas' => $request->kelas,
+                'jumlah_sks' => $request->sks,
+                'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
+                'bukti_presensi' => $bukti_presensi->hashName(),
+                'user_id' => $id,
+            ]);
+
+        } else {
+
+            // kondisi jika tidak mengupload bukti pengajaran dan bukti presensi
+
+            // Create Pengajaran
+            Pengajaran::create([
+                'tahun_ajaran' => $request->tahun_ajar,
+                'program_studi' => $request->program_studi,
+                'nama_mata_kuliah' => $request->matkul,
+                'jenis_mata_kuliah' => $request->jenis_matkul,
+                'kelas' => $request->kelas,
+                'jumlah_sks' => $request->sks,
+                'jumlah_mahasiswa' => $request->jumlah_mahasiswa,
+                'user_id' => $id,
+            ]);
+
+        }
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+    }
 
 }

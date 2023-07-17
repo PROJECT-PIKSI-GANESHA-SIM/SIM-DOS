@@ -69,7 +69,7 @@
                                             <td>
                                                 <div class="col">
                                                     <div class="row-3 text-center">
-                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="">
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pendidikan.destroy', $user->id, $p->id) }}">
                                                             <a href="">
                                                                 <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                             </a>
@@ -130,7 +130,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <a href="{{ route('pengajaran.create') }}" class="btn btn-sm btn-success mb-3">TAMBAH</a>
+                        <a href="{{ route('dosen.pengajaran.create', $user->id) }}" class="btn btn-sm btn-success mb-3">TAMBAH</a>
                         <div class="card">
                         <div class="card-body p-0">
                             <div class="table-responsive">
