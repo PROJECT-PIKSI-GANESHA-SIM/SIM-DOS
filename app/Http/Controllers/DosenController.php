@@ -486,4 +486,16 @@ class DosenController extends Controller
 
     }
 
+    public function edit_penelitian($id) {
+
+        $penelitian = Penelitian::findOrFail($id);
+        $user = User::findOrFail($id);
+
+        return view('penelitian.edit', [
+            'penelitian' => $penelitian,
+            'user' => $user
+        ]);
+
+    }
+
 }
