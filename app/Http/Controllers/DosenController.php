@@ -498,4 +498,18 @@ class DosenController extends Controller
 
     }
 
+    public function destroy_penelitian($id) {
+        
+        $penelitian = Penelitian::findOrFail($id);
+
+        // hapus gambar bukti pengajaran dan bukti presensi
+        Storage::delete('public/dosen/penelitian/surat_tugas/'. $penelitian->surat_tugas);
+        Storage::delete('public/dosen/penelitian/publikasi/'. $penelitian->publikasi);
+        
+        // hapus penelitian
+        $penelitian->delete();
+
+        return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus']);
+    }
+
 }
