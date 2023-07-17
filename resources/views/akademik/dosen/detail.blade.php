@@ -69,7 +69,7 @@
                                             <td>
                                                 <div class="col">
                                                     <div class="row-3 text-center">
-                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pendidikan.destroy', $user->id, $p->id) }}">
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pendidikan.destroy', $p->id) }}">
                                                             <a href="">
                                                                 <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                             </a>
@@ -165,7 +165,7 @@
                                         <td>
                                             <div class="col">
                                                 <div class="row-3 text-center">
-                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('pengajaran.destroy', $p->id) }} }}">
+                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pengajaran.destroy', $p->id) }}">
                                                         <a href="">
                                                             <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                         </a>
