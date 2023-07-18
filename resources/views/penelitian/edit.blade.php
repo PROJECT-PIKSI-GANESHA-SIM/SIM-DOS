@@ -25,8 +25,8 @@
                 
                                 <div class="ms-5">
                                     <select name="status_peneliti" id="status_peneliti" class="form-control form-select" data-bs-toggle="dropdown">
-                                        <option value="Ketua">Ketua</option>
-                                        <option value="Anggota">Anggota</option>
+                                        <option value="Ketua" {{ $penelitian->status_peneliti == 'Ketua' ? 'selected' : '' }}>Ketua</option>
+                                        <option value="Anggota" {{ $penelitian->status_peneliti == 'Anggota' ? 'selected' : '' }}>Anggota</option>
                                     </select>
                 
                                     @error('program_studi')

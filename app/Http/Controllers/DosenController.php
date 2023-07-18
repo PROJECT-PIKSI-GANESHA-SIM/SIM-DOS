@@ -512,4 +512,145 @@ class DosenController extends Controller
         return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus']);
     }
 
+    // PENGABDIAN
+    function create_pengabdian($id) {
+
+        $user = User::findOrFail($id);
+
+        return view('pengabdian.create', [
+            'user' => $user
+        ]);
+    }
+
+    public function store_pengabdian(Request $request, $id) {
+        
+        // validasi form
+        $this->validate($request, [
+            'judul_pengabdian' => 'required',
+            'bidang_keilmuan' => 'required',
+            'latar_belakang' => 'required',
+            'manfaat' => 'required',
+            'sasaran' => 'required',
+            'tahun_pelaksanaan' => 'required',
+            'lama_kegiatan' => 'required',
+            'lokasi_pelaksanaan' => 'required',
+            'biaya_kegiatan' => 'max:100',
+            'kelompok_target' => 'required',
+            'kendala' => 'max:1000',
+            'hasil' => 'max:1000',
+            'evaluasi' => 'max:1000',
+            'link_publikasi' => 'max:100',
+            'surat_tugas' => 'file|mimes:pdf|max:2048',
+            'laporan_kegiatan' => 'file|mimes:pdf|max:2048',
+        ]);
+
+        // Kondisi jika surat tugas dan laporan kegiatan di upload
+        if($request->hasFile('surat_tugas') && $request->hasFile('laporan_kegiatan')) {
+            
+            // upload surat tugas
+            $surat_tugas = $request->file('surat_tugas');
+            $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
+
+            // upload laporan kegiatan
+            $laporan_kegiataan = $request->file('laporan_kegiatan');
+            $laporan_kegiataan->storeAs('public/dosen/pengabdian/laporan_kegiatan', $laporan_kegiataan->hashName());
+
+            // Create Pengabdian
+            Pengabdian::create([
+                'judul_pengabdian' => $request->judul_pengabdian,
+                'bidang_keilmuan' => $request->bidang_keilmuan,
+                'latar_belakang' => $request->latar_belakang,
+                'manfaat' => $request->manfaat,
+                'sasaran' => $request->sasaran,
+                'tahun_pelaksanaan' => $request->tahun_pelaksanaan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'lokasi_pelaksanaan' => $request->lokasi_pelaksanaan,
+                'biaya_kegiatan' => $request->biaya_kegiatan,
+                'target' => $request->kelompok_target,
+                'kendala' => $request->kendala,
+                'hasil' => $request->hasil,
+                'evaluasi' => $request->evaluasi,
+                'link_publikasi' => $request->link_publikasi,
+                'surat_tugas' => $surat_tugas->hashName(),
+                'laporan_kegiatan' => $laporan_kegiataan->hashName(),
+                'user_id' => $id
+            ]);
+
+        } else if($request->hasFile('surat_tugas')) {
+            
+            // upload surat tugas
+            $surat_tugas = $request->file('surat_tugas');
+            $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
+
+            // Create Pengabdian
+            Pengabdian::create([
+                'judul_pengabdian' => $request->judul_pengabdian,
+                'bidang_keilmuan' => $request->bidang_keilmuan,
+                'latar_belakang' => $request->latar_belakang,
+                'manfaat' => $request->manfaat,
+                'sasaran' => $request->sasaran,
+                'tahun_pelaksanaan' => $request->tahun_pelaksanaan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'lokasi_pelaksanaan' => $request->lokasi_pelaksanaan,
+                'biaya_kegiatan' => $request->biaya_kegiatan,
+                'target' => $request->kelompok_target,
+                'kendala' => $request->kendala,
+                'hasil' => $request->hasil,
+                'evaluasi' => $request->evaluasi,
+                'link_publikasi' => $request->link_publikasi,
+                'surat_tugas' => $surat_tugas->hashName(),
+                'user_id' => $id
+            ]);
+
+        } else if($request->hasFile('laporan_kegiatan')) {
+            
+            // upload laporan kegiatan
+            $laporan_kegiataan = $request->file('laporan_kegiatan');
+            $laporan_kegiataan->storeAs('public/dosen/pengabdian/laporan_kegiatan', $laporan_kegiataan->hashName());
+
+            // Create Pengabdian
+            Pengabdian::create([
+                'judul_pengabdian' => $request->judul_pengabdian,
+                'bidang_keilmuan' => $request->bidang_keilmuan,
+                'latar_belakang' => $request->latar_belakang,
+                'manfaat' => $request->manfaat,
+                'sasaran' => $request->sasaran,
+                'tahun_pelaksanaan' => $request->tahun_pelaksanaan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'lokasi_pelaksanaan' => $request->lokasi_pelaksanaan,
+                'biaya_kegiatan' => $request->biaya_kegiatan,
+                'target' => $request->kelompok_target,
+                'kendala' => $request->kendala,
+                'hasil' => $request->hasil,
+                'evaluasi' => $request->evaluasi,
+                'link_publikasi' => $request->link_publikasi,
+                'laporan_kegiatan' => $laporan_kegiataan->hashName(),
+                'user_id' => $id
+            ]);
+
+        } else {
+            // Create Pengabdian
+            Pengabdian::create([
+                'judul_pengabdian' => $request->judul_pengabdian,
+                'bidang_keilmuan' => $request->bidang_keilmuan,
+                'latar_belakang' => $request->latar_belakang,
+                'manfaat' => $request->manfaat,
+                'sasaran' => $request->sasaran,
+                'tahun_pelaksanaan' => $request->tahun_pelaksanaan,
+                'lama_kegiatan' => $request->lama_kegiatan,
+                'lokasi_pelaksanaan' => $request->lokasi_pelaksanaan,
+                'biaya_kegiatan' => $request->biaya_kegiatan,
+                'target' => $request->kelompok_target,
+                'kendala' => $request->kendala,
+                'hasil' => $request->hasil,
+                'evaluasi' => $request->evaluasi,
+                'link_publikasi' => $request->link_publikasi,
+                'user_id' => $id
+            ]);
+        }
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+
+    }
+
 }

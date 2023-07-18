@@ -38,7 +38,7 @@
                         <div class="mx-5">
                             <select name="program_studi" id="program_studi" class="form-control form-select" data-bs-toggle="dropdown">
                                 @foreach ($program_studi as $p)
-                                    <option value="{{ $p->id }}">{{ $p->name }}</option>
+                                    <option value="{{ $p->id }}" {{ $p->id == $pengajaran->program_studi ? 'selected' : '' }}>{{ $p->name }}</option>
                                 @endforeach
                             </select>
         
@@ -69,9 +69,9 @@
         
                         <div class="mx-5">
                             <select name="jenis_matkul" id="jenis_matkul" class="form-control form-select" data-bs-toggle="dropdown">
-                                <option value="Mata Kuliah Wajib">Mata Kuliah Wajib</option>
-                                <option value="Mata Kuliah Umum">Mata Kuliah Umum</option>
-                                <option value="Mata Kuliah Pilihan">Mata Kuliah Pilihan</option>
+                                <option value="Mata Kuliah Wajib" {{ $pengajaran->jenis_mata_kuliah == 'Mata Kuliah Wajib' ? 'selected' : '' }}>Mata Kuliah Wajib</option>
+                                <option value="Mata Kuliah Umum" {{ $pengajaran->jenis_mata_kuliah == 'Mata Kuliah Umum' ? 'selected' : '' }}>Mata Kuliah Umum</option>
+                                <option value="Mata Kuliah Pilihan" {{ $pengajaran->jenis_mata_kuliah == 'Mata Kuliah Pilihan' ? 'selected' : '' }}>Mata Kuliah Pilihan</option>
                             </select>
         
                             @error('jenis_matkul')
@@ -102,12 +102,12 @@
                                 <label for="sks" class="col-md-4 col-form-label ms-5">{{ __('Jumlah SKS') }}</label>
                                 
                                 <div class="ms-5">
-                                    <select name="sks" id="sks" class="form-control form-select" data-bs-toggle="dropdown">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                    <select name="sks" id="sks" data-placeholder="Pilih Jenis Mata Kuliah" class="form-control form-select" data-bs-toggle="dropdown">
+                                        <option value="1" {{ $pengajaran->jumlah_sks == '1' ? 'selected' : '' }}>1</option>
+                                        <option value="2" {{ $pengajaran->jumlah_sks == '2' ? 'selected' : '' }}>2</option>
+                                        <option value="3" {{ $pengajaran->jumlah_sks == '3' ? 'selected' : '' }}>3</option>
+                                        <option value="4" {{ $pengajaran->jumlah_sks == '4' ? 'selected' : '' }}>4</option>
+                                        <option value="5" {{ $pengajaran->jumlah_sks == '5' ? 'selected' : '' }}>5</option>
                                     </select>
                                 </div>
                                 @error('sks')

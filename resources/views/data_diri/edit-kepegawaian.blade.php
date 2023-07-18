@@ -60,8 +60,8 @@
                                 <div class="ms-5">
                                     <div>
                                         <select name="status_keaktifan" id="status_keaktifan" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Aktif">Aktif</option>
-                                            <option value="Tidak Aktif">Tidak Aktif</option>
+                                            <option value="Aktif" {{ $kepegawaian->status_keaktifan == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                            <option value="Tidak Aktif" {{ $kepegawaian->status_keaktifan == 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
                                         </select>
                                     </div>
                 

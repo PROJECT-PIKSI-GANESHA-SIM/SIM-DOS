@@ -154,7 +154,7 @@ class DataDiriController extends Controller
 
         $kepegawaian->update([
             'program_studi' => $request->program_studi,
-            'status_kepegawaian' => $request->status_keaktifan,
+            'status_kepegawaian' => $request->status_kepegawaian,
             'status_keaktifan' => $request->status_keaktifan,
             'no_sk_sertifikasi_dosen' => $request->no_sk_sertifikasi_dosen,
             'jabatan_fungsional' => $request->jabatan_fungsional,

@@ -26,7 +26,7 @@
                                 <div class="ms-5">
                                     <select name="jenjang_pendidikan" id="jenjang_pendidikan" class="form-control form-select" data-bs-toggle="dropdown">
                                         @foreach ($jenjang_pendidikan as $jp)
-                                            <option value="{{ $jp->id }}">{{ $jp->name }}</option>
+                                            <option value="{{ $jp->id }}" {{ $jp->id == $pendidikan->jenjang_pendidikan ? 'selected' : '' }}>{{ $jp->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -92,8 +92,8 @@
                                 <div class="me-5">
                                     <div>
                                         <select name="dalam_luar_negeri" id="dalam_luar_negeri" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Dalam Negeri">Dalam Negeri</option>
-                                            <option value="Luar Negeri">Luar Negeri</option>
+                                            <option value="Dalam Negeri" {{ $pendidikan->dalam_luar_negeri == 'Dalam Negeri' ? 'selected' : '' }}>Dalam Negeri</option>
+                                            <option value="Luar Negeri" {{ $pendidikan->dalam_luar_negeri == 'Luar Negeri' ? 'selected' : '' }}>Luar Negeri</option>
                                         </select>
                                     </div>
                 
@@ -130,7 +130,7 @@
                                 <div class="me-5">
                                     <select name="predikat_kelulusan" id="predikat_kelulusan" class="form-control form-select" data-bs-toggle="dropdown">
                                         @foreach ($predikat_kelulusan as $pk)
-                                            <option value="{{ $pk->id }}">{{ $pk->name }}</option>
+                                            <option value="{{ $pk->id }}" {{ $pk->id == $pendidikan->predikat_kelulusan ? 'selected' : '' }}>{{ $pk->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

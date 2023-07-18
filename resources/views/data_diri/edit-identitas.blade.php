@@ -94,8 +94,8 @@
                                 <div class="ms-5">
                                     <div>
                                         <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita">Wanita</option>
+                                            <option value="Pria" {{ $identitas->jenis_kelamin == 'Pria' ? 'selected' : '' }}>Pria</option>
+                                            <option value="Wanita" {{ $identitas->jenis_kelamin == 'Wanita' ? 'selected' : '' }}>Wanita</option>
                                         </select>
                                     </div>
                 
@@ -115,10 +115,10 @@
                                 <div class="me-5">
                                     <div>
                                         <select name="golongan_darah" id="golongan_darah" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="O">O</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="AB">AB</option>
+                                            <option value="O" {{ $identitas->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
+                                            <option value="A" {{ $identitas->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
+                                            <option value="B" {{ $identitas->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
+                                            <option value="AB" {{ $identitas->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
                                         </select>
                                     </div>
                 
@@ -156,12 +156,12 @@
                                 <div class="me-5">
                                     <div>
                                         <select name="agama" id="agama" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Islam">Islam</option>
-                                            <option value="Protestan">Protestan</option>
-                                            <option value="Katolik">Katolik</option>
-                                            <option value="Hindu">Hindu</option>
-                                            <option value="Buddha">Buddha</option>
-                                            <option value="Khonghucu">Khonghucu</option>
+                                            <option value="Islam" {{ $identitas->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                            <option value="Protestan" {{ $identitas->agama == 'Protestan' ? 'selected' : '' }}>Protestan</option>
+                                            <option value="Katolik" {{ $identitas->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                            <option value="Hindu" {{ $identitas->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                            <option value="Buddha" {{ $identitas->agama == 'Buddha' ? 'selected' : '' }}>Buddha</option>
+                                            <option value="Khonghucu" {{ $identitas->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
                                         </select>
                                     </div>
                 
@@ -215,8 +215,8 @@
                                 <div class="me-5">
                                     <div>
                                         <select name="status_perkawinan" id="status_perkawinan" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Belum Kawin">Belum Kawin</option>
-                                            <option value="Kawin">Kawin</option>
+                                            <option value="Belum Kawin" {{ $identitas->status_perkawinan == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
+                                            <option value="Kawin" {{ $identitas->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
                                         </select>
                                     </div>
                 
