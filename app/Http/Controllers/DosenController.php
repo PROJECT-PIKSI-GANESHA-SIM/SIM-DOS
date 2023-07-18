@@ -333,7 +333,7 @@ class DosenController extends Controller
         $pengajaran = Pengajaran::findOrFail($id);
         $program_studi = ProgramStudi::all();
 
-        return view('pengajaran.edit', [
+        return view('akademik.dosen.pengajaran.edit', [
             'pengajaran' => $pengajaran,
             'program_studi' => $program_studi
         ]);

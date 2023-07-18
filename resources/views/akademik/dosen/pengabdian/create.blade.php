@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.akademik-dashboard')
 
 @section('title')
     
