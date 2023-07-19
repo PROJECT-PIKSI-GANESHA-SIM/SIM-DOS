@@ -19,7 +19,7 @@
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
                 <img src="assets/PIKSI.png" alt="logo piksi" height="30" class="d-inline-block align-text-top">
-                SIM-DOS
+                SIM DOSEN
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +47,41 @@
 
 <div class="container">
     <h1 class="text-center">Pusat Informasi</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <p class="text-end"><a href="/informationcenter">Lihat semua informasi</a></p>
 </div>
 
@@ -66,7 +101,7 @@
             <div class="col-md-6 text-md-end">
                 <a href="https://www.facebook.com/piksiganeshabdg1" class="btn mx-2 btn-tw" target="_blank"
                     rel="noreferrer">
-                    <i class="bi bi-facebook" style="font-size: 2rem; color: white;" ></i>
+                    <i class="bi bi-facebook" style="font-size: 2rem; color: white;"></i>
                 </a>
                 <a href="https://www.instagram.com/piksi_ganesha" class="btn mx-2 btn-tw" target="_blank"
                     rel="noreferrer">
