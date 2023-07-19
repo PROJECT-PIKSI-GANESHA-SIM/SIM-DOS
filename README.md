@@ -1,7 +1,6 @@
 <p align="center">
   <a href="#">
-    <img src="https://github.com/PROJECT-PIKSI-GANESHA-SIM/SIM-DOS/assets/96402737/2780c134-2c28-48e6-ba25-3f41118a3509" alt="Logo" width=200>
-  </a>
+    <img src="https://github.com/PROJECT-PIKSI-GANESHA-SIM/SIM-DOS/assets/96402737/2780c134-2c28-48e6-ba25-3f41118a3509" alt="Logo SIM-DOS" width=300></a>
   <p align="center">
     Sistem Manajemen Dosen (SIM-DOS) : Aplikasi Berbasis Web Sistem Informasi Manajemen Dosen &middot; Aplikasi ini dapat diakses <a href="#">di sini</a>
   </p>
