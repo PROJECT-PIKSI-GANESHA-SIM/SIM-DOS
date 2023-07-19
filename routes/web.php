@@ -23,27 +23,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        "title" => "Beranda"
+    ]);
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contact', [
+        "title" => "Kontak"
+    ]);
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        "title" => "Tentang"
+    ]);
 });
 
 Route::get('/dosen', function () {
-    return view('dosen');
+    return view('dosen', [
+        "title" => "Dosen"
+    ]);
 });
 
 Route::get('/detaildosen', function () {
-    return view('dosen');
+    return view('dosen', [
+        "title" => "Detail Dosen"
+    ]);
 });
 
 Route::get('/informationcenter', function () {
-    return view('informationcenter');
+    return view('informationcenter', [
+        "title" => "Pusat Informasi"
+    ]);
 });
 
 Route::get('/detail_informationcenter', function () {
