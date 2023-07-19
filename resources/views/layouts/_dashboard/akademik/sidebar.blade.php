@@ -11,7 +11,7 @@
             <a href="{{ route('dosen') }}" style="text-decoration: none"><i class="fas fa-user"></i> Dosen</a>
         </li>
         <li>
-            <a href="" style="text-decoration: none"><i class="fas fa-sticky-note"></i> Pusat Informasi</a>
+            <a href="{{ route('pusat_informasi') }}" style="text-decoration: none"><i class="fas fa-sticky-note"></i> Pusat Informasi</a>
         </li>
         <li>
             <a href="" style="text-decoration: none"><i class="fas fa-window-maximize"></i> Pesan</a>

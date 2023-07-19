@@ -8,7 +8,9 @@ use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PusatInformasiController;
 use App\Models\Pengabdian;
+use App\Models\PusatInformasi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
@@ -115,9 +117,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/dosen/{id}/penelitian/edit', [DosenController::class, 'edit_penelitian'])->middleware('role:akademik')->name('dosen.penelitian.edit');
     Route::delete('/dosen/penelitian/delete/{id}', [DosenController::class, 'destroy_penelitian'])->middleware('role:akademik')->name('dosen.penelitian.destroy');
     
-    // PENGABDIAN
+    // Pengabdian
     Route::get('/dosen/{id}/pengabdian/create', [DosenController::class, 'create_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.create');
     Route::post('/dosen/{id}/pengabdian/create', [DosenController::class, 'store_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.store');
     
+    // Pusat Informasi
+    Route::get('/pusat_informasi', [PusatInformasiController::class, 'index'])->middleware('role:akademik')->name('pusat_informasi');
+    Route::get('/pusat_informasi/create', [PusatInformasiController::class, 'create'])->middleware('role:akademik')->name('pusat_informasi.create');
+    Route::post('/pusat_informasi/create', [PusatInformasiController::class, 'store'])->middleware('role:akademik')->name('pusat_informasi.store');
 
 });
