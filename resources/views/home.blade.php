@@ -13,9 +13,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <img src="{{ asset('assets/PIKSI.png') }}" alt="" width="50" height="50"
-                class="d-inline-block align-text-top">
-            <a class="navbar-brand" href="#">SIM DOS</a>
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('assets/piksi_sim_logo.png') }}" alt="" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
