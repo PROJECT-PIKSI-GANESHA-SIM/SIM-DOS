@@ -37,6 +37,7 @@
             </div>
         </div>
     </div>
+    <br>
     <p class="text-end"><a href="/informationcenter">Lihat semua informasi</a></p>
     </div>
 @endsection

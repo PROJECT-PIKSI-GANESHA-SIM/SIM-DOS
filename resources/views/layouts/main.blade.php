@@ -17,8 +17,7 @@
 </head>
 
 <body>
-    @include('layouts.partials.navbar');
-
+    @include('layouts.partials.navbar')
     <div class="container">
         @yield('container')
     </div>
