@@ -76,6 +76,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/penelitian/create', [PenelitianController::class, 'create'])->middleware('role:dosen')->name('penelitian.create');
     Route::post('/penelitian/create', [PenelitianController::class, 'store'])->middleware('role:dosen')->name('penelitian.store');
     Route::get('/penelitian/{id}/edit', [PenelitianController::class, 'edit'])->middleware('role:dosen')->name('penelitian.edit');
+    Route::get('/penelitian/{id}/view', [PenelitianController::class, 'view'])->middleware('role:dosen')->name('penelitian.view');
     Route::put('/penelitian/update/{id}', [PenelitianController::class, 'update'])->middleware('role:dosen')->name('penelitian.update');
     Route::delete('/penelitian/delete/{id}', [PenelitianController::class, 'destroy'])->middleware('role:dosen')->name('penelitian.destroy');
     

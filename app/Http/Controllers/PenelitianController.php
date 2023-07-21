@@ -175,6 +175,16 @@ class PenelitianController extends Controller
 
     }
 
+    public function view($id) {
+
+        $penelitian = Penelitian::findOrFail($id);
+
+        return view('penelitian.view', [
+            'penelitian' => $penelitian
+        ]);
+
+    }
+
     public function update(Request $request, $id) {
 
         $penelitian = Penelitian::findOrFail($id);
