@@ -61,6 +61,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->middleware('role:dosen')->name('pengajaran.create');
     Route::post('/pengajaran/create', [PengajaranController::class, 'store'])->middleware('role:dosen')->name('pengajaran.store');
     Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->middleware('role:dosen')->name('pengajaran.edit');
+    Route::get('/pengajaran/{id}/view', [PengajaranController::class, 'view'])->middleware('role:dosen')->name('pengajaran.view');
     Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->middleware('role:dosen')->name('pengajaran.update');
     Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->middleware('role:dosen')->name('pengajaran.destroy');
     

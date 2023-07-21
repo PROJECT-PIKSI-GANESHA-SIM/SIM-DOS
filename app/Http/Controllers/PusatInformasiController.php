@@ -8,10 +8,15 @@ use Illuminate\Http\Request;
 class PusatInformasiController extends Controller
 {
     public function index() {
-        return view('akademik.pusat_informasi.index');
+        $pusat_informasi = PusatInformasi::paginate(5);
+
+        return view('akademik.pusat_informasi.index', [
+            'pusat_informasi' => $pusat_informasi
+        ]);
     }
 
     public function create() {
+
         return view('akademik.pusat_informasi.create');
     }
 

@@ -154,6 +154,17 @@ class PengajaranController extends Controller
         ]);
     }
 
+    public function view($id) {
+        
+        $pengajaran = Pengajaran::findOrFail($id);
+        $program_studi = ProgramStudi::all();
+
+        return view('pengajaran.view', [
+            'pengajaran' => $pengajaran,
+            'program_studi' => $program_studi
+        ]);
+    }
+
     public function update(Request $request, $id) {
         $pengajaran = Pengajaran::findOrFail($id);
         // dd($pengajaran->bukti_presensi);

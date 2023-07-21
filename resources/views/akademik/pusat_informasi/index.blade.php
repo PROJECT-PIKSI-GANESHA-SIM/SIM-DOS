@@ -35,40 +35,70 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                
+                                                @if ($pusat_informasi->isEmpty())
+                                                    <td colspan="6" class="text-center py-3">Tidak Ada Data</td>
+                                                @else
+                                                    @foreach ($pusat_informasi as $p)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $p->title }}</td>
+                                                        <td>{{ $p->thumbnail }}</td>
+                                                        <td>{{ $p->date }}</td>
+                                                        <td>{{ \Illuminate\Support\Str::limit($p->description, 100) }}</td><td>
+                                                            <div class="col">
+                                                                <div class="row-3 text-center">
+                                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('penelitian.destroy', $p->id) }}">
+                                                                        <a href="">
+                                                                            <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
+                                                                        </a>
+                                                                        <a href="{{ route('penelitian.edit', $p->id) }}">
+                                                                            <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
+                                                                        </a>
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer">
+                                                                            <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                @endif
                                             </tbody>
                                         </table>
                                         </div>
                                     </div>
                                     </div>
                                     <div class="d-flex justify-content-end">
-                                        {{-- <nav aria-label="Page navigation">
+                                        <nav aria-label="Page navigation">
                                             <ul class="pagination">
                                     
                                                 <!-- Tombol "Previous" -->
-                                                <li class="page-item {{ $penelitian->onFirstPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" href="{{ $penelitian->previousPageUrl() }}" aria-label="Previous">
+                                                <li class="page-item {{ $pusat_informasi->onFirstPage() ? 'disabled' : '' }}">
+                                                    <a class="page-link" href="{{ $pusat_informasi->previousPageUrl() }}" aria-label="Previous">
                                                         <span aria-hidden="true">Previous</span>
                                                         <span class="sr-only">Previous</span>
                                                     </a>
                                                 </li>
                                     
                                                 <!-- Tombol nomor halaman -->
-                                                @for ($i = 1; $i <= $penelitian->lastPage(); $i++)
-                                                    <li class="page-item {{ $penelitian->currentPage() == $i ? 'active' : '' }}">
-                                                        <a class="page-link" href="{{ $penelitian->url($i) }}">{{ $i }}</a>
+                                                @for ($i = 1; $i <= $pusat_informasi->lastPage(); $i++)
+                                                    <li class="page-item {{ $pusat_informasi->currentPage() == $i ? 'active' : '' }}">
+                                                        <a class="page-link" href="{{ $pusat_informasi->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
                                     
                                                 <!-- Tombol "Next" -->
-                                                <li class="page-item {{ $penelitian->currentPage() == $penelitian->lastPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" href="{{ $penelitian->nextPageUrl() }}" aria-label="Next">
+                                                <li class="page-item {{ $pusat_informasi->currentPage() == $pusat_informasi->lastPage() ? 'disabled' : '' }}">
+                                                    <a class="page-link" href="{{ $pusat_informasi->nextPageUrl() }}" aria-label="Next">
                                                         <span aria-hidden="true">Next</span>
                                                         <span class="sr-only">Next</span>
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </nav> --}}
+                                        </nav>
                                     </div>
                                     </div>
                                 </div>
