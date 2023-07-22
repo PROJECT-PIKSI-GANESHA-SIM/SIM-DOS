@@ -163,6 +163,12 @@ class PengabdianController extends Controller
         return view('pengabdian.edit', compact('pengabdian'));
     }
 
+    public function view($id) {
+        $pengabdian = Pengabdian::findOrFail($id);
+
+        return view('pengabdian.view', compact('pengabdian'));
+    }
+
     public function update(Request $request, $id) {
 
         $pengabdian= Pengabdian::findOrFail($id);

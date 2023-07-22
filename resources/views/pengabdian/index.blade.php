@@ -51,7 +51,7 @@
                                                             <div class="col">
                                                                 <div class="row-3 text-center">
                                                                     <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('pengabdian.destroy', $p->id) }}">
-                                                                        <a href="">
+                                                                        <a href="{{ route('pengabdian.view', $p->id) }}">
                                                                             <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                                         </a>
                                                                         <a href="{{ route('pengabdian.edit', $p->id) }}">
