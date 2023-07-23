@@ -60,18 +60,18 @@ class DosenController extends Controller
     public function store_pendidikan(Request $request, $id) {
         // validasi form
         $this->validate($request, [
-            'jenjang_pendidikan' => 'required',
-            'bidang_studi' => 'required',
-            'nama_institusi' => 'required',
-            'lokasi_institusi' => 'required',
-            'dalam_luar_negeri' => 'required',
-            'no_ijazah' => 'required',
-            'predikat_kelulusan' => 'required',
-            'gelar_singkat' => 'required',
-            'gelar_panjang' => 'required',
-            'tanggal_mulai_studi' => 'required',
-            'tanggal_berakhir_studi' => 'required',
-            'judul_penelitian' => 'max:250',
+            'jenjang_pendidikan' => 'required|string:max:255',
+            'bidang_studi' => 'required|string:max:255',
+            'nama_institusi' => 'required|string:max:255',
+            'lokasi_institusi' => 'required|string:max:255',
+            'dalam_luar_negeri' => 'required|string:max:255',
+            'no_ijazah' => 'required|string:max:255',
+            'predikat_kelulusan' => 'required|string:max:255',
+            'gelar_singkat' => 'required|string:max:255',
+            'gelar_panjang' => 'required|string:max:255',
+            'tanggal_mulai_studi' => 'required|string:max:255',
+            'tanggal_berakhir_studi' => 'required|string:max:255',
+            'judul_penelitian' => 'string|max:250',
             'file_ijazah' => 'file|mimes:pdf|max:2048',
             'transkrip_nilai' => 'file|mimes:pdf|max:2048',
         ]);
@@ -231,13 +231,13 @@ class DosenController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'tahun_ajar' => 'required',
-            'program_studi' => 'required',
-            'matkul' => 'required',
-            'jenis_matkul' => 'required',
-            'kelas' => 'required',
-            'sks' => 'required',
-            'jumlah_mahasiswa' => 'required',
+            'tahun_ajar' => 'required|string:max:255',
+            'program_studi' => 'required|string:max:255',
+            'matkul' => 'required|string:max:255',
+            'jenis_matkul' => 'required|string:max:255',
+            'kelas' => 'required|string:max:255',
+            'sks' => 'required|string:max:255',
+            'jumlah_mahasiswa' => 'required|string:max:255',
             'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -368,18 +368,18 @@ class DosenController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'status_peneliti' => 'required',
-            'kelompok_bidang' => 'required',
-            'judul_penelitian' => 'required',
-            'lokasi_kegiatan' => 'required',
-            'tahun_usulan' => 'required',
-            'tahun_kegiatan' => 'required',
-            'lama_kegiatan' => 'required',
-            'jumlah_dana' => 'required',
-            'sumber_dana' => 'required',
-            'no_sk_penugasan' => 'required',
-            'tanggal_sk_penugasan' => 'required',
-            'link_publikasi' => 'required',
+            'status_peneliti' => 'required|string:max:255',
+            'kelompok_bidang' => 'required|string:max:255',
+            'judul_penelitian' => 'required|string:max:255',
+            'lokasi_kegiatan' => 'required|string:max:255',
+            'tahun_usulan' => 'required|string:max:255',
+            'tahun_kegiatan' => 'required|string:max:255',
+            'lama_kegiatan' => 'required|string:max:255',
+            'jumlah_dana' => 'required|string:max:255',
+            'sumber_dana' => 'required|string:max:255',
+            'no_sk_penugasan' => 'required|string:max:255',
+            'tanggal_sk_penugasan' => 'required|string:max:255',
+            'link_publikasi' => 'required|string:max:255',
             'surat_tugas' => 'file|mimes:pdf|max:2048',
             'publikasi' => 'file|mimes:pdf|max:2048',
             
@@ -517,7 +517,7 @@ class DosenController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view('pengabdian.create', [
+        return view('akademik.dosen.pengabdian.create', [
             'user' => $user
         ]);
     }
@@ -526,20 +526,20 @@ class DosenController extends Controller
         
         // validasi form
         $this->validate($request, [
-            'judul_pengabdian' => 'required',
-            'bidang_keilmuan' => 'required',
-            'latar_belakang' => 'required',
-            'manfaat' => 'required',
-            'sasaran' => 'required',
-            'tahun_pelaksanaan' => 'required',
-            'lama_kegiatan' => 'required',
-            'lokasi_pelaksanaan' => 'required',
-            'biaya_kegiatan' => 'max:100',
-            'kelompok_target' => 'required',
-            'kendala' => 'max:1000',
-            'hasil' => 'max:1000',
-            'evaluasi' => 'max:1000',
-            'link_publikasi' => 'max:100',
+            'judul_pengabdian' => 'required|string:max:255',
+            'bidang_keilmuan' => 'required|string:max:255',
+            'latar_belakang' => 'required|string:max:255',
+            'manfaat' => 'required|string:max:255',
+            'sasaran' => 'required|string:max:255',
+            'tahun_pelaksanaan' => 'required|string:max:255',
+            'lama_kegiatan' => 'required|string:max:255',
+            'lokasi_pelaksanaan' => 'required|string:max:255',
+            'biaya_kegiatan' => 'string|max:100',
+            'kelompok_target' => 'required|string:max:255',
+            'kendala' => 'string|max:1000',
+            'hasil' => 'string|max:1000',
+            'evaluasi' => 'string|max:1000',
+            'link_publikasi' => 'string|max:100',
             'surat_tugas' => 'file|mimes:pdf|max:2048',
             'laporan_kegiatan' => 'file|mimes:pdf|max:2048',
         ]);

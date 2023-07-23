@@ -18,7 +18,7 @@
                     @csrf
                     
                     <div class="mb-3 ">
-                        <label for="judul_pengabdian" class="col-md-4 col-form-label mx-5">{{ __('Judul Pengabdian') }}</label>
+                        <label for="judul_pengabdian" class="col-md-4 col-form-label mx-5">{{ __('Judul Pengabdian') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <input id="judul_pengabdian" type="text" class="form-control @error('judul_pengabdian') is-invalid @enderror" name="judul_pengabdian">
@@ -32,7 +32,7 @@
                     </div>
         
                     <div class="mb-3 ">
-                        <label for="bidang_keilmuan" class="col-md-4 col-form-label mx-5">{{ __('Bidang Keilmuan') }}</label>
+                        <label for="bidang_keilmuan" class="col-md-4 col-form-label mx-5">{{ __('Bidang Keilmuan') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <input id="bidang_keilmuan" type="text" class="form-control @error('bidang_keilmuan') is-invalid @enderror" name="bidang_keilmuan" required>
@@ -46,7 +46,7 @@
                     </div>
         
                     <div class="mb-3 ">
-                        <label for="latar_belakang" class="col-md-4 col-form-label mx-5">{{ __('Latar Belakang') }}</label>
+                        <label for="latar_belakang" class="col-md-4 col-form-label mx-5">{{ __('Latar Belakang') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <textarea id="latar_belakang" type="text" class="form-control @error('latar_belakang') is-invalid @enderror" name="latar_belakang" required style="height: 100px;"></textarea>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="mb-3 ">
-                        <label for="manfaat" class="col-md-4 col-form-label mx-5">{{ __('Manfaat') }}</label>
+                        <label for="manfaat" class="col-md-4 col-form-label mx-5">{{ __('Manfaat') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <textarea id="manfaat" type="text" class="form-control @error('manfaat') is-invalid @enderror" name="manfaat" required style="height: 100px;"></textarea>
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="mb-3 ">
-                        <label for="sasaran" class="col-md-4 col-form-label mx-5">{{ __('Sasaran') }}</label>
+                        <label for="sasaran" class="col-md-4 col-form-label mx-5">{{ __('Sasaran') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <input id="sasaran" type="text" class="form-control @error('sasaran') is-invalid @enderror" name="sasaran" required>
@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="tahun_pelaksanaan" class="col-md-4 col-form-label ms-5">{{ __('Tahun Pelaksanaan') }}</label>
+                                <label for="tahun_pelaksanaan" class="col-md-4 col-form-label ms-5">{{ __('Tahun Pelaksanaan') }} <span class="text-danger"> *</span></label>
                         
                                 <div class="ms-5">
                                     <input id="tahun_pelaksanaan" type="date" class="form-control @error('tahun_pelaksanaan') is-invalid @enderror datepicker" name="tahun_pelaksanaan" required>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="lama_kegiatan" class="col-md-4 col-form-label me-5">{{ __('Lama Kegiatan') }}</label>
+                                <label for="lama_kegiatan" class="col-md-4 col-form-label me-5">{{ __('Lama Kegiatan') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="me-5">
                                     <input id="lama_kegiatan" type="text" class="form-control @error('lama_kegiatan') is-invalid @enderror" name="lama_kegiatan" required>
@@ -121,7 +121,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="lokasi_pelaksanaan" class="col-md-4 col-form-label mx-5">{{ __('Lokasi Pelaksanaan') }}</label>
+                        <label for="lokasi_pelaksanaan" class="col-md-4 col-form-label mx-5">{{ __('Lokasi Pelaksanaan') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <input id="lokasi_pelaksanaan" type="text" class="form-control @error('lokasi_pelaksanaan') is-invalid @enderror" name="lokasi_pelaksanaan" required>
@@ -149,7 +149,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="kelompok_target" class="col-md-4 col-form-label mx-5">{{ __('Kelompok/Target') }}</label>
+                        <label for="kelompok_target" class="col-md-4 col-form-label mx-5">{{ __('Kelompok/Target') }} <span class="text-danger"> *</span></label>
         
                         <div class="mx-5">
                             <input id="kelompok_target" type="text" class="form-control @error('kelompok_target') is-invalid @enderror" name="kelompok_target" required>
@@ -223,6 +223,8 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('surat_tugas') is-invalid @enderror" name="surat_tugas">
+                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            
                             @error('surat_tugas')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -236,6 +238,7 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('laporan_kegiatan') is-invalid @enderror" name="laporan_kegiatan">
+                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
                             @error('laporan_kegiatan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

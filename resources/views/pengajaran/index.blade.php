@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="card shadow bg-white flex-row card-rounded">
+<div class="card shadow bg-white card-rounded">
     <div class="card-body my-auto">
         <div class="title">
             <i class="fas fa-graduation-cap fa-lg pe-2"></i>
@@ -15,14 +15,12 @@
         <main>
             <section class="intro">
                 <div class="bg-image h-100">
-                    <div class="mask d-flex align-items-center h-100">
+                    <div class="mask d-flex align-items-center">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-12">
                                     <a href="{{ route('pengajaran.create') }}" class="btn btn-sm btn-success mb-3">TAMBAH</a>
-                                    <div class="card">
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
+                                    <div class="table-responsive">
                                         <table class="table table-striped mb-0">
                                             <thead style="background-color: #8A00B9;">
                                             <tr class="text-center">
@@ -75,8 +73,6 @@
                                             </tbody>
                                         </table>
                                         </div>
-                                    </div>
-                                    </div>
                                     <div class="d-flex justify-content-end">
                                         <nav aria-label="Page navigation">
                                             <ul class="pagination">

@@ -30,21 +30,20 @@ class PenelitianController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'status_peneliti' => 'required',
-            'kelompok_bidang' => 'required',
-            'judul_penelitian' => 'required',
-            'lokasi_kegiatan' => 'required',
-            'tahun_usulan' => 'required',
-            'tahun_kegiatan' => 'required',
-            'lama_kegiatan' => 'required',
-            'jumlah_dana' => 'required',
-            'sumber_dana' => 'required',
-            'no_sk_penugasan' => 'required',
-            'tanggal_sk_penugasan' => 'required',
-            'link_publikasi' => 'required',
+            'status_peneliti' => 'required|string|max:255',
+            'kelompok_bidang' => 'required|string|max:255',
+            'judul_penelitian' => 'required|string|max:255',
+            'lokasi_kegiatan' => 'required|string|max:255',
+            'tahun_usulan' => 'required|string|max:255',
+            'tahun_kegiatan' => 'required|string|max:255',
+            'lama_kegiatan' => 'required|string|max:255',
+            'jumlah_dana' => 'required|string|max:255',
+            'sumber_dana' => 'required|string|max:255',
+            'no_sk_penugasan' => 'required|string|max:255',
+            'tanggal_sk_penugasan' => 'required|string|max:255',
+            'link_publikasi' => 'required|string|max:255',
             'surat_tugas' => 'file|mimes:pdf|max:2048',
             'publikasi' => 'file|mimes:pdf|max:2048',
-            
         ]);
 
         // Get Id User
@@ -191,21 +190,20 @@ class PenelitianController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'status_peneliti' => 'required',
-            'kelompok_bidang' => 'required',
-            'judul_penelitian' => 'required',
-            'lokasi_kegiatan' => 'required',
-            'tahun_usulan' => 'required',
-            'tahun_kegiatan' => 'required',
-            'lama_kegiatan' => 'required',
-            'jumlah_dana' => 'required',
-            'sumber_dana' => 'required',
-            'no_sk_penugasan' => 'required',
-            'tanggal_sk_penugasan' => 'required',
-            'link_publikasi' => 'required',
+            'status_peneliti' => 'required|string|max:255',
+            'kelompok_bidang' => 'required|string|max:255',
+            'judul_penelitian' => 'required|string|max:255',
+            'lokasi_kegiatan' => 'required|string|max:255',
+            'tahun_usulan' => 'required|string|max:255',
+            'tahun_kegiatan' => 'required|string|max:255',
+            'lama_kegiatan' => 'required|string|max:255',
+            'jumlah_dana' => 'required|string|max:255',
+            'sumber_dana' => 'required|string|max:255',
+            'no_sk_penugasan' => 'required|string|max:255',
+            'tanggal_sk_penugasan' => 'required|string|max:255',
+            'link_publikasi' => 'required|string|max:255',
             'surat_tugas' => 'file|mimes:pdf|max:2048',
             'publikasi' => 'file|mimes:pdf|max:2048',
-            
         ]);
 
         // Get Id User

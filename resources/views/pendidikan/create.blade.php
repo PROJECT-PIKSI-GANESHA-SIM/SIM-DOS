@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="jenjang_pendidikan" class="col-md-4 col-form-label ms-5">{{ __('Jenjang Pendidikan') }}</label>
+                                <label for="jenjang_pendidikan" class="col-md-4 col-form-label ms-5">{{ __('Jenjang Pendidikan') }} <span class="text-danger"> *</span></label>
                                 
                                 <div class="ms-5">
                                     <select name="jenjang_pendidikan" id="jenjang_pendidikan" class="form-control form-select" data-bs-toggle="dropdown">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="bidang_studi" class="col-md-4 col-form-label me-5">{{ __('Bidang Studi') }}</label>
+                                <label for="bidang_studi" class="col-md-4 col-form-label me-5">{{ __('Bidang Studi') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="me-5">
                                     <input id="bidang_studi" type="text" class="form-control @error('bidang_studi') is-invalid @enderror" name="bidang_studi" required>
@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="nama_institusi" class="col-md-4 col-form-label ms-5">{{ __('Nama Institusi') }}</label>
+                                <label for="nama_institusi" class="col-md-4 col-form-label ms-5">{{ __('Nama Institusi') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="ms-5">
                                     <input id="nama_institusi" type="text" class="form-control @error('nama_institusi') is-invalid @enderror" name="nama_institusi" required>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="lokasi_institusi" class="col-md-4 col-form-label me-5">{{ __('Lokasi Institusi') }}</label>
+                                <label for="lokasi_institusi" class="col-md-4 col-form-label me-5">{{ __('Lokasi Institusi') }} <span class="text-danger"> *</span></label>
                 
                                 <div>
                                     <input id="lokasi_institusi" type="text" class="form-control @error('lokasi_institusi') is-invalid @enderror" name="lokasi_institusi" required>
@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="dalam_luar_negeri" class="col-form-label">{{ __('Dalam/luar Negeri') }}</label>
+                                <label for="dalam_luar_negeri" class="col-form-label">{{ __('Dalam/luar Negeri') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="me-5">
                                     <div>
@@ -109,7 +109,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="no_ijazah" class="col-md-4 col-form-label ms-5">{{ __('No Ijazah') }}</label>
+                                <label for="no_ijazah" class="col-md-4 col-form-label ms-5">{{ __('No Ijazah') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="ms-5">
                                     <input id="no_ijazah" type="text" class="form-control @error('no_ijazah') is-invalid @enderror" name="no_ijazah" required>
@@ -124,7 +124,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="predikat_kelulusan" class="col-md-4 col-form-label me-5">{{ __('Predikat Kelulusan') }}</label>
+                                <label for="predikat_kelulusan" class="col-md-4 col-form-label me-5">{{ __('Predikat Kelulusan') }} <span class="text-danger"> *</span></label>
                                 
                                 <div class="me-5">
                                     <select name="predikat_kelulusan" id="predikat_kelulusan" class="form-control form-select" data-bs-toggle="dropdown">
@@ -145,7 +145,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="gelar_singkat" class="col-md-4 col-form-label ms-5">{{ __('Gelar Singkat') }}</label>
+                                <label for="gelar_singkat" class="col-md-4 col-form-label ms-5">{{ __('Gelar Singkat') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="ms-5">
                                     <input id="gelar_singkat" type="text" class="form-control @error('gelar_singkat') is-invalid @enderror" name="gelar_singkat" required>
@@ -160,7 +160,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="gelar_panjang" class="col-md-4 col-form-label me-5">{{ __('Gelar Panjang') }}</label>
+                                <label for="gelar_panjang" class="col-md-4 col-form-label me-5">{{ __('Gelar Panjang') }} <span class="text-danger"> *</span></label>
                 
                                 <div class="me-5">
                                     <input id="gelar_panjang" type="text" class="form-control @error('gelar_panjang') is-invalid @enderror" name="gelar_panjang" required>
@@ -178,7 +178,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="tanggal_mulai_studi" class="col-md-4 col-form-label ms-5">{{ __('Tanggal Mulai Studi') }}</label>
+                                <label for="tanggal_mulai_studi" class="col-md-4 col-form-label ms-5">{{ __('Tanggal Mulai Studi') }} <span class="text-danger"> *</span></label>
                         
                                 <div class="ms-5">
                                     <input id="tanggal_mulai_studi" type="date" class="form-control @error('tanggal_mulai_studi') is-invalid @enderror datepicker" name="tanggal_mulai_studi" required>
@@ -194,7 +194,7 @@
                         
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="tanggal_berakhir_studi" class="col-md-4 col-form-label me-5">{{ __('Tanggal Berakhir Studi') }}</label>
+                                <label for="tanggal_berakhir_studi" class="col-md-4 col-form-label me-5">{{ __('Tanggal Berakhir Studi') }} <span class="text-danger"> *</span></label>
                         
                                 <div class="me-5">
                                     <input id="tanggal_berakhir_studi" type="date" class="form-control @error('tanggal_berakhir_studii') is-invalid @enderror datepicker" name="tanggal_berakhir_studi" required>
@@ -228,9 +228,10 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('file_ijazah') is-invalid @enderror" name="file_ijazah">
+                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
                             @error('file_ijazah')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
@@ -241,9 +242,10 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('transkrip_nilai') is-invalid @enderror" name="transkrip_nilai">
+                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
                             @error('transkrip_nilai')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>

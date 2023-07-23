@@ -47,17 +47,17 @@ class DataDiriController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'nidn' => 'required',
-            'nip' => 'required',
-            'nik' => 'required',
-            'nama' => 'required',
-            'jenis_kelamin' => 'required',
-            'golongan_darah' => 'required',
-            'kewarganegaraan' => 'required',
-            'agama' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'status_perkawinan' => 'required'
+            'nidn' => 'required|string|max:255',
+            'nip' => 'required|string|max:255',
+            'nik' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|string|max:255',
+            'golongan_darah' => 'required|string|max:255',
+            'kewarganegaraan' => 'required|string|max:255',
+            'agama' => 'required|string|max:255',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|string|max:255',
+            'status_perkawinan' => 'required|string|max:255'
         ]);
 
         $identitas->update([
@@ -96,16 +96,16 @@ class DataDiriController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'alamat' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'no' => 'required',
-            'desa_kelurahan' => 'required',
-            'kota_kabupaten' => 'required',
-            'provinsi' => 'required',
-            'kode_pos' => 'required',
-            'no_telepon_rumah' => 'required',
-            'no_handphone' => 'required',
+            'alamat' => 'required|string|max:255',
+            'rt' => 'required|string|max:255',
+            'rw' => 'required|string|max:255',
+            'no' => 'required|string|max:255',
+            'desa_kelurahan' => 'required|string|max:255',
+            'kota_kabupaten' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:255',
+            'kode_pos' => 'required|string|max:255',
+            'no_telepon_rumah' => 'required|string|max:255',
+            'no_handphone' => 'required|string|max:255',
         ]);
 
         $alamat_kontak->update([
@@ -142,14 +142,14 @@ class DataDiriController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'program_studi' => 'required',
-            'status_kepegawaian' => 'required',
-            'status_keaktifan' => 'required',
-            'no_sk_sertifikasi_dosen' => 'required',
-            'jabatan_fungsional' => 'required',
-            'no_sk_tmmd' => 'required',
-            'tanggal_menjadi_dosen' => 'required',
-            'pangkat_golongan' => 'required'
+            'program_studi' => 'required|string|max:255',
+            'status_kepegawaian' => 'required|string|max:255',
+            'status_keaktifan' => 'required|string|max:255',
+            'no_sk_sertifikasi_dosen' => 'required|string|max:255',
+            'jabatan_fungsional' => 'required|string|max:255',
+            'no_sk_tmmd' => 'required|string|max:255',
+            'tanggal_menjadi_dosen' => 'required|string|max:255',
+            'pangkat_golongan' => 'required|string|max:255'
         ]);
 
         $kepegawaian->update([
@@ -184,9 +184,9 @@ class DataDiriController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'npwp' => 'required',
-            'nama_wajib_pajak' => 'required',
-            'sinta_id' => 'required'
+            'npwp' => 'required|string|max:255',
+            'nama_wajib_pajak' => 'required|string|max:255',
+            'sinta_id' => 'required|string|max:255'
         ]);
 
 

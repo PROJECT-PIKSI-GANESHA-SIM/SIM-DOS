@@ -34,13 +34,13 @@ class PengajaranController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'tahun_ajar' => 'required',
-            'program_studi' => 'required',
-            'matkul' => 'required',
-            'jenis_matkul' => 'required',
-            'kelas' => 'required',
-            'sks' => 'required',
-            'jumlah_mahasiswa' => 'required',
+            'tahun_ajar' => 'required|string|max:255',
+            'program_studi' => 'required|string|max:255',
+            'matkul' => 'required|string|max:255',
+            'jenis_matkul' => 'required|string|max:255',
+            'kelas' => 'required|string|max:255',
+            'sks' => 'required|string|max:255',
+            'jumlah_mahasiswa' => 'required|string|max:255',
             'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -171,13 +171,13 @@ class PengajaranController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'tahun_ajar' => 'required',
-            'program_studi' => 'required',
-            'matkul' => 'required',
-            'jenis_matkul' => 'required',
-            'kelas' => 'required',
-            'sks' => 'required',
-            'jumlah_mahasiswa' => 'required',
+            'tahun_ajar' => 'required|string|max:255',
+            'program_studi' => 'required|string|max:255',
+            'matkul' => 'required|string|max:255',
+            'jenis_matkul' => 'required|string|max:255',
+            'kelas' => 'required|string|max:255',
+            'sks' => 'required|string|max:255',
+            'jumlah_mahasiswa' => 'required|string|max:255',
             'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
