@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengabdian;
+use App\Models\Pesan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -15,8 +16,12 @@ class PengabdianController extends Controller
         $user = Auth::user();
 
         $pengabdian = Pengabdian::where('user_id', $user->id)->paginate(5);
+        $pesan = Pesan::all();
 
-        return view('pengabdian.index', compact('pengabdian'));
+        return view('pengabdian.index', [
+            'pengabdian' => $pengabdian,
+            'pesan' => $pesan
+        ]);
     }
 
     function create() {

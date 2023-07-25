@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penelitian;
+use App\Models\Pesan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -15,9 +16,11 @@ class PenelitianController extends Controller
         $user = Auth::user();
 
         $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
+        $pesan = Pesan::all();
 
         return view('penelitian.index', [
-            'penelitian' => $penelitian
+            'penelitian' => $penelitian,
+            'pesan' => $pesan
         ]);
     }
 

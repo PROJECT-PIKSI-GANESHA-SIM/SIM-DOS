@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProgramStudiTableSeeder::class);
         $this->call(JenjangPendidikanTableSeeder::class);
         $this->call(PredikatKelulusanTableSeeder::class);
+        $this->call(PesanTableSeeder::class);
 
         IdentitasDiri::create([
             'nip' => '-',

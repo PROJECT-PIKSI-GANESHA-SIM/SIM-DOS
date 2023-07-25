@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajaran;
+use App\Models\Pesan;
 use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +17,13 @@ class PengajaranController extends Controller
         $user = Auth::user();
 
         $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
+        $pesan = Pesan::all();
         // $pengajaran = Pengajaran::where('user_id', $user->id)->get();
 
-        return view('pengajaran.index', compact('pengajaran'));
+        return view('pengajaran.index', [
+            'pengajaran' => $pengajaran,
+            'pesan' => $pesan
+        ]);
     }
 
     public function create() {

@@ -7,6 +7,7 @@ use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\PengajaranController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PusatInformasiController;
 use App\Models\Pengabdian;
@@ -128,5 +129,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pusat_informasi', [PusatInformasiController::class, 'index'])->middleware('role:akademik')->name('pusat_informasi');
     Route::get('/pusat_informasi/create', [PusatInformasiController::class, 'create'])->middleware('role:akademik')->name('pusat_informasi.create');
     Route::post('/pusat_informasi/create', [PusatInformasiController::class, 'store'])->middleware('role:akademik')->name('pusat_informasi.store');
+    
+    // Pesan
+    Route::get('/pesan', [PesanController::class, 'index'])->middleware('role:akademik')->name('pesan');
+    Route::post('/updatePublishStatus', [PesanController::class, 'update_publish_status'])->middleware('role:akademik')->name('pesan.update_publish_status');
+    Route::get('/pesan/{id}/edit', [PesanController::class, 'edit'])->middleware('role:akademik')->name('pesan.edit');
+    Route::put('/pesan/update/{id}', [PesanController::class, 'update'])->middleware('role:akademik')->name('pesan.update');
 
 });

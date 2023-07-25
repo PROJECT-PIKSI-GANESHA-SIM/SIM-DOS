@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JenjangPendidikan;
 use App\Models\Pendidikan;
+use App\Models\Pesan;
 use App\Models\PredikatKelulusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,10 +16,14 @@ class PendidikanController extends Controller
 
         // Get Id User
         $user = Auth::user();
+        $pesan = Pesan::all();
 
         $pendidikan = Pendidikan::where('user_id', $user->id)->paginate(5);
 
-        return view('pendidikan.index', compact('pendidikan'));
+        return view('pendidikan.index', [
+            'pendidikan' => $pendidikan,
+            'pesan' => $pesan
+        ]);
     }
 
     public function create() {

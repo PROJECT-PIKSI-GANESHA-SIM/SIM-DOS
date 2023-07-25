@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="alert alert-info alert-dismissible" role="alert">
-    <div>Perubahan Data Maksimal Tanggal 23-07-2023</div>
+    <div>{{ $pesan[0]->message }}</div>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <div class="card shadow bg-white card-rounded">
