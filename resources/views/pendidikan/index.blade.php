@@ -5,10 +5,12 @@
 @endsection
 
 @section('content')
-<div class="alert alert-info alert-dismissible" role="alert">
-    <div>{{ $pesan[0]->message }}</div>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+@if ($pesan[0]->status != 0)
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <div>{{ $pesan[0]->message }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <div class="card shadow bg-white card-rounded">
     <div class="card-body my-auto">
         <div class="title">

@@ -16,7 +16,7 @@ class PesanTableSeeder extends Seeder
     {
         Pesan::create([
             'message' => '-',
-            'status' => '0',
+            'status' => 0,
         ]);
     }
 }

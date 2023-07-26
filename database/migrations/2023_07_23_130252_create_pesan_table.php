@@ -16,7 +16,7 @@ class CreatePesanTable extends Migration
         Schema::create('pesan', function (Blueprint $table) {
             $table->id();
             $table->string('message')->nullable();
-            $table->string('status');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
