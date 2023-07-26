@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-<div class="card shadow bg-white flex-row card-rounded">
+<div class="card shadow bg-white card-rounded">
     <div class="card-body my-auto">
         <div class="title">
-            <i class="fas fa-graduation-cap fa-lg pe-2"></i>
+            <i class="fas fa-window-maximize fa-lg pe-2"></i>
             <span class="fw-bold fs-5">TAMBAH PENGABDIAN</span>
             <hr>
         </div>

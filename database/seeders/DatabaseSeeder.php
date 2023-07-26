@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder
         IdentitasDiri::create([
             'nip' => '-',
             'nik' => '-',
-            'foto' => '-',
             'nama' => '-',
             'jenis_kelamin' => '-',
             'golongan_darah' => '-',

@@ -29,7 +29,6 @@ class ProfileController extends Controller
         
         $this->validate($request, [
             'nidn' => 'required|min:5',
-            'email' => 'email|unique:users,email',
             'name' => 'required|min:5',
             'no_telpn' => 'required|min:5',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -39,7 +38,6 @@ class ProfileController extends Controller
 
         $user->name = $request->name;
         $user->nidn = $request->nidn;
-        $user->email = $request->email;
         $user->no_telpn = $request->no_telpn;
 
         // Check image is uploaded

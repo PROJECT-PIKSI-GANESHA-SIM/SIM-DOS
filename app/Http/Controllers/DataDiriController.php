@@ -19,7 +19,6 @@ class DataDiriController extends Controller
         $lain_lain = LainLain::where('user_id', $user->id)->get();
         $kepegawaian = Kepegawaian::where('user_id', $user->id)->get();
 
-
         return view('data_diri.index', [
             'user' => $user,
             'identitas' => $identitas,

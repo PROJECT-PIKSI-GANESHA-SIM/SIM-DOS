@@ -17,7 +17,6 @@ class CreateTableIdentitasDiriTable extends Migration
             $table->id();
             $table->string('nip', 50)->nullable();
             $table->string('nik', 50)->default("-");
-            $table->string('foto')->default("-");
             $table->string('nama')->default("-");
             $table->string('jenis_kelamin', 50)->default("-");
             $table->string('golongan_darah', 50)->default("-");

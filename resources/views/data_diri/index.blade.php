@@ -16,8 +16,17 @@
                     </a>
                 </div>
                 <hr>
-                <div class="image-profile d-flex justify-content-center align-items-center">
+                {{-- <div class="image-profile d-flex justify-content-center align-items-center">
                     <img src="{{ asset('assets/PIKSI.png') }}" alt="" width="170px;" height="170px">
+                </div> --}}
+                <div class="row">
+                    <div class="col-md-12  d-flex align-items-center justify-content-center">
+                        @if ($user->image == null)
+                            <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="100px" height="100px">
+                        @else
+                            <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="100px" height="100px">    
+                        @endif
+                    </div>
                 </div>
                 <div class="items mt-5 me-5 ms-5">
                     <div class="row mb-2">
