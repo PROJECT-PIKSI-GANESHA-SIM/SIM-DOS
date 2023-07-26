@@ -8,7 +8,7 @@
 <div class="card shadow bg-white card-rounded">
     <div class="card-body my-auto">
         <div class="title">
-            <i class="fas fa-sticky-note fa-lg pe-2"></i>
+            <i class="fas fa-info-circle fa-lg pe-2"></i>
             <span class="fw-bold fs-5">PUSAT INFORMASI</span>
             <hr>
         </div>

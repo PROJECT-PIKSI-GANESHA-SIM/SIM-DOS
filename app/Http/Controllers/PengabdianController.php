@@ -20,12 +20,16 @@ class PengabdianController extends Controller
 
         return view('pengabdian.index', [
             'pengabdian' => $pengabdian,
-            'pesan' => $pesan
+            'pesan' => $pesan,
+            'user' => $user
         ]);
     }
 
     function create() {
-        return view('pengabdian.create');
+        $user = Auth::user();
+        return view('pengabdian.create', [
+            'user' => $user
+        ]);
     }
 
     public function store(Request $request) {
@@ -163,15 +167,23 @@ class PengabdianController extends Controller
     }
 
     public function edit($id) {
+        $user = Auth::user();
         $pengabdian = Pengabdian::findOrFail($id);
 
-        return view('pengabdian.edit', compact('pengabdian'));
+        return view('pengabdian.edit', [
+            'pengabdian' => $pengabdian,
+            'user' => $user
+        ]);
     }
 
     public function view($id) {
         $pengabdian = Pengabdian::findOrFail($id);
+        $user = Auth::user();
 
-        return view('pengabdian.view', compact('pengabdian'));
+        return view('pengabdian.view', [
+            'pengabdian' => $pengabdian,
+            'user' => $user
+        ]);
     }
 
     public function update(Request $request, $id) {

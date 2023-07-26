@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengajaran;
 use App\Models\Pesan;
 use App\Models\ProgramStudi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -22,16 +23,19 @@ class PengajaranController extends Controller
 
         return view('pengajaran.index', [
             'pengajaran' => $pengajaran,
-            'pesan' => $pesan
+            'pesan' => $pesan,
+            'user' => $user
         ]);
     }
 
     public function create() {
 
         $program_studi = ProgramStudi::all();
+        $user = Auth::user();
 
         return view('pengajaran.create', [
-            'program_studi' => $program_studi
+            'program_studi' => $program_studi,
+            'user' => $user
         ]);
     }
 
@@ -152,10 +156,12 @@ class PengajaranController extends Controller
         
         $pengajaran = Pengajaran::findOrFail($id);
         $program_studi = ProgramStudi::all();
+        $user = Auth::user();
 
         return view('pengajaran.edit', [
             'pengajaran' => $pengajaran,
-            'program_studi' => $program_studi
+            'program_studi' => $program_studi,
+            'user' => $user
         ]);
     }
 
@@ -163,10 +169,12 @@ class PengajaranController extends Controller
         
         $pengajaran = Pengajaran::findOrFail($id);
         $program_studi = ProgramStudi::all();
+        $user = Auth::user();
 
         return view('pengajaran.view', [
             'pengajaran' => $pengajaran,
-            'program_studi' => $program_studi
+            'program_studi' => $program_studi,
+            'user' => $user
         ]);
     }
 

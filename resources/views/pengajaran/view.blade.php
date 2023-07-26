@@ -139,6 +139,9 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('bukti_pengajaran') is-invalid @enderror" name="bukti_pengajaran" disabled>
+                            @if ($pengajaran->bukti_pengajaran != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/pengajaran/bukti_pengajaran/' . $pengajaran->bukti_pengajaran) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @endif
                             @error('bukti_pengajaran')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -152,6 +155,9 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('bukti_presensi') is-invalid @enderror" name="bukti_presensi" disabled>
+                            @if ($pengajaran->bukti_presensi != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/pengajaran/bukti_presensi/' . $pengajaran->bukti_presensi) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @endif
                             @error('bukti_presensi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

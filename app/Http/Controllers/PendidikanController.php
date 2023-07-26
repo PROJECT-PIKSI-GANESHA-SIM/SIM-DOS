@@ -6,6 +6,7 @@ use App\Models\JenjangPendidikan;
 use App\Models\Pendidikan;
 use App\Models\Pesan;
 use App\Models\PredikatKelulusan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,8 @@ class PendidikanController extends Controller
 
         return view('pendidikan.index', [
             'pendidikan' => $pendidikan,
-            'pesan' => $pesan
+            'pesan' => $pesan,
+            'user' => $user
         ]);
     }
 
@@ -34,9 +36,13 @@ class PendidikanController extends Controller
         // get predikat kelulusan
         $predikat_kelulusan = PredikatKelulusan::all();
 
+        // user
+        $user = Auth::user();
+
         return view('pendidikan.create', [
             'jenjang_pendidikan' => $jenjang_pendidikan,
-            'predikat_kelulusan' => $predikat_kelulusan
+            'predikat_kelulusan' => $predikat_kelulusan,
+            'user' => $user
         ]);
     }
 
@@ -163,7 +169,7 @@ class PendidikanController extends Controller
             ]);
         }
 
-        return redirect()->route('dosen.edit')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('pendidikan')->with(['success' => 'Data Berhasil Disimpan!']);
 
     }
 
@@ -178,10 +184,14 @@ class PendidikanController extends Controller
         // get predikat kelulusan
         $predikat_kelulusan = PredikatKelulusan::all();
 
+        // user
+        $user = Auth::user();
+
         return view('pendidikan.edit', [
             'pendidikan' => $pendidikan,
             'jenjang_pendidikan' => $jenjang_pendidikan,
-            'predikat_kelulusan' => $predikat_kelulusan
+            'predikat_kelulusan' => $predikat_kelulusan,
+            'user' => $user
         ]);
     }
 
@@ -335,6 +345,22 @@ class PendidikanController extends Controller
         $pendidikan->delete();
 
         return redirect()->route('pendidikan')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function view($id) {
+
+        $pendidikan = Pendidikan::findOrFail($id);
+        $jenjang_pendidikan = JenjangPendidikan::all();
+        $predikat_kelulusan = PredikatKelulusan::all();
+        $user = Auth::user();
+
+        return view('pendidikan.view', [
+            'pendidikan' => $pendidikan,
+            'jenjang_pendidikan' => $jenjang_pendidikan,
+            'predikat_kelulusan' => $predikat_kelulusan,
+            'user' => $user
+        ]);
+
     }
 
 }

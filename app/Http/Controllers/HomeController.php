@@ -31,11 +31,11 @@ class HomeController extends Controller
         $roles = $user->getRoleNames();
 
         if ($roles[0] == 'dosen') {
-            return view('home.index');
+            return view('home.index', compact('user'));
         } elseif ($roles[0] == 'akademik') {
-            return view('akademik.home.index');
+            return view('akademik.home.index', compact('user'));
         } else {
-            return view('home.index');
+            return view('home.index', compact('user'));
         }
     }
 }

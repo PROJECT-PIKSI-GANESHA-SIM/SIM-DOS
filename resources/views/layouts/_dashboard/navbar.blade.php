@@ -8,7 +8,12 @@
             <li class="nav-item dropdown">
                 <div class="nav-dropdown">
                     <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset("assets/PIKSI.png") }}" alt="" width="40px" height="40px"> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                        @if ($user->image == null)
+                            <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                        @else
+                            <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">    
+                        @endif
+                        <i style="font-size: .8em;" class="fas fa-caret-down"></i>    
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nav-link-menu">
                         <ul class="nav-list">

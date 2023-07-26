@@ -224,6 +224,9 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('surat_tugas') is-invalid @enderror" name="surat_tugas" disabled>
+                            @if ($pengabdian->surat_tugas != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/pengabdian/surat_tugas/' . $pengabdian->surat_tugas) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @endif
                             @error('surat_tugas')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -237,6 +240,9 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('laporan_kegiatan') is-invalid @enderror" name="laporan_kegiatan" disabled>
+                            @if ($pengabdian->laporan_kegiatan != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/pengabdian/laporan_kegiatan/' . $pengabdian->laporan_kegiatan) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @endif
                             @error('laporan_kegiatan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

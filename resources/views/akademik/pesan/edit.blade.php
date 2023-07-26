@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.akademik-dashboard')
 
 @section('title')
     
@@ -8,7 +8,7 @@
 <div class="card shadow bg-white flex-row card-rounded">
     <div class="card-body my-auto">
         <div class="title">
-            <i class="fas fa-graduation-cap fa-lg pe-2"></i>
+            <i class="fas fa-comment-dots fa-lg pe-2"></i>
             <span class="fw-bold fs-5">EDIT PESAN</span>
             <hr>
         </div>

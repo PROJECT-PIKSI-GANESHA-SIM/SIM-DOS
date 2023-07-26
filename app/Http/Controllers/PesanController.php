@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Pesan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PesanController extends Controller
 {
     public function index() {
 
         $pesan = Pesan::all();
+        $user = Auth::user();
 
-        return view('akademik.pesan.index', compact('pesan'));
+        return view('akademik.pesan.index', [
+            'user' => $user,
+            'pesan' => $pesan
+        ]);
     }
 
     public function update_publish_status(Request $request) {
@@ -23,8 +28,12 @@ class PesanController extends Controller
     public function edit($id) {
 
         $pesan = Pesan::findOrFail($id);
+        $user = Auth::user();
 
-        return view('akademik.pesan.edit', compact('pesan'));
+        return view('akademik.pesan.edit', [
+            'pesan' => $pesan,
+            'user' => $user
+        ]);
     }
 
     public function update(Request $request, $id) {

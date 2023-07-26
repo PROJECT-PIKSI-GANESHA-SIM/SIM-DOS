@@ -20,13 +20,16 @@ class PenelitianController extends Controller
 
         return view('penelitian.index', [
             'penelitian' => $penelitian,
-            'pesan' => $pesan
+            'pesan' => $pesan,
+            'user' => $user
         ]);
     }
 
     public function create() {
-
-        return view('penelitian.create');
+        $user = Auth::user();
+        return view('penelitian.create', [
+            'user' => $user
+        ]);
     }
 
     public function store(Request $request) {
@@ -170,9 +173,11 @@ class PenelitianController extends Controller
     public function edit($id) {
 
         $penelitian = Penelitian::findOrFail($id);
+        $user = Auth::user();
 
         return view('penelitian.edit', [
-            'penelitian' => $penelitian
+            'penelitian' => $penelitian,
+            'user' => $user
         ]);
 
     }
@@ -180,9 +185,11 @@ class PenelitianController extends Controller
     public function view($id) {
 
         $penelitian = Penelitian::findOrFail($id);
+        $user = Auth::user();
 
         return view('penelitian.view', [
-            'penelitian' => $penelitian
+            'penelitian' => $penelitian,
+            'user' => $user
         ]);
 
     }

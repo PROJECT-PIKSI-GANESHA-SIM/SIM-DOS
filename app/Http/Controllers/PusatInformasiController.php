@@ -4,20 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\PusatInformasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PusatInformasiController extends Controller
 {
     public function index() {
         $pusat_informasi = PusatInformasi::paginate(5);
+        $user = Auth::user();
 
         return view('akademik.pusat_informasi.index', [
-            'pusat_informasi' => $pusat_informasi
+            'pusat_informasi' => $pusat_informasi,
+            'user' => $user
         ]);
     }
 
     public function create() {
-
-        return view('akademik.pusat_informasi.create');
+        $user = Auth::user();
+        return view('akademik.pusat_informasi.create', [
+            'user' => $user
+        ]);
     }
 
     public function store(Request $request) {
