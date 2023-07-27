@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dosen.penelitian.update', [$user->id, $penelitian->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -205,7 +205,11 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('surat_tugas') is-invalid @enderror" name="surat_tugas">
-                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @if ($penelitian->surat_tugas != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/penelitian/surat_tugas/' . $penelitian->surat_tugas) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @else
+                                <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @endif
                             @error('surat_tugas')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -219,7 +223,11 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('publikasi') is-invalid @enderror" name="publikasi">
-                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @if ($penelitian->publikasi != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/penelitian/publikasi/' . $penelitian->publikasi) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @else
+                                <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @endif
                             @error('publikasi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

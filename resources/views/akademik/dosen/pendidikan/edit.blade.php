@@ -229,7 +229,11 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('file_ijazah') is-invalid @enderror" name="file_ijazah">
-                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @if ($pendidikan->file_ijazah != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/pendidikan/ijazah/' . $pendidikan->file_ijazah) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @else
+                                <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @endif
                             @error('file_ijazah')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -243,7 +247,11 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('transkrip_nilai') is-invalid @enderror" name="transkrip_nilai">
-                            <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @if ($pendidikan->transkrip_nilai != null)
+                                <span class="fst-italic"><a href="{{ Storage::url('dosen/pendidikan/transkrip_nilai/' . $pendidikan->transkrip_nilai) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @else
+                                <span class="text-danger fst-italic">pdf: max 2 mb</span>
+                            @endif
                             @error('transkrip_nilai')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -73,7 +73,7 @@
                                                             <a href="">
                                                                 <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                             </a>
-                                                            <a href="{{ route('dosen.pendidikan.edit', $p->id) }}">
+                                                            <a href="{{ route('dosen.pendidikan.edit', [$user->id, $p->id]) }}">
                                                                 <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                             </a>
                                                             @csrf
@@ -169,7 +169,7 @@
                                                         <a href="">
                                                             <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                         </a>
-                                                        <a href="{{ route('dosen.pengajaran.edit', $p->id) }}">
+                                                        <a href="{{ route('dosen.pengajaran.edit', [$user->id, $p->id]) }}">
                                                             <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                         </a>
                                                         @csrf
@@ -262,7 +262,7 @@
                                                             <a href="">
                                                                 <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                             </a>
-                                                            <a href="{{ route('dosen.penelitian.edit', $p->id) }}">
+                                                            <a href="{{ route('dosen.penelitian.edit', [$user->id, $p->id]) }}">
                                                                 <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                             </a>
                                                             @csrf
@@ -353,7 +353,7 @@
                                                             <a href="">
                                                                 <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                             </a>
-                                                            <a href="{{ route('pengabdian.edit', $p->id) }}">
+                                                            <a href="{{ route('dosen.pengabdian.edit', [$user->id, $p->id]) }}">
                                                                 <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                             </a>
                                                             @csrf

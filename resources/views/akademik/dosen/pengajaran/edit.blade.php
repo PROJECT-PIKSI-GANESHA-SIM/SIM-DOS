@@ -14,7 +14,7 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dosen.pengajaran.update', [$user->id, $pengajaran->id] ) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -139,7 +139,11 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('bukti_pengajaran') is-invalid @enderror" name="bukti_pengajaran">
-                            <span class="text-danger fst-italic">jpeg,png,jpg: max 2 mb</span>
+                            @if ($pengajaran->bukti_pengajaran != null)
+                            <span class="fst-italic"><a href="{{ Storage::url('dosen/pengajaran/bukti_pengajaran/' . $pengajaran->bukti_pengajaran) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @else
+                                <span class="text-danger fst-italic">jpeg,png,jpg: max 2 mb</span>
+                            @endif
                             @error('bukti_pengajaran')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -153,7 +157,11 @@
                         
                         <div class="mx-5">
                             <input type="file" class="form-control @error('bukti_presensi') is-invalid @enderror" name="bukti_presensi">
-                            <span class="text-danger fst-italic">jpeg,png,jpg: max 2 mb</span>
+                            @if ($pengajaran->bukti_presensi != null)
+                            <span class="fst-italic"><a href="{{ Storage::url('dosen/pengajaran/bukti_presensi/' . $pengajaran->bukti_presensi) }}" target="_blank" rel="noopener noreferrer" class="text-danger text-decoration-none"> View File</a></span>
+                            @else
+                                <span class="text-danger fst-italic">jpeg,png,jpg: max 2 mb</span>
+                            @endif
                             @error('bukti_presensi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

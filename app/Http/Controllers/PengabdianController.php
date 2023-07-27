@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengabdian;
 use App\Models\Pesan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -166,11 +167,12 @@ class PengabdianController extends Controller
 
     }
 
-    public function edit($id) {
-        $user = Auth::user();
+    public function edit_pengabdian($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
         $pengabdian = Pengabdian::findOrFail($id);
 
-        return view('pengabdian.edit', [
+        return view('akademik.dosen.pengabdian.edit', [
             'pengabdian' => $pengabdian,
             'user' => $user
         ]);
