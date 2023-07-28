@@ -1,7 +1,15 @@
 @extends('layouts.main')
-
+<style>
+    body {
+        background-image: url('assets/patternpad-pusatinformasi.svg');
+        background-repeat: no-repeat;
+    }
+</style>
 @section('container')
-    <h1 class="text-center py-5">Pusat Informasi</h1>
+    <div class="container py-5">
+        <h1 class="text-center">Pusat Informasi</h1>
+        <p class="text-center">Pusat Informasi seputar Dosen dari Politeknik Piksi Ganesha Bandung</p>
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <div class="card">

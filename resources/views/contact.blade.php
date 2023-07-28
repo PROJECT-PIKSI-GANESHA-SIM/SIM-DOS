@@ -1,5 +1,9 @@
 @extends('layouts.main')
-
+<style>
+    body {
+        background-image: url('assets/patternpad-contact.svg');
+    }
+</style>
 @section('container')
     <form>
         <div class="mb-3">
