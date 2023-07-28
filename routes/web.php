@@ -59,7 +59,10 @@ Route::get('/informationcenter', function () {
 });
 
 Route::get('/detail_informationcenter', function () {
-    return view('detail_informationcenter');
+    // return view('detail_informationcenter');
+    return view('detail_informationcenter', [
+        "title" => "Pusat Informasi"
+    ]);
 });
 
 Auth::routes([
