@@ -11,6 +11,7 @@ use App\Models\PredikatKelulusan;
 use App\Models\ProgramStudi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
@@ -18,11 +19,34 @@ class DosenController extends Controller
 {
     public function index() {
 
-        $users = User::whereHas('roles', function ($query) {
+        $users_dosen = User::whereHas('roles', function ($query) {
             $query->where('name', 'dosen');
         })->paginate(5);
 
-        return view('akademik.dosen.index', compact('users'));
+        $users = Auth::user();
+
+        return view('akademik.dosen.index', [
+            'users_dosen' => $users_dosen,
+            'users' => $users
+        ]);
+    }
+
+    public function search(Request $request) {
+
+        $cari = $request->search;
+
+        $users = Auth::user();
+        $users_dosen = User::whereHas('roles', function ($query) {
+            $query->where('name', 'dosen');
+        })
+        ->where('name', 'LIKE', '%'.$cari.'%')
+        ->paginate(5);
+
+        return view('akademik.dosen.index', [
+            'user' => $users,
+            'users_dosen' => $users_dosen
+            
+        ]);
     }
 
     public function edit($id) {
@@ -351,7 +375,7 @@ class DosenController extends Controller
         // hapus pendidikan
         $pendidikan->delete();
 
-        return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 
@@ -611,7 +635,7 @@ class DosenController extends Controller
         // hapus pengajaran
         $pengajaran->delete();
 
-        return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dosen,edit', $id)->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     // PENELITIAN
@@ -911,7 +935,7 @@ class DosenController extends Controller
         // hapus penelitian
         $penelitian->delete();
 
-        return redirect()->route('dosen')->with(['success' => 'Data Berhasil Dihapus']);
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Dihapus']);
     }
 
     // PENGABDIAN
@@ -1212,8 +1236,19 @@ class DosenController extends Controller
         }
 
         return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+    }
 
+    public function destroy_pengabdian($id) {
+        $pengabdian = Pengabdian::findOrFail($id);
 
+        // hapus file surat tugas dan laporan kegiatan
+        Storage::delete('public/dosen/pengabdian/surat_tugas/'. $pengabdian->surat_tugas);
+        Storage::delete('public/dosen/pengabdian/laporan_kegiatan/'. $pengabdian->laporan_kegiatan);
+        
+        // hapus pengajaran
+        $pengabdian->delete();
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Didelete!']);
     }
 
 }

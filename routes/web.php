@@ -102,6 +102,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     
     // ROLE AKADEMIK
     Route::get('/dosen', [DosenController::class, 'index'])->middleware('role:akademik')->name('dosen');
+    Route::get('/dosen/search', [DosenController::class, 'search'])->middleware('role:akademik')->name('dosen.search');
     Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->middleware('role:akademik')->name('dosen.edit');
     
     // Pendidikan
@@ -130,6 +131,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('/dosen/{id}/pengabdian/create', [DosenController::class, 'store_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.store');
     Route::get('/dosen/{user_id}/pengabdian/{id}/edit', [DosenController::class, 'edit_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.edit');
     Route::put('/dosen/{user_id}/pengabdian/update/{id}', [DosenController::class, 'update_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.update');
+    Route::delete('/dosen/pengabdian/delete/{id}', [DosenController::class, 'destroy_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.destroy');
     
     // Pusat Informasi
     Route::get('/pusat_informasi', [PusatInformasiController::class, 'index'])->middleware('role:akademik')->name('pusat_informasi');

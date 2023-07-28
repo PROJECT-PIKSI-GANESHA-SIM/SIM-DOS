@@ -49,20 +49,21 @@
         
                         <div class="mx-5">
                             <input id="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror datepicker" name="tanggal" required>
-        
+                            
                             @error('tanggal')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
-        
+                    
                     <div class="mb-3 ">
                         <label for="description" class="col-md-4 col-form-label mx-5">{{ __('Description') }}</label>
-        
+                        
                         <div class="mx-5">
-                            <textarea class="form-control" id="description" name="description"></textarea>
+                            <input id="description" type="text" class="form-control @error('description') is-invalid @enderror " name="description" required>
+                            {{-- <textarea class="form-control" id="description" name="description"></textarea> --}}
                             
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
@@ -85,12 +86,12 @@
         </main>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
- <script>
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script> --}}
+ {{-- <script>
          ClassicEditor
             .create( document.querySelector( '#description' ) )
             .catch( error => {
                 console.error( error );
             } );
-    </script>
+    </script> --}}
 @endsection

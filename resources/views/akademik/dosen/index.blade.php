@@ -13,13 +13,22 @@
             <hr>
         </div>
         <main>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="searchInput" placeholder="Cari...">
-                <button type="button" class="btn btn-primary" id="searchButton">Cari</button>
+            <div class="mb-3">
+                <form action="{{ route('dosen.search') }}" method="GET">
+                    @csrf
+                    <div class="container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search" name="search" placeholder="Search for...">
+                              <span class="input-group-btn">
+                                <button type="submit" class="btn btn-search text-white" style="background-color: #8A00B9" type="button"><i class="fa fa-search fa-fw"></i> Search</button>
+                              </span>
+                        </div>
+                        </div>
+                </form>
             </div>
               
             <div class="container">
-                @foreach ($users as $user)
+                @foreach ($users_dosen as $user)
                     <div class="row align-items-center">
                         <div class="col-2">
                             {{-- <p>IMAGE: {{ asset('dosen/profile/' . $user->image) }}</p> --}}
@@ -58,23 +67,23 @@
                         <ul class="pagination">
                 
                             <!-- Tombol "Previous" -->
-                            <li class="page-item {{ $users->onFirstPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $users->previousPageUrl() }}" aria-label="Previous">
+                            <li class="page-item {{ $users_dosen->onFirstPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $users_dosen->previousPageUrl() }}" aria-label="Previous">
                                     <span aria-hidden="true">Previous</span>
                                     <span class="sr-only">Previous</span>
                                 </a>
                             </li>
                 
                             <!-- Tombol nomor halaman -->
-                            @for ($i = 1; $i <= $users->lastPage(); $i++)
-                                <li class="page-item {{ $users->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $users->url($i) }}">{{ $i }}</a>
+                            @for ($i = 1; $i <= $users_dosen->lastPage(); $i++)
+                                <li class="page-item {{ $users_dosen->currentPage() == $i ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $users_dosen->url($i) }}">{{ $i }}</a>
                                 </li>
                             @endfor
                 
                             <!-- Tombol "Next" -->
-                            <li class="page-item {{ $users->currentPage() == $users->lastPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $users->nextPageUrl() }}" aria-label="Next">
+                            <li class="page-item {{ $users_dosen->currentPage() == $users_dosen->lastPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $users_dosen->nextPageUrl() }}" aria-label="Next">
                                     <span aria-hidden="true">Next</span>
                                     <span class="sr-only">Next</span>
                                 </a>

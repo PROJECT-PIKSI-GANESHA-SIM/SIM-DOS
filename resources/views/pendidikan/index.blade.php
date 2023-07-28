@@ -120,8 +120,6 @@
         </main>
     </div>
 </div>
-@endsection
-
 <script>
     //message with toastr
     @if(session()->has('success'))
@@ -134,3 +132,4 @@
         
     @endif
 </script>
+@endsection
