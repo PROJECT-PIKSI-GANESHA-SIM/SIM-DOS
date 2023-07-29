@@ -21,33 +21,29 @@
                     <div class="row">
                         <div class="col-md-6"> 
                             <div class="mb-3">
-                                <label for="nidn" class="col-md-4 col-form-label mx-5">{{ __('Nidn') }}</label>
+                                <label for="nidn" class="col-form-label">{{ __('Nidn') }}</label>
+                                <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $user->nidn }}">
+            
+                                @error('nidn')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                 
-                                <div class="ms-5">
-                                    <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $user->nidn }}">
-                
-                                    @error('nidn')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                             </div> 
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3 ">
-                                <label for="nip" class="col-md-4 col-form-label me-5">{{ __('Nip') }}</label>
+                                <label for="nip" class="col-form-label">{{ __('Nip') }}</label>
+                                <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" required value="{{ $identitas->nip }}">
+            
+                                @error('nip')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                 
-                                <div class="me-5">
-                                    <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" required value="{{ $identitas->nip }}">
-                
-                                    @error('nip')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,33 +51,29 @@
                     <div class="row">
                         <div class="col-md-6"> 
                             <div class="mb-3">
-                                <label for="nik" class="col-md-4 col-form-label mx-5">{{ __('Nik') }}</label>
+                                <label for="nik" class="col-form-label">{{ __('Nik') }}</label>
+                                <input id="nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ $identitas->nik }}">
+            
+                                @error('nik')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                 
-                                <div class="ms-5">
-                                    <input id="nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ $identitas->nik }}">
-                
-                                    @error('nik')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                             </div> 
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3 ">
-                                <label for="nama" class="col-md-4 col-form-label me-5">{{ __('Nama') }}</label>
+                                <label for="nama" class="col-form-label">{{ __('Nama') }}</label>
+                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" required  value="{{ $identitas->nama }}">
+            
+                                @error('nama')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                 
-                                <div class="me-5">
-                                    <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" required  value="{{ $identitas->nama }}">
-                
-                                    @error('nama')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,118 +81,12 @@
                     <div class="row">
                         <div class="col-md-6"> 
                             <div class="mb-3">
-                                <label for="jenis_kelamin" class="col-form-label ms-5">{{ __('Jenis Kelamin') }}</label>
-                
-                                <div class="ms-5">
-                                    <div>
-                                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Pria" {{ $identitas->jenis_kelamin == 'Pria' ? 'selected' : '' }}>Pria</option>
-                                            <option value="Wanita" {{ $identitas->jenis_kelamin == 'Wanita' ? 'selected' : '' }}>Wanita</option>
-                                        </select>
-                                    </div>
-                
-                                    @error('jenis_kelamin')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6"> 
-                            <div class="mb-3">
-                                <label for="golongan_darah" class="col-form-label me-5">{{ __('Golongan Darah') }}</label>
-                
-                                <div class="me-5">
-                                    <div>
-                                        <select name="golongan_darah" id="golongan_darah" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="O" {{ $identitas->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
-                                            <option value="A" {{ $identitas->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
-                                            <option value="B" {{ $identitas->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
-                                            <option value="AB" {{ $identitas->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
-                                        </select>
-                                    </div>
-                
-                                    @error('golongan_darah')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6"> 
-                            <div class="mb-3">
-                                <label for="kewarganegaraan" class="col-md-4 col-form-label mx-5">{{ __('Kewarganegaraan') }}</label>
-                
-                                <div class="ms-5">
-                                    <input id="kewarganegaraan" type="text" class="form-control @error('kewarganegaraan') is-invalid @enderror" name="kewarganegaraan"  value="{{ $identitas->kewarganegaraan }}">
-                
-                                    @error('kewarganegaraan')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div> 
-                        </div>
-
-                        <div class="col-md-6"> 
-                            <div class="mb-3">
-                                <label for="agama" class="col-form-label me-5">{{ __('Agama') }}</label>
-                
-                                <div class="me-5">
-                                    <div>
-                                        <select name="agama" id="agama" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Islam" {{ $identitas->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                            <option value="Protestan" {{ $identitas->agama == 'Protestan' ? 'selected' : '' }}>Protestan</option>
-                                            <option value="Katolik" {{ $identitas->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                            <option value="Hindu" {{ $identitas->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                            <option value="Buddha" {{ $identitas->agama == 'Buddha' ? 'selected' : '' }}>Buddha</option>
-                                            <option value="Khonghucu" {{ $identitas->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
-                                        </select>
-                                    </div>
-                
-                                    @error('agama')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="tempat_lahir" class="col-md-4 col-form-label mx-5">{{ __('Tempat Lahir') }}</label>
-                
-                                <div class="ms-5">
-                                    <input id="tempat_lahir" type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir"  value="{{ $identitas->tempat_lahir }}">
-                
-                                    @error('tempat_lahir')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div> 
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="tanggal_lahir" class="col-form-label">{{ __('Tanggal Lahir') }}</label>
-                        
-                                <div class="">
-                                    <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror datepicker" name="tanggal_lahir" required  value="{{ $identitas->tanggal_lahir }}">
-                                </div>
-                        
-                                @error('tanggal_lahir')
+                                <label for="jenis_kelamin" class="col-form-label">{{ __('Jenis Kelamin') }}</label>
+                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-select" data-bs-toggle="dropdown">
+                                    <option value="Pria" {{ $identitas->jenis_kelamin == 'Pria' ? 'selected' : '' }}>Pria</option>
+                                    <option value="Wanita" {{ $identitas->jenis_kelamin == 'Wanita' ? 'selected' : '' }}>Wanita</option>
+                                </select>
+                                @error('jenis_kelamin')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -208,34 +94,110 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6"> 
+                            <div class="mb-3">
+                                <label for="golongan_darah" class="col-form-label">{{ __('Golongan Darah') }}</label>
+                                <select name="golongan_darah" id="golongan_darah" class="form-control form-select" data-bs-toggle="dropdown">
+                                    <option value="O" {{ $identitas->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
+                                    <option value="A" {{ $identitas->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
+                                    <option value="B" {{ $identitas->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
+                                    <option value="AB" {{ $identitas->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
+                                </select>
+                                @error('golongan_darah')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6"> 
+                            <div class="mb-3">
+                                <label for="kewarganegaraan" class="col-form-label">{{ __('Kewarganegaraan') }}</label>
+                                <input id="kewarganegaraan" type="text" class="form-control @error('kewarganegaraan') is-invalid @enderror" name="kewarganegaraan"  value="{{ $identitas->kewarganegaraan }}">
+            
+                                @error('kewarganegaraan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                
+                            </div> 
+                        </div>
+
+                        <div class="col-md-6"> 
+                            <div class="mb-3">
+                                <label for="agama" class="col-form-label">{{ __('Agama') }}</label>
+                                <select name="agama" id="agama" class="form-control form-select" data-bs-toggle="dropdown">
+                                    <option value="Islam" {{ $identitas->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                    <option value="Protestan" {{ $identitas->agama == 'Protestan' ? 'selected' : '' }}>Protestan</option>
+                                    <option value="Katolik" {{ $identitas->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                    <option value="Hindu" {{ $identitas->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                    <option value="Buddha" {{ $identitas->agama == 'Buddha' ? 'selected' : '' }}>Buddha</option>
+                                    <option value="Khonghucu" {{ $identitas->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
+                                </select>
+                                @error('agama')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="status_perkawinan" class="col-form-label me-5">{{ __('Status Perkawinan') }}</label>
+                                <label for="tempat_lahir" class="col-form-label">{{ __('Tempat Lahir') }}</label>
+                                <input id="tempat_lahir" type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir"  value="{{ $identitas->tempat_lahir }}">
+            
+                                @error('tempat_lahir')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                 
-                                <div class="me-5">
-                                    <div>
-                                        <select name="status_perkawinan" id="status_perkawinan" class="form-control form-select" data-bs-toggle="dropdown">
-                                            <option value="Belum Kawin" {{ $identitas->status_perkawinan == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
-                                            <option value="Kawin" {{ $identitas->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
-                                        </select>
-                                    </div>
-                
-                                    @error('status_perkawinan')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="tanggal_lahir" class="col-form-label">{{ __('Tanggal Lahir') }}</label>
+                                <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror datepicker" name="tanggal_lahir" required  value="{{ $identitas->tanggal_lahir }}">
+                                @error('tanggal_lahir')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="status_perkawinan" class="col-form-label">{{ __('Status Perkawinan') }}</label>
+                                <select name="status_perkawinan" id="status_perkawinan" class="form-control form-select" data-bs-toggle="dropdown">
+                                    <option value="Belum Kawin" {{ $identitas->status_perkawinan == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
+                                    <option value="Kawin" {{ $identitas->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
+                                </select>
+                                
+                                @error('status_perkawinan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mb-3">
-                        <div class="mx-5 d-flex justify-content-end align-items-end">
-                            {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
-                            <button type="submit" class="btn btn-sm btn-success px-5 mx-3">Simpan</button>
-                            {{-- <button type="submit" class="btn btn-sm btn-danger px-5">Batal</button> --}}
-                            <button type="submit" class="btn btn-sm btn-danger px-5" onclick="history.back(-1)">Batal</button>
+                    <div class="row mb-3">
+                        <div class="col-mb-6 d-flex justify-content-end align-items-end">
+                            <button type="submit" class="btn btn-success btn-sm mx-3">Simpan</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Batal</button>
                         </div>
                     </div>
                 </form>

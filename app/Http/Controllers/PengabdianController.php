@@ -167,12 +167,12 @@ class PengabdianController extends Controller
 
     }
 
-    public function edit_pengabdian($user_id, $id) {
+    public function edit($id) {
 
-        $user = User::findOrFail($user_id);
+        $user = Auth::user();
         $pengabdian = Pengabdian::findOrFail($id);
 
-        return view('akademik.dosen.pengabdian.edit', [
+        return view('pengabdian.edit', [
             'pengabdian' => $pengabdian,
             'user' => $user
         ]);

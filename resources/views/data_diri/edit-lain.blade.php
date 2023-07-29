@@ -18,62 +18,55 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="col-md mx-5"> 
+                    <div class="col-md"> 
                         <div class="mb-3">
                             
-                            <label for="npwp" class="col-md-4 col-form-label">{{ __('NPWP') }}</label>
-                            <div>
-                                <input id="npwp" type="text" class="form-control @error('npwp') is-invalid @enderror" name="npwp" value="{{ $lain->npwp }}">
-            
-                                @error('npwp')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            <label for="npwp" class="col-form-label">{{ __('NPWP') }}</label>
+                            <input id="npwp" type="text" class="form-control @error('npwp') is-invalid @enderror" name="npwp" value="{{ $lain->npwp }}">
+        
+                            @error('npwp')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            
                         </div> 
                     </div>
 
-                    <div class="col-md mx-5"> 
+                    <div class="col-md"> 
                         <div class="mb-3">
                             
-                            <label for="nama_wajib_pajak" class="col-md-4 col-form-label">{{ __('Nama Wajib Pajak') }}</label>
-                            <div>
-                                <input id="nama_wajib_pajak" type="text" class="form-control @error('nama_wajib_pajak') is-invalid @enderror" name="nama_wajib_pajak" value="{{ $lain->nama_wajib_pajak }}">
-            
-                                @error('nama_wajib_pajak')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            <label for="nama_wajib_pajak" class="col-form-label">{{ __('Nama Wajib Pajak') }}</label>
+                            <input id="nama_wajib_pajak" type="text" class="form-control @error('nama_wajib_pajak') is-invalid @enderror" name="nama_wajib_pajak" value="{{ $lain->nama_wajib_pajak }}">
+        
+                            @error('nama_wajib_pajak')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            
                         </div> 
                     </div>
 
-                    <div class="col-md mx-5"> 
+                    <div class="col-md"> 
                         <div class="mb-3">
                             
-                            <label for="sinta_id" class="col-md-4 col-form-label">{{ __('Sinta ID') }}</label>
-                            <div>
-                                <input id="sinta_id" type="text" class="form-control @error('sinta_id') is-invalid @enderror" name="sinta_id" value="{{ $lain->sinta_id }}">
-            
-                                @error('sinta_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            <label for="sinta_id" class="col-form-label">{{ __('Sinta ID') }}</label>
+                            <input id="sinta_id" type="text" class="form-control @error('sinta_id') is-invalid @enderror" name="sinta_id" value="{{ $lain->sinta_id }}">
+        
+                            @error('sinta_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            
                         </div> 
                     </div>
 
-                    
-                    
-                    <div class="mb-3">
-                        <div class="mx-5 d-flex justify-content-end align-items-end">
-                            {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
-                            <button type="submit" class="btn btn-sm btn-success px-5 mx-3">Simpan</button>
-                            {{-- <button type="submit" class="btn btn-sm btn-danger px-5">Batal</button> --}}
-                            <button type="submit" class="btn btn-sm btn-danger px-5" onclick="history.back(-1)">Batal</button>
+                    <div class="row mb-3">
+                        <div class="col-mb-6 d-flex justify-content-end align-items-end">
+                            <button type="submit" class="btn btn-success btn-sm mx-3">Simpan</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Batal</button>
                         </div>
                     </div>
                 </form>
