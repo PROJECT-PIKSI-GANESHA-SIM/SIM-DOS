@@ -5,6 +5,7 @@
 - copy .env.example to .env
 - run `php artisan key:generate`
 - setting database di .env
+- run `php artisan storage:link`
 - run `php artisan migrate --seed`
 - run `php artisan serve`
 
