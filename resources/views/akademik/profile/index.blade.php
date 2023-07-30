@@ -23,79 +23,66 @@
             @method('PUT')
             
             <div class="mb-3 ">
-                <label for="nidn" class="col-md-4 col-form-label mx-5">{{ __('NIDN') }}</label>
+                <label for="nidn" class="col-form-label">{{ __('NIDN') }}</label>
+                <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $user->nidn }}">
 
-                <div class="mx-5">
-                    <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $user->nidn }}">
+                @error('nidn')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
-                    @error('nidn')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="col-md-4 col-form-label mx-5">{{ __('Email') }}</label>
+                <label for="email" class="col-form-label">{{ __('Email') }}</label>
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" value="{{ $user->email }}" disabled>
 
-                <div class="mx-5">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" value="{{ $user->email }}" disabled>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
             </div>
 
             <div class="mb-3 ">
-                <label for="name" class="col-md-4 col-form-label mx-5">{{ __('Name') }}</label>
+                <label for="name" class="col-form-label">{{ __('Name') }}</label>
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required value="{{ $user->name }}">
 
-                <div class="mx-5">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required value="{{ $user->name }}">
-
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="mb-3 ">
-                <label for="no_telpn" class="col-md-4 col-form-label mx-5">{{ __('Phone') }}</label>
+                <label for="no_telpn" class="col-form-label">{{ __('Phone') }}</label>
+                <input id="no_telpn" type="text" class="form-control @error('no_telpn') is-invalid @enderror" name="no_telpn" value="{{ $user->no_telpn }}">
 
-                <div class="mx-5">
-                    <input id="no_telpn" type="text" class="form-control @error('no_telpn') is-invalid @enderror" name="no_telpn" value="{{ $user->no_telpn }}">
+                @error('no_telpn')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
-                    @error('no_telpn')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
             </div>
 
             <div class="mb-3 ">
-                <label for="image" class="col-md-4 col-form-label mx-5">{{ __('Profile') }}</label>
+                <label for="image" class="col-form-label">{{ __('Profile') }}</label>
+                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $user->image }}">
+                @error('image')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 
-                <div class="mx-5">
-                    <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $user->image }}">
-                    @error('image')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
             </div>
-            <div class="mb-3">
-                <div class="mx-5 d-flex justify-content-end align-items-end">
-                    {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
-                    <button type="submit" class="btn btn-sm btn-success mx-3">Update Data</button>
-                    {{-- <button type="submit" class="btn btn-sm btn-danger">Cancel</button> --}}
-                    <a href="{{ route('home') }}" class="btn btn-sm btn-danger">Kembali</a>
+            <div class="row mb-3">
+                <div class="col-mb-6 d-flex justify-content-end align-items-end">
+                    <button type="submit" class="btn btn-success btn-sm mx-3">Update Data</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Batal</button>
                 </div>
             </div>
         </form>

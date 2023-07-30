@@ -19,24 +19,20 @@
                     @method('PUT')
 
                     <div class="mb-3 ">
-                        <label for="pesan" class="col-md-4 col-form-label mx-5">{{ __('Pesan') }} <span class="text-danger"> *</span></label>
+                        <label for="pesan" class="col-form-label">{{ __('Pesan') }} <span class="text-danger"> *</span></label>
+                        <input id="pesan" type="text" class="form-control @error('pesan') is-invalid @enderror" name="pesan" value="{{ $pesan->message }}">
+    
+                        @error('pesan')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
         
-                        <div class="mx-5">
-                            <input id="pesan" type="text" class="form-control @error('pesan') is-invalid @enderror" name="pesan" value="{{ $pesan->message }}">
-        
-                            @error('pesan')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
                     </div>
-                    <div class="mb-3">
-                        <div class="mx-5 d-flex justify-content-end align-items-end">
-                            {{-- <a href="" class="btn btn-sm btn-dark mb-3">Update Data</a> --}}
-                            <button type="submit" class="btn btn-sm btn-success px-5 mx-3">Simpan</button>
-                            {{-- <button type="submit" class="btn btn-sm btn-danger px-5">Batal</button> --}}
-                            <button type="submit" class="btn btn-sm btn-danger px-5" onclick="history.back(-1)">Batal</button>
+                    <div class="row mb-3">
+                        <div class="col-mb-6 d-flex justify-content-end align-items-end">
+                            <button type="submit" class="btn btn-success btn-sm mx-3">Update Data</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Batal</button>
                         </div>
                     </div>
                 </form>

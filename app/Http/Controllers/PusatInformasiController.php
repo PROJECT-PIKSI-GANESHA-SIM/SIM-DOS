@@ -52,7 +52,7 @@ class PusatInformasiController extends Controller
 
         } else {
 
-            // Create Pengajaran
+            // Create Pusat Informasi
             PusatInformasi::create([
                 'title' => $request->title,
                 'date' => $request->tanggal,
