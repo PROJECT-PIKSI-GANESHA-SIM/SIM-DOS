@@ -133,6 +133,17 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::put('/dosen/{user_id}/pengabdian/update/{id}', [DosenController::class, 'update_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.update');
     Route::delete('/dosen/pengabdian/delete/{id}', [DosenController::class, 'destroy_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.destroy');
     
+    // Data Diri
+    Route::get('/dosen/{user_id}/identitas/{id}/edit', [DosenController::class, 'edit_identitas'])->middleware('role:akademik')->name('dosen.identitas.edit');
+    Route::get('/dosen/{user_id}/kepegawaian/{id}/edit', [DosenController::class, 'edit_kepegawaian'])->middleware('role:akademik')->name('dosen.kepegawaian.edit');
+    Route::get('/dosen/{user_id}/alamat_kontak/{id}/edit', [DosenController::class, 'edit_alamat_kontak'])->middleware('role:akademik')->name('dosen.alamat_kontak.edit');
+    Route::get('/dosen/{user_id}/lain_lain/{id}/edit', [DosenController::class, 'edit_lain_lain'])->middleware('role:akademik')->name('dosen.lain_lain.edit');
+    Route::put('/dosen/{user_id}/identitas/update/{id}', [DosenController::class, 'update_identitas'])->middleware('role:akademik')->name('dosen.identitas.update');
+    Route::put('/dosen/{user_id}/alamat_kontak/update/{id}', [DosenController::class, 'update_alamat_kontak'])->middleware('role:akademik')->name('dosen.alamat_kontak.update');
+    Route::put('/dosen/{user_id}/lain_lain/update/{id}', [DosenController::class, 'update_lain_lain'])->middleware('role:akademik')->name('dosen.lain.update');
+    Route::put('/dosen/{user_id}/kepegawaian/update/{id}', [DosenController::class, 'update_kepegawaian'])->middleware('role:akademik')->name('dosen.kepegawaian.update');
+
+
     // Pusat Informasi
     Route::get('/pusat_informasi', [PusatInformasiController::class, 'index'])->middleware('role:akademik')->name('pusat_informasi');
     Route::get('/pusat_informasi/create', [PusatInformasiController::class, 'create'])->middleware('role:akademik')->name('pusat_informasi.create');

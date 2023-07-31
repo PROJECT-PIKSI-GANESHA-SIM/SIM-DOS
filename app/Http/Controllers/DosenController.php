@@ -1263,4 +1263,178 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Didelete!']);
     }
 
+    public function edit_identitas($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
+        $identitas = IdentitasDiri::findOrFail($id);
+
+        return view('akademik.dosen.data_diri.edit-identitas', [
+            'user' => $user,
+            'identitas' => $identitas
+        ]);
+    }
+
+    public function edit_kepegawaian($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
+        $kepegawaian = Kepegawaian::findOrFail($id);
+
+        return view('akademik.dosen.data_diri.edit-kepegawaian', [
+            'user' => $user,
+            'kepegawaian' => $kepegawaian
+        ]);
+    }
+
+    public function edit_alamat_kontak($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
+        $alamat_kontak = AlamatKontak::findOrFail($id);
+
+        return view('akademik.dosen.data_diri.edit-alamat-kontak', [
+            'user' => $user,
+            'alamat_kontak' => $alamat_kontak
+        ]);
+    }
+
+    public function edit_lain_lain($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
+        $lain_lain = LainLain::findOrFail($id);
+
+        return view('akademik.dosen.data_diri.edit-lain', [
+            'user' => $user,
+            'lain' => $lain_lain
+        ]);
+    }
+
+    public function update_identitas(Request $request, $user_id, $id) {
+
+        $identitas = IdentitasDiri::findOrFail($id);
+        $user = User::findOrFail($user_id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'nidn' => 'required|string|max:255',
+            'nip' => 'required|string|max:255',
+            'nik' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|string|max:255',
+            'golongan_darah' => 'required|string|max:255',
+            'kewarganegaraan' => 'required|string|max:255',
+            'agama' => 'required|string|max:255',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|string|max:255',
+            'status_perkawinan' => 'required|string|max:255'
+        ]);
+
+        $identitas->update([
+            'nip' => $request->nip,
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'golongan_darah' => $request->golongan_darah,
+            'kewarganegaraan' => $request->kewarganegaraan,
+            'agama' => $request->agama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'status_perkawinan' => $request->status_perkawinan
+        ]);
+
+        $user->nidn = $request->nidn;
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
+    public function update_alamat_kontak(Request $request, $user_id, $id) {
+
+        $alamat_kontak = AlamatKontak::findOrFail($id);
+        $user = User::findOrFail($user_id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'alamat' => 'required|string|max:255',
+            'rt' => 'required|string|max:255',
+            'rw' => 'required|string|max:255',
+            'no' => 'required|string|max:255',
+            'desa_kelurahan' => 'required|string|max:255',
+            'kota_kabupaten' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:255',
+            'kode_pos' => 'required|string|max:255',
+            'no_telepon_rumah' => 'required|string|max:255',
+            'no_handphone' => 'required|string|max:255',
+        ]);
+
+        $alamat_kontak->update([
+            'alamat' => $request->alamat,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'no' => $request->no,
+            'desa_kelurahan' => $request->desa_kelurahan,
+            'kota_kabupaten' => $request->kota_kabupaten,
+            'provinsi' => $request->provinsi,
+            'kode_pos' => $request->kode_pos,
+            'no_telepon_rumah' => $request->no_telepon_rumah,
+        ]);
+
+        $user->no_telpn = $request->no_handphone;
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
+    public function update_lain_lain(Request $request, $user_id, $id) {
+        
+        $user = User::findOrFail($user_id);
+        $lain = LainLain::findOrFail($id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'npwp' => 'required|string|max:255',
+            'nama_wajib_pajak' => 'required|string|max:255',
+            'sinta_id' => 'required|string|max:255'
+        ]);
+
+
+        $lain->update([
+            'npwp' => $request->npwp,
+            'nama_wajib_pajak' => $request->nama_wajib_pajak,
+            'sinta_id' => $request->sinta_id,
+        ]);
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
+    public function update_kepegawaian(Request $request, $user_id, $id) {
+
+        $kepegawaian = Kepegawaian::findOrFail($id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'program_studi' => 'required|string|max:255',
+            'status_kepegawaian' => 'required|string|max:255',
+            'status_keaktifan' => 'required|string|max:255',
+            'no_sk_sertifikasi_dosen' => 'required|string|max:255',
+            'jabatan_fungsional' => 'required|string|max:255',
+            'no_sk_tmmd' => 'required|string|max:255',
+            'tanggal_menjadi_dosen' => 'required|string|max:255',
+            'pangkat_golongan' => 'required|string|max:255'
+        ]);
+
+        $kepegawaian->update([
+            'program_studi' => $request->program_studi,
+            'status_kepegawaian' => $request->status_kepegawaian,
+            'status_keaktifan' => $request->status_keaktifan,
+            'no_sk_sertifikasi_dosen' => $request->no_sk_sertifikasi_dosen,
+            'jabatan_fungsional' => $request->jabatan_fungsional,
+            'no_sk_tmmd' => $request->no_sk_tmmd,
+            'tanggal_menjadi_dosen' => $request->tanggal_menjadi_dosen,
+            'pangkat_golongan' => $request->pangkat_golongan
+        ]);
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+    }
+    
+
 }

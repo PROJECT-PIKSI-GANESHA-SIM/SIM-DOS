@@ -32,7 +32,7 @@
                     <div class="card-body my-auto">
                         <div class="title d-flex align-items-center justify-content-between">
                             <span class="fw-bold fs-5">Identitas Diri</span>
-                            <a href="{{ route('identitas.edit', $identitas->id) }}" class="justify-content-end">
+                            <a href="{{ route('dosen.identitas.edit', [$user->id, $identitas->id]) }}" class="justify-content-end">
                                 <img class="" src="{{ asset("assets/edit.png") }}" alt="" width="25px" height="25px">
                             </a>
                         </div>
@@ -103,7 +103,7 @@
                 <div class="card-body my-auto">
                     <div class="title d-flex align-items-center justify-content-between">
                         <span class="fw-bold fs-5">Alamat Dan Kotak</span>
-                        <a href="{{ route('alamat_kontak.edit', $alamat_kontak->id) }}" class="justify-content-end">
+                        <a href="{{ route('dosen.alamat_kontak.edit', [$user->id, $alamat_kontak->id]) }}" class="justify-content-end">
                             <img class="" src="{{ asset("assets/edit.png") }}" alt="" width="25px" height="25px">
                         </a>
                     </div>
@@ -164,7 +164,7 @@
                     <div class="card-body my-auto">
                         <div class="title d-flex align-items-center justify-content-between">
                             <span class="fw-bold fs-5">Lain - Lain</span>
-                            <a href="{{ route('lain.edit', $lain_lain->id) }}" class="justify-content-end">
+                            <a href="{{ route('dosen.lain_lain.edit', [$user->id, $lain_lain->id]) }}" class="justify-content-end">
                                 <img class="" src="{{ asset("assets/edit.png") }}" alt="" width="25px" height="25px">
                             </a>
                         </div>
@@ -191,7 +191,7 @@
                     <div class="card-body my-auto">
                         <div class="title d-flex align-items-center justify-content-between">
                             <span class="fw-bold fs-5">Kepegawaian</span>
-                            <a href="{{ route('kepegawaian.edit', $kepegawaian->id) }}" class="justify-content-end">
+                            <a href="{{ route('dosen.kepegawaian.edit', [$user->id, $kepegawaian->id]) }}" class="justify-content-end">
                                 <img class="" src="{{ asset("assets/edit.png") }}" alt="" width="25px" height="25px">
                             </a>
                         </div>
