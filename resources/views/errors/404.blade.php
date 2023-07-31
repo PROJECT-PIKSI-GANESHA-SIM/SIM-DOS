@@ -8,6 +8,12 @@
     <title>Halaman Tidak Ditemukan</title>
     <link rel="icon" type="image/x-icon" href="assets/PIKSI.png">
     <link rel="stylesheet" href="css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
+    </style>
 </head>
 
 <body>

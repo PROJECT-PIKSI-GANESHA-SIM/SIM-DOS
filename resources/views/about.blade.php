@@ -4,6 +4,7 @@
         background-image: url('assets/patternpad-tentangkami.svg');
         background-repeat: no-repeat;
     }
+
 </style>
 @section('container')
     <h2 class="text-center mb-5">Tim Kami</h2>
@@ -18,9 +19,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Rini Suwartika., S.Kom., M.Kom</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Ketua Program Studi Manajemen Informatika (MIF) – D4</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -37,9 +38,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Candra Mecca Sufyana., S.Si., MT</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Ketua Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM)</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -56,9 +57,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Euis Hernawati, S.E., M.M</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Ketua Program Studi Administrasi Keuangan (AKE) – D3</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -75,9 +76,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Sri Wahyuningsih, A.Md., Kes., MOS</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Staf Akademik</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -94,9 +95,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Firdha Raissa Nur Amalia</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Staf Akademik</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -113,9 +114,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Hendra Wijaya Subandi</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Mahasiswa</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -132,9 +133,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Rizal Fadia Al Fikri</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Mahasiswa</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -151,9 +152,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Amalina Nurhasanah</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Mahasiswa</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
@@ -170,9 +171,9 @@
 
             <div class="my-4">
                 <div class="d-flex">
-                    <h5><b>Nama Anggota</b></h5>
+                    <h5>Rizky Muhammad Ilham Nasution</h5>
                 </div>
-                <p class="text-muted mb-4"><b>Jabatan</b></p>
+                <p class="text-muted mb-4">Mahasiswa</p>
                 <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
                     ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
