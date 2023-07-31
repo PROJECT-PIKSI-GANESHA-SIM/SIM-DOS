@@ -19,9 +19,6 @@
                 <li class="nav-item">
                     <a class="nav-link {{ ($title === "Tentang") ? 'active' : '' }}" href="about">Tentang</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ ($title === "Kontak") ? 'active' : '' }}" href="contact">Kontak</a>
-                </li>
             </ul>
         </div>
     </div>

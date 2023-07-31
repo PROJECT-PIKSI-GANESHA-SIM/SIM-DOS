@@ -28,12 +28,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/contact', function () {
-    return view('contact', [
-        "title" => "Kontak"
-    ]);
-});
-
 Route::get('/about', function () {
     return view('about', [
         "title" => "Tentang"
