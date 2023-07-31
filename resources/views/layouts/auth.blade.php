@@ -22,6 +22,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
+<style>
+    @media (max-width: 640px) { 
+        .image {
+            display: none;
+        }
+    }
+
+    @media (max-width: 960px) {
+        .image {
+            display: none;
+        }
+    }
+</style>
 <body>
     <div id="app">
       <main class="d-flex align-items-center" style="min-height: 100vh;">

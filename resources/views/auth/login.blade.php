@@ -5,7 +5,7 @@
     <div class="row">
         <div>
             <div class="card shadow bg-white flex-row card-rounded">
-                <div class="bg-custom-primary card-rounded-left">
+                <div class="bg-custom-primary card-rounded-left image">
                     <h1 class="text-white text-bold text-center mt-3">W E L C O M E</h1>
                     <img src="{{ asset('assets/login.png') }}" class="mb-5 px-5" alt="" style="400px" height="400px">
                 </div>
