@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlamatKontak;
+use App\Models\IdentitasDiri;
 use App\Models\JenjangPendidikan;
+use App\Models\Kepegawaian;
+use App\Models\LainLain;
 use App\Models\Pendidikan;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
@@ -56,13 +60,21 @@ class DosenController extends Controller
         $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
         $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
         $pengabdian = Pengabdian::where('user_id', $user->id)->paginate(5);
+        $identitas = IdentitasDiri::where('user_id', $user->id)->first();
+        $alamat_kontak = AlamatKontak::where('user_id', $user->id)->first();
+        $kepegawaian = Kepegawaian::where('user_id', $user->id)->first();
+        $lain_lain = LainLain::where('user_id', $user->id)->first();
 
         return view('akademik.dosen.detail', [
             'user' => $user,
             'pendidikan' => $pendidikan,
             'pengajaran' => $pengajaran,
             'penelitian' => $penelitian,
-            'pengabdian' => $pengabdian
+            'pengabdian' => $pengabdian,
+            'identitas' => $identitas,
+            'alamat_kontak' => $alamat_kontak,
+            'kepegawaian' => $kepegawaian,
+            'lain_lain' => $lain_lain
         ]);
     }
 
