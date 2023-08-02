@@ -1,3 +1,5 @@
+@include('layouts.partials.navbar')
+
 @extends('layouts.main')
 <style>
     body {
