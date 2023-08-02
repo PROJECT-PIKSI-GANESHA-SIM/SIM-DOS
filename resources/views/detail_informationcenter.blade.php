@@ -4,7 +4,7 @@
 
 @section('container')
     <div class="p-4">
-        <a href="/">
+        <a href="/informationcenter">
             <i class="fa fa-arrow-left me-2"></i>
             Kembali
         </a>
