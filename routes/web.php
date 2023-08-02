@@ -34,7 +34,7 @@ Route::get('/', function () {
 });
 
 Auth::routes([
-    // 'register' => false
+    'register' => false
 ]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -148,11 +148,16 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pusat_informasi', [PusatInformasiController::class, 'index'])->middleware('role:akademik')->name('pusat_informasi');
     Route::get('/pusat_informasi/create', [PusatInformasiController::class, 'create'])->middleware('role:akademik')->name('pusat_informasi.create');
     Route::post('/pusat_informasi/create', [PusatInformasiController::class, 'store'])->middleware('role:akademik')->name('pusat_informasi.store');
-    
+    Route::get('/pusat_informasi/{id}/edit', [PusatInformasiController::class, 'edit'])->middleware('role:akademik')->name('pusat_informasi.edit');
+    Route::delete('/pusat_informasi/delete/{id}', [PusatInformasi::class, 'destroy'])->middleware('role:akademik')->name('pusat_informasi.destroy');
+    Route::get('/pusat_informasi/update', [PusatInformasiController::class, 'update_publish_status'])->middleware('role:akademik');
+    Route::put('/pusat_informasi/update/{id}', [PusatInformasiController::class, 'update'])->middleware('role:akademik')->name('pusat_informasi.update');
+
     // Pesan
     Route::get('/pesan', [PesanController::class, 'index'])->middleware('role:akademik')->name('pesan');
     Route::post('/updatePublishStatus', [PesanController::class, 'update_publish_status'])->middleware('role:akademik')->name('pesan.update_publish_status');
     Route::get('/pesan/{id}/edit', [PesanController::class, 'edit'])->middleware('role:akademik')->name('pesan.edit');
     Route::put('/pesan/update/{id}', [PesanController::class, 'update'])->middleware('role:akademik')->name('pesan.update');
+    Route::get('/pesan/update', [PesanController::class, 'update_publish_status'])->middleware('role:akademik');
 
 });

@@ -27,12 +27,13 @@
                                         <th scope="col">Thumbnail</th>
                                         <th scope="col">Tanggal</th>
                                         <th scope="col">Description</th>
+                                        <th scope="col">Publish</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                         @if ($pusat_informasi->isEmpty())
-                                            <td colspan="6" class="text-center py-3">Tidak Ada Data</td>
+                                            <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
                                         @else
                                             @foreach ($pusat_informasi as $p)
                                             <tr>
@@ -40,14 +41,23 @@
                                                 <td>{{ $p->title }}</td>
                                                 <td>{{ $p->thumbnail }}</td>
                                                 <td>{{ $p->date }}</td>
-                                                <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->description, 100) }}</td><td>
+                                                <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->description, 100) }}</td>
+                                                    <td>
+                                                        <div class="form-check form-switch d-flex align-items-center justify-content-center">
+                                                            <input name="publish" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                                            @if ($p->status == 1)
+                                                                checked
+                                                            @endif
+                                                            >
+                                                    </td>
+                                                    <td>
                                                     <div class="col">
                                                         <div class="row-3 text-center">
-                                                            <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('penelitian.destroy', $p->id) }}">
-                                                                <a href="">
+                                                            <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('pusat_informasi.destroy', $p->id) }}">
+                                                                {{-- <a href="">
                                                                     <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                                </a>
-                                                                <a href="{{ route('penelitian.edit', $p->id) }}">
+                                                                </a> --}}
+                                                                <a href="{{ route('pusat_informasi.edit', $p->id) }}">
                                                                     <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                                 </a>
                                                                 @csrf
@@ -101,4 +111,36 @@
         </main>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // Tangkap elemen checkbox
+        var checkbox = $('#flexSwitchCheckDefault');
+
+        // Tambahkan event click
+        checkbox.on('click', function() {
+            // Ambil nilai status checkbox (dicentang atau tidak)
+            var status = $(this).prop('checked') == true ? 1 : 0; 
+
+            console.log(status);
+
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: 'pusat_informasi/update',
+                data: {'status': status},
+                success: function(response) {
+                    // Tanggapi hasil dari server
+                    console.log(response);
+                    // alert(response.message);
+                },
+                error: function(xhr, status, error) {
+                    // Tanggapi kesalahan dari server
+                    console.log(xhr.responseText);
+                    alert('Terjadi kesalahan pada server. Coba lagi nanti.');
+                }
+            });
+        });
+    });
+
+</script>
 @endsection

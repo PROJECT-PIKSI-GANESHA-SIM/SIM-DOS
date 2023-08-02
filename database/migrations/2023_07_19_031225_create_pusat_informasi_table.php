@@ -18,7 +18,8 @@ class CreatePusatInformasiTable extends Migration
             $table->string('title');
             $table->string('thumbnail')->nullable();
             $table->date('date');
-            $table->string('description', 1000);
+            $table->string('description', 10000);
+            $table->boolean('status');
             $table->timestamps();
         });
     }

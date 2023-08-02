@@ -46,12 +46,14 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <form action="{{ route('pesan.update_publish_status') }}" method="POST">
-                                                                @csrf
-                                                                <div class="form-check form-switch d-flex align-items-center justify-content-center">
-                                                                    <input name="publish" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                                                </div>
-                                                            </form>
+                                                            <div class="form-check form-switch d-flex align-items-center justify-content-center">
+                                                                <input name="publish" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                                                @if ($p->status == 1)
+                                                                    checked
+                                                                @endif
+                                                                >
+                                                                
+                                                            </div>
                                                         </td>
                                                     @endforeach
                                                 </tr>
@@ -69,7 +71,7 @@
         </main>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 <script>
     $(document).ready(function() {
         // Tangkap elemen checkbox
@@ -78,26 +80,32 @@
         // Tambahkan event click
         checkbox.on('click', function() {
             // Ambil nilai status checkbox (dicentang atau tidak)
-            var status = checkbox.prop('checked');
-            console.log(status);
-            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            var status = $(this).prop('checked') == true ? 1 : 0; 
+            // var user_id = $(this).data('id'); 
 
-            // Kirim nilai status ke server menggunakan AJAX
+            // if (status == 1) {
+            //     $('#flexSwitchCheckDefault').prop('checked', true);
+            // } else {
+            //     // Jika status bukan 1 (mungkin 0), maka toggle button tidak aktif (tidak tercentang)
+            //     $('#flexSwitchCheckDefault').prop('checked', false);
+            // }
+
+            console.log(status);
+
             $.ajax({
-                type: 'POST',
-                dataType:"JSON",
-                url: "{{ route('pesan.update_publish_status') }}", // Ganti dengan URL endpoint Laravel Anda
-                data: {
-                    status: status,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(data) {
-                    // Tangani respons dari server jika diperlukan
-                    console.log('Status berhasil disimpan di database.');
+                type: "GET",
+                dataType: "json",
+                url: 'pesan/update',
+                data: {'status': status},
+                success: function(response) {
+                    // Tanggapi hasil dari server
+                    console.log(response);
+                    // alert(response.message);
                 },
                 error: function(xhr, status, error) {
-                    // Tangani error jika terjadi
-                    console.error('Terjadi error:', error);
+                    // Tanggapi kesalahan dari server
+                    console.log(xhr.responseText);
+                    alert('Terjadi kesalahan pada server. Coba lagi nanti.');
                 }
             });
         });

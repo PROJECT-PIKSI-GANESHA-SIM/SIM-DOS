@@ -15,6 +15,7 @@ class PusatInformasi extends Model
         'title',
         'thumbnail',
         'date',
-        'description'
+        'description',
+        'status'
     ];
 }

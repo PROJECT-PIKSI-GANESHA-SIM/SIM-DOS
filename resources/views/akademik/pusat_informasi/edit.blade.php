@@ -14,12 +14,13 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="{{ route('pusat_informasi.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('pusat_informasi.update', $pusat_informasi->id) }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
                     <div class="mb-3">
                         <label for="title" class="col-form-label">{{ __('Title') }}</label>
-                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" required>
+                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" required value="{{ $pusat_informasi->title }}">
     
                         @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -42,7 +43,7 @@
 
                     <div class="mb-3">
                         <label for="tanggal" class="col-form-label">{{ __('Tanggal') }}</label>
-                        <input id="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror datepicker" name="tanggal" required>
+                        <input id="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror datepicker" name="tanggal" required value="{{ $pusat_informasi->date }}">
                         
                         @error('tanggal')
                         <span class="invalid-feedback" role="alert">
@@ -55,7 +56,7 @@
                     <div class="mb-3 ">
                         <label for="description" class="col-form-label">{{ __('Description') }}</label>
                         {{-- <input id="description" type="text" class="form-control @error('description') is-invalid @enderror " name="description" required> --}}
-                        <textarea class="form-control" id="description" name="description"></textarea>
+                        <textarea class="form-control" id="description" name="description">{{ $pusat_informasi->description }}</textarea>
                         
                         @error('description')
                             <span class="invalid-feedback" role="alert">

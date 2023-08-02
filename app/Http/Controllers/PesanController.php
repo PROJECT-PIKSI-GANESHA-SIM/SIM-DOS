@@ -20,9 +20,11 @@ class PesanController extends Controller
     }
 
     public function update_publish_status(Request $request) {
-        $status = $request->input('status');
-        dd($status);
-        return redirect()->back();
+        $status = $request->status;
+        $pesan = Pesan::findOrFail(1);
+        $pesan->status = $status;
+        $pesan->save();
+        return response()->json(['success' => $status, 'message' => $pesan]);
     }
 
     public function edit($id) {

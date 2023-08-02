@@ -57,11 +57,11 @@
                             </div>
                         </div> --}}
                         <div class="mb-3 mx-5 text-end">
-                            @if (Route::has('password.request'))
+                            {{-- @if (Route::has('password.request'))
                                 <a class="btn btn-link text-custom-primary" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
-                            @endif
+                            @endif --}}
                         </div>
                         <div class="mb-0">
                             <div class="d-grid mx-5">

@@ -20,6 +20,7 @@
     <link href="/assets/css/master.css" rel="stylesheet">
     {{-- <link href="/css/style.css" rel="stylesheet"> --}}
     <link href="/css/app.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
     <!-- <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet"> -->
 </head>
@@ -44,6 +45,7 @@
         </div>
     </div>
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    {{-- <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}"></script> --}}
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- <script src="assets/vendor/chartsjs/Chart.min.js"></script>
     <script src="assets/js/dashboard-charts.js"></script> -->

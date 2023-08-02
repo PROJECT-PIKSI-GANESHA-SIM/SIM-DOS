@@ -32,7 +32,8 @@
                     <div class="row mb-3">
                         <div class="col-mb-6 d-flex justify-content-end align-items-end">
                             <button type="submit" class="btn btn-success btn-sm mx-3">Update Data</button>
-                            <button type="submit" class="btn btn-danger btn-sm">Batal</button>
+                            {{-- <button type="submit" class="btn btn-danger btn-sm">Batal</button> --}}
+                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm">Batal</a>
                         </div>
                     </div>
                 </form>

@@ -29,10 +29,10 @@ class PusatInformasiController extends Controller
 
         // Validasi Form
         $this->validate($request, [
-            'title' => 'required',
-            'tanggal' => 'required',
-            'description' => 'required',
-            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'title' => 'required|string|max:255',
+            'tanggal' => 'required|string|max:255',
+            'description' => 'required|string|max:10000',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Kondisi jika bukti pengajaran dan bukti presensi di upload
@@ -48,6 +48,7 @@ class PusatInformasiController extends Controller
                 'date' => $request->tanggal,
                 'description' => $request->description,
                 'thumbnail' => $thumbnail->hashName(),
+                'status' => 0,
             ]);
 
         } else {
@@ -64,4 +65,84 @@ class PusatInformasiController extends Controller
         return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Diupdate!']);
 
     }
+
+    public function edit($id) {
+
+        $pusat_informasi = PusatInformasi::findOrFail($id);
+        $user = Auth::user();
+
+        return view('akademik.pusat_informasi.edit', [
+            'pusat_informasi' => $pusat_informasi,
+            'user' => $user
+        ]);
+
+    }
+
+    public function update_publish_status(Request $request) {
+        $status = $request->status;
+        $pusat_informasi = PusatInformasi::findOrFail(1);
+        $pusat_informasi->status = $status;
+        $pusat_informasi->save();
+        return response()->json(['message' => 'Data updated successfully'], 200);
+    }
+
+    public function update(Request $request, $id) {
+
+        $pusat_informasi = PusatInformasi::findOrFail($id);
+
+        // Validasi Form
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'tanggal' => 'required|string|max:255',
+            'description' => 'required|string|max:10000',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Get Id User
+        $user = Auth::user();
+
+        if($request->hasFile('thumbnail')) {
+            
+            // upload bukti presensi
+            $thumbnail = $request->file('thumbnail');
+            $thumbnail->storeAs('public/akademik/pusat_informasi', $thumbnail->hashName());
+            
+            // Hapus image terdahulu
+            Storage::delete('public/akademik/pusat_informasi/'. $pusat_informasi->thumbnail);
+            
+            // Update Pusat Informasi
+            $pusat_informasi->update([
+                'title' => $request->title,
+                'tanggal' => $request->tanggal,
+                'description' => $request->description,
+                'thumbnail' => $thumbnail->hashName(),
+            ]);
+
+        } else {
+            // kondisi jika tidak mengupdate image
+
+            // Update Pusat Informasi
+            $pusat_informasi->update([
+                'title' => $request->title,
+                'tanggal' => $request->tanggal,
+                'description' => $request->description,
+            ]);
+        }
+
+        return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Diupdate!']);
+
+    }
+
+    public function destroy($id) {
+        $pusat_informasi = PusatInformasi::findOrFail($id);
+
+        // hapus file surat tugas dan laporan kegiatan
+        Storage::delete('public/akademik/pusat_infomasi/'. $pusat_informasi->thumbnail);
+        
+        // hapus pengajaran
+        $pengabdian->delete();
+
+        return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Didelete!']);
+    }
+
 }
