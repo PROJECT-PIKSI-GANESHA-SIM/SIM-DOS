@@ -45,6 +45,6 @@
         </div>
     </div>
     <br>
-    <p class="text-end"><a href="/informationcenter">Lihat semua informasi</a></p>
+    <p class="text-end"><a href="/informationcenter"><b>Lihat semua informasi</b></a></p>
     </div>
 @endsection
