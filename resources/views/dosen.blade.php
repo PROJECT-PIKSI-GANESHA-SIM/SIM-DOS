@@ -9,7 +9,6 @@
     <p class="py-3">Masukkan Nama Dosen, NIDN atau Prodi Jurusan</p>
     <input class="form-control" id="myInput" type="text" placeholder="Cari..">
     <br>
-
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
