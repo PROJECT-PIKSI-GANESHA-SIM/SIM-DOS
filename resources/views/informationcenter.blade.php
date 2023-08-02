@@ -15,7 +15,7 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -28,7 +28,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -41,7 +41,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -54,7 +54,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -67,7 +67,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -80,7 +80,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -93,7 +93,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -106,7 +106,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">
@@ -119,7 +119,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
+                <img src="assets/thumbnails-blog.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <h5 class="card-title">

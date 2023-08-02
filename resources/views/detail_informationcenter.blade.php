@@ -11,7 +11,7 @@
     </div>
     <div class="row mx-0 py-5">
         <div class="col-md-5 px-4">
-            <img src="assets/project-img.jpg" class="img-fluid" alt="thumbnail">
+            <img src="assets/thumbnails-blog.png" class="img-fluid" alt="thumbnail">
         </div>
 
         <div class="col-md-7 px-4">
