@@ -41,7 +41,7 @@
             <p class="fs-3 fw-bolder">Oops, sepertinya Halaman Tidak Ditemukan</p>
             <p class="fs-5 fw-normal">Halaman yang Anda cari mungkin telah dihapus, diubah namanya, atau sementara tidak
                 tersedia.</p>
-                <button href="#" button class="button">Kembali ke Beranda</button>
+                <button href="/" button class="button">Kembali ke Beranda</button>
         </div>
     </div>
 </body>

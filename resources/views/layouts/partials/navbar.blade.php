@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #8A00B9">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
+        <a class="navbar-brand fw-bold" href="/">
             <img src="assets/PIKSI.png" alt="logo piksi" height="30" class="d-inline-block align-text-top">
             SIM DOSEN
         </a>
