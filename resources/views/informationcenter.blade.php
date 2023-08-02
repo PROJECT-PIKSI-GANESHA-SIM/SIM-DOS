@@ -18,7 +18,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -29,7 +31,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -40,7 +44,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -51,7 +57,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -62,7 +70,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -73,7 +83,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -84,7 +96,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -95,7 +109,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -106,7 +122,9 @@
                 <img src="assets/project-img.jpg" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <a href="">Card Title</a>
+                    </h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>

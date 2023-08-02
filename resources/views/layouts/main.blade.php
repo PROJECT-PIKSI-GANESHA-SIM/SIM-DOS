@@ -127,6 +127,11 @@
             }
         }
 
+        a {
+            text-decoration: none;
+            color: #212529
+        }
+
         /* CSS Loader Spinner */
         .loader {
             position: fixed;
@@ -169,7 +174,6 @@
 </head>
 
 <body>
-    <div class="loader"></div>
     <div class="container py-5">
         @yield('container')
     </div>
