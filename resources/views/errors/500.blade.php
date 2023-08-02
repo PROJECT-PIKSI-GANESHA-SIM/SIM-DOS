@@ -8,6 +8,30 @@
     <title>Terjadi Kesalahan</title>
     <link rel="icon" type="image/x-icon" href="assets/PIKSI.png">
     <link rel="stylesheet" href="css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
+
+        button {
+            font-size: 18px;
+            background-color: #8A00B9;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+        }
+
+        button:hover {
+            font-size: 18px;
+            background-color: white;
+            color: #8A00B9;
+            padding: 15px 32px;
+            border: 2px solid #8A00B9;
+        }
+    </style>
 </head>
 
 <body>
