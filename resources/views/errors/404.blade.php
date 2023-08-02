@@ -23,13 +23,14 @@
             padding: 15px 32px;
             text-align: center;
         }
-
-        button:hover {
-            font-size: 18px;
-            background-color: white;
-            color: #8A00B9;
+        a:link,
+        a:visited {
+            background-color: #8A00B9;
+            color: white;
             padding: 15px 32px;
-            border: 2px solid #8A00B9;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
     </style>
 </head>
@@ -41,7 +42,7 @@
             <p class="fs-3 fw-bolder">Oops, sepertinya Halaman Tidak Ditemukan</p>
             <p class="fs-5 fw-normal">Halaman yang Anda cari mungkin telah dihapus, diubah namanya, atau sementara tidak
                 tersedia.</p>
-                <button href="/" button class="button">Kembali ke Beranda</button>
+            <a href="/">Kembali ke Beranda</a>
         </div>
     </div>
 </body>
