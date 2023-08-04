@@ -40,6 +40,153 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Nama Dosen</a>
+                    </h5>
+                    <p class="card-text">NIDN</p>
+                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
