@@ -46,7 +46,7 @@
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="card-title" id="myTable">
                         <a href="">Nama Dosen</a>
                     </h5>
                     <p class="card-text">NIDN</p>
