@@ -9,7 +9,7 @@
     <p class="py-3">Masukkan Nama Dosen, NIDN atau Prodi Jurusan</p>
     <input class="form-control" id="myInput" type="text" placeholder="Cari..">
     <br>
-    <table class="table table-bordered table-striped">
+    {{-- <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Firstname</th>
@@ -39,22 +39,34 @@
                 <td>a_r@test.com</td>
             </tr>
         </tbody>
-    </table>
+    </table> --}}
 
     <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
-                    <h5 class="card-title" id="myTable">
-                        <a href="">Nama Dosen</a>
+                    <h5 class="card-title">
+                        <a href="">Hendra</a>
                     </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
+                    <p class="card-text">123</p>
+                    <p class="card-text"><small class="text-muted">IT</small></p>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
+            <div class="card">
+                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="">Wijaya</a>
+                    </h5>
+                    <p class="card-text">456</p>
+                    <p class="card-text"><small class="text-muted">Ekonomi</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -66,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -78,7 +90,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -90,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -102,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -114,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -126,7 +138,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -138,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -150,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -162,19 +174,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
+        <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
@@ -188,15 +188,3 @@
         </div>
     </div>
 @endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>

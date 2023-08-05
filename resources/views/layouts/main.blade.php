@@ -228,3 +228,23 @@
         });
     });
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".col").each(function() {
+                var cardTitle = $(this).find('.card-title').text().toLowerCase();
+                var cardText = $(this).find('.card-text').text().toLowerCase();
+                console.log(cardTitle);
+                if (cardTitle.indexOf(value) > -1 || cardText.indexOf(value) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
