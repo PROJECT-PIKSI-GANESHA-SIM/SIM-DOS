@@ -41,7 +41,7 @@ Route::get('/dosen', function () {
 });
 
 Route::get('/detaildosen', function () {
-    return view('dosen', [
+    return view('detaildosen', [
         "title" => "Detail Dosen"
     ]);
 });
