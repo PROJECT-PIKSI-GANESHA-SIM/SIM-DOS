@@ -12,13 +12,13 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ ($title === "Beranda") ? 'active' : '' }}" href="/">Beranda</a>
+                    <a class="nav-link {{ $title === 'Beranda' ? 'active' : '' }}" href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($title === "Dosen") ? 'active' : '' }}" href="dosen">Dosen</a>
+                    <a class="nav-link {{ $title === 'Dosen' ? 'active' : '' }}" href="dosen">Dosen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($title === "Tentang") ? 'active' : '' }}" href="about">Tentang</a>
+                    <a class="nav-link {{ $title === 'Tentang' ? 'active' : '' }}" href="about">Tentang</a>
                 </li>
             </ul>
         </div>
