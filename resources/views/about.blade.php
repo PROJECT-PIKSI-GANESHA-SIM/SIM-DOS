@@ -24,9 +24,7 @@
                     <h5>Rini Suwartika., S.Kom., M.Kom</h5>
                 </div>
                 <p class="text-muted mb-4">Ketua Program Studi Manajemen Informatika (MIF) – D4</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Lulusan dari Universitas Komputer Indonesia (UNIKOM) pada tahun 2006 Jenjang S1 & 2013 Jenjang S2. Saat ini bertanggung jawab sebagai Ketua Program Studi Manajemen Informatika (MIF) – D4.</p>
             </div>
         </div>
 
@@ -43,9 +41,7 @@
                     <h5>Candra Mecca Sufyana., S.Si., MT</h5>
                 </div>
                 <p class="text-muted mb-4">Ketua Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM)</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Lulusan dari Institut Teknologi Bandung (ITB) pada tahun 2008 Jenjang S1 & 2013 Jenjang S2. Saat ini bertanggung jawab sebagai Ketua Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM).</p>
             </div>
         </div>
 
@@ -62,9 +58,7 @@
                     <h5>Euis Hernawati, S.E., M.M</h5>
                 </div>
                 <p class="text-muted mb-4">Ketua Program Studi Administrasi Keuangan (AKE) – D3</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Lulusan dari Sekolah Tinggi Ilmu Ekonomi YPKP pada tahun 1992 & Sekolah Tinggi Manajemen Immi pada tahun 2007 Jenjang S2. Saat ini bertanggung jawab sebagai Ketua Program Studi Administrasi Keuangan (AKE) – D3.</p>
             </div>
         </div>
 
@@ -119,9 +113,7 @@
                     <h5>Hendra Wijaya Subandi</h5>
                 </div>
                 <p class="text-muted mb-4">Mahasiswa</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Mahasiswa Tingkatan 2019 dengan Jurusan Sistem Informasi, saat ini berfokus pada Web Developer & UI/UX Designer.</p>
             </div>
         </div>
 
@@ -138,9 +130,7 @@
                     <h5>Rizal Fadia Al Fikri</h5>
                 </div>
                 <p class="text-muted mb-4">Mahasiswa</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Mahasiswa Tingkatan 2019 dengan Jurusan Sistem Informasi, saat ini berfokus pada Web Developer & Artifical Intelligence (AI).</p>
             </div>
         </div>
 
@@ -157,9 +147,7 @@
                     <h5>Amalina Nurhasanah</h5>
                 </div>
                 <p class="text-muted mb-4">Mahasiswa</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Mahasiswa Tingkatan 2020 dengan Jurusan Manajemen Informatika.</p>
             </div>
         </div>
 
@@ -176,9 +164,7 @@
                     <h5>Rizky Muhammad Ilham Nasution</h5>
                 </div>
                 <p class="text-muted mb-4">Mahasiswa</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Mahasiswa Tingkatan 2020 dengan Jurusan Manajemen Informatika.</p>
             </div>
         </div>
     </div>
