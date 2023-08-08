@@ -105,10 +105,7 @@
     <div class="content py-5">
         <div class="content-description">
             <h1 class="title">Sistem Informasi Manajemen Dosen</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, sunt? Libero odit voluptatum ad
-                similique, iure facere necessitatibus autem, quo dignissimos dolores accusantium vitae illo, esse
-                fuga.
-                Sint, vel inventore.</p>
+            <p>Selamat Datang di SIM-DOS alias Sistem Informasi Manajemen Dosen! Silahkan berkunjung!</p>
             {{-- <button>Lebih lanjut</button> --}}
         </div>
         <div class="content-image">

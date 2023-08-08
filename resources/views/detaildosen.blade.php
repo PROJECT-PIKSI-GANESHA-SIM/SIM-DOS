@@ -23,44 +23,48 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <td class="text-end" width="35%">John</td>
-                            <td>Doe</td>
+                            <td class="text-end" width="35%">NIDN/NUPN</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">Mary</td>
-                            <td>Moe</td>
+                            <td class="text-end" width="35%">NIP</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">NIK</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Nama Lengkap</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Tempat Lahir</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Tanggal lahir</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Jenis Kelamin</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Agama</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Golongan Darah</td>
+                            <td>Example</td>
                         </tr>
                         <tr>
-                            <td class="text-end" width="35%">July</td>
-                            <td>Dooley</td>
+                            <td class="text-end" width="35%">Status Perkawinan</td>
+                            <td>Example</td>
+                        </tr>
+                        <tr>
+                            <td class="text-end" width="35%">Kewarganegaraan</td>
+                            <td>Example</td>
                         </tr>
                     </tbody>
                 </table>
@@ -70,28 +74,28 @@
         <table class="table table-striped">
             <tbody>
                 <tr class="text-center">
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>No</td>
+                    <td>Jenjang</td>
+                    <td>Gelar</td>
+                    <td>Bidang Studi</td>
+                    <td>Perguruan Tinggi</td>
+                    <td>Tahun lulus</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
             </tbody>
         </table>
@@ -99,28 +103,31 @@
         <table class="table table-striped">
             <tbody>
                 <tr class="text-center">
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>No</td>
+                    <td>Mata Kuliah</td>
+                    <td>Jenis Mata Kuliah</td>
+                    <td>Kelas</td>
+                    <td>Tahun Ajar</td>
+                    <td>Jumlah Mahasiswa</td>
+                    <td>SKS</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
             </tbody>
         </table>
@@ -128,31 +135,28 @@
         <table class="table table-striped">
             <tbody>
                 <tr class="text-center">
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>No</td>
+                    <td>Tahun</td>
+                    <td width="45%">Judul Penelitian</td>
+                    <td>Ketua/Anggota Tim</td>
+                    <td>Sumber Dana</td>
+                    <td>Jumlah Dana</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
             </tbody>
         </table>
@@ -160,28 +164,28 @@
         <table class="table table-striped">
             <tbody>
                 <tr class="text-center">
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>No</td>
+                    <td>Tahun</td>
+                    <td width="45%">Judul</td>
+                    <td>Bidang Keilmuan</td>
+                    <td>Tahun Pelaksana</td>
+                    <td>Lama Kegiatan</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
                 <tr>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
-                    <td>Doe</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
+                    <td>Example</td>
                 </tr>
             </tbody>
         </table>
