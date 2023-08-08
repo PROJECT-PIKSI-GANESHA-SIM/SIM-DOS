@@ -75,9 +75,7 @@
                     <h5>Sri Wahyuningsih, A.Md., Kes., MOS</h5>
                 </div>
                 <p class="text-muted mb-4">Staf Akademik</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Lulusan dari Politeknik Piksi Ganesha Bandung 2014 Jenjang D3 & D4. Saat ini bertanggung jawab sebagai Staf Akademik.</p>
             </div>
         </div>
 
@@ -94,9 +92,7 @@
                     <h5>Firdha Raissa Nur Amalia</h5>
                 </div>
                 <p class="text-muted mb-4">Staf Akademik</p>
-                <p data-equal-height="content" style="height: 144px;">Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sunt molestias earum sequi neque perferendis facilis vel reiciendis explicabo, labore a quibusdam,
-                    ducimus libero. Perspiciatis harum necessitatibus sint adipisci quasi nulla!</p>
+                <p data-equal-height="content" style="height: 144px;">Lulusan dari Politeknik Piksi Ganesha Bandung 2023 Jenjang D3 & D4. Saat ini bertanggung jawab sebagai Staf Akademik.</p>
             </div>
         </div>
 
