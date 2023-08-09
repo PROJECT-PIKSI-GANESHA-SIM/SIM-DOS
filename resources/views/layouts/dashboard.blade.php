@@ -23,6 +23,12 @@
     <!-- <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet"> -->
 </head>
 
+<style>
+    .bg-custom {
+        background-color: #8A00B9;
+    }
+</style>
+
 <body>
     <div class="wrapper">
         @include('layouts._dashboard.sidebar')
