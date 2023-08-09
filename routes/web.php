@@ -134,7 +134,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->middleware('role:dosen')->name('pengabdian.destroy');
     
     // ROLE AKADEMIK
-    Route::get('/dosen', [DosenController::class, 'index'])->middleware('role:akademik')->name('dosen');
+    Route::get('/dosen/all', [DosenController::class, 'index'])->middleware('role:akademik')->name('dosen');
     Route::get('/dosen/search', [DosenController::class, 'search'])->middleware('role:akademik')->name('dosen.search');
     Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->middleware('role:akademik')->name('dosen.edit');
     
