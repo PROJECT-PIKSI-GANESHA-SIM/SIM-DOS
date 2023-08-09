@@ -85,7 +85,7 @@
                                     
                                                 <!-- Tombol "Previous" -->
                                                 <li class="page-item {{ $pengajaran->onFirstPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" style="background-color: #8A00B9" href="{{ $pengajaran->previousPageUrl() }}" aria-label="Previous">
+                                                    <a class="page-link" href="{{ $pengajaran->previousPageUrl() }}" aria-label="Previous">
                                                         <span aria-hidden="true">Previous</span>
                                                         <span class="sr-only">Previous</span>
                                                     </a>
@@ -94,13 +94,13 @@
                                                 <!-- Tombol nomor halaman -->
                                                 @for ($i = 1; $i <= $pengajaran->lastPage(); $i++)
                                                     <li class="page-item {{ $pengajaran->currentPage() == $i ? 'active' : '' }}">
-                                                        <a class="page-link" style="background-color: #8A00B9" href="{{ $pengajaran->url($i) }}">{{ $i }}</a>
+                                                        <a class="page-link" href="{{ $pengajaran->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
                                     
                                                 <!-- Tombol "Next" -->
                                                 <li class="page-item {{ $pengajaran->currentPage() == $pengajaran->lastPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" style="background-color: #8A00B9" href="{{ $pengajaran->nextPageUrl() }}" aria-label="Next">
+                                                    <a class="page-link" href="{{ $pengajaran->nextPageUrl() }}" aria-label="Next">
                                                         <span aria-hidden="true">Next</span>
                                                         <span class="sr-only">Next</span>
                                                     </a>
