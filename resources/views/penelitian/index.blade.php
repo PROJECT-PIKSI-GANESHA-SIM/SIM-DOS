@@ -83,7 +83,7 @@
                                     
                                                 <!-- Tombol "Previous" -->
                                                 <li class="page-item {{ $penelitian->onFirstPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" href="{{ $penelitian->previousPageUrl() }}" aria-label="Previous">
+                                                    <a class="page-link" style="background-color: #8A00B9" href="{{ $penelitian->previousPageUrl() }}" aria-label="Previous">
                                                         <span aria-hidden="true">Previous</span>
                                                         <span class="sr-only">Previous</span>
                                                     </a>
@@ -92,13 +92,13 @@
                                                 <!-- Tombol nomor halaman -->
                                                 @for ($i = 1; $i <= $penelitian->lastPage(); $i++)
                                                     <li class="page-item {{ $penelitian->currentPage() == $i ? 'active' : '' }}">
-                                                        <a class="page-link" href="{{ $penelitian->url($i) }}">{{ $i }}</a>
+                                                        <a class="page-link" style="background-color: #8A00B9" href="{{ $penelitian->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
                                     
                                                 <!-- Tombol "Next" -->
                                                 <li class="page-item {{ $penelitian->currentPage() == $penelitian->lastPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" href="{{ $penelitian->nextPageUrl() }}" aria-label="Next">
+                                                    <a class="page-link" style="background-color: #8A00B9" href="{{ $penelitian->nextPageUrl() }}" aria-label="Next">
                                                         <span aria-hidden="true">Next</span>
                                                         <span class="sr-only">Next</span>
                                                     </a>

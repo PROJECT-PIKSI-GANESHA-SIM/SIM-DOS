@@ -88,7 +88,7 @@
                                     
                                                 <!-- Tombol "Previous" -->
                                                 <li class="page-item {{ $pendidikan->onFirstPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" href="{{ $pendidikan->previousPageUrl() }}" aria-label="Previous">
+                                                    <a class="page-link" style="background-color: #8A00B9" href="{{ $pendidikan->previousPageUrl() }}" aria-label="Previous">
                                                         <span aria-hidden="true">Previous</span>
                                                         <span class="sr-only">Previous</span>
                                                     </a>
@@ -97,13 +97,13 @@
                                                 <!-- Tombol nomor halaman -->
                                                 @for ($i = 1; $i <= $pendidikan->lastPage(); $i++)
                                                     <li class="page-item {{ $pendidikan->currentPage() == $i ? 'active' : '' }}">
-                                                        <a class="page-link" href="{{ $pendidikan->url($i) }}">{{ $i }}</a>
+                                                        <a class="page-link" style="background-color: #8A00B9" href="{{ $pendidikan->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
                                     
                                                 <!-- Tombol "Next" -->
                                                 <li class="page-item {{ $pendidikan->currentPage() == $pendidikan->lastPage() ? 'disabled' : '' }}">
-                                                    <a class="page-link" href="{{ $pendidikan->nextPageUrl() }}" aria-label="Next">
+                                                    <a class="page-link" style="background-color: #8A00B9" href="{{ $pendidikan->nextPageUrl() }}" aria-label="Next">
                                                         <span aria-hidden="true">Next</span>
                                                         <span class="sr-only">Next</span>
                                                     </a>
