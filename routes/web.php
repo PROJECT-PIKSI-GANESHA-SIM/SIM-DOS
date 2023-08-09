@@ -73,19 +73,13 @@ Auth::routes([
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['web', 'auth']], function () {
-
-    // Home
-<<<<<<< HEAD
-    Route::get('/home', [HomeController::class, 'index'])->middleware('role:dosen|akademik')->name('home');
     
-=======
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-
->>>>>>> 383ef8131ad96bb9f0d912fcc4a8059f7d65973f
+    // Home
+    Route::get('/dashboard/home', [HomeController::class, 'index'])->middleware('role:dosen|akademik')->name('home');
+    
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->middleware('role:dosen')->name('data_diri');
 
-<<<<<<< HEAD
     Route::get('/data_diri/identitas/{id}/edit', [DataDiriController::class, 'edit_identitas'])->middleware('role:dosen')->name('identitas.edit');
     Route::get('/data_diri/alamat_kontak/{id}/edit', [DataDiriController::class, 'edit_alamat_kontak'])->middleware('role:dosen')->name('alamat_kontak.edit');
     Route::get('/data_diri/kepegawaian/{id}/edit', [DataDiriController::class, 'edit_kepegawaian'])->middleware('role:dosen')->name('kepegawaian.edit');
@@ -106,32 +100,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->middleware('role:dosen')->name('pengajaran.destroy');
     
     
-=======
-    Route::get('/data_diri/identitas/{id}/edit', [DataDiriController::class, 'edit_identitas'])->name('identitas.edit');
-    Route::get('/data_diri/alamat_kontak/{id}/edit', [DataDiriController::class, 'edit_alamat_kontak'])->name('alamat_kontak.edit');
-    Route::get('/data_diri/kepegawaian/{id}/edit', [DataDiriController::class, 'edit_kepegawaian'])->name('kepegawaian.edit');
-    Route::get('/data_diri/lain/{id}/edit', [DataDiriController::class, 'edit_lain'])->name('lain.edit');
-
-    Route::put('/data_diri/identitas/update/{id}', [DataDiriController::class, 'update_identitas'])->name('identitas.update');
-    Route::put('/data_diri/lain/update/{id}', [DataDiriController::class, 'update_lain'])->name('lain.update');
-    Route::put('/data_diri/alamat_kontak/update/{id}', [DataDiriController::class, 'update_alamat_kontak'])->name('alamat_kontak.update');
-    Route::put('/data_diri/kepegawaian/update/{id}', [DataDiriController::class, 'update_kepegawaian'])->name('kepegawaian.update');
-
-    // Pengajaran
-    Route::get('/pengajaran', [PengajaranController::class, 'index'])->name('pengajaran');
-    Route::get('/pengajaran/create', [PengajaranController::class, 'create'])->name('pengajaran.create');
-    Route::post('/pengajaran/create', [PengajaranController::class, 'store'])->name('pengajaran.store');
-    Route::get('/pengajaran/{id}/edit', [PengajaranController::class, 'edit'])->name('pengajaran.edit');
-    Route::put('/pengajaran/update/{id}', [PengajaranController::class, 'update'])->name('pengajaran.update');
-    Route::delete('/pengajaran/delete/{id}', [PengajaranController::class, 'destroy'])->name('pengajaran.destroy');
-
-
->>>>>>> 383ef8131ad96bb9f0d912fcc4a8059f7d65973f
     // Profile
     Route::get('/profile', [ProfileController::class, 'index'])->middleware('role:dosen|akademik')->name('profile');
     Route::put('/profile/{id}', [ProfileController::class, 'update'])->middleware('role:dosen|akademik')->name('profile.update');
     // Route::resources('/profile', ProfileController::class);
-
+    
     // Penelitian
     Route::get('/penelitian', [PenelitianController::class, 'index'])->middleware('role:dosen')->name('penelitian');
     Route::get('/penelitian/create', [PenelitianController::class, 'create'])->middleware('role:dosen')->name('penelitian.create');
@@ -152,7 +125,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::delete('/pendidikan/delete/{id}', [PendidikanController::class, 'destroy'])->middleware('role:dosen')->name('pendidikan.destroy');
     
     // Pengabdian
-<<<<<<< HEAD
     Route::get('/pengabdian', [PengabdianController::class, 'index'])->middleware('role:dosen')->name('pengabdian');
     Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->middleware('role:dosen')->name('pengabdian.create');
     Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->middleware('role:dosen')->name('pengabdian.store');
@@ -222,12 +194,3 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pesan/update', [PesanController::class, 'update_publish_status'])->middleware('role:akademik');
 
 });
-=======
-    Route::get('/pengabdian', [PengabdianController::class, 'index'])->name('pengabdian');
-    Route::get('/pengabdian/create', [PengabdianController::class, 'create'])->name('pengabdian.create');
-    Route::post('/pengabdian/create', [PengabdianController::class, 'store'])->name('pengabdian.store');
-    Route::get('/pengabdian/{id}/edit', [PengabdianController::class, 'edit'])->name('pengabdian.edit');
-    Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->name('pengabdian.update');
-    Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->name('pengabdian.destroy');
-});
->>>>>>> 383ef8131ad96bb9f0d912fcc4a8059f7d65973f
