@@ -136,11 +136,11 @@
 
             .footer .row {
                 flex-direction: column;
-                align-items: center;
+                align-items: left;
             }
 
             .footer .col-md-6 {
-                text-align: center;
+                text-align: left;
                 margin-bottom: 1rem;
             }
 
@@ -148,8 +148,6 @@
                 margin: 0.5rem;
             }
         }
-
-        
 
         a {
             text-decoration: none;
