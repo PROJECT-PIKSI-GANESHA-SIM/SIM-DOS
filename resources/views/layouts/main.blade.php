@@ -104,7 +104,7 @@
             width: 500px;
         }
 
-        /* Medium devices (landscape tablets, 768px and down) */
+        /* Adjustments for Small Devices (Mobile Phones) */
         @media screen and (max-width: 576px) {
 
             /* Adjust padding and font sizes for better mobile experience */
