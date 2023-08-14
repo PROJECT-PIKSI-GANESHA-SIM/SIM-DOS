@@ -211,7 +211,10 @@
 
         <div class="row mt-4">
             <div class="col">
-                <span class="fw-bold text-white">©POLITEKNIK PIKSI GANESHA</span>, 2023. All Rights Reserved
+                <span class="fw-bold text-white">&copy; POLITEKNIK PIKSI GANESHA</span>, 
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>. All Rights Reserved
             </div>
         </div>
     </div>
