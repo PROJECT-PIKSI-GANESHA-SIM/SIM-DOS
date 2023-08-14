@@ -41,7 +41,7 @@
                     <h5>Candra Mecca Sufyana., S.Si., MT</h5>
                 </div>
                 <p class="text-muted mb-4">Ketua Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM)</p>
-                <p data-equal-height="content" style="height: 144px;">Lulusan dari Institut Teknologi Bandung (ITB) pada tahun 2008 Jenjang S1 & 2013 Jenjang S2. Saat ini bertanggung jawab sebagai Ketua Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM).</p>
+                <p data-equal-height="content" style="height: 144px;">Lulusan dari Institut Teknologi Bandung (ITB) pada tahun 2008 Jenjang S1, 2013 Jenjang S2 & 2023 Jenjang S3. Saat ini bertanggung jawab sebagai Ketua Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM).</p>
             </div>
         </div>
 
