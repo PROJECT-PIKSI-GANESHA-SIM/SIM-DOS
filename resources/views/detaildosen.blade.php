@@ -138,7 +138,7 @@
                     <td>No</td>
                     <td>Tahun</td>
                     <td width="45%">Judul Penelitian</td>
-                    <td>Ketua/Anggota Tim</td>
+                    <td>Ketua/Anggota</td>
                     <td>Sumber Dana</td>
                     <td>Jumlah Dana</td>
                 </tr>
@@ -165,7 +165,6 @@
             <tbody>
                 <tr class="text-center">
                     <td>No</td>
-                    <td>Tahun</td>
                     <td width="45%">Judul</td>
                     <td>Bidang Keilmuan</td>
                     <td>Tahun Pelaksana</td>
@@ -177,10 +176,8 @@
                     <td>Example</td>
                     <td>Example</td>
                     <td>Example</td>
-                    <td>Example</td>
                 </tr>
                 <tr>
-                    <td>Example</td>
                     <td>Example</td>
                     <td>Example</td>
                     <td>Example</td>
