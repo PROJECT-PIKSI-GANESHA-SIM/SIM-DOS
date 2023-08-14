@@ -105,26 +105,47 @@
         }
 
         /* Medium devices (landscape tablets, 768px and down) */
-        @media screen and (max-width: 768px) {
-            main {
-                padding: 1rem 3rem;
-            }
+        @media screen and (max-width: 576px) {
 
-            main .content {
-                flex-direction: column;
-                gap: 2rem;
+            /* Adjust padding and font sizes for better mobile experience */
+            main {
+                padding: 1rem 1rem;
+                /* Adjust padding for smaller screens */
             }
 
             main .content .content-description .title {
-                font-size: 3rem;
+                font-size: 2rem;
+                margin-block: 0.5rem 0;
             }
 
             main .content .content-description p {
                 font-size: 1rem;
             }
 
-            main .content .content-image {
-                order: -1;
+            main .content .content-image img {
+                width: 100%;
+                max-width: 300px;
+                /* Adjust maximum image width for smaller screens */
+                margin: 1rem auto;
+            }
+
+            /* Adjust footer layout for better mobile experience */
+            .footer {
+                padding: 1.5rem 0;
+            }
+
+            .footer .row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer .col-md-6 {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .footer .btn {
+                margin: 0.5rem;
             }
         }
 
