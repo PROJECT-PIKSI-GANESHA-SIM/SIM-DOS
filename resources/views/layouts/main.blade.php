@@ -211,7 +211,7 @@
 
         <div class="row mt-4">
             <div class="col">
-                <span class="fw-bold text-white">&copy; POLITEKNIK PIKSI GANESHA</span>, 
+                <span class="fw-bold text-white">&copy; POLITEKNIK PIKSI GANESHA</span>,
                 <script>
                     document.write(new Date().getFullYear())
                 </script>. All Rights Reserved
