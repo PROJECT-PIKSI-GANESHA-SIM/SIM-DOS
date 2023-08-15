@@ -10,6 +10,8 @@ use App\Models\LainLain;
 use App\Models\Pendidikan;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
+use App\Models\MenuPenunjang;
+use App\Models\CapaianLuaran;
 use App\Models\Pengajaran;
 use App\Models\PredikatKelulusan;
 use App\Models\ProgramStudi;
@@ -49,7 +51,7 @@ class DosenController extends Controller
         return view('akademik.dosen.index', [
             'user' => $users,
             'users_dosen' => $users_dosen
-            
+
         ]);
     }
 
@@ -60,6 +62,8 @@ class DosenController extends Controller
         $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
         $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
         $pengabdian = Pengabdian::where('user_id', $user->id)->paginate(5);
+        $penunjang = MenuPenunjang::where('user_id', $user->id)->paginate(5);
+        $capaian_luaran = CapaianLuaran::where('user_id', $user->id)->paginate(5);
         $identitas = IdentitasDiri::where('user_id', $user->id)->first();
         $alamat_kontak = AlamatKontak::where('user_id', $user->id)->first();
         $kepegawaian = Kepegawaian::where('user_id', $user->id)->first();
@@ -71,6 +75,8 @@ class DosenController extends Controller
             'pengajaran' => $pengajaran,
             'penelitian' => $penelitian,
             'pengabdian' => $pengabdian,
+            'menu_penunjang' => $penunjang,
+            'capaian_luaran' => $capaian_luaran,
             'identitas' => $identitas,
             'alamat_kontak' => $alamat_kontak,
             'kepegawaian' => $kepegawaian,
@@ -218,7 +224,7 @@ class DosenController extends Controller
     }
 
     public function edit_pendidikan($user_id, $id) {
-        
+
         $user = User::findOrFail($user_id);
 
         // get pendidikan by id
@@ -229,7 +235,7 @@ class DosenController extends Controller
 
         // get predikat kelulusan
         $predikat_kelulusan = PredikatKelulusan::all();
-        
+
         return view('akademik.dosen.pendidikan.edit', [
             'pendidikan' => $pendidikan,
             'jenjang_pendidikan' => $jenjang_pendidikan,
@@ -265,7 +271,7 @@ class DosenController extends Controller
 
         // kondisi jika file ijazah dan transkirp nilai di upload
         if($request->hasFile('file_ijazah') && $request->hasFile('transkrip_nilai')) {
-            
+
             // upload file ijazah
             $ijazah = $request->file('file_ijazah');
             $ijazah->storeAs('public/dosen/pendidikan/ijazah', $ijazah->hashName());
@@ -273,7 +279,7 @@ class DosenController extends Controller
             // upload transkrip nilai
             $transkrip_nilai = $request->file('transkrip_nilai');
             $transkrip_nilai->storeAs('public/dosen/pendidikan/transkrip_nilai', $transkrip_nilai->hashName());
-            
+
             Storage::delete('public/dosen/pendidikan/ijazah/'. $pendidikan->file_ijazah);
             Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
 
@@ -302,7 +308,7 @@ class DosenController extends Controller
             // upload file ijazah
             $ijazah = $request->file('file_ijazah');
             $ijazah->storeAs('public/dosen/pendidikan/ijazah', $ijazah->hashName());
-            
+
             Storage::delete('public/dosen/pendidikan/ijazah/'. $pendidikan->file_ijazah);
 
             // update pendidikan
@@ -331,7 +337,7 @@ class DosenController extends Controller
             $transkrip_nilai->storeAs('public/dosen/pendidikan/transkrip_nilai', $transkrip_nilai->hashName());
 
             Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
-        
+
             // update pendidikan
             $pendidikan->update([
                 'jenjang_pendidikan' => $request->jenjang_pendidikan,
@@ -351,7 +357,7 @@ class DosenController extends Controller
             ]);
 
         } else {
-            
+
             // kondisi ketika tikak mengupload file ijazah dan transkrip nilai
 
             // update pendidikan
@@ -372,22 +378,22 @@ class DosenController extends Controller
             ]);
         }
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
-    
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
+
     }
 
-    public function destroy_pendidikan($id) {
-        
+    public function destroy_pendidikan($user_id, $id) {
+
         $pendidikan = Pendidikan::findOrFail($id);
 
         // hapus gambar bukti pengajaran dan bukti presensi
         Storage::delete('public/dosen/pendidikan/file_ijazah/'. $pendidikan->file_ijazah);
         Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
-        
+
         // hapus pendidikan
         $pendidikan->delete();
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 
@@ -418,14 +424,14 @@ class DosenController extends Controller
             'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
+
         // Kondisi jika bukti pengajaran dan bukti presensi di upload
         if($request->hasFile('bukti_pengajaran') && $request->hasFile('bukti_presensi')) {
-            
+
             // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
-            
+
             // upload bukti presensi
             $bukti_presensi = $request->file('bukti_presensi');
             $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
@@ -506,7 +512,7 @@ class DosenController extends Controller
     }
 
     public function edit_pengajaran($user_id, $id) {
-        
+
         $pengajaran = Pengajaran::findOrFail($id);
         $program_studi = ProgramStudi::all();
         $user = User::findOrFail($user_id);
@@ -540,15 +546,15 @@ class DosenController extends Controller
 
         // Kondisi jika bukti pengajaran dan bukti presensi di upload
         if($request->hasFile('bukti_pengajaran') && $request->hasFile('bukti_presensi')) {
-            
+
             // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
-            
+
             // upload bukti presensi
             $bukti_presensi = $request->file('bukti_presensi');
             $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
-            
+
             // Hapus image terdahulu
             Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
             Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
@@ -633,21 +639,21 @@ class DosenController extends Controller
             ]);
         }
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
-    public function destroy_pengajaran($id) {
-        
+    public function destroy_pengajaran($user_id, $id) {
+
         $pengajaran = Pengajaran::findOrFail($id);
 
         // hapus gambar bukti pengajaran dan bukti presensi
         Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
         Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
-        
+
         // hapus pengajaran
         $pengajaran->delete();
 
-        return redirect()->route('dosen,edit', $id)->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     // PENELITIAN
@@ -679,7 +685,7 @@ class DosenController extends Controller
             'link_publikasi' => 'required|string:max:255',
             'surat_tugas' => 'file|mimes:pdf|max:2048',
             'publikasi' => 'file|mimes:pdf|max:2048',
-            
+
         ]);
 
         // Kondisi jika surat tugas dan publikasi di upload
@@ -689,7 +695,7 @@ class DosenController extends Controller
             // upload bukti surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -738,7 +744,7 @@ class DosenController extends Controller
             ]);
 
         } else if($request->hasFile('publikasi')) {
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -827,7 +833,7 @@ class DosenController extends Controller
             // upload bukti surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -885,7 +891,7 @@ class DosenController extends Controller
             ]);
 
         } else if($request->hasFile('publikasi')) {
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -932,18 +938,18 @@ class DosenController extends Controller
             ]);
         }
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
 
     }
 
-    public function destroy_penelitian($id) {
-        
+    public function destroy_penelitian($user_id, $id) {
+
         $penelitian = Penelitian::findOrFail($id);
 
         // hapus gambar bukti pengajaran dan bukti presensi
         Storage::delete('public/dosen/penelitian/surat_tugas/'. $penelitian->surat_tugas);
         Storage::delete('public/dosen/penelitian/publikasi/'. $penelitian->publikasi);
-        
+
         // hapus penelitian
         $penelitian->delete();
 
@@ -961,7 +967,7 @@ class DosenController extends Controller
     }
 
     public function store_pengabdian(Request $request, $id) {
-        
+
         // validasi form
         $this->validate($request, [
             'judul_pengabdian' => 'required|string:max:255',
@@ -984,7 +990,7 @@ class DosenController extends Controller
 
         // Kondisi jika surat tugas dan laporan kegiatan di upload
         if($request->hasFile('surat_tugas') && $request->hasFile('laporan_kegiatan')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -1015,7 +1021,7 @@ class DosenController extends Controller
             ]);
 
         } else if($request->hasFile('surat_tugas')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -1041,7 +1047,7 @@ class DosenController extends Controller
             ]);
 
         } else if($request->hasFile('laporan_kegiatan')) {
-            
+
             // upload laporan kegiatan
             $laporan_kegiataan = $request->file('laporan_kegiatan');
             $laporan_kegiataan->storeAs('public/dosen/pengabdian/laporan_kegiatan', $laporan_kegiataan->hashName());
@@ -1133,7 +1139,7 @@ class DosenController extends Controller
 
         // Kondisi jika surat tugas dan laporan kegiatan di upload
         if($request->hasFile('surat_tugas') && $request->hasFile('laporan_kegiatan')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -1168,7 +1174,7 @@ class DosenController extends Controller
             ]);
 
         } else if($request->hasFile('surat_tugas')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -1197,7 +1203,7 @@ class DosenController extends Controller
             ]);
 
         } else if($request->hasFile('laporan_kegiatan')) {
-            
+
             // upload laporan kegiatan
             $laporan_kegiataan = $request->file('laporan_kegiatan');
             $laporan_kegiataan->storeAs('public/dosen/pengabdian/laporan_kegiatan', $laporan_kegiataan->hashName());
@@ -1247,16 +1253,16 @@ class DosenController extends Controller
             ]);
         }
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    public function destroy_pengabdian($id) {
+    public function destroy_pengabdian($user_id, $id) {
         $pengabdian = Pengabdian::findOrFail($id);
 
         // hapus file surat tugas dan laporan kegiatan
         Storage::delete('public/dosen/pengabdian/surat_tugas/'. $pengabdian->surat_tugas);
         Storage::delete('public/dosen/pengabdian/laporan_kegiatan/'. $pengabdian->laporan_kegiatan);
-        
+
         // hapus pengajaran
         $pengabdian->delete();
 
@@ -1342,7 +1348,7 @@ class DosenController extends Controller
 
         $user->nidn = $request->nidn;
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
 
     }
 
@@ -1379,12 +1385,12 @@ class DosenController extends Controller
 
         $user->no_telpn = $request->no_handphone;
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
 
     }
 
     public function update_lain_lain(Request $request, $user_id, $id) {
-        
+
         $user = User::findOrFail($user_id);
         $lain = LainLain::findOrFail($id);
 
@@ -1402,7 +1408,7 @@ class DosenController extends Controller
             'sinta_id' => $request->sinta_id,
         ]);
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
 
     }
 
@@ -1433,8 +1439,274 @@ class DosenController extends Controller
             'pangkat_golongan' => $request->pangkat_golongan
         ]);
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
     }
-    
+
+    // Penunjang
+    public function create_penunjang($id) {
+
+        $user = User::findOrFail($id);
+
+        return view('akademik.dosen.penunjang.create', [
+            'user' => $user
+        ]);
+    }
+
+    public function store_penunjang(Request $request, $id) {
+
+        // validasi form
+        $this->validate($request, [
+            'kategori_kegiatan' => 'required|string|max:255',
+            'nama_kegiatan' => 'required|string|max:255',
+            'pelaksanaan' => 'required|string|max:255',
+            'upload_document' => 'file|mimes:pdf|max:2048',
+        ]);
+        // Get Id User
+        $user = Auth::user();
+
+        // kondisi jika kedua file di uplaod
+        if($request->hasFile('upload_document')) {
+
+            // upload file ijazah
+            $upload_document = $request->file('upload_document');
+            $upload_document->storeAs('public/dosen/menu_penunjang/upload_document', $upload_document->hashName());
+
+            // create menu penunjang
+            MenuPenunjang::create([
+                'kategori_kegiatan' => $request->kategori_kegiatan,
+                'nama_kegiatan' => $request->nama_kegiatan,
+                'pelaksanaan' => $request->pelaksanaan,
+                'upload_document' => $upload_document->hashName(),
+                'user_id' => $id,
+            ]);
+
+        } else {
+
+            // kondisi jika tikak mengupload file
+
+            // create menu penunjang
+            MenuPenunjang::create([
+                'jenjang_pendidikan' => $request->jenjang_pendidikan,
+                'kategori_kegiatan' => $request->kategori_kegiatan,
+                'nama_kegiatan' => $request->nama_kegiatan,
+                'pelaksanaan' => $request->pelaksanaan,
+                'user_id' => $id,
+            ]);
+        }
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+
+    }
+
+    public function edit_penunjang($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
+
+        // get penunjang by id
+        $penunjang = MenuPenunjang::findOrFail($id);
+
+        return view('akademik.dosen.penunjang.edit', [
+            'menu_penunjang' => $penunjang,
+            'user' => $user
+        ]);
+    }
+
+    public function update_penunjang(Request $request, $user_id, $id) {
+
+        $menu_penunjang = MenuPenunjang::findOrFail($id);
+
+        // validasi form
+        $this->validate($request, [
+            'kategori_kegiatan' => 'required|string|max:255',
+            'nama_kegiatan' => 'required|string|max:255',
+            'pelaksanaan' => 'required|string|max:255',
+            'upload_document' => 'file|mimes:pdf|max:2048',
+        ]);
+
+        // Get Id User
+        $user = User::findOrFail($user_id);
+
+        // Kondisi jika surat tugas dan laporan kegiatan di upload
+        if($request->hasFile('upload_document')) {
+
+            // upload file ijazah
+            $upload_document = $request->file('upload_document');
+            $upload_document->storeAs('public/dosen/menu_penunjang/upload_document', $upload_document->hashName());
+
+            Storage::delete('public/dosen/menu_penunjang/upload_document/'. $menu_penunjang->upload_document);
+
+            // update pendidikan
+            $menu_penunjang->update([
+                'jenjang_pendidikan' => $request->jenjang_pendidikan,
+                'kategori_kegiatan' => $request->kategori_kegiatan,
+                'nama_kegiatan' => $request->nama_kegiatan,
+                'pelaksanaan' => $request->pelaksanaan,
+                'upload_document' => $upload_document->hashName(),
+                'user_id' => $user->id,
+            ]);
+
+
+        } else {
+
+            // kondisi ketika tikak mengupload file
+
+            // update pendidikan
+            $menu_penunjang->update([
+                'jenjang_pendidikan' => $request->jenjang_pendidikan,
+                'kategori_kegiatan' => $request->kategori_kegiatan,
+                'nama_kegiatan' => $request->nama_kegiatan,
+                'pelaksanaan' => $request->pelaksanaan,
+                'user_id' => $user->id,
+            ]);
+        }
+
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+
+    public function destroy_penunjang($user_id, $id) {
+        $penunjang = MenuPenunjang::findOrFail($id);
+
+        // hapus file surat tugas dan laporan kegiatan
+        Storage::delete('public/dosen/menu_penunjang/upload_document/'. $penunjang->upload_document);
+
+        // hapus pengajaran
+        $penunjang->delete();
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Didelete!']);
+    }
+
+    // CAPAIAN LUARAN
+    public function create_capaian_luaran($id) {
+
+        $user = User::findOrFail($id);
+
+        return view('akademik.dosen.capaian_luaran.create', [
+            'user' => $user
+        ]);
+    }
+
+    public function store_capaian_luaran(Request $request, $id) {
+
+        // validasi form
+        $this->validate($request, [
+            'jenis_luaran' => 'required|string|max:255',
+            'judul_karya' => 'required|string|max:255',
+            'tanggal' => 'required|string|max:255',
+            'tautan_eksternal' => 'required|string|max:255',
+            'upload_document' => 'file|mimes:pdf|max:2048',
+        ]);
+
+        // kondisi jika kedua file di uplaod
+        if($request->hasFile('upload_document')) {
+
+           // upload file ijazah
+           $upload_document = $request->file('upload_document');
+           $upload_document->storeAs('public/dosen/capaian_luaran/upload_document', $upload_document->hashName());
+
+           // create menu capaian luaran
+           CapaianLuaran::create([
+               'jenis_luaran' => $request->jenis_luaran,
+               'judul_karya' => $request->judul_karya,
+               'tanggal' => $request->tanggal,
+               'tautan_eksternal' => $request->tautan_eksternal,
+               'upload_document' => $upload_document->hashName(),
+               'user_id' => $id,
+           ]);
+
+        } else {
+
+            // kondisi jika tikak mengupload file
+
+            // create menu capaian luaran
+            CapaianLuaran::create([
+                'jenis_luaran' => $request->jenis_luaran,
+                'judul_karya' => $request->judul_karya,
+                'tanggal' => $request->tanggal,
+                'tautan_eksternal' => $request->tautan_eksternal,
+                'user_id' => $id,
+            ]);
+        }
+
+        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Disimpan!']);
+
+    }
+
+    public function edit_capaian_luaran($user_id, $id) {
+
+        $user = User::findOrFail($user_id);
+
+        // get capaian luaran by id
+        $capaian_luaran = CapaianLuaran::findOrFail($id);
+
+        return view('akademik.dosen.capaian_luaran.edit', [
+            'capaian_luaran' => $capaian_luaran,
+            'user' => $user
+        ]);
+    }
+
+    public function update_capaian_luaran(Request $request, $user_id, $id) {
+
+        $capaian_luaran = CapaianLuaran::findOrFail($id);
+
+        // validasi form
+        $this->validate($request, [
+            'jenis_luaran' => 'required|string|max:255',
+            'judul_karya' => 'required|string|max:255',
+            'tanggal' => 'required|string|max:255',
+            'tautan_eksternal' => 'required|string|max:255',
+            'upload_document' => 'file|mimes:pdf|max:2048',
+        ]);
+
+        // Get Id User
+        $user = User::findOrFail($user_id);
+
+        // Kondisi jika surat tugas dan laporan kegiatan di upload
+        if($request->hasFile('upload_document')) {
+
+            // upload file ijazah
+            $upload_document = $request->file('upload_document');
+            $upload_document->storeAs('public/dosen/capaian_luaran/upload_document', $upload_document->hashName());
+
+            Storage::delete('public/dosen/capaian_luaran/upload_document/'. $menu_penunjang->upload_document);
+
+            // update capaian luaran
+            $capaian_luaran->update([
+                'jenis_luaran' => $request->jenis_luaran,
+                'judul_karya' => $request->judul_karya,
+                'tanggal' => $request->tanggal,
+                'tautan_eksternal' => $request->tautan_eksternal,
+                'upload_document' => $upload_document->hashName(),
+                'user_id' => $user->id,
+            ]);
+
+
+        } else {
+
+            // kondisi ketika tikak mengupload file
+
+            // update pendidikan
+            $capaian_luaran->update([
+                'jenis_luaran' => $request->jenis_luaran,
+                'judul_karya' => $request->judul_karya,
+                'tanggal' => $request->tanggal,
+                'tautan_eksternal' => $request->tautan_eksternal,
+                'user_id' => $user->id,
+            ]);
+        }
+
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+
+    public function destroy_capaian_luaran($user_id, $id) {
+        $capaian_luaran = CapaianLuaran::findOrFail($id);
+
+        // hapus file document
+        Storage::delete('public/dosen/capaian_luaran/upload_document/'. $capaian_luaran->upload_document);
+
+        // hapus pengajaran
+        $capaian_luaran->delete();
+
+        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Didelete!']);
+    }
 
 }

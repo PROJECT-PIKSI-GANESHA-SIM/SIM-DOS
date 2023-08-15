@@ -1,7 +1,7 @@
 @extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -20,6 +20,12 @@
     </li>
     <li class="nav-item">
         <a class="nav-link bg-white text-black" id="tab5-tab" data-bs-toggle="tab" href="#tab5" role="tab" aria-controls="tab5" aria-selected="false">Pengabdian</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link bg-white text-black" id="tab6-tab" data-bs-toggle="tab" href="#tab6" role="tab" aria-controls="tab6" aria-selected="false">Penunjang</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link bg-white text-black" id="tab7-tab" data-bs-toggle="tab" href="#tab7" role="tab" aria-controls="tab7" aria-selected="false">Capaian Luaran</a>
     </li>
   </ul>
 <div class="card">
@@ -45,7 +51,7 @@
                                 @if ($user->image == null)
                                     <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="100px" height="100px">
                                 @else
-                                    <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="100px" height="100px">    
+                                    <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="100px" height="100px">
                                 @endif
                             </div>
                         </div>
@@ -276,10 +282,7 @@
                                             <td>
                                                 <div class="col">
                                                     <div class="row-3 text-center">
-                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pendidikan.destroy', $p->id) }}">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pendidikan.destroy', [$user->id, $p->id]) }}">
                                                             <a href="{{ route('dosen.pendidikan.edit', [$user->id, $p->id]) }}">
                                                                 <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                             </a>
@@ -303,7 +306,7 @@
                         <div class="d-flex justify-content-end">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
-                        
+
                                     <!-- Tombol "Previous" -->
                                     <li class="page-item {{ $pendidikan->onFirstPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $pendidikan->previousPageUrl() }}" aria-label="Previous">
@@ -311,14 +314,14 @@
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </li>
-                        
+
                                     <!-- Tombol nomor halaman -->
                                     @for ($i = 1; $i <= $pendidikan->lastPage(); $i++)
                                         <li class="page-item {{ $pendidikan->currentPage() == $i ? 'active' : '' }}">
                                             <a class="page-link" href="{{ $pendidikan->url($i) }}">{{ $i }}</a>
                                         </li>
                                     @endfor
-                        
+
                                     <!-- Tombol "Next" -->
                                     <li class="page-item {{ $pendidikan->currentPage() == $pendidikan->lastPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $pendidikan->nextPageUrl() }}" aria-label="Next">
@@ -372,10 +375,8 @@
                                         <td>
                                             <div class="col">
                                                 <div class="row-3 text-center">
-                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pengajaran.destroy', $p->id) }}">
-                                                        <a href="">
-                                                            <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                        </a>
+                                                    <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pengajaran.destroy', [$user->id, $p->id]) }}">
+
                                                         <a href="{{ route('dosen.pengajaran.edit', [$user->id, $p->id]) }}">
                                                             <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                         </a>
@@ -398,7 +399,7 @@
                         <div class="d-flex justify-content-end">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
-                        
+
                                     <!-- Tombol "Previous" -->
                                     <li class="page-item {{ $pengajaran->onFirstPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $pengajaran->previousPageUrl() }}" aria-label="Previous">
@@ -406,14 +407,14 @@
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </li>
-                        
+
                                     <!-- Tombol nomor halaman -->
                                     @for ($i = 1; $i <= $pengajaran->lastPage(); $i++)
                                         <li class="page-item {{ $pengajaran->currentPage() == $i ? 'active' : '' }}">
                                             <a class="page-link" href="{{ $pengajaran->url($i) }}">{{ $i }}</a>
                                         </li>
                                     @endfor
-                        
+
                                     <!-- Tombol "Next" -->
                                     <li class="page-item {{ $pengajaran->currentPage() == $pengajaran->lastPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $pengajaran->nextPageUrl() }}" aria-label="Next">
@@ -465,10 +466,8 @@
                                             <td>
                                                 <div class="col">
                                                     <div class="row-3 text-center">
-                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.penelitian.destroy', $p->id) }}">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.penelitian.destroy', [$user->id, $p->id]) }}">
+
                                                             <a href="{{ route('dosen.penelitian.edit', [$user->id, $p->id]) }}">
                                                                 <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                             </a>
@@ -491,7 +490,7 @@
                         <div class="d-flex justify-content-end">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
-                        
+
                                     <!-- Tombol "Previous" -->
                                     <li class="page-item {{ $penelitian->onFirstPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $penelitian->previousPageUrl() }}" aria-label="Previous">
@@ -499,14 +498,14 @@
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </li>
-                        
+
                                     <!-- Tombol nomor halaman -->
                                     @for ($i = 1; $i <= $penelitian->lastPage(); $i++)
                                         <li class="page-item {{ $penelitian->currentPage() == $i ? 'active' : '' }}">
                                             <a class="page-link" href="{{ $penelitian->url($i) }}">{{ $i }}</a>
                                         </li>
                                     @endfor
-                        
+
                                     <!-- Tombol "Next" -->
                                     <li class="page-item {{ $penelitian->currentPage() == $penelitian->lastPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $penelitian->nextPageUrl() }}" aria-label="Next">
@@ -556,10 +555,8 @@
                                             <td>
                                                 <div class="col">
                                                     <div class="row-3 text-center">
-                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pengabdian.destroy', $p->id) }}">
-                                                            <a href="">
-                                                                <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
-                                                            </a>
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.pengabdian.destroy', [$user->id, $p->id]) }}">
+
                                                             <a href="{{ route('dosen.pengabdian.edit', [$user->id, $p->id]) }}">
                                                                 <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
                                                             </a>
@@ -583,7 +580,7 @@
                         <div class="d-flex justify-content-end">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
-                        
+
                                     <!-- Tombol "Previous" -->
                                     <li class="page-item {{ $pengabdian->onFirstPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $pengabdian->previousPageUrl() }}" aria-label="Previous">
@@ -591,14 +588,14 @@
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </li>
-                        
+
                                     <!-- Tombol nomor halaman -->
                                     @for ($i = 1; $i <= $pengabdian->lastPage(); $i++)
                                         <li class="page-item {{ $pengabdian->currentPage() == $i ? 'active' : '' }}">
                                             <a class="page-link" href="{{ $pengabdian->url($i) }}">{{ $i }}</a>
                                         </li>
                                     @endfor
-                        
+
                                     <!-- Tombol "Next" -->
                                     <li class="page-item {{ $pengabdian->currentPage() == $pengabdian->lastPage() ? 'disabled' : '' }}">
                                         <a class="page-link" href="{{ $pengabdian->nextPageUrl() }}" aria-label="Next">
@@ -613,10 +610,197 @@
                     </div>
             </div>
         </div>
+
+        <div class="tab-pane fade" id="tab6" role="tabpanel" aria-labelledby="tab6-tab">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <a href="{{ route('dosen.penunjang.create', $user->id) }}" class="btn btn-sm btn-success mb-3">TAMBAH</a>
+                        <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <thead style="background-color: #8A00B9;">
+                                <tr class="text-center">
+                                    <th scope="col">No</th>
+                                    <th scope="col">Kategori Kegiatan</th>
+                                    <th scope="col">Nama Kegiatan</th>
+                                    <th scope="col">Pelaksanaan</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @if($menu_penunjang->isEmpty())
+                                        <tr>
+                                            <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
+                                        </tr>
+                                    @else()
+                                        @foreach ($menu_penunjang as $p)
+                                        {{-- @php
+                                            $menu_penunjang = App\Models\MenuPenunjang::find($p->jenjang_pendidikan);
+                                        @endphp --}}
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $p->kategori_kegiatan}}</td>
+                                            <td>{{ $p->nama_kegiatan }}</td>
+                                            <td>{{ $p->pelaksanaan }}</td>
+                                            <td>
+                                                <div class="col">
+                                                    <div class="row-3 text-center">
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.penunjang.destroy', [$user->id, $p->id]) }}">
+
+                                                            <a href="{{ route('dosen.penunjang.edit', [$user->id, $p->id]) }}">
+                                                                <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
+                                                            </a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer">
+                                                                <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    @endif()
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+
+                                    <!-- Tombol "Previous" -->
+                                    <li class="page-item {{ $menu_penunjang->onFirstPage() ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $menu_penunjang->previousPageUrl() }}" aria-label="Previous">
+                                            <span aria-hidden="true">Previous</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+
+                                    <!-- Tombol nomor halaman -->
+                                    @for ($i = 1; $i <= $menu_penunjang->lastPage(); $i++)
+                                        <li class="page-item {{ $menu_penunjang->currentPage() == $i ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ $menu_penunjang->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+
+                                    <!-- Tombol "Next" -->
+                                    <li class="page-item {{ $menu_penunjang->currentPage() == $menu_penunjang->lastPage() ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $menu_penunjang->nextPageUrl() }}" aria-label="Next">
+                                            <span aria-hidden="true">Next</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="tab7" role="tabpanel" aria-labelledby="tab7-tab">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <a href="{{ route('dosen.capaian_luaran.create', $user->id) }}" class="btn btn-sm btn-success mb-3">TAMBAH</a>
+                        <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <thead style="background-color: #8A00B9;">
+                                <tr class="text-center">
+                                    <th scope="col">No</th>
+                                    <th scope="col">Jenis Luaran</th>
+                                    <th scope="col">Judul Karya</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Tautan Eksternal</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @if($capaian_luaran->isEmpty())
+                                        <tr>
+                                            <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
+                                        </tr>
+                                    @else()
+                                        @foreach ($capaian_luaran as $p)
+                                        {{-- @php
+                                            $menu_penunjang = App\Models\MenuPenunjang::find($p->jenjang_pendidikan);
+                                        @endphp --}}
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $p->jenis_luaran}}</td>
+                                            <td>{{ $p->judul_karya }}</td>
+                                            <td>{{ $p->tanggal }}</td>
+                                            <td>{{ $p->tautan_eksternal }}</td>
+                                            <td>
+                                                <div class="col">
+                                                    <div class="row-3 text-center">
+                                                        <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.capaian_luaran.destroy', [$user->id, $p->id]) }}">
+
+                                                            <a href="{{ route('dosen.capaian_luaran.edit', [$user->id, $p->id]) }}">
+                                                                <img src="{{ asset("assets/edit.png") }}" alt="" width="30px" height="30px">
+                                                            </a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer">
+                                                                <img src="{{ asset("assets/delete.png") }}" alt="" width="30px" height="30px">
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    @endif()
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+
+                                    <!-- Tombol "Previous" -->
+                                    <li class="page-item {{ $capaian_luaran->onFirstPage() ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $capaian_luaran->previousPageUrl() }}" aria-label="Previous">
+                                            <span aria-hidden="true">Previous</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+
+                                    <!-- Tombol nomor halaman -->
+                                    @for ($i = 1; $i <= $capaian_luaran->lastPage(); $i++)
+                                        <li class="page-item {{ $capaian_luaran->currentPage() == $i ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ $capaian_luaran->url($i) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+
+                                    <!-- Tombol "Next" -->
+                                    <li class="page-item {{ $capaian_luaran->currentPage() == $capaian_luaran->lastPage() ? 'disabled' : '' }}">
+                                        <a class="page-link" href="{{ $capaian_luaran->nextPageUrl() }}" aria-label="Next">
+                                            <span aria-hidden="true">Next</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
       </div>
     </div>
   </div>
-  
+
   <script>
     var tabs = document.querySelectorAll('.nav-link');
 

@@ -8,6 +8,8 @@ use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PengabdianController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\PesanController;
+use App\Http\Controllers\MenuPenunjangController;
+use App\Http\Controllers\CapaianLuaranController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PusatInformasiController;
 use App\Models\Pengabdian;
