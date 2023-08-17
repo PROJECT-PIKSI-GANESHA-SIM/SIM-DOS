@@ -149,7 +149,7 @@ class PusatInformasiController extends Controller
 
     public function show_all() {
 
-        $pusat_informasi = PusatInformasi::where('status', 1)->paginate(6);
+        $pusat_informasi = PusatInformasi::where('status', 1)->orderBy('updated_at', 'desc')->paginate(6);
 
         return view('informationcenter', [
             "title" => "Pusat Informasi",
