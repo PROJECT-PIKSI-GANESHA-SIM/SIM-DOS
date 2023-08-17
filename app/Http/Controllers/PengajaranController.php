@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Storage;
 class PengajaranController extends Controller
 {
     public function index() {
-        
+
         // Get Id User
         $user = Auth::user();
 
-        $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
+        $pengajaran = Pengajaran::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $pesan = Pesan::all();
         // $pengajaran = Pengajaran::where('user_id', $user->id)->get();
 
@@ -53,18 +53,18 @@ class PengajaranController extends Controller
             'bukti_pengajaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_presensi' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
+
         // Kondisi jika bukti pengajaran dan bukti presensi di upload
         if($request->hasFile('bukti_pengajaran') && $request->hasFile('bukti_presensi')) {
-            
+
             // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
-            
+
             // upload bukti presensi
             $bukti_presensi = $request->file('bukti_presensi');
             $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
-            
+
             // Get Id User
             $user = Auth::user();
 
@@ -88,7 +88,7 @@ class PengajaranController extends Controller
             // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
-        
+
             // Get Id User
             $user = Auth::user();
 
@@ -153,7 +153,7 @@ class PengajaranController extends Controller
     }
 
     public function edit($id) {
-        
+
         $pengajaran = Pengajaran::findOrFail($id);
         $program_studi = ProgramStudi::all();
         $user = Auth::user();
@@ -166,7 +166,7 @@ class PengajaranController extends Controller
     }
 
     public function view($id) {
-        
+
         $pengajaran = Pengajaran::findOrFail($id);
         $program_studi = ProgramStudi::all();
         $user = Auth::user();
@@ -200,15 +200,15 @@ class PengajaranController extends Controller
 
         // Kondisi jika bukti pengajaran dan bukti presensi di upload
         if($request->hasFile('bukti_pengajaran') && $request->hasFile('bukti_presensi')) {
-            
+
             // upload bukti pengajaran
             $bukti_pengajaran = $request->file('bukti_pengajaran');
             $bukti_pengajaran->storeAs('public/dosen/pengajaran/bukti_pengajaran', $bukti_pengajaran->hashName());
-            
+
             // upload bukti presensi
             $bukti_presensi = $request->file('bukti_presensi');
             $bukti_presensi->storeAs('public/dosen/pengajaran/bukti_presensi', $bukti_presensi->hashName());
-            
+
             // Hapus image terdahulu
             Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
             Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
@@ -298,13 +298,13 @@ class PengajaranController extends Controller
 
 
     public function destroy($id) {
-        
+
         $pengajaran = Pengajaran::findOrFail($id);
 
         // hapus gambar bukti pengajaran dan bukti presensi
         Storage::delete('public/dosen/pengajaran/bukti_pengajaran/'. $pengajaran->bukti_pengajaran);
         Storage::delete('public/dosen/pengajaran/bukti_presensi/'. $pengajaran->bukti_presensi);
-        
+
         // hapus pengajaran
         $pengajaran->delete();
 

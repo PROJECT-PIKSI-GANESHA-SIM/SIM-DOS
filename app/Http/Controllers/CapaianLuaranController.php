@@ -13,7 +13,7 @@ class CapaianLuaranController extends Controller
     public function index () {
         $user = Auth::user();
         $pesan = Pesan::all();
-        $capaian_luaran = CapaianLuaran::where('user_id', $user->id)->paginate(5);
+        $capaian_luaran = CapaianLuaran::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
 
         return view('menu_capaian_luaran.index', [
             'pesan' => $pesan,

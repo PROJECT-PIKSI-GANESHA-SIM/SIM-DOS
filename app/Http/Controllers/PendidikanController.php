@@ -19,7 +19,7 @@ class PendidikanController extends Controller
         $user = Auth::user();
         $pesan = Pesan::all();
 
-        $pendidikan = Pendidikan::where('user_id', $user->id)->paginate(5);
+        $pendidikan = Pendidikan::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
 
         return view('pendidikan.index', [
             'pendidikan' => $pendidikan,
@@ -174,7 +174,7 @@ class PendidikanController extends Controller
     }
 
     public function edit($id) {
-        
+
         // get pendidikan by id
         $pendidikan = Pendidikan::findOrFail($id);
 
@@ -222,7 +222,7 @@ class PendidikanController extends Controller
 
         // kondisi jika file ijazah dan transkirp nilai di upload
         if($request->hasFile('file_ijazah') && $request->hasFile('transkrip_nilai')) {
-            
+
             // upload file ijazah
             $ijazah = $request->file('file_ijazah');
             $ijazah->storeAs('public/dosen/pendidikan/ijazah', $ijazah->hashName());
@@ -230,7 +230,7 @@ class PendidikanController extends Controller
             // upload transkrip nilai
             $transkrip_nilai = $request->file('transkrip_nilai');
             $transkrip_nilai->storeAs('public/dosen/pendidikan/transkrip_nilai', $transkrip_nilai->hashName());
-            
+
             Storage::delete('public/dosen/pendidikan/ijazah/'. $pendidikan->file_ijazah);
             Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
 
@@ -259,7 +259,7 @@ class PendidikanController extends Controller
             // upload file ijazah
             $ijazah = $request->file('file_ijazah');
             $ijazah->storeAs('public/dosen/pendidikan/ijazah', $ijazah->hashName());
-            
+
             Storage::delete('public/dosen/pendidikan/ijazah/'. $pendidikan->file_ijazah);
 
             // update pendidikan
@@ -288,7 +288,7 @@ class PendidikanController extends Controller
             $transkrip_nilai->storeAs('public/dosen/pendidikan/transkrip_nilai', $transkrip_nilai->hashName());
 
             Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
-        
+
             // update pendidikan
             $pendidikan->update([
                 'jenjang_pendidikan' => $request->jenjang_pendidikan,
@@ -308,7 +308,7 @@ class PendidikanController extends Controller
             ]);
 
         } else {
-            
+
             // kondisi ketika tikak mengupload file ijazah dan transkrip nilai
 
             // update pendidikan
@@ -330,17 +330,17 @@ class PendidikanController extends Controller
         }
 
         return redirect()->route('pendidikan')->with(['success' => 'Data Berhasil Disimpan!']);
-    
+
     }
 
     public function destroy($id) {
-        
+
         $pendidikan = Pendidikan::findOrFail($id);
 
         // hapus gambar bukti pengajaran dan bukti presensi
         Storage::delete('public/dosen/pendidikan/file_ijazah/'. $pendidikan->file_ijazah);
         Storage::delete('public/dosen/pendidikan/transkrip_nilai/'. $pendidikan->transkrip_nilai);
-        
+
         // hapus pendidikan
         $pendidikan->delete();
 

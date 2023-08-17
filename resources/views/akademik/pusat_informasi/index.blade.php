@@ -1,7 +1,7 @@
 @extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -38,17 +38,18 @@
                                             @foreach ($pusat_informasi as $p)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $p->title }}</td>
-                                                <td>{{ $p->thumbnail }}</td>
+                                                <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->title, 60) }}</td>
+                                                <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->thumbnail, 30) }}</td>
                                                 <td>{{ $p->date }}</td>
                                                 <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->description, 100) }}</td>
                                                     <td>
                                                         <div class="form-check form-switch d-flex align-items-center justify-content-center">
-                                                            <input name="publish" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                                            <input name="publish" class="toggle-class form-check-input" data-id={{ $p->id }} type="checkbox" role="switch" id="flexSwitchCheckDefault"
                                                             @if ($p->status == 1)
                                                                 checked
                                                             @endif
                                                             >
+                                                            {{-- <input data-id="{{$p->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" > --}}
                                                     </td>
                                                     <td>
                                                     <div class="col">
@@ -78,7 +79,7 @@
                             <div class="d-flex justify-content-end">
                                 <nav aria-label="Page navigation">
                                     <ul class="pagination">
-                            
+
                                         <!-- Tombol "Previous" -->
                                         <li class="page-item {{ $pusat_informasi->onFirstPage() ? 'disabled' : '' }}">
                                             <a class="page-link" href="{{ $pusat_informasi->previousPageUrl() }}" aria-label="Previous">
@@ -86,14 +87,14 @@
                                                 <span class="sr-only">Previous</span>
                                             </a>
                                         </li>
-                            
+
                                         <!-- Tombol nomor halaman -->
                                         @for ($i = 1; $i <= $pusat_informasi->lastPage(); $i++)
                                             <li class="page-item {{ $pusat_informasi->currentPage() == $i ? 'active' : '' }}">
                                                 <a class="page-link" href="{{ $pusat_informasi->url($i) }}">{{ $i }}</a>
                                             </li>
                                         @endfor
-                            
+
                                         <!-- Tombol "Next" -->
                                         <li class="page-item {{ $pusat_informasi->currentPage() == $pusat_informasi->lastPage() ? 'disabled' : '' }}">
                                             <a class="page-link" href="{{ $pusat_informasi->nextPageUrl() }}" aria-label="Next">
@@ -112,22 +113,19 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        // Tangkap elemen checkbox
-        var checkbox = $('#flexSwitchCheckDefault');
 
-        // Tambahkan event click
-        checkbox.on('click', function() {
-            // Ambil nilai status checkbox (dicentang atau tidak)
-            var status = $(this).prop('checked') == true ? 1 : 0; 
+    $(function() {
+        $('.toggle-class').change(function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var id = $(this).data('id');
 
-            console.log(status);
+            console.log('USER_ID : ' + id);
 
             $.ajax({
                 type: "GET",
                 dataType: "json",
                 url: 'pusat_informasi/update',
-                data: {'status': status},
+                data: {'status': status, 'id': id},
                 success: function(response) {
                     // Tanggapi hasil dari server
                     console.log(response);
@@ -139,8 +137,9 @@
                     alert('Terjadi kesalahan pada server. Coba lagi nanti.');
                 }
             });
-        });
-    });
+
+        })
+  })
 
 </script>
 @endsection

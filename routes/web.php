@@ -32,8 +32,11 @@ use Spatie\Permission\Models\Role;
 */
 
 Route::get('/', function () {
+
+    $pusat_informasi = PusatInformasi::where('status', 1)->orderBy('updated_at', 'desc')->paginate(3);
     return view('home', [
-        "title" => "Beranda"
+        "title" => "Beranda",
+        'pusat_informasi' => $pusat_informasi
     ]);
 });
 
@@ -41,13 +44,13 @@ Route::get('/about', function () {
     return view('about', [
         "title" => "Tentang"
     ]);
-});
+})->name('external.about');
 
 Route::get('/dosen', function () {
     return view('dosen', [
         "title" => "Dosen"
     ]);
-});
+})->name('external.dosen');
 
 Route::get('/detaildosen', function () {
     return view('detaildosen', [
@@ -55,18 +58,9 @@ Route::get('/detaildosen', function () {
     ]);
 });
 
-Route::get('/informationcenter', function () {
-    return view('informationcenter', [
-        "title" => "Pusat Informasi"
-    ]);
-});
 
-Route::get('/detail_informationcenter', function () {
-    // return view('detail_informationcenter');
-    return view('detail_informationcenter', [
-        "title" => "Pusat Informasi"
-    ]);
-});
+Route::get('/informationcenter', [PusatInformasiController::class, 'show_all']);
+Route::get('/detail_informationcenter/{id}', [PusatInformasiController::class, 'detail'])->name('informationcenter.detail');
 
 Auth::routes([
     'register' => false
@@ -134,6 +128,22 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pengabdian/{id}/view', [PengabdianController::class, 'view'])->middleware('role:dosen')->name('pengabdian.view');
     Route::put('/pengabdian/update/{id}', [PengabdianController::class, 'update'])->middleware('role:dosen')->name('pengabdian.update');
     Route::delete('/pengabdian/delete/{id}', [PengabdianController::class, 'destroy'])->middleware('role:dosen')->name('pengabdian.destroy');
+
+    // Menu Penunjang
+    Route::get('/menu_penunjang', [MenuPenunjangController::class, 'index'])->middleware('role:dosen')->name('menu_penunjang');
+    Route::get('/menu_penunjang/create', [MenuPenunjangController::class, 'create'])->middleware('role:dosen')->name('menu_penunjang.create');
+    Route::post('/menu_penunjang/create', [MenuPenunjangController::class, 'store'])->middleware('role:dosen')->name('menu_penunjang.store');
+    Route::get('/menu_penunjang/{id}/edit', [MenuPenunjangController::class, 'edit'])->middleware('role:dosen')->name('menu_penunjang.edit');
+    Route::put('/menu_penunjang/update/{id}', [MenuPenunjangController::class, 'update'])->middleware('role:dosen')->name('menu_penunjang.update');
+    Route::delete('/menu_penunjang/delete/{id}', [MenuPenunjangController::class, 'destroy'])->middleware('role:dosen')->name('menu_penunjang.destroy');
+
+    // Capaian Luaran
+    Route::get('/capaian_luaran', [CapaianLuaranController::class, 'index'])->middleware('role:dosen')->name('capaian_luaran');
+    Route::get('/capaian_luaran/create', [CapaianLuaranController::class, 'create'])->middleware('role:dosen')->name('capaian_luaran.create');
+    Route::post('/capaian_luaran/create', [CapaianLuaranController::class, 'store'])->middleware('role:dosen')->name('capaian_luaran.store');
+    Route::get('/capaian_luaran/{id}/edit', [CapaianLuaranController::class, 'edit'])->middleware('role:dosen')->name('capaian_luaran.edit');
+    Route::put('/capaian_luaran/update/{id}', [CapaianLuaranController::class, 'update'])->middleware('role:dosen')->name('capaian_luaran.update');
+    Route::delete('/capaian_luaran/delete/{id}', [CapaianLuaranController::class, 'destroy'])->middleware('role:dosen')->name('capaian_luaran.destroy');
 
     // ROLE AKADEMIK
     Route::get('/dosen/all', [DosenController::class, 'index'])->middleware('role:akademik')->name('dosen');
