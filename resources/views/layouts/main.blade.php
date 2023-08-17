@@ -205,7 +205,7 @@
     <div class="container pt-4 pb-5 text-white">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ asset('assets/piksi_sim_logo.png') }}" alt="logo PIKSI SIM-DOS" class="mb-4" height="50">
+                <img src="assets/piksi_sim_logo.png" alt="logo PIKSI SIM-DOS" class="mb-4" height="50">
                 <p>
                     Alamat : Jl. Jend. Gatot Subroto 301, Bandung 40274<br>
                     Email : piksiganeshaonline@gmail.com<br>

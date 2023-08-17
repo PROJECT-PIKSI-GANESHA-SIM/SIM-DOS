@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #8A00B9">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">
-            <img src="{{ asset('assets/PIKSI.png') }}" alt="logo piksi" height="30" class="d-inline-block align-text-top">
+            <img src="assets/PIKSI.png" alt="logo piksi" height="30" class="d-inline-block align-text-top">
             SIM DOSEN
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -15,10 +15,10 @@
                     <a class="nav-link {{ $title === 'Beranda' ? 'active' : '' }}" href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Dosen' ? 'active' : '' }}" href="{{ route('external.dosen') }}">Dosen</a>
+                    <a class="nav-link {{ $title === 'Dosen' ? 'active' : '' }}" href="dosen">Dosen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Tentang' ? 'active' : '' }}" href="{{ route('external.about') }}">Tentang</a>
+                    <a class="nav-link {{ $title === 'Tentang' ? 'active' : '' }}" href="about">Tentang</a>
                 </li>
             </ul>
         </div>
