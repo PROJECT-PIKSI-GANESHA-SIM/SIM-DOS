@@ -1,7 +1,7 @@
 @extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
                         </div>
                 </form>
             </div>
-              
+
             <div class="container">
                 @foreach ($users_dosen as $user)
                     <div class="row align-items-center">
@@ -35,7 +35,7 @@
                             @if ($user->image == null)
                                 <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="70px" height="70px">
                             @else
-                                <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="70px" height="70px">    
+                                <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="70px" height="70px">
                             @endif
                         </div>
                         <div class="col-8 text-center">
@@ -45,9 +45,6 @@
                         <div class="col">
                             <div class="row-3 text-center">
                                 <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="">
-                                    <a href="">
-                                        <img src="{{ asset("assets/view.png") }}" alt="" width="35px" height="35px">
-                                    </a>
                                     <a href="{{ route('dosen.edit', $user->id) }}">
                                         <img src="{{ asset("assets/edit.png") }}" alt="" width="35px" height="35px">
                                     </a>
@@ -65,7 +62,7 @@
                 <div class="d-flex justify-content-end">
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
-                
+
                             <!-- Tombol "Previous" -->
                             <li class="page-item {{ $users_dosen->onFirstPage() ? 'disabled' : '' }}">
                                 <a class="page-link" href="{{ $users_dosen->previousPageUrl() }}" aria-label="Previous">
@@ -73,14 +70,14 @@
                                     <span class="sr-only">Previous</span>
                                 </a>
                             </li>
-                
+
                             <!-- Tombol nomor halaman -->
                             @for ($i = 1; $i <= $users_dosen->lastPage(); $i++)
                                 <li class="page-item {{ $users_dosen->currentPage() == $i ? 'active' : '' }}">
                                     <a class="page-link" href="{{ $users_dosen->url($i) }}">{{ $i }}</a>
                                 </li>
                             @endfor
-                
+
                             <!-- Tombol "Next" -->
                             <li class="page-item {{ $users_dosen->currentPage() == $users_dosen->lastPage() ? 'disabled' : '' }}">
                                 <a class="page-link" href="{{ $users_dosen->nextPageUrl() }}" aria-label="Next">
@@ -92,7 +89,7 @@
                     </nav>
                 </div>
               </div>
-              
+
               <ul id="resultsList"></ul>
         </main>
     </div>
@@ -102,17 +99,17 @@
     var searchInput = document.getElementById('searchInput');
     var searchButton = document.getElementById('searchButton');
     var resultsList = document.getElementById('resultsList');
-  
+
     searchButton.addEventListener('click', function() {
       var searchValue = searchInput.value.toLowerCase();
-  
+
       // Hapus hasil pencarian sebelumnya
       resultsList.innerHTML = '';
-  
+
       // Lakukan pencarian
       // Gantilah kode ini dengan logika pencarian sesuai kebutuhan Anda
       var data = ['Hasil 1', 'Hasil 2', 'Hasil 3', 'Hasil 4', 'Hasil 5'];
-  
+
       data.forEach(function(item) {
         if (item.toLowerCase().includes(searchValue)) {
           var li = document.createElement('li');

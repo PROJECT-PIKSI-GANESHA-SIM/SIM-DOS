@@ -14,7 +14,7 @@ class MenuPenunjangController extends Controller
 
         $user = Auth::user();
         $pesan = Pesan::all();
-        $menu_penunjang = MenuPenunjang::where('user_id', $user->id)->paginate(5);
+        $menu_penunjang = MenuPenunjang::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
 
         return view('menu_penunjang.index', [
             'pesan' => $pesan,

@@ -16,7 +16,7 @@ class PengabdianController extends Controller
         // Get Id User
         $user = Auth::user();
 
-        $pengabdian = Pengabdian::where('user_id', $user->id)->paginate(5);
+        $pengabdian = Pengabdian::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $pesan = Pesan::all();
 
         return view('pengabdian.index', [
@@ -34,7 +34,7 @@ class PengabdianController extends Controller
     }
 
     public function store(Request $request) {
-        
+
         // validasi form
         $this->validate($request, [
             'judul_pengabdian' => 'required|string|max:255',
@@ -60,7 +60,7 @@ class PengabdianController extends Controller
 
         // Kondisi jika surat tugas dan laporan kegiatan di upload
         if($request->hasFile('surat_tugas') && $request->hasFile('laporan_kegiatan')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -91,7 +91,7 @@ class PengabdianController extends Controller
             ]);
 
         } else if($request->hasFile('surat_tugas')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -117,7 +117,7 @@ class PengabdianController extends Controller
             ]);
 
         } else if($request->hasFile('laporan_kegiatan')) {
-            
+
             // upload laporan kegiatan
             $laporan_kegiataan = $request->file('laporan_kegiatan');
             $laporan_kegiataan->storeAs('public/dosen/pengabdian/laporan_kegiatan', $laporan_kegiataan->hashName());
@@ -218,7 +218,7 @@ class PengabdianController extends Controller
 
         // Kondisi jika surat tugas dan laporan kegiatan di upload
         if($request->hasFile('surat_tugas') && $request->hasFile('laporan_kegiatan')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -253,7 +253,7 @@ class PengabdianController extends Controller
             ]);
 
         } else if($request->hasFile('surat_tugas')) {
-            
+
             // upload surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/pengabdian/surat_tugas', $surat_tugas->hashName());
@@ -282,7 +282,7 @@ class PengabdianController extends Controller
             ]);
 
         } else if($request->hasFile('laporan_kegiatan')) {
-            
+
             // upload laporan kegiatan
             $laporan_kegiataan = $request->file('laporan_kegiatan');
             $laporan_kegiataan->storeAs('public/dosen/pengabdian/laporan_kegiatan', $laporan_kegiataan->hashName());
@@ -343,7 +343,7 @@ class PengabdianController extends Controller
         // hapus file surat tugas dan laporan kegiatan
         Storage::delete('public/dosen/pengabdian/surat_tugas/'. $pengabdian->surat_tugas);
         Storage::delete('public/dosen/pengabdian/laporan_kegiatan/'. $pengabdian->laporan_kegiatan);
-        
+
         // hapus pengajaran
         $pengabdian->delete();
 

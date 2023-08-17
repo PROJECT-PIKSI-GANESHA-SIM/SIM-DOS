@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SIM DOSEN</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,7 +23,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <style>
-    @media (max-width: 640px) { 
+    @media (max-width: 640px) {
         .image {
             display: none;
         }

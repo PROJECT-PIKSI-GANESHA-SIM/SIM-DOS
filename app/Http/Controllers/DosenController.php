@@ -58,12 +58,12 @@ class DosenController extends Controller
     public function edit($id) {
 
         $user = User::findOrFail($id);
-        $pendidikan = Pendidikan::where('user_id', $user->id)->paginate(5);
-        $pengajaran = Pengajaran::where('user_id', $user->id)->paginate(5);
-        $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
-        $pengabdian = Pengabdian::where('user_id', $user->id)->paginate(5);
-        $penunjang = MenuPenunjang::where('user_id', $user->id)->paginate(5);
-        $capaian_luaran = CapaianLuaran::where('user_id', $user->id)->paginate(5);
+        $pendidikan = Pendidikan::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+        $pengajaran = Pengajaran::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+        $penelitian = Penelitian::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+        $pengabdian = Pengabdian::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+        $penunjang = MenuPenunjang::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+        $capaian_luaran = CapaianLuaran::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $identitas = IdentitasDiri::where('user_id', $user->id)->first();
         $alamat_kontak = AlamatKontak::where('user_id', $user->id)->first();
         $kepegawaian = Kepegawaian::where('user_id', $user->id)->first();

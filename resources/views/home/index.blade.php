@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
             <hr>
         </div>
         <main>
-            <p class="">Selamat Datang ....</p>
+            <p class="fs-5">Selamat Datang di aplikasi Sistem Informasi Dosen, dimana aplikasi ini berfungsi untuk menyimpan arsip data - data dosen, fitur - fitur dari aplikasi ini adalah Upload data diri, pendidikan formal, pengajaran, penelitian, pengabdian, penunjang dan capaian luaran</p>
         </main>
     </div>
 </div>

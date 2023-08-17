@@ -15,7 +15,7 @@ class PenelitianController extends Controller
         // Get Id User
         $user = Auth::user();
 
-        $penelitian = Penelitian::where('user_id', $user->id)->paginate(5);
+        $penelitian = Penelitian::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $pesan = Pesan::all();
 
         return view('penelitian.index', [
@@ -62,7 +62,7 @@ class PenelitianController extends Controller
             // upload bukti surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -111,7 +111,7 @@ class PenelitianController extends Controller
             ]);
 
         } else if($request->hasFile('publikasi')) {
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -157,13 +157,13 @@ class PenelitianController extends Controller
     }
 
     public function destroy($id) {
-        
+
         $penelitian = Penelitian::findOrFail($id);
 
         // hapus gambar bukti pengajaran dan bukti presensi
         Storage::delete('public/dosen/penelitian/surat_tugas/'. $penelitian->surat_tugas);
         Storage::delete('public/dosen/penelitian/publikasi/'. $penelitian->publikasi);
-        
+
         // hapus penelitian
         $penelitian->delete();
 
@@ -226,7 +226,7 @@ class PenelitianController extends Controller
             // upload bukti surat tugas
             $surat_tugas = $request->file('surat_tugas');
             $surat_tugas->storeAs('public/dosen/penelitian/surat_tugas', $surat_tugas->hashName());
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
@@ -284,7 +284,7 @@ class PenelitianController extends Controller
             ]);
 
         } else if($request->hasFile('publikasi')) {
-            
+
             // upload publikasi
             $publikasi = $request->file('publikasi');
             $publikasi->storeAs('public/dosen/penelitian/publikasi', $publikasi->hashName());
