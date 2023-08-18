@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class PusatInformasiController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $pusat_informasi = PusatInformasi::orderBy('updated_at', 'desc')->paginate(5);
         $user = Auth::user();
 
@@ -18,14 +19,16 @@ class PusatInformasiController extends Controller
         ]);
     }
 
-    public function create() {
+    public function create()
+    {
         $user = Auth::user();
         return view('akademik.pusat_informasi.create', [
             'user' => $user
         ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         // Validasi Form
         $this->validate($request, [
@@ -36,7 +39,7 @@ class PusatInformasiController extends Controller
         ]);
 
         // Kondisi jika bukti pengajaran dan bukti presensi di upload
-        if($request->hasFile('thumbnail')) {
+        if ($request->hasFile('thumbnail')) {
 
             // upload bukti pengajaran
             $thumbnail = $request->file('thumbnail');
@@ -50,7 +53,6 @@ class PusatInformasiController extends Controller
                 'thumbnail' => $thumbnail->hashName(),
                 'status' => 0,
             ]);
-
         } else {
 
             // Create Pusat Informasi
@@ -59,14 +61,13 @@ class PusatInformasiController extends Controller
                 'date' => $request->tanggal,
                 'description' => $request->description
             ]);
-
         }
 
         return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Diupdate!']);
-
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
 
         $pusat_informasi = PusatInformasi::findOrFail($id);
         $user = Auth::user();
@@ -75,10 +76,10 @@ class PusatInformasiController extends Controller
             'pusat_informasi' => $pusat_informasi,
             'user' => $user
         ]);
-
     }
 
-    public function update_publish_status(Request $request) {
+    public function update_publish_status(Request $request)
+    {
         $status = $request->status;
         $pusat_informasi = PusatInformasi::findOrFail($request->id);
         $pusat_informasi->status = $status;
@@ -86,7 +87,8 @@ class PusatInformasiController extends Controller
         return response()->json(['message' => 'Data updated successfully'], 200);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
 
         $pusat_informasi = PusatInformasi::findOrFail($id);
 
@@ -101,14 +103,14 @@ class PusatInformasiController extends Controller
         // Get Id User
         $user = Auth::user();
 
-        if($request->hasFile('thumbnail')) {
+        if ($request->hasFile('thumbnail')) {
 
             // upload bukti presensi
             $thumbnail = $request->file('thumbnail');
             $thumbnail->storeAs('public/akademik/pusat_informasi', $thumbnail->hashName());
 
             // Hapus image terdahulu
-            Storage::delete('public/akademik/pusat_informasi/'. $pusat_informasi->thumbnail);
+            Storage::delete('public/akademik/pusat_informasi/' . $pusat_informasi->thumbnail);
 
             // Update Pusat Informasi
             $pusat_informasi->update([
@@ -117,7 +119,6 @@ class PusatInformasiController extends Controller
                 'description' => $request->description,
                 'thumbnail' => $thumbnail->hashName(),
             ]);
-
         } else {
             // kondisi jika tidak mengupdate image
 
@@ -130,14 +131,14 @@ class PusatInformasiController extends Controller
         }
 
         return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Diupdate!']);
-
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $pusat_informasi = PusatInformasi::findOrFail($id);
 
         // hapus file surat tugas dan laporan kegiatan
-        Storage::delete('public/akademik/pusat_infomasi/'. $pusat_informasi->thumbnail);
+        Storage::delete('public/akademik/pusat_infomasi/' . $pusat_informasi->thumbnail);
 
         // hapus pengajaran
         $pengabdian->delete();
@@ -147,7 +148,8 @@ class PusatInformasiController extends Controller
 
     // External
 
-    public function show_all() {
+    public function show_all()
+    {
 
         $pusat_informasi = PusatInformasi::where('status', 1)->orderBy('updated_at', 'desc')->paginate(6);
 
@@ -157,12 +159,12 @@ class PusatInformasiController extends Controller
         ]);
     }
 
-    public function detail($id) {
+    public function detail($id)
+    {
         $pusat_informasi = PusatInformasi::findOrFail($id);
         return view('detail_informationcenter', [
             "title" => "Pusat Informasi",
             "pusat_informasi" => $pusat_informasi
         ]);
     }
-
 }

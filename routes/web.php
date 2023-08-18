@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllDosenController;
 use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HomeController;
@@ -46,17 +47,14 @@ Route::get('/about', function () {
     ]);
 })->name('external.about');
 
-Route::get('/dosen', function () {
-    return view('dosen', [
-        "title" => "Dosen"
-    ]);
-})->name('external.dosen');
+Route::get('/dosen', [AllDosenController::class, 'index'])->name('external.dosen');
+Route::get('/detaildosen/{id}', [AllDosenController::class, 'detail'])->name('alldosen.detail');
 
-Route::get('/detaildosen', function () {
-    return view('detaildosen', [
-        "title" => "Detail Dosen"
-    ]);
-});
+// Route::get('/detaildosen', function () {
+//     return view('detaildosen', [
+//         "title" => "Detail Dosen"
+//     ]);
+// });
 
 
 Route::get('/informationcenter', [PusatInformasiController::class, 'show_all']);
@@ -178,7 +176,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::put('/dosen/{user_id}/pengabdian/update/{id}', [DosenController::class, 'update_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.update');
     Route::delete('/dosen/pengabdian/delete/{id}', [DosenController::class, 'destroy_pengabdian'])->middleware('role:akademik')->name('dosen.pengabdian.destroy');
 
-     // Penunjang
+    // Penunjang
     Route::get('/dosen/{id}/penunjang/create', [DosenController::class, 'create_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.create');
     Route::post('/dosen/{id}/penunjang/create', [DosenController::class, 'store_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.store');
     Route::get('/dosen/{user_id}/penunjang/{id}/edit', [DosenController::class, 'edit_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.edit');
@@ -192,14 +190,14 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::put('/dosen/{user_id}/capaian_luaran/update/{id}', [DosenController::class, 'update_capaian_luaran'])->middleware('role:akademik')->name('dosen.capaian_luaran.update');
     Route::delete('/dosen/{user_id}/capaian_luaran/delete/{id}', [DosenController::class, 'destroy_capaian_luaran'])->middleware('role:akademik')->name('dosen.capaian_luaran.destroy');
 
-     // Penunjang
+    // Penunjang
     Route::get('/dosen/{id}/penunjang/create', [DosenController::class, 'create_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.create');
     Route::post('/dosen/{id}/penunjang/create', [DosenController::class, 'store_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.store');
     Route::get('/dosen/{user_id}/penunjang/{id}/edit', [DosenController::class, 'edit_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.edit');
     Route::put('/dosen/{user_id}/penunjang/update/{id}', [DosenController::class, 'update_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.update');
     Route::delete('/dosen/{user_id}/penunjang/delete/{id}', [DosenController::class, 'destroy_penunjang'])->middleware('role:akademik')->name('dosen.penunjang.destroy');
 
-     // Capaian Luaran
+    // Capaian Luaran
     Route::get('/dosen/{id}/capaian_luaran/create', [DosenController::class, 'create_capaian_luaran'])->middleware('role:akademik')->name('dosen.capaian_luaran.create');
     Route::post('/dosen/{id}/capaian_luaran/create', [DosenController::class, 'store_capaian_luaran'])->middleware('role:akademik')->name('dosen.capaian_luaran.store');
     Route::get('/dosen/{user_id}/capaian_luaran/{id}/edit', [DosenController::class, 'edit_capaian_luaran'])->middleware('role:akademik')->name('dosen.capaian_luaran.edit');

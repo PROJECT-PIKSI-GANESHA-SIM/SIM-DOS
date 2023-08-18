@@ -41,150 +41,153 @@
         </tbody>
     </table> --}}
 
+    {{-- <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Wijaya</a>
+                </h5>
+                <p class="card-text">456</p>
+                <p class="card-text"><small class="text-muted">Ekonomi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col" id="myCard">
+        <div class="card">
+            <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="">Nama Dosen</a>
+                </h5>
+                <p class="card-text">NIDN</p>
+                <p class="card-text"><small class="text-muted">Prodi</small></p>
+            </div>
+        </div>
+    </div> --}}
+
     <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach ($users_dosen as $dosen)    
         <div class="col" id="myCard">
             <div class="card">
                 <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="">Hendra</a>
+                        <a href="{{ route('alldosen.detail',$dosen->id) }}"> {{ $dosen->name }}</a>
                     </h5>
-                    <p class="card-text">123</p>
+                    <p class="card-text">{{ $dosen->nidn }}</p>
                     <p class="card-text"><small class="text-muted">IT</small></p>
                 </div>
             </div>
         </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Wijaya</a>
-                    </h5>
-                    <p class="card-text">456</p>
-                    <p class="card-text"><small class="text-muted">Ekonomi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="myCard">
-            <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="">Nama Dosen</a>
-                    </h5>
-                    <p class="card-text">NIDN</p>
-                    <p class="card-text"><small class="text-muted">Prodi</small></p>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 @endsection

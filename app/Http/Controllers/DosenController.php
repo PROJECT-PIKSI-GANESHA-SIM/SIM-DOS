@@ -28,7 +28,6 @@ class DosenController extends Controller
         $users_dosen = User::whereHas('roles', function ($query) {
             $query->where('name', 'dosen');
         })->paginate(5);
-
         $users = Auth::user();
 
         return view('akademik.dosen.index', [
