@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-5 px-4">
                 <center>
-                    <img src="assets/thumbnails-profile.png" alt="logo PIKSI SIM-DOS" class="mb-4" width="380">
+                    <img src="{{ Storage::url('dosen/profile/' . $detaildosen->image) }}" alt="Foto Dosen" class="mb-4" width="380">
                 </center>
             </div>
             <div class="col">
@@ -24,47 +24,47 @@
                     <tbody>
                         <tr>
                             <td class="text-end" width="35%">NIDN/NUPN</td>
-                            <td>Example</td>
+                            <td>{{ $detaildosen->nidn }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">NIP</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->nip }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">NIK</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->nik }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Nama Lengkap</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->nama }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Tempat Lahir</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->tempat_lahir }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Tanggal lahir</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->tanggal_lahir }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Jenis Kelamin</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->jenis_kelamin }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Agama</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->agama }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Golongan Darah</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->golongan_darah }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Status Perkawinan</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->status_perkawinan }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Kewarganegaraan</td>
-                            <td>Example</td>
+                            <td>{{ $identitasdiri->kewarganegaraan }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -83,8 +83,8 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
+                    {{-- <td>{{ $pendidikan->jenjang_pendidikan }}</td> --}}
+                    {{-- <td>{{ $pendidikan->gelar_singkat }}</td> --}}
                     <td>Example</td>
                     <td>Example</td>
                     <td>Example</td>

@@ -178,13 +178,13 @@
         @foreach ($users_dosen as $dosen)    
         <div class="col" id="myCard">
             <div class="card">
-                <img src="assets/thumbnails-profile.png" class="card-img-top" alt="thumbnail">
+                <img src="{{ Storage::url('dosen/profile/' . $dosen->image) }}" class="card-img-top" alt="thumbnail">
                 <div class="card-body">
                     <h5 class="card-title">
                         <a href="{{ route('alldosen.detail',$dosen->id) }}"> {{ $dosen->name }}</a>
                     </h5>
                     <p class="card-text">{{ $dosen->nidn }}</p>
-                    <p class="card-text"><small class="text-muted">IT</small></p>
+                    {{-- <p class="card-text"><small class="text-muted">IT</small></p> --}}
                 </div>
             </div>
         </div>
