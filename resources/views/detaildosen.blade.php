@@ -131,7 +131,7 @@
                     <td><center>{{ $penelitian->judul_penelitian }}</center></td>
                     <td><center>{{ $penelitian->status_peneliti }}</center></td>
                     <td><center>{{ $penelitian->sumber_dana }}</center></td>
-                    <td><center>{{ $penelitian->jumlah_dana }}</center></td>
+                    <td><center>{{ 'Rp ' . number_format($penelitian->jumlah_dana, 0, ',', '.') }}</center></td>
                 </tr>
             </tbody>
         </table>
