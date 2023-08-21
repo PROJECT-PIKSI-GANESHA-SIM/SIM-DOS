@@ -33,8 +33,6 @@ class AllDosenController extends Controller
         $pengajaran = Pengajaran::findOrFail($id);
         $penelitian = Penelitian::findOrFail($id);
         $pengabdian = Pengabdian::findOrFail($id);
-        // $pendidikan = Pendidikan::where('user_id', (int)$id)->orderBy('created_at', 'desc');
-        // dd($pendidikan);
 
         return view('detaildosen', [
             "title" => "Detail Dosen",
