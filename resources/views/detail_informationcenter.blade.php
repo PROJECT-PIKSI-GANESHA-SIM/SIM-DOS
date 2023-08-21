@@ -29,6 +29,9 @@
     <div class="col-md-10 mx-auto p-4">
         <div class="blog-content lh-lg">
             {!! $pusat_informasi->description !!}
+            <br>
+            Salam,<br>
+            <b>Politeknik Piksi Ganesha</b>
         </div>
     </div>
 </div>
