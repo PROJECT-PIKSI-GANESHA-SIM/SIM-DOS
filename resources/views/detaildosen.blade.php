@@ -45,7 +45,7 @@
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Tanggal lahir</td>
-                            <td>{{ \Carbon\Carbon::parse($identitasdiri->tanggal_lahir)->format('d-m-Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($identitasdiri->tanggal_lahir)->format('d F Y') }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Jenis Kelamin</td>
@@ -263,7 +263,7 @@
                             {{ $nunjang->nama_kegiatan }}
                         </td>
                         <td>
-                            <center>{{ \Carbon\Carbon::parse($nunjang->pelaksanaan)->format('d-m-Y') }}</center>
+                            <center>{{ \Carbon\Carbon::parse($nunjang->pelaksanaan)->format('d F Y') }}</center>
                         </td>
                     </tr>
                     @php
@@ -297,7 +297,7 @@
                             {{ $luaran->judul_karya }}
                         </td>
                         <td>
-                            <center>{{ \Carbon\Carbon::parse($luaran->tanggal)->format('d-m-Y') }}</center>
+                            <center>{{ \Carbon\Carbon::parse($luaran->tanggal)->format('d F Y') }}</center>
                         </td>
                         <td>
                             <a href="{{ $luaran->tautan_eksternal }}" target="_blank">{{ $luaran->tautan_eksternal }}</a>
