@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CapaianLuaran;
 use App\Models\IdentitasDiri;
 use App\Models\MenuPenunjang;
 use App\Models\Pendidikan;
@@ -43,6 +44,7 @@ class AllDosenController extends Controller
         $penelitian = Penelitian::where('user_id', $id)->get();
         $pengabdian = Pengabdian::where('user_id', $id)->get();
         $penunjang = MenuPenunjang::where('user_id', $id)->get();
+        $capaian_luaran = CapaianLuaran::where('user_id', $id)->get();
 
         return view('detaildosen', [
             "title" => "Detail Dosen",
@@ -52,7 +54,8 @@ class AllDosenController extends Controller
             "pengajaran" => $pengajaran,
             "penelitian" => $penelitian,
             "pengabdian" => $pengabdian,
-            "penunjang" => $penunjang
+            "penunjang" => $penunjang,
+            "capaian_luaran" => $capaian_luaran
         ]);
     }
 }
