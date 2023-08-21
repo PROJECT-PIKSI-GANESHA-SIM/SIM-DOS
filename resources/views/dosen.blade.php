@@ -3,7 +3,6 @@
         transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         border-width: 2px; /* Nilai border lebih tebal */
     }
-
     .card:hover {
         border-color: #8A00B9;
         box-shadow: 0 8px 16px rgba(138, 0, 185, 0.3); /* Nilai bayangan lebih tebal */
