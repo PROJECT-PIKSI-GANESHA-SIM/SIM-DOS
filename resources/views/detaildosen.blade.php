@@ -179,7 +179,7 @@
                             <center>{{ $counter }}</center>
                         </td>
                         <td>
-                            {{ $penel->tahun_kegiatan }}
+                            <center>{{ $penel->tahun_kegiatan }}</center>
                         </td>
                         <td>
                             {{ $penel->judul_penelitian }}
