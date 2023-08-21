@@ -127,10 +127,12 @@
                     <td>SKS</td>
                 </tr>
                 @php
+                    $reversedPengajaran = $pengajaran->reverse();
                     $counter = 1;
                 @endphp
-                @foreach ($pengajaran as $ajar)
+                @foreach ($reversedPengajaran as $ajar)
                     @if ($counter <= 5)
+                        <!-- Menambahkan batasan hingga 5 iterasi -->
                         <tr>
                             <td>
                                 <center>{{ $counter }}</center>
