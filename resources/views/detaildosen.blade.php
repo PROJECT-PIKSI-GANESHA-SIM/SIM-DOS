@@ -87,7 +87,7 @@
                     <td><center>{{ $pendidikan->gelar_singkat }}</center></td>
                     <td><center>{{ $pendidikan->bidang_studi }}</center></td>
                     <td><center>{{ $pendidikan->nama_instansi }}</center></td>
-                    <td><center>{{ $pendidikan->tanggal_berakhir_studi }}</center></td>
+                    <td><center>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $pendidikan->tanggal_berakhir_studi)->format('Y') }}</center></td>
                 </tr>
             </tbody>
         </table>
@@ -149,7 +149,7 @@
                     <td>Example</td>
                     <td><center>{{ $pengabdian->judul_pengabdian }}</center></td>
                     <td><center>{{ $pengabdian->bidang_keilmuan }}</center></td>
-                    <td><center>{{ $pengabdian->tahun_pelaksanaan }}</center></td>
+                    <td><center>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $pengabdian->tahun_pelaksanaan)->format('Y') }}</center></td>
                     <td><center>{{ $pengabdian->lama_kegiatan }}</center></td>
                 </tr>
             </tbody>
