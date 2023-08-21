@@ -119,34 +119,44 @@
             <tbody>
                 <tr class="text-center">
                     <td>No</td>
-                    <td>Mata Kuliah</td>
+                    <td width="35%">Mata Kuliah</td>
                     <td>Jenis Mata Kuliah</td>
                     <td>Kelas</td>
                     <td>Tahun Ajar</td>
                     <td>Jumlah Mahasiswa</td>
                     <td>SKS</td>
                 </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>
-                        <center>{{ $pengajaran->nama_mata_kuliah }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $pengajaran->jenis_mata_kuliah }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $pengajaran->kelas }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $pengajaran->tahun_ajaran }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $pengajaran->jumlah_mahasiswa }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $pengajaran->jumlah_sks }}</center>
-                    </td>
-                </tr>
+                @php
+                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                @endphp
+                @foreach ($pengajaran as $ajar)
+                    <tr>
+                        <td>
+                            <center>{{ $counter }}</center>
+                        </td>
+                        <td>
+                            {{ $ajar->nama_mata_kuliah }}
+                        </td>
+                        <td>
+                            <center>{{ $ajar->jenis_mata_kuliah }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $ajar->kelas }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $ajar->tahun_ajaran }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $ajar->jumlah_mahasiswa }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $ajar->jumlah_sks }}</center>
+                        </td>
+                    </tr>
+                    @php
+                        $counter++; // Increment nomor urutan
+                    @endphp
+                @endforeach
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Penelitian</h3>
@@ -160,24 +170,34 @@
                     <td>Sumber Dana</td>
                     <td>Jumlah Dana</td>
                 </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>
-                        <center>{{ $penelitian->tahun_kegiatan }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $penelitian->judul_penelitian }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $penelitian->status_peneliti }}</center>
-                    </td>
-                    <td>
-                        <center>{{ $penelitian->sumber_dana }}</center>
-                    </td>
-                    <td>
-                        <center>{{ 'Rp ' . number_format($penelitian->jumlah_dana, 0, ',', '.') }}</center>
-                    </td>
-                </tr>
+                @php
+                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                @endphp
+                @foreach ($penelitian as $penel)
+                    <tr>
+                        <td>
+                            <center>{{ $counter }}</center>
+                        </td>
+                        <td>
+                            {{ $penel->tahun_kegiatan }}
+                        </td>
+                        <td>
+                            {{ $penel->judul_penelitian }}
+                        </td>
+                        <td>
+                            <center>{{ $penel->status_peneliti }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $penel->sumber_dana }}</center>
+                        </td>
+                        <td>
+                            {{ 'Rp ' . number_format($penel->jumlah_dana, 0, ',', '.') }}
+                        </td>
+                    </tr>
+                    @php
+                        $counter++; // Increment nomor urutan
+                    @endphp
+                @endforeach
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Pengabdian</h3>
@@ -193,7 +213,7 @@
                 <tr>
                     <td>Example</td>
                     <td>
-                        <center>{{ $pengabdian->judul_pengabdian }}</center>
+                        {{ $pengabdian->judul_pengabdian }}
                     </td>
                     <td>
                         <center>{{ $pengabdian->bidang_keilmuan }}</center>

@@ -29,9 +29,9 @@ class AllDosenController extends Controller
     {
         $detaildosen = User::findOrFail($id);
         $identitasdiri = IdentitasDiri::findOrFail($id);
-        $pendidikan = Pendidikan::where('user_id', $id)->get(); // Mengambil semua pendidikan terkait user_id
-        $pengajaran = Pengajaran::findOrFail($id);
-        $penelitian = Penelitian::findOrFail($id);
+        $pendidikan = Pendidikan::where('user_id', $id)->get();
+        $pengajaran = Pengajaran::where('user_id', $id)->get();
+        $penelitian = Penelitian::where('user_id', $id)->get();
         $pengabdian = Pengabdian::findOrFail($id);
 
         return view('detaildosen', [
