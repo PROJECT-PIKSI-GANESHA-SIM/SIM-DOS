@@ -127,11 +127,11 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
+                    <td><center>{{ $penelitian->tahun_kegiatan }}</center></td>
+                    <td><center>{{ $penelitian->judul_penelitian }}</center></td>
+                    <td><center>{{ $penelitian->status_peneliti }}</center></td>
+                    <td><center>{{ $penelitian->sumber_dana }}</center></td>
+                    <td><center>{{ $penelitian->jumlah_dana }}</center></td>
                 </tr>
             </tbody>
         </table>
@@ -147,10 +147,10 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
+                    <td><center>{{ $pengabdian->judul_pengabdian }}</center></td>
+                    <td><center>{{ $pengabdian->bidang_keilmuan }}</center></td>
+                    <td><center>{{ $pengabdian->tahun_pelaksanaan }}</center></td>
+                    <td><center>{{ $pengabdian->lama_kegiatan }}</center></td>
                 </tr>
             </tbody>
         </table>
