@@ -28,7 +28,7 @@ class AllDosenController extends Controller
         $detaildosen = User::findOrFail($id);
         $identitasdiri = IdentitasDiri::findOrFail($id);
         $pendidikan = Pendidikan::findOrFail($id);
-        // $pengajaran = Pengajaran::findOrFail($id);
+        $pengajaran = Pengajaran::findOrFail($id);
         // $pendidikan = Pendidikan::where('user_id', (int)$id)->orderBy('created_at', 'desc');
         // dd($pendidikan);
 
@@ -37,7 +37,7 @@ class AllDosenController extends Controller
             "detaildosen" => $detaildosen,
             "identitasdiri" => $identitasdiri,
             "pendidikan" => $pendidikan,
-            // "pengajaran" => $pengajaran
+            "pengajaran" => $pengajaran
         ]);
     }
 }

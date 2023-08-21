@@ -104,13 +104,13 @@
                     <td>SKS</td>
                 </tr>
                 <tr>
-                    {{-- <td>Example</td>
+                    <td>Example</td>
                     <td><center>{{ $pengajaran->nama_mata_kuliah }}</center></td>
                     <td><center>{{ $pengajaran->jenis_mata_kuliah }}</center></td>
                     <td><center>{{ $pengajaran->kelas }}</center></td>
                     <td><center>{{ $pengajaran->tahun_ajaran }}</center></td>
                     <td><center>{{ $pengajaran->jumlah_mahasiswa }}</center></td>
-                    <td><center>{{ $pengajaran->jumlah_sks }}</center></td> --}}
+                    <td><center>{{ $pengajaran->jumlah_sks }}</center></td>
                 </tr>
             </tbody>
         </table>
