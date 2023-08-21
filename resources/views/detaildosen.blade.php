@@ -82,9 +82,15 @@
                     <td>Perguruan Tinggi</td>
                     <td>Tahun lulus</td>
                 </tr>
+                @php
+                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                @endphp
+
                 @foreach ($pendidikan as $pend)
                     <tr>
-                        <td>Example</td>
+                        <td>
+                            <center>{{ $counter }}</center>
+                        </td>
                         <td>
                             <center>{{ $pend->jenjang_pendidikan }}</center>
                         </td>
@@ -103,6 +109,9 @@
                             </center>
                         </td>
                     </tr>
+                    @php
+                        $counter++; // Increment nomor urutan
+                    @endphp
                 @endforeach
             </tbody>
         </table>
