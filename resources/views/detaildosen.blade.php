@@ -85,7 +85,6 @@
                 @php
                     $counter = 1; // Variabel untuk menyimpan nomor urutan
                 @endphp
-
                 @foreach ($pendidikan as $pend)
                     <tr>
                         <td>
