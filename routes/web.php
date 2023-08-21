@@ -50,13 +50,6 @@ Route::get('/about', function () {
 Route::get('/dosen', [AllDosenController::class, 'index'])->name('external.dosen');
 Route::get('/detaildosen/{id}', [AllDosenController::class, 'detail'])->name('alldosen.detail');
 
-// Route::get('/detaildosen', function () {
-//     return view('detaildosen', [
-//         "title" => "Detail Dosen"
-//     ]);
-// });
-
-
 Route::get('/informationcenter', [PusatInformasiController::class, 'show_all']);
 Route::get('/detail_informationcenter/{id}', [PusatInformasiController::class, 'detail'])->name('informationcenter.detail');
 
