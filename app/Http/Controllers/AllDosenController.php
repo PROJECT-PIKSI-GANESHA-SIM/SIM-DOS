@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\IdentitasDiri;
 use App\Models\Pendidikan;
+use App\Models\Pengajaran;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,8 @@ class AllDosenController extends Controller
     {
         $detaildosen = User::findOrFail($id);
         $identitasdiri = IdentitasDiri::findOrFail($id);
+        $pendidikan = Pendidikan::findOrFail($id);
+        // $pengajaran = Pengajaran::findOrFail($id);
         // $pendidikan = Pendidikan::where('user_id', (int)$id)->orderBy('created_at', 'desc');
         // dd($pendidikan);
 
@@ -33,7 +36,8 @@ class AllDosenController extends Controller
             "title" => "Detail Dosen",
             "detaildosen" => $detaildosen,
             "identitasdiri" => $identitasdiri,
-            // "pendidikan" => $pendidikan
+            "pendidikan" => $pendidikan,
+            // "pengajaran" => $pengajaran
         ]);
     }
 }

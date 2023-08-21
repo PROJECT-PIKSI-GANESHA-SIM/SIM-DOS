@@ -83,19 +83,11 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    {{-- <td>{{ $pendidikan->jenjang_pendidikan }}</td> --}}
-                    {{-- <td>{{ $pendidikan->gelar_singkat }}</td> --}}
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
+                    <td><center>{{ $pendidikan->jenjang_pendidikan }}</center></td>
+                    <td><center>{{ $pendidikan->gelar_singkat }}</center></td>
+                    <td><center>{{ $pendidikan->bidang_studi }}</center></td>
+                    <td><center>{{ $pendidikan->nama_instansi }}</center></td>
+                    <td><center>{{ $pendidikan->tanggal_berakhir_studi }}</center></td>
                 </tr>
             </tbody>
         </table>
@@ -112,22 +104,13 @@
                     <td>SKS</td>
                 </tr>
                 <tr>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
+                    {{-- <td>Example</td>
+                    <td><center>{{ $pengajaran->nama_mata_kuliah }}</center></td>
+                    <td><center>{{ $pengajaran->jenis_mata_kuliah }}</center></td>
+                    <td><center>{{ $pengajaran->kelas }}</center></td>
+                    <td><center>{{ $pengajaran->tahun_ajaran }}</center></td>
+                    <td><center>{{ $pengajaran->jumlah_mahasiswa }}</center></td>
+                    <td><center>{{ $pengajaran->jumlah_sks }}</center></td> --}}
                 </tr>
             </tbody>
         </table>
@@ -150,14 +133,6 @@
                     <td>Example</td>
                     <td>Example</td>
                 </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                </tr>
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Pengabdian</h3>
@@ -169,13 +144,6 @@
                     <td>Bidang Keilmuan</td>
                     <td>Tahun Pelaksana</td>
                     <td>Lama Kegiatan</td>
-                </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
                 </tr>
                 <tr>
                     <td>Example</td>
