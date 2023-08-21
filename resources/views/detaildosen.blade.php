@@ -210,23 +210,33 @@
                     <td>Tahun Pelaksana</td>
                     <td>Lama Kegiatan</td>
                 </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>
-                        {{ $pengabdian->judul_pengabdian }}
-                    </td>
-                    <td>
-                        <center>{{ $pengabdian->bidang_keilmuan }}</center>
-                    </td>
-                    <td>
-                        <center>
-                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $pengabdian->tahun_pelaksanaan)->format('Y') }}
-                        </center>
-                    </td>
-                    <td>
-                        <center>{{ $pengabdian->lama_kegiatan }}</center>
-                    </td>
-                </tr>
+                @php
+                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                @endphp
+                @foreach ($pengabdian as $abdi)
+                    <tr>
+                        <td>
+                            <center>{{ $counter }}</center>
+                        </td>
+                        <td>
+                            {{ $abdi->judul_pengabdian }}
+                        </td>
+                        <td>
+                            {{ $abdi->bidang_keilmuan }}
+                        </td>
+                        <td>
+                            <center>
+                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $abdi->tahun_pelaksanaan)->format('Y') }}
+                            </center>
+                        </td>
+                        <td>
+                            <center>{{ $abdi->lama_kegiatan }}</center>
+                        </td>
+                    </tr>
+                    @php
+                        $counter++; // Increment nomor urutan
+                    @endphp
+                @endforeach
             </tbody>
         </table>
     </div>

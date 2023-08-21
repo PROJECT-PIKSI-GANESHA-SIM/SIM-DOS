@@ -32,7 +32,7 @@ class AllDosenController extends Controller
         $pendidikan = Pendidikan::where('user_id', $id)->get();
         $pengajaran = Pengajaran::where('user_id', $id)->get();
         $penelitian = Penelitian::where('user_id', $id)->get();
-        $pengabdian = Pengabdian::findOrFail($id);
+        $pengabdian = Pengabdian::where('user_id', $id)->get();
 
         return view('detaildosen', [
             "title" => "Detail Dosen",
