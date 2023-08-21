@@ -6,6 +6,17 @@
         background-image: url('assets/patternpad-pusatinformasi.svg');
         background-repeat: no-repeat;
     }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .row-cols-md-3 .col {
+        display: flex;
+        flex: 1;
+    }
 </style>
 @section('container')
     <div class="container py-5">
@@ -16,18 +27,20 @@
         @foreach ($pusat_informasi as $informasi)
             <div class="col">
                 <div class="card">
-                    <img src="{{ Storage::url('akademik/pusat_informasi/' . $informasi->thumbnail) }}" class="card-img-top" alt="thumbnail">
+                    <img src="{{ Storage::url('akademik/pusat_informasi/' . $informasi->thumbnail) }}" class="card-img-top"
+                        alt="thumbnail">
                     <div class="card-body">
-                        <p class="card-text"><small class="text-muted">Last updated {{ $informasi->updated_at->format('Y-m-d') }}</small></p>
+                        <p class="card-text"><small class="text-muted">Last updated
+                                {{ $informasi->updated_at->format('Y-m-d') }}</small></p>
                         <h5 class="card-title">
-                            <a href="{{ route('informationcenter.detail', $informasi->id) }}">{{ \Illuminate\Support\Str::limit($informasi->title, 100) }}</a>
+                            <a
+                                href="{{ route('informationcenter.detail', $informasi->id) }}">{{ \Illuminate\Support\Str::limit($informasi->title, 100) }}</a>
                         </h5>
-                        {{-- <p class="card-text">{!! \Illuminate\Support\Str::limit($informasi->description, 10, '...') !!}</p> --}}
+                        <p class="card-text">{!! \Illuminate\Support\Str::limit($informasi->description, 100, '...') !!}</p>
                     </div>
                 </div>
             </div>
         @endforeach
-
     </div>
     <br>
     <nav aria-label="Page navigation example">
@@ -50,7 +63,8 @@
                     @endfor
 
                     <!-- Tombol "Next" -->
-                    <li class="page-item {{ $pusat_informasi->currentPage() == $pusat_informasi->lastPage() ? 'disabled' : '' }}">
+                    <li
+                        class="page-item {{ $pusat_informasi->currentPage() == $pusat_informasi->lastPage() ? 'disabled' : '' }}">
                         <a class="page-link" href="{{ $pusat_informasi->nextPageUrl() }}" aria-label="Next">
                             {{-- <span aria-hidden="true">Next</span> --}}
                             <span class="sr-only">Next</span>
