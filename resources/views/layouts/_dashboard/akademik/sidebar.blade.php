@@ -16,5 +16,8 @@
         <li>
             <a href="{{ route('pesan') }}" style="text-decoration: none"><i class="fas fa-comment-dots"></i> Pesan</a>
         </li>
+        <li>
+            <a href="{{ route('config') }}" style="text-decoration: none"><i class="fas fa-screwdriver"></i> Config</a>
+        </li>
     </ul>
 </nav>
