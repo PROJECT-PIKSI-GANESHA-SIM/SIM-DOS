@@ -16,7 +16,8 @@
         <div class="row">
             <div class="col-md-5 px-4">
                 <center>
-                    <img src="{{ Storage::url('dosen/profile/' . $detaildosen->image) }}" alt="Foto Dosen" class="mb-4" width="380">
+                    <img src="{{ Storage::url('dosen/profile/' . $detaildosen->image) }}" alt="Foto Dosen" class="mb-4"
+                        width="380">
                 </center>
             </div>
             <div class="col">
@@ -81,14 +82,28 @@
                     <td>Perguruan Tinggi</td>
                     <td>Tahun lulus</td>
                 </tr>
-                <tr>
-                    <td>Example</td>
-                    <td><center>{{ $pendidikan->jenjang_pendidikan }}</center></td>
-                    <td><center>{{ $pendidikan->gelar_singkat }}</center></td>
-                    <td><center>{{ $pendidikan->bidang_studi }}</center></td>
-                    <td><center>{{ $pendidikan->nama_instansi }}</center></td>
-                    <td><center>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $pendidikan->tanggal_berakhir_studi)->format('Y') }}</center></td>
-                </tr>
+                @foreach ($pendidikan as $pend)
+                    <tr>
+                        <td>Example</td>
+                        <td>
+                            <center>{{ $pend->jenjang_pendidikan }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $pend->gelar_singkat }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $pend->bidang_studi }}</center>
+                        </td>
+                        <td>
+                            <center>{{ $pend->nama_instansi }}</center>
+                        </td>
+                        <td>
+                            <center>
+                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $pend->tanggal_berakhir_studi)->format('Y') }}
+                            </center>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Pengajaran</h3>
@@ -105,12 +120,24 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    <td><center>{{ $pengajaran->nama_mata_kuliah }}</center></td>
-                    <td><center>{{ $pengajaran->jenis_mata_kuliah }}</center></td>
-                    <td><center>{{ $pengajaran->kelas }}</center></td>
-                    <td><center>{{ $pengajaran->tahun_ajaran }}</center></td>
-                    <td><center>{{ $pengajaran->jumlah_mahasiswa }}</center></td>
-                    <td><center>{{ $pengajaran->jumlah_sks }}</center></td>
+                    <td>
+                        <center>{{ $pengajaran->nama_mata_kuliah }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $pengajaran->jenis_mata_kuliah }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $pengajaran->kelas }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $pengajaran->tahun_ajaran }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $pengajaran->jumlah_mahasiswa }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $pengajaran->jumlah_sks }}</center>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -127,11 +154,21 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    <td><center>{{ $penelitian->tahun_kegiatan }}</center></td>
-                    <td><center>{{ $penelitian->judul_penelitian }}</center></td>
-                    <td><center>{{ $penelitian->status_peneliti }}</center></td>
-                    <td><center>{{ $penelitian->sumber_dana }}</center></td>
-                    <td><center>{{ 'Rp ' . number_format($penelitian->jumlah_dana, 0, ',', '.') }}</center></td>
+                    <td>
+                        <center>{{ $penelitian->tahun_kegiatan }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $penelitian->judul_penelitian }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $penelitian->status_peneliti }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $penelitian->sumber_dana }}</center>
+                    </td>
+                    <td>
+                        <center>{{ 'Rp ' . number_format($penelitian->jumlah_dana, 0, ',', '.') }}</center>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -147,10 +184,20 @@
                 </tr>
                 <tr>
                     <td>Example</td>
-                    <td><center>{{ $pengabdian->judul_pengabdian }}</center></td>
-                    <td><center>{{ $pengabdian->bidang_keilmuan }}</center></td>
-                    <td><center>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $pengabdian->tahun_pelaksanaan)->format('Y') }}</center></td>
-                    <td><center>{{ $pengabdian->lama_kegiatan }}</center></td>
+                    <td>
+                        <center>{{ $pengabdian->judul_pengabdian }}</center>
+                    </td>
+                    <td>
+                        <center>{{ $pengabdian->bidang_keilmuan }}</center>
+                    </td>
+                    <td>
+                        <center>
+                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $pengabdian->tahun_pelaksanaan)->format('Y') }}
+                        </center>
+                    </td>
+                    <td>
+                        <center>{{ $pengabdian->lama_kegiatan }}</center>
+                    </td>
                 </tr>
             </tbody>
         </table>

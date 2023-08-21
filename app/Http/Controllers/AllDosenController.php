@@ -29,7 +29,7 @@ class AllDosenController extends Controller
     {
         $detaildosen = User::findOrFail($id);
         $identitasdiri = IdentitasDiri::findOrFail($id);
-        $pendidikan = Pendidikan::findOrFail($id);
+        $pendidikan = Pendidikan::where('user_id', $id)->get(); // Mengambil semua pendidikan terkait user_id
         $pengajaran = Pengajaran::findOrFail($id);
         $penelitian = Penelitian::findOrFail($id);
         $pengabdian = Pengabdian::findOrFail($id);
