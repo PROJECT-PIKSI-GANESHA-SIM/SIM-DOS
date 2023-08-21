@@ -37,7 +37,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        
+                        <span class="text-danger fst-italic">thumbnail: using 1200 x 630 pixels</span>
                     </div>
 
                     <div class="mb-3">
