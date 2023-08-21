@@ -175,7 +175,7 @@
     </div> --}}
 
     <div class="row row-cols-1 row-cols-md-4 g-4">
-        @foreach ($users_dosen as $dosen)    
+        @foreach ($users_dosen as $dosen)
         <div class="col" id="myCard">
             <div class="card">
                 <img src="{{ Storage::url('dosen/profile/' . $dosen->image) }}" class="card-img-top" alt="thumbnail">
