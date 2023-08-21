@@ -11,13 +11,14 @@
                         @if ($user->image == null)
                             <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
                         @else
-                            <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">    
+                            <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
                         @endif
-                        <i style="font-size: .8em;" class="fas fa-caret-down"></i>    
+                        <i style="font-size: .8em;" class="fas fa-caret-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nav-link-menu">
                         <ul class="nav-list">
                             <li><a href="{{ route('profile') }}" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                            <li><a href="{{ route('changepassword') }}" class="dropdown-item"><i class="fas fa-unlock"></i> Change Password</a></li>
                             <div class="dropdown-divider"></div>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

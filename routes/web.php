@@ -11,6 +11,7 @@ use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\MenuPenunjangController;
 use App\Http\Controllers\CapaianLuaranController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PusatInformasiController;
 use App\Models\Pengabdian;
@@ -54,7 +55,7 @@ Route::get('/informationcenter', [PusatInformasiController::class, 'show_all']);
 Route::get('/detail_informationcenter/{id}', [PusatInformasiController::class, 'detail'])->name('informationcenter.detail');
 
 Auth::routes([
-    'register' => false
+    // 'register' => false
 ]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -63,6 +64,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     // Home
     Route::get('/dashboard/home', [HomeController::class, 'index'])->middleware('role:dosen|akademik')->name('home');
+
+    // Change Password
+    Route::get('/changepassword', [ChangePasswordController::class, 'index'])->middleware('role:dosen|akademik')->name('changepassword');
+    Route::post('/changepassword', [ChangePasswordController::class, 'change'])->middleware('role:dosen|akademik')->name('changepassword.update');
 
     // Data Diri
     Route::get('/data_diri', [DataDiriController::class, 'index'])->middleware('role:dosen')->name('data_diri');
@@ -223,4 +228,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pesan/{id}/edit', [PesanController::class, 'edit'])->middleware('role:akademik')->name('pesan.edit');
     Route::put('/pesan/update/{id}', [PesanController::class, 'update'])->middleware('role:akademik')->name('pesan.update');
     Route::get('/pesan/update', [PesanController::class, 'update_publish_status'])->middleware('role:akademik');
+
+    // Config
+    Route::get('/config', [ConfigController::class, 'index'])->middleware('role:akademik')->name('config');
+    Route::get('/config/create', [ConfigController::class, 'create'])->middleware('role:akademik')->name('config.create');
+    Route::post('/config/create', [ConfigController::class, 'store'])->middleware('role:akademik')->name('config.store');
+
 });

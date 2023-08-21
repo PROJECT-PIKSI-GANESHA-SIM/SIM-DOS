@@ -23,7 +23,7 @@
             <a href="{{ route('pengabdian') }}" style="text-decoration: none"><i class="fas fa-window-maximize"></i> Pengabdian</a>
         </li>
         <li>
-            <a href="{{ route('menu_penunjang') }}" style="text-decoration: none"><i class="fas fa-clipboard-list"></i> Penunjang</a>
+            <a href="{{ route('menu_penunjang') }}" style="text-decoration: none"><i class="fas fa-receipt"></i> Penunjang</a>
         </li>
         <li>
             <a href="{{ route('capaian_luaran') }}" style="text-decoration: none"><i class="fas fa-band-aid"></i> Capaian Luaran</a>

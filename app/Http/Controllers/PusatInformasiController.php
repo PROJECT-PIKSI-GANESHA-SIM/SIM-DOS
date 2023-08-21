@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PusatInformasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PusatInformasiController extends Controller
 {
@@ -141,7 +142,7 @@ class PusatInformasiController extends Controller
         Storage::delete('public/akademik/pusat_infomasi/' . $pusat_informasi->thumbnail);
 
         // hapus pengajaran
-        $pengabdian->delete();
+        $pusat_informasi->delete();
 
         return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Didelete!']);
     }
