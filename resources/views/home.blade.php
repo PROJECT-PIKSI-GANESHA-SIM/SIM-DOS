@@ -3,14 +3,16 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        border: 3px solid transparent; /* Menambahkan border pada card dengan ketebalan 3px */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek shadow (bayangan) pada card */
-        transition: border-color 0.3s, box-shadow 0.3s; /* Efek transisi untuk perubahan warna border dan shadow */
+        border: 3px solid transparent;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     .card:hover {
-        border-color: #8A00B9; /* Warna ungu untuk border ketika dihover */
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Efek shadow lebih kuat saat dihover */
+        border-color: #8A00B9;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     }
+
     .row-cols-md-3 .col {
         display: flex;
         flex: 1;
