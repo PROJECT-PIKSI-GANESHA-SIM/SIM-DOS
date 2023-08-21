@@ -191,8 +191,8 @@
                             <center>{{ $penel->sumber_dana }}</center>
                         </td>
                         <td>
-                            {{ 'Rp ' . number_format($penel->jumlah_dana, 0, ',', '.') }}
-                        </td>
+                            {{ 'Rp. ' . number_format($penel->jumlah_dana, 2, ',', '.') }}
+                        </td>                        
                     </tr>
                     @php
                         $counter++; // Increment nomor urutan
