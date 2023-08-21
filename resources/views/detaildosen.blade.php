@@ -127,34 +127,36 @@
                     <td>SKS</td>
                 </tr>
                 @php
-                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                    $counter = 1;
                 @endphp
                 @foreach ($pengajaran as $ajar)
-                    <tr>
-                        <td>
-                            <center>{{ $counter }}</center>
-                        </td>
-                        <td>
-                            {{ $ajar->nama_mata_kuliah }}
-                        </td>
-                        <td>
-                            <center>{{ $ajar->jenis_mata_kuliah }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $ajar->kelas }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $ajar->tahun_ajaran }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $ajar->jumlah_mahasiswa }} orang</center>
-                        </td>
-                        <td>
-                            <center>{{ $ajar->jumlah_sks }}</center>
-                        </td>
-                    </tr>
+                    @if ($counter <= 5)
+                        <tr>
+                            <td>
+                                <center>{{ $counter }}</center>
+                            </td>
+                            <td>
+                                {{ $ajar->nama_mata_kuliah }}
+                            </td>
+                            <td>
+                                <center>{{ $ajar->jenis_mata_kuliah }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $ajar->kelas }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $ajar->tahun_ajaran }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $ajar->jumlah_mahasiswa }} orang</center>
+                            </td>
+                            <td>
+                                <center>{{ $ajar->jumlah_sks }}</center>
+                            </td>
+                        </tr>
+                    @endif
                     @php
-                        $counter++; // Increment nomor urutan
+                        $counter++;
                     @endphp
                 @endforeach
             </tbody>
@@ -192,7 +194,7 @@
                         </td>
                         <td>
                             {{ 'Rp. ' . number_format($penel->jumlah_dana, 2, ',', '.') }}
-                        </td>                        
+                        </td>
                     </tr>
                     @php
                         $counter++; // Increment nomor urutan
