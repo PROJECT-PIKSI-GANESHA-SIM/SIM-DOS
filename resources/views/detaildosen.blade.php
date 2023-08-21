@@ -147,7 +147,7 @@
                             <center>{{ $ajar->tahun_ajaran }}</center>
                         </td>
                         <td>
-                            <center>{{ $ajar->jumlah_mahasiswa }}</center>
+                            <center>{{ $ajar->jumlah_mahasiswa }} orang</center>
                         </td>
                         <td>
                             <center>{{ $ajar->jumlah_sks }}</center>
