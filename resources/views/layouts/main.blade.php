@@ -104,32 +104,17 @@
             width: 500px;
         }
 
-        /* Adjustments for Small Devices (Mobile Phones) */
         @media screen and (max-width: 576px) {
-
-            /* Adjust padding and font sizes for better mobile experience */
             main {
-                padding: 1rem 1rem;
-                /* Adjust padding for smaller screens */
-            }
-
-            main .content .content-description .title {
-                font-size: 2rem;
-                margin-block: 0.5rem 0;
-            }
-
-            main .content .content-description p {
-                font-size: 1rem;
+                padding: 1rem;
             }
 
             main .content .content-image img {
                 width: 100%;
                 max-width: 300px;
-                /* Adjust maximum image width for smaller screens */
                 margin: 1rem auto;
             }
 
-            /* Adjust footer layout for better mobile experience */
             .footer {
                 padding: 1.5rem 0;
             }
