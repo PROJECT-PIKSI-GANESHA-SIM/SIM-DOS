@@ -17,12 +17,20 @@ class AllDosenController extends Controller
 
         $users_dosen = User::whereHas('roles', function ($query) {
             $query->where('name', 'dosen');
-        })->paginate(5);
+        })
+            ->leftJoin('kepegawaian', 'users.id', '=', 'kepegawaian.user_id')
+            ->select('users.*', 'kepegawaian.program_studi')
+            ->paginate(5);
 
         return view('dosen', [
             'users_dosen' => $users_dosen,
             "title" => "Dosen"
         ]);
+    }
+
+    public function kepegawaian()
+    {
+        return $this->hasOne(Kepegawaian::class, 'user_id');
     }
 
     public function detail($id)

@@ -29,7 +29,7 @@
                         <a href="{{ route('alldosen.detail',$dosen->id) }}"> {{ $dosen->name }}</a>
                     </h5>
                     <p class="card-text">{{ $dosen->nidn }}</p>
-                    {{-- <p class="card-text"><small class="text-muted">{{ $kepegawaian->program_studi }}</small></p> --}}
+                    <p class="card-text">{{ $dosen->program_studi }}</p>
                 </div>
             </div>
         </div>
