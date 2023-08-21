@@ -239,5 +239,90 @@
                 @endforeach
             </tbody>
         </table>
+        <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Penunjang</h3>
+        <table class="table table-striped">
+            <tbody>
+                <tr class="text-center">
+                    <td>No</td>
+                    <td>Kategori Kegiatan</td>
+                    <td width="50%">Nama Kegiatan</td>
+                    <td>Pelaksanaan</td>
+                </tr>
+                @php
+                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                @endphp
+                @foreach ($penunjang as $nunjang)
+                    <tr>
+                        <td>
+                            <center>{{ $counter }}</center>
+                        </td>
+                        <td>
+                            {{ $nunjang->kategori_kegiatan }}
+                        </td>
+                        <td>
+                            {{ $nunjang->nama_kegiatan }}
+                        </td>
+                        <td>
+                            <center>{{ $nunjang->pelaksanaan }}</center>
+                        </td>
+                    </tr>
+                    @php
+                        $counter++; // Increment nomor urutan
+                    @endphp
+                @endforeach
+            </tbody>
+        </table>
+        <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Capaian Luaran</h3>
+        <table class="table table-striped">
+            <tbody>
+                <tr class="text-center">
+                    <td>No</td>
+                    <td>Jenis Luaran</td>
+                    <td width="40%">Judul Karya</td>
+                    <td>Tanggal</td>
+                    <td width="30%">Tautan Eksternal</td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>Example</center>
+                    </td>
+                    <td>
+                        <center>Example</center>
+                    </td>
+                    <td>Example</td>
+                    <td>
+                        <center>Example</center>
+                    </td>
+                    <td>Example</td>
+                </tr>
+                {{-- @php
+                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                @endphp
+                @foreach ($pengabdian as $abdi)
+                    <tr>
+                        <td>
+                            <center>{{ $counter }}</center>
+                        </td>
+                        <td>
+                            {{ $abdi->judul_pengabdian }}
+                        </td>
+                        <td>
+                            {{ $abdi->bidang_keilmuan }}
+                        </td>
+                        <td>
+                            <center>
+                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $abdi->tahun_pelaksanaan)->format('Y') }}
+                            </center>
+                        </td>
+                        <td>
+                            <center>{{ $abdi->lama_kegiatan }}</center>
+                        </td>
+                    </tr>
+                    @php
+                        $counter++; // Increment nomor urutan
+                    @endphp
+                @endforeach --}}
+            </tbody>
+        </table>
     </div>
 @endsection
