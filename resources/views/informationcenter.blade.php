@@ -40,17 +40,16 @@
         @foreach ($pusat_informasi as $informasi)
             <div class="col">
                 <div class="card">
-                    <img src="{{ Storage::url('akademik/pusat_informasi/' . $informasi->thumbnail) }}" class="card-img-top"
-                        alt="thumbnail">
-                    <div class="card-body">
-                        <p class="card-text"><small class="text-muted">Last updated
-                                {{ $informasi->updated_at->format('Y-m-d') }}</small></p>
-                        <h5 class="card-title">
-                            <a
-                                href="{{ route('informationcenter.detail', $informasi->id) }}">{{ \Illuminate\Support\Str::limit($informasi->title, 100) }}</a>
-                        </h5>
-                        <p class="card-text">{!! \Illuminate\Support\Str::limit($informasi->description, 100, '...') !!}</p>
-                    </div>
+                    <a href="{{ route('informationcenter.detail', $informasi->id) }}">
+                        <img src="{{ Storage::url('akademik/pusat_informasi/' . $informasi->thumbnail) }}"
+                            class="card-img-top" alt="thumbnail">
+                        <div class="card-body">
+                            <p class="card-text"><small class="text-muted">Last updated
+                                    {{ $informasi->updated_at->format('Y-m-d') }}</small></p>
+                            <h5 class="card-title">{{ \Illuminate\Support\Str::limit($informasi->title, 100) }}</h5>
+                            <p class="card-text">{!! \Illuminate\Support\Str::limit($informasi->description, 100, '...') !!}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         @endforeach
