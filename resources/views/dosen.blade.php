@@ -1,7 +1,16 @@
+<style>
+    .card {
+        transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        border-width: 2px; /* Nilai border lebih tebal */
+    }
+
+    .card:hover {
+        border-color: #8A00B9;
+        box-shadow: 0 8px 16px rgba(138, 0, 185, 0.3); /* Nilai bayangan lebih tebal */
+    }
+</style>
 @include('layouts.partials.navbar')
-
 @extends('layouts.main')
-
 @section('container')
     <h1 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">
         <center>Daftar Profil Dosen</center>
