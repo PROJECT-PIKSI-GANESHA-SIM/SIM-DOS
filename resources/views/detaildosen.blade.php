@@ -83,7 +83,7 @@
                     <td>Tahun lulus</td>
                 </tr>
                 @php
-                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                    $counter = 1;
                 @endphp
                 @foreach ($pendidikan as $pend)
                     <tr>
@@ -109,7 +109,7 @@
                         </td>
                     </tr>
                     @php
-                        $counter++; // Increment nomor urutan
+                        $counter++;
                     @endphp
                 @endforeach
             </tbody>
@@ -173,7 +173,7 @@
                     <td>Jumlah Dana</td>
                 </tr>
                 @php
-                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                    $counter = 1;
                 @endphp
                 @foreach ($penelitian as $penel)
                     <tr>
@@ -197,7 +197,7 @@
                         </td>
                     </tr>
                     @php
-                        $counter++; // Increment nomor urutan
+                        $counter++;
                     @endphp
                 @endforeach
             </tbody>
@@ -213,7 +213,7 @@
                     <td>Lama Kegiatan</td>
                 </tr>
                 @php
-                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                    $counter = 1;
                 @endphp
                 @foreach ($pengabdian as $abdi)
                     <tr>
@@ -236,7 +236,7 @@
                         </td>
                     </tr>
                     @php
-                        $counter++; // Increment nomor urutan
+                        $counter++;
                     @endphp
                 @endforeach
             </tbody>
@@ -251,7 +251,7 @@
                     <td>Pelaksanaan</td>
                 </tr>
                 @php
-                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                    $counter = 1;
                 @endphp
                 @foreach ($penunjang as $nunjang)
                     <tr>
@@ -269,7 +269,7 @@
                         </td>
                     </tr>
                     @php
-                        $counter++; // Increment nomor urutan
+                        $counter++;
                     @endphp
                 @endforeach
             </tbody>
@@ -285,7 +285,7 @@
                     <td width="30%">Tautan Eksternal</td>
                 </tr>
                 @php
-                    $counter = 1; // Variabel untuk menyimpan nomor urutan
+                    $counter = 1;
                 @endphp
                 @foreach ($capaian_luaran as $luaran)
                     <tr>
@@ -306,7 +306,7 @@
                         </td>
                     </tr>
                     @php
-                        $counter++; // Increment nomor urutan
+                        $counter++;
                     @endphp
                 @endforeach
             </tbody>
