@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #8A00B9">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style="background-color: #8A00B9">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">
             <img src="{{ asset('assets/PIKSI.png') }}" alt="logo piksi" height="30" class="d-inline-block align-text-top">
