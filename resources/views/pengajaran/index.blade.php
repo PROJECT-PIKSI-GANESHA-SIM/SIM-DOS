@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -47,7 +47,7 @@
                                                     </tr>
                                                 @endif
                                                 @foreach ($pengajaran as $p)
-                                                <tr>
+                                                <tr class="text-center">
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $p->nama_mata_kuliah }}</td>
                                                     <td>{{ $p->jenis_mata_kuliah }}</td>
@@ -82,7 +82,7 @@
                                     <div class="d-flex justify-content-end mt-3">
                                         <nav aria-label="Page navigation">
                                             <ul class="pagination">
-                                    
+
                                                 <!-- Tombol "Previous" -->
                                                 <li class="page-item {{ $pengajaran->onFirstPage() ? 'disabled' : '' }}">
                                                     <a class="page-link" style="background-color: #8A00B9" href="{{ $pengajaran->previousPageUrl() }}" aria-label="Previous">
@@ -90,14 +90,14 @@
                                                         <span class="sr-only">Previous</span>
                                                     </a>
                                                 </li>
-                                    
+
                                                 <!-- Tombol nomor halaman -->
                                                 @for ($i = 1; $i <= $pengajaran->lastPage(); $i++)
                                                     <li class="page-item {{ $pengajaran->currentPage() == $i ? 'active' : '' }}">
                                                         <a class="page-link" style="background-color: #8A00B9" href="{{ $pengajaran->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
-                                    
+
                                                 <!-- Tombol "Next" -->
                                                 <li class="page-item {{ $pengajaran->currentPage() == $pengajaran->lastPage() ? 'disabled' : '' }}">
                                                     <a class="page-link" style="background-color: #8A00B9" href="{{ $pengajaran->nextPageUrl() }}" aria-label="Next">
@@ -122,12 +122,12 @@
 <script>
     //message with toastr
     @if(session()->has('success'))
-        
-        toastr.success('{{ session('success') }}', 'BERHASIL!'); 
+
+        toastr.success('{{ session('success') }}', 'BERHASIL!');
 
     @elseif(session()->has('error'))
 
-        toastr.error('{{ session('error') }}', 'GAGAL!'); 
-        
+        toastr.error('{{ session('error') }}', 'GAGAL!');
+
     @endif
 </script>
