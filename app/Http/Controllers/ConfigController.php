@@ -17,9 +17,13 @@ class ConfigController extends Controller
     public function index() {
 
         $user = Auth::user();
+        $all_user = User::whereHas('roles', function ($query) {
+            $query->where('name', 'dosen');
+        })->paginate(10);
 
         return view('akademik.config.index', [
-            'user' => $user
+            'user' => $user,
+            'all_user' => $all_user
         ]);
     }
 

@@ -27,16 +27,50 @@
                                                 <th scope="col" style="width: 10%;">No</th>
                                                 <th scope="col" style="width: 20%;">NIDN</th>
                                                 <th scope="col" style="width: 50%;">Email</th>
-                                                <th scope="col" style="width: 20%;">Action</th>
+                                                {{-- <th scope="col" style="width: 20%;">Action</th> --}}
                                             </tr>
                                             </thead>
                                             <tbody>
-
+                                                @foreach ($all_user as $user)
+                                                    <tr class="text-center">
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $user->nidn }}</td>
+                                                        <td>{{ $user->email }}</td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         </div>
-                                    </div>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination">
 
+                                                    <!-- Tombol "Previous" -->
+                                                    <li class="page-item {{ $all_user->onFirstPage() ? 'disabled' : '' }}">
+                                                        <a class="page-link" href="{{ $all_user->previousPageUrl() }}" aria-label="Previous">
+                                                            <span aria-hidden="true">Previous</span>
+                                                            <span class="sr-only">Previous</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <!-- Tombol nomor halaman -->
+                                                    @for ($i = 1; $i <= $all_user->lastPage(); $i++)
+                                                        <li class="page-item {{ $all_user->currentPage() == $i ? 'active' : '' }}">
+                                                            <a class="page-link" href="{{ $all_user->url($i) }}">{{ $i }}</a>
+                                                        </li>
+                                                    @endfor
+
+                                                    <!-- Tombol "Next" -->
+                                                    <li class="page-item {{ $all_user->currentPage() == $all_user->lastPage() ? 'disabled' : '' }}">
+                                                        <a class="page-link" href="{{ $all_user->nextPageUrl() }}" aria-label="Next">
+                                                            <span aria-hidden="true">Next</span>
+                                                            <span class="sr-only">Next</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                         </div>

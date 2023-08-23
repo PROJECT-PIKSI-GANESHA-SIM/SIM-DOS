@@ -130,6 +130,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/menu_penunjang/create', [MenuPenunjangController::class, 'create'])->middleware('role:dosen')->name('menu_penunjang.create');
     Route::post('/menu_penunjang/create', [MenuPenunjangController::class, 'store'])->middleware('role:dosen')->name('menu_penunjang.store');
     Route::get('/menu_penunjang/{id}/edit', [MenuPenunjangController::class, 'edit'])->middleware('role:dosen')->name('menu_penunjang.edit');
+    Route::get('/menu_penunjang/{id}/view', [MenuPenunjangController::class, 'view'])->middleware('role:dosen')->name('menu_penunjang.view');
     Route::put('/menu_penunjang/update/{id}', [MenuPenunjangController::class, 'update'])->middleware('role:dosen')->name('menu_penunjang.update');
     Route::delete('/menu_penunjang/delete/{id}', [MenuPenunjangController::class, 'destroy'])->middleware('role:dosen')->name('menu_penunjang.destroy');
 
@@ -138,6 +139,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/capaian_luaran/create', [CapaianLuaranController::class, 'create'])->middleware('role:dosen')->name('capaian_luaran.create');
     Route::post('/capaian_luaran/create', [CapaianLuaranController::class, 'store'])->middleware('role:dosen')->name('capaian_luaran.store');
     Route::get('/capaian_luaran/{id}/edit', [CapaianLuaranController::class, 'edit'])->middleware('role:dosen')->name('capaian_luaran.edit');
+    Route::get('/capaian_luaran/{id}/view', [CapaianLuaranController::class, 'view'])->middleware('role:dosen')->name('capaian_luaran.view');
     Route::put('/capaian_luaran/update/{id}', [CapaianLuaranController::class, 'update'])->middleware('role:dosen')->name('capaian_luaran.update');
     Route::delete('/capaian_luaran/delete/{id}', [CapaianLuaranController::class, 'destroy'])->middleware('role:dosen')->name('capaian_luaran.destroy');
 
@@ -145,6 +147,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/dosen/all', [DosenController::class, 'index'])->middleware('role:akademik')->name('dosen');
     Route::get('/dosen/search', [DosenController::class, 'search'])->middleware('role:akademik')->name('dosen.search');
     Route::get('/dosen/{id}/edit', [DosenController::class, 'edit'])->middleware('role:akademik')->name('dosen.edit');
+    Route::delete('/dosen/delete/{id}', [DosenController::class, 'destroy'])->middleware('role:akademik')->name('dosen.destroy');
 
     // Pendidikan
     Route::get('/dosen/{id}/pendidikan/create', [DosenController::class, 'create_pendidikan'])->middleware('role:akademik')->name('dosen.pendidikan.create');

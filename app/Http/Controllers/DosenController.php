@@ -83,6 +83,19 @@ class DosenController extends Controller
         ]);
     }
 
+    public function destroy($id) {
+
+        $user = User::findOrFail($id);
+
+        // hapus gambar profile
+        Storage::delete('public/dosen/profile/'. $user->profile);
+
+        // hapus user
+        $user->delete();
+
+        return redirect()->route('akademik.dosen.detail')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
     // PENDIDIKAN
 
     public function create_pendidikan($id) {

@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -46,7 +46,7 @@
                                                     </tr>
                                                 @endif
                                                 @foreach ($penelitian as $p)
-                                                    <tr>
+                                                    <tr class="text-center">
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $p->tahun_kegiatan }}</td>
                                                         <td>{{ $p->judul_penelitian }}</td>
@@ -80,7 +80,7 @@
                                     <div class="d-flex justify-content-end mt-3">
                                         <nav aria-label="Page navigation">
                                             <ul class="pagination">
-                                    
+
                                                 <!-- Tombol "Previous" -->
                                                 <li class="page-item {{ $penelitian->onFirstPage() ? 'disabled' : '' }}">
                                                     <a class="page-link" href="{{ $penelitian->previousPageUrl() }}" aria-label="Previous">
@@ -88,14 +88,14 @@
                                                         <span class="sr-only">Previous</span>
                                                     </a>
                                                 </li>
-                                    
+
                                                 <!-- Tombol nomor halaman -->
                                                 @for ($i = 1; $i <= $penelitian->lastPage(); $i++)
                                                     <li class="page-item {{ $penelitian->currentPage() == $i ? 'active' : '' }}">
                                                         <a class="page-link" href="{{ $penelitian->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
-                                    
+
                                                 <!-- Tombol "Next" -->
                                                 <li class="page-item {{ $penelitian->currentPage() == $penelitian->lastPage() ? 'disabled' : '' }}">
                                                     <a class="page-link" href="{{ $penelitian->nextPageUrl() }}" aria-label="Next">

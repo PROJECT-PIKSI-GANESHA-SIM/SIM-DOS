@@ -47,7 +47,7 @@
                                                     {{-- @php
                                                         $menu_penunjang = App\Models\MenuPenunjang::find($p->jenjang_pendidikan);
                                                     @endphp --}}
-                                                    <tr>
+                                                    <tr class="text-center">
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $p->kategori_kegiatan}}</td>
                                                         <td>{{ $p->nama_kegiatan }}</td>
@@ -56,7 +56,7 @@
                                                             <div class="col">
                                                                 <div class="row-3 text-center">
                                                                     <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('menu_penunjang.destroy', $p->id) }}">
-                                                                        <a href="">
+                                                                        <a href="{{ route('menu_penunjang.view', $p->id) }}">
                                                                             <img src="{{ asset("assets/view.png") }}" alt="" width="30px" height="30px">
                                                                         </a>
                                                                         <a href="{{ route('menu_penunjang.edit', $p->id) }}">

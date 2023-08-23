@@ -153,4 +153,17 @@ class MenuPenunjangController extends Controller
 
         return redirect()->route('menu_penunjang')->with(['success' => 'Data Berhasil Didelete!']);
     }
+
+    public function view ($id) {
+
+        $user = Auth::user();
+        $pesan = Pesan::all();
+        $menu_penunjang = MenuPenunjang::findOrFail($id);
+
+        return view('menu_penunjang.view', [
+            'pesan' => $pesan,
+            'user' => $user,
+            'menu_penunjang' => $menu_penunjang
+        ]);
+    }
 }

@@ -272,7 +272,7 @@
                                         @php
                                             $jenjang_pendidikan = App\Models\JenjangPendidikan::find($p->jenjang_pendidikan);
                                         @endphp
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $jenjang_pendidikan->name}}</td>
                                             <td>{{ $p->gelar_singkat }}</td>
@@ -364,7 +364,7 @@
                                         </tr>
                                     @endif
                                     @foreach ($pengajaran as $p)
-                                    <tr>
+                                    <tr class="text-center">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $p->nama_mata_kuliah }}</td>
                                         <td>{{ $p->jenis_mata_kuliah }}</td>
@@ -456,7 +456,7 @@
                                         </tr>
                                     @endif
                                     @foreach ($penelitian as $p)
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $p->tahun_kegiatan }}</td>
                                             <td>{{ $p->judul_penelitian }}</td>
@@ -546,7 +546,7 @@
                                         </tr>
                                     @else()
                                         @foreach ($pengabdian as $p)
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $p->judul_pengabdian }}</td>
                                             <td>{{ $p->bidang_keilmuan }}</td>
@@ -639,7 +639,7 @@
                                         {{-- @php
                                             $menu_penunjang = App\Models\MenuPenunjang::find($p->jenjang_pendidikan);
                                         @endphp --}}
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $p->kategori_kegiatan}}</td>
                                             <td>{{ $p->nama_kegiatan }}</td>
@@ -732,7 +732,7 @@
                                         {{-- @php
                                             $menu_penunjang = App\Models\MenuPenunjang::find($p->jenjang_pendidikan);
                                         @endphp --}}
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $p->jenis_luaran}}</td>
                                             <td>{{ $p->judul_karya }}</td>

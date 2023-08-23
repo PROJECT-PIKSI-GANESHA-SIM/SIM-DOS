@@ -30,10 +30,17 @@ class HomeController extends Controller
         $user = User::findOrFail(Auth::id());
         $roles = $user->getRoleNames();
 
+        $all_user = User::whereHas('roles', function ($query) {
+            $query->where('name', 'dosen');
+        })->paginate(10);
+
         if ($roles[0] == 'dosen') {
             return view('home.index', compact('user'));
         } elseif ($roles[0] == 'akademik') {
-            return view('akademik.home.index', compact('user'));
+            return view('akademik.home.index', [
+                'user' => $user,
+                'all_user' => $all_user
+            ]);
         } else {
             return view('home.index', compact('user'));
         }

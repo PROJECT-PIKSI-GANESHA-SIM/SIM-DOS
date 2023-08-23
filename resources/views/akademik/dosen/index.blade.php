@@ -8,7 +8,7 @@
 <div class="card shadow bg-white flex-row card-rounded">
     <div class="card-body my-auto">
         <div class="title">
-            <i class="fas fa-home fa-lg pe-2"></i>
+            <i class="fas fa-user fa-lg pe-2"></i>
             <span class="fw-bold fs-5">DOSEN</span>
             <hr>
         </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="col">
                             <div class="row-3 text-center">
-                                <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="">
+                                <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.destroy', $user->id) }}">
                                     <a href="{{ route('dosen.edit', $user->id) }}">
                                         <img src="{{ asset("assets/edit.png") }}" alt="" width="35px" height="35px">
                                     </a>

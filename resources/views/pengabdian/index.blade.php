@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -45,7 +45,7 @@
                                                     </tr>
                                                 @else()
                                                     @foreach ($pengabdian as $p)
-                                                    <tr>
+                                                    <tr class="text-center">
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $p->judul_pengabdian }}</td>
                                                         <td>{{ $p->bidang_keilmuan }}</td>
@@ -79,7 +79,7 @@
                                     <div class="d-flex justify-content-end mt-3">
                                         <nav aria-label="Page navigation">
                                             <ul class="pagination">
-                                    
+
                                                 <!-- Tombol "Previous" -->
                                                 <li class="page-item {{ $pengabdian->onFirstPage() ? 'disabled' : '' }}">
                                                     <a class="page-link" href="{{ $pengabdian->previousPageUrl() }}" aria-label="Previous">
@@ -87,14 +87,14 @@
                                                         <span class="sr-only">Previous</span>
                                                     </a>
                                                 </li>
-                                    
+
                                                 <!-- Tombol nomor halaman -->
                                                 @for ($i = 1; $i <= $pengabdian->lastPage(); $i++)
                                                     <li class="page-item {{ $pengabdian->currentPage() == $i ? 'active' : '' }}">
                                                         <a class="page-link" href="{{ $pengabdian->url($i) }}">{{ $i }}</a>
                                                     </li>
                                                 @endfor
-                                    
+
                                                 <!-- Tombol "Next" -->
                                                 <li class="page-item {{ $pengabdian->currentPage() == $pengabdian->lastPage() ? 'disabled' : '' }}">
                                                     <a class="page-link" href="{{ $pengabdian->nextPageUrl() }}" aria-label="Next">
@@ -119,13 +119,13 @@
 <script>
     //message with toastr
     @if(session()->has('success'))
-        
-        toastr.success('{{ session('success') }}', 'BERHASIL!'); 
+
+        toastr.success('{{ session('success') }}', 'BERHASIL!');
 
     @elseif(session()->has('error'))
 
-        toastr.error('{{ session('error') }}', 'GAGAL!'); 
-        
+        toastr.error('{{ session('error') }}', 'GAGAL!');
+
     @endif
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')

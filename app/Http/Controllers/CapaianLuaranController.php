@@ -155,4 +155,17 @@ class CapaianLuaranController extends Controller
         return redirect()->route('capaian_luaran',)->with(['success' => 'Data Berhasil Didelete!']);
     }
 
+    public function view ($id) {
+
+        $user = Auth::user();
+        $pesan = Pesan::all();
+        $capaian_luaran = CapaianLuaran::findOrFail($id);
+
+        return view('menu_capaian_luaran.view', [
+            'pesan' => $pesan,
+            'user' => $user,
+            'capaian_luaran' => $capaian_luaran
+        ]);
+    }
+
 }
