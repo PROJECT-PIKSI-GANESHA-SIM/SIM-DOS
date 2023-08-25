@@ -8,6 +8,10 @@
         border-color: #8A00B9;
         box-shadow: 0 8px 16px rgba(138, 0, 185, 0.3);
     }
+    .custom-card {
+        width: 100%;
+        height: 100%;
+    }
 </style>
 @include('layouts.partials.navbar')
 @extends('layouts.main')
@@ -18,11 +22,10 @@
     <p class="py-3">Masukkan Nama Dosen, NIDN atau Prodi</p>
     <input class="form-control" id="myInput" type="text" placeholder="Cari..">
     <br>
-
     <div class="row row-cols-1 row-cols-md-4 g-4">
         @foreach ($users_dosen as $dosen)
         <div class="col" id="myCard">
-            <div class="card">
+            <div class="card custom-card">
                 <a href="{{ route('alldosen.detail', $dosen->id) }}">
                     @if (isset($dosen->image))
                         <img src="{{ Storage::url('dosen/profile/' . $dosen->image) }}" class="card-img-top" alt="thumbnail">
@@ -35,7 +38,7 @@
                         <p class="card-text">{{ $dosen->program_studi }}</p>
                     </div>
                 </a>
-            </div>            
+            </div>
         </div>
         @endforeach
     </div>

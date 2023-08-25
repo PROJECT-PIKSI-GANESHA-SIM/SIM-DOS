@@ -22,7 +22,7 @@ class AllDosenController extends Controller
         })
             ->leftJoin('kepegawaian', 'users.id', '=', 'kepegawaian.user_id')
             ->select('users.*', 'kepegawaian.program_studi')
-            ->paginate(5);
+            ->get();
 
         return view('dosen', [
             'users_dosen' => $users_dosen,
