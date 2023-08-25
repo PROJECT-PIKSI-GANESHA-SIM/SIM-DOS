@@ -16,10 +16,15 @@
         <div class="row">
             <div class="col-md-5 px-4">
                 <center>
-                    <img src="{{ Storage::url('dosen/profile/' . $detaildosen->image) }}" alt="Foto Dosen" class="mb-4"
-                        width="380">
+                    @if (isset($detaildosen->image))
+                        <img src="{{ Storage::url('dosen/profile/' . $detaildosen->image) }}" alt="Foto Dosen" class="mb-4"
+                            width="380">
+                    @else
+                        <img src="http://localhost:8000/assets/profile-picture.jpg" alt="Default Foto Dosen" class="mb-4"
+                            width="380">
+                    @endif
                 </center>
-            </div>
+            </div>            
             <div class="col">
                 <table class="table table-striped">
                     <tbody>

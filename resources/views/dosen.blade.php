@@ -24,14 +24,18 @@
         <div class="col" id="myCard">
             <div class="card">
                 <a href="{{ route('alldosen.detail', $dosen->id) }}">
-                    <img src="{{ Storage::url('dosen/profile/' . $dosen->image) }}" class="card-img-top" alt="thumbnail">
+                    @if (isset($dosen->image))
+                        <img src="{{ Storage::url('dosen/profile/' . $dosen->image) }}" class="card-img-top" alt="thumbnail">
+                    @else
+                        <img src="http://localhost:8000/assets/profile-picture.jpg" class="card-img-top" alt="Default Thumbnail">
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title">{{ $dosen->name }}</h5>
                         <p class="card-text">{{ $dosen->nidn }}</p>
                         <p class="card-text">{{ $dosen->program_studi }}</p>
                     </div>
                 </a>
-            </div>
+            </div>            
         </div>
         @endforeach
     </div>
