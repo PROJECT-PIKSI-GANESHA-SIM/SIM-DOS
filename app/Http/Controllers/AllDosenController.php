@@ -22,6 +22,7 @@ class AllDosenController extends Controller
         })
             ->leftJoin('kepegawaian', 'users.id', '=', 'kepegawaian.user_id')
             ->select('users.*', 'kepegawaian.program_studi')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('dosen', [
