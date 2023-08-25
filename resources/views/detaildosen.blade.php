@@ -24,7 +24,7 @@
                             width="380">
                     @endif
                 </center>
-            </div>            
+            </div>
             <div class="col">
                 <table class="table table-striped">
                     <tbody>
@@ -93,36 +93,42 @@
                     <td>Perguruan Tinggi</td>
                     <td>Tahun lulus</td>
                 </tr>
-                @php
-                    $counter = 1;
-                @endphp
-                @foreach ($pendidikan as $pend)
+                @if ($pendidikan->isEmpty())
                     <tr>
-                        <td>
-                            <center>{{ $counter }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $pend->jenjang_pendidikan }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $pend->gelar_singkat }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $pend->bidang_studi }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $pend->nama_instansi }}</center>
-                        </td>
-                        <td>
-                            <center>
-                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $pend->tanggal_berakhir_studi)->format('Y') }}
-                            </center>
-                        </td>
+                        <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
                     </tr>
+                @else()
                     @php
-                        $counter++;
+                        $counter = 1;
                     @endphp
-                @endforeach
+                    @foreach ($pendidikan as $pend)
+                        <tr>
+                            <td>
+                                <center>{{ $counter }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $pend->jenjang_pendidikan }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $pend->gelar_singkat }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $pend->bidang_studi }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $pend->nama_instansi }}</center>
+                            </td>
+                            <td>
+                                <center>
+                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $pend->tanggal_berakhir_studi)->format('Y') }}
+                                </center>
+                            </td>
+                        </tr>
+                        @php
+                            $counter++;
+                        @endphp
+                    @endforeach
+                @endif()
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Pengajaran</h3>
@@ -137,41 +143,46 @@
                     <td>Jumlah Mahasiswa</td>
                     <td>SKS</td>
                 </tr>
-                @php
-                    $reversedPengajaran = $pengajaran->reverse();
-                    $counter = 1;
-                @endphp
-                @foreach ($reversedPengajaran as $ajar)
-                    @if ($counter <= 5)
-                        <!-- Menambahkan batasan hingga 5 iterasi -->
-                        <tr>
-                            <td>
-                                <center>{{ $counter }}</center>
-                            </td>
-                            <td>
-                                {{ $ajar->nama_mata_kuliah }}
-                            </td>
-                            <td>
-                                <center>{{ $ajar->jenis_mata_kuliah }}</center>
-                            </td>
-                            <td>
-                                <center>{{ $ajar->kelas }}</center>
-                            </td>
-                            <td>
-                                <center>{{ $ajar->tahun_ajaran }}</center>
-                            </td>
-                            <td>
-                                <center>{{ $ajar->jumlah_mahasiswa }} orang</center>
-                            </td>
-                            <td>
-                                <center>{{ $ajar->jumlah_sks }}</center>
-                            </td>
-                        </tr>
-                    @endif
+                @if ($pengajaran->isEmpty())
+                    <tr>
+                        <td colspan="7" class="text-center py-3">Tidak Ada Data</td>
+                    </tr>
+                @else()
                     @php
-                        $counter++;
+                        $reversedPengajaran = $pengajaran->reverse();
+                        $counter = 1;
                     @endphp
-                @endforeach
+                    @foreach ($reversedPengajaran as $ajar)
+                        @if ($counter <= 5)
+                            <tr>
+                                <td>
+                                    <center>{{ $counter }}</center>
+                                </td>
+                                <td>
+                                    {{ $ajar->nama_mata_kuliah }}
+                                </td>
+                                <td>
+                                    <center>{{ $ajar->jenis_mata_kuliah }}</center>
+                                </td>
+                                <td>
+                                    <center>{{ $ajar->kelas }}</center>
+                                </td>
+                                <td>
+                                    <center>{{ $ajar->tahun_ajaran }}</center>
+                                </td>
+                                <td>
+                                    <center>{{ $ajar->jumlah_mahasiswa }} orang</center>
+                                </td>
+                                <td>
+                                    <center>{{ $ajar->jumlah_sks }}</center>
+                                </td>
+                            </tr>
+                        @endif
+                        @php
+                            $counter++;
+                        @endphp
+                    @endforeach
+                @endif()
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Penelitian</h3>
@@ -185,34 +196,40 @@
                     <td>Sumber Dana</td>
                     <td>Jumlah Dana</td>
                 </tr>
-                @php
-                    $counter = 1;
-                @endphp
-                @foreach ($penelitian as $penel)
+                @if ($penelitian->isEmpty())
                     <tr>
-                        <td>
-                            <center>{{ $counter }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $penel->tahun_kegiatan }}</center>
-                        </td>
-                        <td>
-                            {{ $penel->judul_penelitian }}
-                        </td>
-                        <td>
-                            <center>{{ $penel->status_peneliti }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $penel->sumber_dana }}</center>
-                        </td>
-                        <td>
-                            {{ 'Rp. ' . number_format($penel->jumlah_dana, 2, ',', '.') }}
-                        </td>
+                        <td colspan="6" class="text-center py-3">Tidak Ada Data</td>
                     </tr>
+                @else()
                     @php
-                        $counter++;
+                        $counter = 1;
                     @endphp
-                @endforeach
+                    @foreach ($penelitian as $penel)
+                        <tr>
+                            <td>
+                                <center>{{ $counter }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $penel->tahun_kegiatan }}</center>
+                            </td>
+                            <td>
+                                {{ $penel->judul_penelitian }}
+                            </td>
+                            <td>
+                                <center>{{ $penel->status_peneliti }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $penel->sumber_dana }}</center>
+                            </td>
+                            <td>
+                                {{ 'Rp. ' . number_format($penel->jumlah_dana, 2, ',', '.') }}
+                            </td>
+                        </tr>
+                        @php
+                            $counter++;
+                        @endphp
+                    @endforeach
+                @endif()
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Pengabdian</h3>
@@ -225,33 +242,39 @@
                     <td>Tahun Pelaksana</td>
                     <td>Lama Kegiatan</td>
                 </tr>
-                @php
-                    $counter = 1;
-                @endphp
-                @foreach ($pengabdian as $abdi)
+                @if ($pengabdian->isEmpty())
                     <tr>
-                        <td>
-                            <center>{{ $counter }}</center>
-                        </td>
-                        <td>
-                            {{ $abdi->judul_pengabdian }}
-                        </td>
-                        <td>
-                            {{ $abdi->bidang_keilmuan }}
-                        </td>
-                        <td>
-                            <center>
-                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $abdi->tahun_pelaksanaan)->format('Y') }}
-                            </center>
-                        </td>
-                        <td>
-                            <center>{{ $abdi->lama_kegiatan }}</center>
-                        </td>
+                        <td colspan="5" class="text-center py-3">Tidak Ada Data</td>
                     </tr>
+                @else()
                     @php
-                        $counter++;
+                        $counter = 1;
                     @endphp
-                @endforeach
+                    @foreach ($pengabdian as $abdi)
+                        <tr>
+                            <td>
+                                <center>{{ $counter }}</center>
+                            </td>
+                            <td>
+                                {{ $abdi->judul_pengabdian }}
+                            </td>
+                            <td>
+                                {{ $abdi->bidang_keilmuan }}
+                            </td>
+                            <td>
+                                <center>
+                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $abdi->tahun_pelaksanaan)->format('Y') }}
+                                </center>
+                            </td>
+                            <td>
+                                <center>{{ $abdi->lama_kegiatan }}</center>
+                            </td>
+                        </tr>
+                        @php
+                            $counter++;
+                        @endphp
+                    @endforeach
+                @endif()
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Penunjang</h3>
@@ -263,28 +286,34 @@
                     <td width="50%">Nama Kegiatan</td>
                     <td>Pelaksanaan</td>
                 </tr>
-                @php
-                    $counter = 1;
-                @endphp
-                @foreach ($penunjang as $nunjang)
+                @if ($penunjang->isEmpty())
                     <tr>
-                        <td>
-                            <center>{{ $counter }}</center>
-                        </td>
-                        <td>
-                            {{ $nunjang->kategori_kegiatan }}
-                        </td>
-                        <td>
-                            {{ $nunjang->nama_kegiatan }}
-                        </td>
-                        <td>
-                            <center>{{ \Carbon\Carbon::parse($nunjang->pelaksanaan)->format('d F Y') }}</center>
-                        </td>
+                        <td colspan="4" class="text-center py-3">Tidak Ada Data</td>
                     </tr>
+                @else()
                     @php
-                        $counter++;
+                        $counter = 1;
                     @endphp
-                @endforeach
+                    @foreach ($penunjang as $nunjang)
+                        <tr>
+                            <td>
+                                <center>{{ $counter }}</center>
+                            </td>
+                            <td>
+                                {{ $nunjang->kategori_kegiatan }}
+                            </td>
+                            <td>
+                                {{ $nunjang->nama_kegiatan }}
+                            </td>
+                            <td>
+                                <center>{{ \Carbon\Carbon::parse($nunjang->pelaksanaan)->format('d F Y') }}</center>
+                            </td>
+                        </tr>
+                        @php
+                            $counter++;
+                        @endphp
+                    @endforeach
+                @endif()
             </tbody>
         </table>
         <h3 class="text-4xl text-gray-700 mb-2 font-weight-bold py-3">Capaian Luaran</h3>
@@ -297,31 +326,38 @@
                     <td>Tanggal</td>
                     <td width="30%">Tautan Eksternal</td>
                 </tr>
-                @php
-                    $counter = 1;
-                @endphp
-                @foreach ($capaian_luaran as $luaran)
+                @if ($capaian_luaran->isEmpty())
                     <tr>
-                        <td>
-                            <center>{{ $counter }}</center>
-                        </td>
-                        <td>
-                            <center>{{ $luaran->jenis_luaran }}</center>
-                        </td>
-                        <td>
-                            {{ $luaran->judul_karya }}
-                        </td>
-                        <td>
-                            <center>{{ \Carbon\Carbon::parse($luaran->tanggal)->format('d F Y') }}</center>
-                        </td>
-                        <td>
-                            <a href="{{ $luaran->tautan_eksternal }}" target="_blank">{{ $luaran->tautan_eksternal }}</a>
-                        </td>
+                        <td colspan="5" class="text-center py-3">Tidak Ada Data</td>
                     </tr>
+                @else()
                     @php
-                        $counter++;
+                        $counter = 1;
                     @endphp
-                @endforeach
+                    @foreach ($capaian_luaran as $luaran)
+                        <tr>
+                            <td>
+                                <center>{{ $counter }}</center>
+                            </td>
+                            <td>
+                                <center>{{ $luaran->jenis_luaran }}</center>
+                            </td>
+                            <td>
+                                {{ $luaran->judul_karya }}
+                            </td>
+                            <td>
+                                <center>{{ \Carbon\Carbon::parse($luaran->tanggal)->format('d F Y') }}</center>
+                            </td>
+                            <td>
+                                <a href="{{ $luaran->tautan_eksternal }}"
+                                    target="_blank">{{ $luaran->tautan_eksternal }}</a>
+                            </td>
+                        </tr>
+                        @php
+                            $counter++;
+                        @endphp
+                    @endforeach
+                @endif()
             </tbody>
         </table>
     </div>
