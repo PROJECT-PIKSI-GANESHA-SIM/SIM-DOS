@@ -25,47 +25,53 @@
                     <tbody>
                         <tr>
                             <td class="text-end" width="35%">NIDN/NUPN</td>
-                            <td>{{ $detaildosen->nidn }}</td>
+                            <td>{{ $detaildosen->nidn ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">NIP</td>
-                            <td>{{ $identitasdiri->nip }}</td>
+                            <td>{{ $identitasdiri->nip ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">NIK</td>
-                            <td>{{ $identitasdiri->nik }}</td>
+                            <td>{{ $identitasdiri->nik ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Nama Lengkap</td>
-                            <td>{{ $identitasdiri->nama }}</td>
+                            <td>{{ $identitasdiri->nama ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Tempat Lahir</td>
-                            <td>{{ $identitasdiri->tempat_lahir }}</td>
+                            <td>{{ $identitasdiri->tempat_lahir ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Tanggal lahir</td>
-                            <td>{{ \Carbon\Carbon::parse($identitasdiri->tanggal_lahir)->format('d F Y') }}</td>
+                            <td>
+                                @if (isset($identitasdiri->tanggal_lahir))
+                                    {{ \Carbon\Carbon::parse($identitasdiri->tanggal_lahir)->format('d F Y') }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Jenis Kelamin</td>
-                            <td>{{ $identitasdiri->jenis_kelamin }}</td>
+                            <td>{{ $identitasdiri->jenis_kelamin ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Agama</td>
-                            <td>{{ $identitasdiri->agama }}</td>
+                            <td>{{ $identitasdiri->agama ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Golongan Darah</td>
-                            <td>{{ $identitasdiri->golongan_darah }}</td>
+                            <td>{{ $identitasdiri->golongan_darah ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Status Perkawinan</td>
-                            <td>{{ $identitasdiri->status_perkawinan }}</td>
+                            <td>{{ $identitasdiri->status_perkawinan ?? '-' }}</td>
                         </tr>
                         <tr>
                             <td class="text-end" width="35%">Kewarganegaraan</td>
-                            <td>{{ $identitasdiri->kewarganegaraan }}</td>
+                            <td>{{ $identitasdiri->kewarganegaraan ?? '-' }}</td>
                         </tr>
                     </tbody>
                 </table>
