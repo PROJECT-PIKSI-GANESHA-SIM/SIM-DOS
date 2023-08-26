@@ -16,7 +16,6 @@ class AllDosenController extends Controller
 {
     public function index()
     {
-
         $users_dosen = User::whereHas('roles', function ($query) {
             $query->where('name', 'dosen');
         })
