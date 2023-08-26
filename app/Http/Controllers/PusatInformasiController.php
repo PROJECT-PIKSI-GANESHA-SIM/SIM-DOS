@@ -9,9 +9,15 @@ use Illuminate\Support\Facades\Storage;
 
 class PusatInformasiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pusat_informasi = PusatInformasi::orderBy('updated_at', 'desc')->paginate(5);
+        $query = PusatInformasi::orderBy('updated_at', 'desc');
+
+        if ($request->has('filter') && $request->filter == 'terbaru') {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $pusat_informasi = $query->paginate(5);
         $user = Auth::user();
 
         return view('akademik.pusat_informasi.index', [
