@@ -5,9 +5,7 @@
     }
 </style>
 @include('layouts.partials.navbar')
-
 @extends('layouts.main')
-
 @section('container')
     <div class="p-4">
         <a href="/informationcenter">

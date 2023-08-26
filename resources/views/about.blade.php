@@ -6,7 +6,6 @@
         background-image: url('assets/patternpad-tentangkami.svg');
         background-repeat: no-repeat;
     }
-
 </style>
 @section('container')
     <h2 class="text-center mb-5">Tim Kami</h2>
