@@ -17,7 +17,7 @@ class PusatInformasiController extends Controller
             $query->orderBy('created_at', 'desc');
         }
 
-        $pusat_informasi = $query->paginate(5);
+        $pusat_informasi = $query->paginate(9);
         $user = Auth::user();
 
         return view('akademik.pusat_informasi.index', [

@@ -26,8 +26,8 @@
     <div class="container mt-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($pusat_informasi as $informasi)
-                <div class="col mb-4">
-                    <div class="card h-100">
+                <div class="col-md-4 col-sm-12">
+                    <div class="card">
                         <a href="{{ route('informationcenter.detail', $informasi->id) }}">
                             <img src="{{ Storage::url('akademik/pusat_informasi/' . $informasi->thumbnail) }}"
                                 class="card-img-top" alt="thumbnail">
