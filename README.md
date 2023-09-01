@@ -10,9 +10,12 @@
 
 - [About](#about)
 - [Feature](#feature)
-- [Sign-In Page](#sign-in-page)
-- [Sign-Up Page](#sign-up-page) 
 - [Home Page](#home-page)
+- [About Page](#about-page)
+- [Lecture Page](#lecture-page)
+- [Lecture Detail Page](#lecture-detail-page)
+- [Information Center Page](#information-center-page)
+- [Information Center Detail Page](#information-center-detail-page)
 - [Prototype](#prototype)
 - [Credit](#credit)
 - [Link Deploy](#link-deploy)
@@ -37,17 +40,7 @@ Sistem Informasi Manajemen Dosen (SIM-DOS) adalah bla bla bla
   <p align="center">
     <img src="#" height=400>
   </p>
-  
-## Sign-Up Page
-- Versi Dekstop
-  <p align="center">
-    <img src="#">
-  </p>
-- Versi Mobile
-  <p align="center">
-    <img src="#" height=400>
-  </p>
-  
+    
 ## Home Page
 - Before Login
   - Versi Dekstop
@@ -65,6 +58,7 @@ Sistem Informasi Manajemen Dosen (SIM-DOS) adalah bla bla bla
 - #
 
 ## Credit
+- <a href="laravel.com"> Laravel </a>
 - <a href="https://getbootstrap.com/"> Bootstrap 5 </a> 
 - <a href="https://www.figma.com/"> Figma </a> 
 
