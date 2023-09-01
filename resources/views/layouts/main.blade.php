@@ -19,7 +19,7 @@
         body {
             font-family: 'Poppins';
         }
-
+        
         h1,
         h2,
         h3,
@@ -214,7 +214,6 @@
                 </a>
             </div>
         </div>
-
         <div class="row mt-4">
             <div class="col">
                 <span class="fw-bold text-white">&copy; POLITEKNIK PIKSI GANESHA</span>,
@@ -227,6 +226,7 @@
 </footer>
 
 </html>
+
 <script>
     window.addEventListener("load", () => {
         const loader = document.querySelector(".loader");
