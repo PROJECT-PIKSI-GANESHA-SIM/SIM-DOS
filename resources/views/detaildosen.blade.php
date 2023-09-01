@@ -12,7 +12,7 @@
     </h3>
     <div class="container pt-4 pb-5">
         <div class="row">
-            <div class="col-md-5 px-4">
+            <div class="col-lg-5 col-md-12 px-4">
                 <center>
                     @if (isset($detaildosen->image))
                         <img src="{{ Storage::url('dosen/profile/' . $detaildosen->image) }}" alt="Foto Dosen" class="mb-4"
@@ -23,7 +23,7 @@
                     @endif
                 </center>
             </div>
-            <div class="col">
+            <div class="col-lg-7 col-md-12">
                 <table class="table table-striped">
                     <tbody>
                         <tr>
