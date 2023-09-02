@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>SIM DOSEN</title>
+    <link rel="icon" type="image/x-icon" href="assets/PIKSI.png">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
