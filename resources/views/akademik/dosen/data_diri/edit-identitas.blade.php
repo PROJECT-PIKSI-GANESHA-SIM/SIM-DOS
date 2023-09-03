@@ -98,6 +98,7 @@
                             <div class="mb-3">
                                 <label for="golongan_darah" class="col-form-label">{{ __('Golongan Darah') }}</label>
                                 <select name="golongan_darah" id="golongan_darah" class="form-control form-select" data-bs-toggle="dropdown">
+                                    <option value="-" {{ $identitas->golongan_darah == '-' ? 'selected' : '' }}>-</option>
                                     <option value="O" {{ $identitas->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
                                     <option value="A" {{ $identitas->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
                                     <option value="B" {{ $identitas->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
