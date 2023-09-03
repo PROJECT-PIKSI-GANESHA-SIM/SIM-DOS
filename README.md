@@ -16,6 +16,8 @@
 - [Lecture Detail Page](#lecture-detail-page)
 - [Information Center Page](#information-center-page)
 - [Information Center Detail Page](#information-center-detail-page)
+- [About Page](#about-page)
+- [Login Page](#login-page)
 - [Prototype](#prototype)
 - [Credit](#credit)
 - [Link Deploy](#link-deploy)
