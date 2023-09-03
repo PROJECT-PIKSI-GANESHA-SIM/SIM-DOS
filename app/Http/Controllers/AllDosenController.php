@@ -38,7 +38,7 @@ class AllDosenController extends Controller
     public function detail($id)
     {
         $detaildosen = User::findOrFail($id);
-        $identitasdiri = IdentitasDiri::find($id);
+        $identitasdiri = IdentitasDiri::where('user_id', $id)->first();
         $pendidikan = Pendidikan::where('user_id', $id)->get();
         $pengajaran = Pengajaran::where('user_id', $id)->get();
         $penelitian = Penelitian::where('user_id', $id)->get();
