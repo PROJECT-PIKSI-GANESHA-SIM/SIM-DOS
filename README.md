@@ -18,6 +18,11 @@
 - [Information Center Detail Page](#information-center-detail-page)
 - [About Page](#about-page)
 - [Login Page](#login-page)
+
+## Table of contents - Academic Role
+
+## Table of contents - Lecture Role
+
 - [Prototype](#prototype)
 - [Credit](#credit)
 - [Link Deploy](#link-deploy)
