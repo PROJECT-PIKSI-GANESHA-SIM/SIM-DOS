@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllDosenController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\DataDiriController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HomeController;
