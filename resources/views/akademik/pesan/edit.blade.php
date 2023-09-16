@@ -1,7 +1,7 @@
 @extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -21,13 +21,13 @@
                     <div class="mb-3 ">
                         <label for="pesan" class="col-form-label">{{ __('Pesan') }} <span class="text-danger"> *</span></label>
                         <input id="pesan" type="text" class="form-control @error('pesan') is-invalid @enderror" name="pesan" value="{{ $pesan->message }}">
-    
+
                         @error('pesan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
                     <div class="row mb-3">
                         <div class="col-mb-6 d-flex justify-content-end align-items-end">

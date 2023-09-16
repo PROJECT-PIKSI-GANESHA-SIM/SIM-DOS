@@ -41,7 +41,7 @@
                                                 <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->title, 60) }}</td>
                                                 <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->thumbnail, 30) }}</td>
                                                 <td>{{ $p->date }}</td>
-                                                <td style="word-wrap: break-word; max-width: 200px;">{!! \ Illuminate\Support\Str::limit($p->description, 100) !!}</td>
+                                                <td style="word-wrap: break-word; max-width: 200px;">{{ \Illuminate\Support\Str::limit($p->description, 100) }}</td>
                                                     <td>
                                                         <div class="form-check form-switch d-flex align-items-center justify-content-center">
                                                             <input name="publish" class="toggle-class form-check-input" data-id={{ $p->id }} type="checkbox" role="switch" id="flexSwitchCheckDefault"

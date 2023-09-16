@@ -32,7 +32,7 @@ class DosenController extends Controller
 
         return view('akademik.dosen.index', [
             'users_dosen' => $users_dosen,
-            'users' => $users
+            'user' => $users
         ]);
     }
 
@@ -69,7 +69,8 @@ class DosenController extends Controller
         $lain_lain = LainLain::where('user_id', $user->id)->first();
 
         return view('akademik.dosen.detail', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'pendidikan' => $pendidikan,
             'pengajaran' => $pengajaran,
             'penelitian' => $penelitian,
@@ -93,7 +94,7 @@ class DosenController extends Controller
         // hapus user
         $user->delete();
 
-        return redirect()->route('akademik.dosen.detail')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     // PENDIDIKAN
@@ -105,7 +106,8 @@ class DosenController extends Controller
         $predikat_kelulusan = PredikatKelulusan::all();
 
         return view('akademik.dosen.pendidikan.create', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'jenjang_pendidikan' => $jenjang_pendidikan,
             'predikat_kelulusan' => $predikat_kelulusan
         ]);
@@ -252,7 +254,8 @@ class DosenController extends Controller
             'pendidikan' => $pendidikan,
             'jenjang_pendidikan' => $jenjang_pendidikan,
             'predikat_kelulusan' => $predikat_kelulusan,
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -394,7 +397,7 @@ class DosenController extends Controller
 
     }
 
-    public function destroy_pendidikan($user_id, $id) {
+    public function destroy_pendidikan($id) {
 
         $pendidikan = Pendidikan::findOrFail($id);
 
@@ -405,7 +408,7 @@ class DosenController extends Controller
         // hapus pendidikan
         $pendidikan->delete();
 
-        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 
@@ -417,7 +420,8 @@ class DosenController extends Controller
         $user = User::findOrFail($id);
 
         return view('akademik.dosen.pengajaran.create', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'program_studi' => $program_studi
         ]);
     }
@@ -532,7 +536,8 @@ class DosenController extends Controller
         return view('akademik.dosen.pengajaran.edit', [
             'pengajaran' => $pengajaran,
             'program_studi' => $program_studi,
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -654,7 +659,7 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
-    public function destroy_pengajaran($user_id, $id) {
+    public function destroy_pengajaran($id) {
 
         $pengajaran = Pengajaran::findOrFail($id);
 
@@ -665,7 +670,7 @@ class DosenController extends Controller
         // hapus pengajaran
         $pengajaran->delete();
 
-        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     // PENELITIAN
@@ -675,7 +680,8 @@ class DosenController extends Controller
         $user = User::findOrFail($id);
 
         return view('akademik.dosen.penelitian.create', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -808,7 +814,8 @@ class DosenController extends Controller
 
         return view('akademik.dosen.penelitian.edit', [
             'penelitian' => $penelitian,
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
 
     }
@@ -954,7 +961,7 @@ class DosenController extends Controller
 
     }
 
-    public function destroy_penelitian($user_id, $id) {
+    public function destroy_penelitian($id) {
 
         $penelitian = Penelitian::findOrFail($id);
 
@@ -965,7 +972,7 @@ class DosenController extends Controller
         // hapus penelitian
         $penelitian->delete();
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Dihapus']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     // PENGABDIAN
@@ -974,7 +981,8 @@ class DosenController extends Controller
         $user = User::findOrFail($id);
 
         return view('akademik.dosen.pengabdian.create', [
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -1115,8 +1123,9 @@ class DosenController extends Controller
         $pengabdian = Pengabdian::findOrFail($id);
 
         return view('akademik.dosen.pengabdian.edit', [
-            'user' => $user,
-            'pengabdian' => $pengabdian
+            'users' => $user,
+            'pengabdian' => $pengabdian,
+            'user' => Auth::user(),
         ]);
 
     }
@@ -1268,7 +1277,7 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    public function destroy_pengabdian($user_id, $id) {
+    public function destroy_pengabdian($id) {
         $pengabdian = Pengabdian::findOrFail($id);
 
         // hapus file surat tugas dan laporan kegiatan
@@ -1278,7 +1287,7 @@ class DosenController extends Controller
         // hapus pengajaran
         $pengabdian->delete();
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Didelete!']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     public function edit_identitas($user_id, $id) {
@@ -1287,7 +1296,8 @@ class DosenController extends Controller
         $identitas = IdentitasDiri::findOrFail($id);
 
         return view('akademik.dosen.data_diri.edit-identitas', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'identitas' => $identitas
         ]);
     }
@@ -1298,7 +1308,8 @@ class DosenController extends Controller
         $kepegawaian = Kepegawaian::findOrFail($id);
 
         return view('akademik.dosen.data_diri.edit-kepegawaian', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'kepegawaian' => $kepegawaian
         ]);
     }
@@ -1309,7 +1320,8 @@ class DosenController extends Controller
         $alamat_kontak = AlamatKontak::findOrFail($id);
 
         return view('akademik.dosen.data_diri.edit-alamat-kontak', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'alamat_kontak' => $alamat_kontak
         ]);
     }
@@ -1320,7 +1332,8 @@ class DosenController extends Controller
         $lain_lain = LainLain::findOrFail($id);
 
         return view('akademik.dosen.data_diri.edit-lain', [
-            'user' => $user,
+            'users' => $user,
+            'user' => Auth::user(),
             'lain' => $lain_lain
         ]);
     }
@@ -1460,7 +1473,8 @@ class DosenController extends Controller
         $user = User::findOrFail($id);
 
         return view('akademik.dosen.penunjang.create', [
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -1519,7 +1533,8 @@ class DosenController extends Controller
 
         return view('akademik.dosen.penunjang.edit', [
             'menu_penunjang' => $penunjang,
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -1575,7 +1590,7 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    public function destroy_penunjang($user_id, $id) {
+    public function destroy_penunjang($id) {
         $penunjang = MenuPenunjang::findOrFail($id);
 
         // hapus file surat tugas dan laporan kegiatan
@@ -1584,7 +1599,7 @@ class DosenController extends Controller
         // hapus pengajaran
         $penunjang->delete();
 
-        return redirect()->route('dosen.edit', $id)->with(['success' => 'Data Berhasil Didelete!']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     // CAPAIAN LUARAN
@@ -1593,7 +1608,8 @@ class DosenController extends Controller
         $user = User::findOrFail($id);
 
         return view('akademik.dosen.capaian_luaran.create', [
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -1652,7 +1668,8 @@ class DosenController extends Controller
 
         return view('akademik.dosen.capaian_luaran.edit', [
             'capaian_luaran' => $capaian_luaran,
-            'user' => $user
+            'users' => $user,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -1679,7 +1696,7 @@ class DosenController extends Controller
             $upload_document = $request->file('upload_document');
             $upload_document->storeAs('public/dosen/capaian_luaran/upload_document', $upload_document->hashName());
 
-            Storage::delete('public/dosen/capaian_luaran/upload_document/'. $menu_penunjang->upload_document);
+            Storage::delete('public/dosen/capaian_luaran/upload_document/'. $capaian_luaran->upload_document);
 
             // update capaian luaran
             $capaian_luaran->update([
@@ -1709,7 +1726,7 @@ class DosenController extends Controller
         return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    public function destroy_capaian_luaran($user_id, $id) {
+    public function destroy_capaian_luaran($id) {
         $capaian_luaran = CapaianLuaran::findOrFail($id);
 
         // hapus file document
@@ -1718,7 +1735,7 @@ class DosenController extends Controller
         // hapus pengajaran
         $capaian_luaran->delete();
 
-        return redirect()->route('dosen.edit', $user_id)->with(['success' => 'Data Berhasil Didelete!']);
+        return redirect()->back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 }
