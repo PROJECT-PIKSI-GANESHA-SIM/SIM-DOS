@@ -109,11 +109,11 @@
                         </div>
 
                         <div class="col-md-6">
-                            <div class="mb-3 ">
-                                <label for="kota_kabupaten" class="col-form-label">{{ __('Kota/Kabupaten') }}</label>
-                                <input id="kota_kabupaten" type="text" class="form-control @error('kota_kabupaten') is-invalid @enderror" name="kota_kabupaten" required value="{{ $alamat_kontak->kota_kabupaten }}">
+                            <div class="mb-3">
+                                <label for="kecamatan" class="col-form-label">{{ __('Kecamatan') }}</label>
+                                <input id="kecamatan" type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" value="{{ $alamat_kontak->kecamatan }}">
 
-                                @error('kota_kabupaten')
+                                @error('kecamatan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -122,7 +122,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3 ">
+                        <label for="kota_kabupaten" class="col-form-label">{{ __('Kota/Kabupaten') }}</label>
+                        <input id="kota_kabupaten" type="text" class="form-control @error('kota_kabupaten') is-invalid @enderror" name="kota_kabupaten" required value="{{ $alamat_kontak->kota_kabupaten }}">
 
+                        @error('kota_kabupaten')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">

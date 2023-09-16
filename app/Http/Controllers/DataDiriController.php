@@ -100,6 +100,7 @@ class DataDiriController extends Controller
             'rw' => 'required|string|max:255',
             'no' => 'required|string|max:255',
             'desa_kelurahan' => 'required|string|max:255',
+            'kecamatan' => 'required|string|max:255',
             'kota_kabupaten' => 'required|string|max:255',
             'provinsi' => 'required|string|max:255',
             'kode_pos' => 'required|string|max:255',
@@ -113,6 +114,7 @@ class DataDiriController extends Controller
             'rw' => $request->rw,
             'no' => $request->no,
             'desa_kelurahan' => $request->desa_kelurahan,
+            'kecamatan' => $request->kecamatan,
             'kota_kabupaten' => $request->kota_kabupaten,
             'provinsi' => $request->provinsi,
             'kode_pos' => $request->kode_pos,
@@ -177,7 +179,7 @@ class DataDiriController extends Controller
     }
 
     public function update_lain(Request $request, $id) {
-        
+
         $user = Auth::user($id);
         $lain = LainLain::findOrFail($id);
 

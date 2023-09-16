@@ -153,6 +153,10 @@
                                             <div class="col-md-6">{{ $alamat_kontak->desa_kelurahan }}</div>
                                         </div>
                                         <div class="row mb-2">
+                                            <div class="col-md-6">Kecamatan</div>
+                                            <div class="col-md-6">{{ $alamat_kontak->kecamatan }}</div>
+                                        </div>
+                                        <div class="row mb-2">
                                             <div class="col-md-6">Kota/Kabupaten</div>
                                             <div class="col-md-6">{{ $alamat_kontak->kota_kabupaten }}</div>
                                         </div>
