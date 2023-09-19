@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="nidn" class="col-form-label">{{ __('Nidn') }}</label>
+                                <label for="nidn" class="col-form-label">{{ __('NIDN') }}</label>
                                 <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $users->nidn }}">
 
                                 @error('nidn')
@@ -35,7 +35,7 @@
 
                         <div class="col-md-6">
                             <div class="mb-3 ">
-                                <label for="nip" class="col-form-label">{{ __('Nip') }}</label>
+                                <label for="nip" class="col-form-label">{{ __('NIP') }}</label>
                                 <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" required value="{{ $identitas->nip }}">
 
                                 @error('nip')
@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="nik" class="col-form-label">{{ __('Nik') }}</label>
+                                <label for="nik" class="col-form-label">{{ __('NIK') }}</label>
                                 <input id="nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ $identitas->nik }}">
 
                                 @error('nik')
