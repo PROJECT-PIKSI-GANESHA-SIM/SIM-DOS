@@ -20,6 +20,7 @@ class CreateAlamatKontakTable extends Migration
             $table->string('rw')->nullable();
             $table->string('no')->nullable();
             $table->string('desa_kelurahan')->nullable();
+            $table->string('kecamatan')->nullable();
             $table->string('kota_kabupaten')->nullable();
             $table->string('provinsi')->nullable();
             $table->string('tempat_lahir')->nullable();

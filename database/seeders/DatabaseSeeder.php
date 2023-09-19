@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             'rw' => '-',
             'no' => '-',
             'desa_kelurahan' => '-',
+            'kecamatan' => '-',
             'kota_kabupaten' => '-',
             'provinsi' => '-',
             'tempat_lahir' => '-',
@@ -71,7 +72,7 @@ class DatabaseSeeder extends Seeder
             'status_keaktifan' => 'Aktif',
             'jabatan_fungsional' => '-',
             'no_sk_sertifikasi_dosen' => '-',
-            'no_sk_tmmd' => '-', 
+            'no_sk_tmmd' => '-',
             'tanggal_menjadi_dosen' => now(),
             'pangkat_golongan' => '-',
             'user_id' => 1

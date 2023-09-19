@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <form method="POST" action="{{ route('dosen.capaian_luaran.store', $user->id) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('dosen.capaian_luaran.store', $users->id) }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="mb-3">

@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
+@extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -14,53 +14,53 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="{{ route('dosen.lain.update', [$user->id, $lain->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dosen.lain.update', [$users->id, $lain->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
-                    <div class="col-md"> 
+                    <div class="col-md">
                         <div class="mb-3">
-                            
+
                             <label for="npwp" class="col-form-label">{{ __('NPWP') }}</label>
                             <input id="npwp" type="text" class="form-control @error('npwp') is-invalid @enderror" name="npwp" value="{{ $lain->npwp }}">
-        
+
                             @error('npwp')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            
-                        </div> 
+
+                        </div>
                     </div>
 
-                    <div class="col-md"> 
+                    <div class="col-md">
                         <div class="mb-3">
-                            
+
                             <label for="nama_wajib_pajak" class="col-form-label">{{ __('Nama Wajib Pajak') }}</label>
                             <input id="nama_wajib_pajak" type="text" class="form-control @error('nama_wajib_pajak') is-invalid @enderror" name="nama_wajib_pajak" value="{{ $lain->nama_wajib_pajak }}">
-        
+
                             @error('nama_wajib_pajak')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            
-                        </div> 
+
+                        </div>
                     </div>
 
-                    <div class="col-md"> 
+                    <div class="col-md">
                         <div class="mb-3">
-                            
+
                             <label for="sinta_id" class="col-form-label">{{ __('Sinta ID') }}</label>
                             <input id="sinta_id" type="text" class="form-control @error('sinta_id') is-invalid @enderror" name="sinta_id" value="{{ $lain->sinta_id }}">
-        
+
                             @error('sinta_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            
-                        </div> 
+
+                        </div>
                     </div>
 
                     <div class="row mb-3">

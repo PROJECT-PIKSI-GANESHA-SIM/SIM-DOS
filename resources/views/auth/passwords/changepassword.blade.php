@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends(auth()->user()->hasRole('dosen') ? 'layouts.dashboard' : 'layouts.akademik-dashboard')
 
 @section('title')
 

@@ -8,10 +8,18 @@
             <li class="nav-item dropdown">
                 <div class="nav-dropdown">
                     <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                        @if ($user->image == null)
-                            <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                        @if (auth()->user()->hasRole('dosen'))
+                            @if (auth()->user()->image != null)
+                                <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                            @else
+                                <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                            @endif
                         @else
-                            <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                            @if (auth()->user()->image != null)
+                                <img src="{{ Storage::url('akademik/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                            @else
+                                <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="40px" height="40px">
+                            @endif
                         @endif
                         <i style="font-size: .8em;" class="fas fa-caret-down"></i>
                     </a>

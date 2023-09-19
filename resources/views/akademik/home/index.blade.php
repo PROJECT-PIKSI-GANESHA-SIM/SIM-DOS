@@ -44,14 +44,14 @@
                                     <td colspan="4" class="text-center py-3">Tidak Ada Data</td>
                                 </tr>
                             @else()
-                                @foreach ($all_user as $user)
+                                @foreach ($all_user as $user_all)
                                     @php
-                                        $kepegawaian = App\Models\Kepegawaian::where('user_id', $user->id)->get()[0];
+                                        $kepegawaian = App\Models\Kepegawaian::where('user_id', $user_all->id)->get()[0];
                                     @endphp
                                     <tr class="text-center">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->nidn }}</td>
-                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user_all->nidn }}</td>
+                                        <td>{{ $user_all->name }}</td>
                                         <td>{{ $kepegawaian->program_studi }}</td>
                                     </tr>
                                 @endforeach

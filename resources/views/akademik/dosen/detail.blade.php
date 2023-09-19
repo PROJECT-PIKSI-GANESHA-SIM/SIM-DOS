@@ -44,7 +44,7 @@
                                 <div class="card-body my-auto">
                                     <div class="title d-flex align-items-center justify-content-between">
                                         <span class="fw-bold fs-5">Identitas Diri</span>
-                                        <a href="{{ route('dosen.identitas.edit', [$user->id, $identitas->id]) }}"
+                                        <a href="{{ route('dosen.identitas.edit', [$users->id, $identitas->id]) }}"
                                             class="justify-content-end">
                                             <img class="" src="{{ asset('assets/edit.png') }}" alt=""
                                                 width="25px" height="25px">
@@ -56,11 +56,11 @@
                         </div> --}}
                                     <div class="row">
                                         <div class="col-md-12  d-flex align-items-center justify-content-center">
-                                            @if ($user->image == null)
+                                            @if ($users->image == null)
                                                 <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle"
                                                     alt="Profile Picture" width="100px" height="100px">
                                             @else
-                                                <img src="{{ Storage::url('dosen/profile/' . $user->image) }}"
+                                                <img src="{{ Storage::url('dosen/profile/' . $users->image) }}"
                                                     class="rounded-circle" alt="Profile Picture" width="100px"
                                                     height="100px">
                                             @endif
@@ -69,7 +69,7 @@
                                     <div class="items mt-5 me-5 ms-5">
                                         <div class="row mb-2">
                                             <div class="col-md-6">NIDN</div>
-                                            <div class="col-md-6">{{ $user->nidn }}</div>
+                                            <div class="col-md-6">{{ $users->nidn }}</div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-md-6">NIP</div>
@@ -120,7 +120,7 @@
                                 <div class="card-body my-auto">
                                     <div class="title d-flex align-items-center justify-content-between">
                                         <span class="fw-bold fs-5">Alamat Dan Kontak</span>
-                                        <a href="{{ route('dosen.alamat_kontak.edit', [$user->id, $alamat_kontak->id]) }}"
+                                        <a href="{{ route('dosen.alamat_kontak.edit', [$users->id, $alamat_kontak->id]) }}"
                                             class="justify-content-end">
                                             <img class="" src="{{ asset('assets/edit.png') }}" alt=""
                                                 width="25px" height="25px">
@@ -130,7 +130,7 @@
                                     <div class="items mt-5 me-5 ms-5">
                                         <div class="row mb-2">
                                             <div class="col-md-6">Email</div>
-                                            <div class="col-md-6">{{ $user->email }}</div>
+                                            <div class="col-md-6">{{ $users->email }}</div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-md-6">Alamat</div>
@@ -153,6 +153,10 @@
                                             <div class="col-md-6">{{ $alamat_kontak->desa_kelurahan }}</div>
                                         </div>
                                         <div class="row mb-2">
+                                            <div class="col-md-6">Kecamatan</div>
+                                            <div class="col-md-6">{{ $alamat_kontak->kecamatan }}</div>
+                                        </div>
+                                        <div class="row mb-2">
                                             <div class="col-md-6">Kota/Kabupaten</div>
                                             <div class="col-md-6">{{ $alamat_kontak->kota_kabupaten }}</div>
                                         </div>
@@ -170,7 +174,7 @@
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-md-6">No Handphone</div>
-                                            <div class="col-md-6">{{ $user->no_telpn }}</div>
+                                            <div class="col-md-6">{{ $users->no_telpn }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +187,7 @@
                                 <div class="card-body my-auto">
                                     <div class="title d-flex align-items-center justify-content-between">
                                         <span class="fw-bold fs-5">Lain - Lain</span>
-                                        <a href="{{ route('dosen.lain_lain.edit', [$user->id, $lain_lain->id]) }}"
+                                        <a href="{{ route('dosen.lain_lain.edit', [$users->id, $lain_lain->id]) }}"
                                             class="justify-content-end">
                                             <img class="" src="{{ asset('assets/edit.png') }}" alt=""
                                                 width="25px" height="25px">
@@ -212,7 +216,7 @@
                                 <div class="card-body my-auto">
                                     <div class="title d-flex align-items-center justify-content-between">
                                         <span class="fw-bold fs-5">Kepegawaian</span>
-                                        <a href="{{ route('dosen.kepegawaian.edit', [$user->id, $kepegawaian->id]) }}"
+                                        <a href="{{ route('dosen.kepegawaian.edit', [$users->id, $kepegawaian->id]) }}"
                                             class="justify-content-end">
                                             <img class="" src="{{ asset('assets/edit.png') }}" alt=""
                                                 width="25px" height="25px">
@@ -263,7 +267,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <a href="{{ route('dosen.pendidikan.create', $user->id) }}"
+                                <a href="{{ route('dosen.pendidikan.create', $users->id) }}"
                                     class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -303,9 +307,9 @@
                                                                         <div class="row-3 text-center">
                                                                             <form method="POST"
                                                                                 onsubmit="return confirm('Apakah anda yakin?')"
-                                                                                action="{{ route('dosen.pendidikan.destroy', [$user->id, $p->id]) }}">
+                                                                                action="{{ route('dosen.pendidikan.destroy', [$p->id]) }}">
                                                                                 <a
-                                                                                    href="{{ route('dosen.pendidikan.edit', [$user->id, $p->id]) }}">
+                                                                                    href="{{ route('dosen.pendidikan.edit', [$users->id, $p->id]) }}">
                                                                                     <img src="{{ asset('assets/edit.png') }}"
                                                                                         alt="" width="30px"
                                                                                         height="30px">
@@ -372,7 +376,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <a href="{{ route('dosen.pengajaran.create', $user->id) }}"
+                                <a href="{{ route('dosen.pengajaran.create', $users->id) }}"
                                     class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -411,10 +415,10 @@
                                                                     <div class="row-3 text-center">
                                                                         <form method="POST"
                                                                             onsubmit="return confirm('Apakah anda yakin?')"
-                                                                            action="{{ route('dosen.pengajaran.destroy', [$user->id, $p->id]) }}">
+                                                                            action="{{ route('dosen.pengajaran.destroy', [$p->id]) }}">
 
                                                                             <a
-                                                                                href="{{ route('dosen.pengajaran.edit', [$user->id, $p->id]) }}">
+                                                                                href="{{ route('dosen.pengajaran.edit', [$users->id, $p->id]) }}">
                                                                                 <img src="{{ asset('assets/edit.png') }}"
                                                                                     alt="" width="30px"
                                                                                     height="30px">
@@ -480,7 +484,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <a href="{{ route('dosen.penelitian.create', $user->id) }}"
+                                <a href="{{ route('dosen.penelitian.create', $users->id) }}"
                                     class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -517,10 +521,10 @@
                                                                     <div class="row-3 text-center">
                                                                         <form method="POST"
                                                                             onsubmit="return confirm('Apakah anda yakin?')"
-                                                                            action="{{ route('dosen.penelitian.destroy', [$user->id, $p->id]) }}">
+                                                                            action="{{ route('dosen.penelitian.destroy', [$p->id]) }}">
 
                                                                             <a
-                                                                                href="{{ route('dosen.penelitian.edit', [$user->id, $p->id]) }}">
+                                                                                href="{{ route('dosen.penelitian.edit', [$users->id, $p->id]) }}">
                                                                                 <img src="{{ asset('assets/edit.png') }}"
                                                                                     alt="" width="30px"
                                                                                     height="30px">
@@ -586,7 +590,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <a href="{{ route('dosen.pengabdian.create', $user->id) }}"
+                                <a href="{{ route('dosen.pengabdian.create', $users->id) }}"
                                     class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -621,10 +625,10 @@
                                                                         <div class="row-3 text-center">
                                                                             <form method="POST"
                                                                                 onsubmit="return confirm('Apakah anda yakin?')"
-                                                                                action="{{ route('dosen.pengabdian.destroy', [$user->id, $p->id]) }}">
+                                                                                action="{{ route('dosen.pengabdian.destroy', [$p->id]) }}">
 
                                                                                 <a
-                                                                                    href="{{ route('dosen.pengabdian.edit', [$user->id, $p->id]) }}">
+                                                                                    href="{{ route('dosen.pengabdian.edit', [$users->id, $p->id]) }}">
                                                                                     <img src="{{ asset('assets/edit.png') }}"
                                                                                         alt="" width="30px"
                                                                                         height="30px">
@@ -692,7 +696,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <a href="{{ route('dosen.penunjang.create', $user->id) }}"
+                                <a href="{{ route('dosen.penunjang.create', $users->id) }}"
                                     class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -728,10 +732,10 @@
                                                                         <div class="row-3 text-center">
                                                                             <form method="POST"
                                                                                 onsubmit="return confirm('Apakah anda yakin?')"
-                                                                                action="{{ route('dosen.penunjang.destroy', [$user->id, $p->id]) }}">
+                                                                                action="{{ route('dosen.penunjang.destroy', [$p->id]) }}">
 
                                                                                 <a
-                                                                                    href="{{ route('dosen.penunjang.edit', [$user->id, $p->id]) }}">
+                                                                                    href="{{ route('dosen.penunjang.edit', [$users->id, $p->id]) }}">
                                                                                     <img src="{{ asset('assets/edit.png') }}"
                                                                                         alt="" width="30px"
                                                                                         height="30px">
@@ -799,7 +803,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <a href="{{ route('dosen.capaian_luaran.create', $user->id) }}"
+                                <a href="{{ route('dosen.capaian_luaran.create', $users->id) }}"
                                     class="btn btn-sm btn-success mb-3">TAMBAH</a>
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -837,10 +841,10 @@
                                                                         <div class="row-3 text-center">
                                                                             <form method="POST"
                                                                                 onsubmit="return confirm('Apakah anda yakin?')"
-                                                                                action="{{ route('dosen.capaian_luaran.destroy', [$user->id, $p->id]) }}">
+                                                                                action="{{ route('dosen.capaian_luaran.destroy', $p->id) }}">
 
                                                                                 <a
-                                                                                    href="{{ route('dosen.capaian_luaran.edit', [$user->id, $p->id]) }}">
+                                                                                    href="{{ route('dosen.capaian_luaran.edit', [$users->id, $p->id]) }}">
                                                                                     <img src="{{ asset('assets/edit.png') }}"
                                                                                         alt="" width="30px"
                                                                                         height="30px">

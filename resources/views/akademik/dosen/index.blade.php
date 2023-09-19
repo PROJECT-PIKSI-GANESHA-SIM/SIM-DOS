@@ -28,24 +28,24 @@
             </div>
 
             <div class="container">
-                @foreach ($users_dosen as $user)
+                @foreach ($users_dosen as $user_dosen)
                     <div class="row align-items-center">
                         <div class="col-2">
                             {{-- <p>IMAGE: {{ asset('dosen/profile/' . $user->image) }}</p> --}}
-                            @if ($user->image == null)
+                            @if ($user_dosen->image == null)
                                 <img src="{{ asset('assets/profile-picture.jpg') }}" class="rounded-circle" alt="Profile Picture" width="70px" height="70px">
                             @else
-                                <img src="{{ Storage::url('dosen/profile/' . $user->image) }}" class="rounded-circle" alt="Profile Picture" width="70px" height="70px">
+                                <img src="{{ Storage::url('dosen/profile/' . $user_dosen->image) }}" class="rounded-circle" alt="Profile Picture" width="70px" height="70px">
                             @endif
                         </div>
                         <div class="col-8 text-center">
-                            <h5>{{ $user->name }}</h5>
-                            <p>NIDN: {{ $user->nidn }}</p>
+                            <h5>{{ $user_dosen->name }}</h5>
+                            <p>NIDN: {{ $user_dosen->nidn }}</p>
                         </div>
                         <div class="col">
                             <div class="row-3 text-center">
-                                <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.destroy', $user->id) }}">
-                                    <a href="{{ route('dosen.edit', $user->id) }}">
+                                <form method="POST" onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('dosen.destroy', $user_dosen->id) }}">
+                                    <a href="{{ route('dosen.edit', $user_dosen->id) }}">
                                         <img src="{{ asset("assets/edit.png") }}" alt="" width="35px" height="35px">
                                     </a>
                                     @csrf

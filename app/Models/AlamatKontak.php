@@ -17,6 +17,7 @@ class AlamatKontak extends Model
         'rw',
         'no',
         'desa_kelurahan',
+        'kecamatan',
         'kota_kabupaten',
         'provinsi',
         'tempat_lahir',

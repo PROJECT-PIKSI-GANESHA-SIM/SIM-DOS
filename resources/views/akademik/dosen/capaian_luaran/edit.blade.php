@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <form method="POST" action="{{ route('dosen.capaian_luaran.update', [$user->id, $capaian_luaran->id]) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('dosen.capaian_luaran.update', [$users->id, $capaian_luaran->id]) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 

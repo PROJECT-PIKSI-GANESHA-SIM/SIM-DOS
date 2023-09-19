@@ -1,7 +1,7 @@
 @extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -14,22 +14,22 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="{{ route('dosen.pengajaran.update', [$user->id, $pengajaran->id] ) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dosen.pengajaran.update', [$users->id, $pengajaran->id] ) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div class="mb-3 ">
                         <label for="tahun_ajar" class="col-form-label">{{ __('Tahun Ajaran') }} <span class="text-danger"> *</span></label>
                         <input id="tahun_ajar" type="text" class="form-control @error('tahun_ajar') is-invalid @enderror" name="tahun_ajar" value="{{ $pengajaran->tahun_ajaran }}">
-    
+
                         @error('tahun_ajar')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
-        
+
                     <div class="mb-3">
                         <label for="program_studi" class="col-form-label">{{ __('Program Studi') }} <span class="text-danger"> *</span></label>
                         <select name="program_studi" id="program_studi" class="form-control form-select" data-bs-toggle="dropdown">
@@ -37,27 +37,27 @@
                                 <option value="{{ $p->id }}" {{ $p->id == $pengajaran->program_studi ? 'selected' : '' }}>{{ $p->name }}</option>
                             @endforeach
                         </select>
-    
+
                         @error('program_studi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
-        
+
                     <div class="mb-3 ">
                         <label for="matkul" class="col-form-label">{{ __('Nama Mata Kuliah ') }} <span class="text-danger"> *</span></label>
                         <input id="matkul" type="text" class="form-control @error('matkul') is-invalid @enderror" name="matkul" required value="{{ $pengajaran->nama_mata_kuliah }}">
-    
+
                         @error('matkul')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
-        
+
                     <div class="mb-3 ">
                         <label for="jenis_matkul" class="col-form-label">{{ __('Jenis Mata Kuliah') }} <span class="text-danger"> *</span></label>
                         <select name="jenis_matkul" id="jenis_matkul" class="form-control form-select" data-bs-toggle="dropdown">
@@ -65,25 +65,25 @@
                             <option value="Mata Kuliah Umum" {{ $pengajaran->jenis_mata_kuliah == 'Mata Kuliah Umum' ? 'selected' : '' }}>Mata Kuliah Umum</option>
                             <option value="Mata Kuliah Pilihan" {{ $pengajaran->jenis_mata_kuliah == 'Mata Kuliah Pilihan' ? 'selected' : '' }}>Mata Kuliah Pilihan</option>
                         </select>
-    
+
                         @error('jenis_matkul')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
 
                     <div class="mb-3 ">
                         <label for="kelas" class="col-form-label">{{ __('Kelas') }} <span class="text-danger"> *</span></label>
                         <input id="kelas" type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" required value="{{ $pengajaran->kelas }}">
-    
+
                         @error('kelas')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
 
                     <div class="row">
@@ -96,7 +96,7 @@
                                 <option value="4" {{ $pengajaran->jumlah_sks == '4' ? 'selected' : '' }}>4</option>
                                 <option value="5" {{ $pengajaran->jumlah_sks == '5' ? 'selected' : '' }}>5</option>
                             </select>
-                            
+
                             @error('sks')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -107,17 +107,17 @@
                             <div class="mb-3">
                                 <label for="jumlah_mahasiswa" class="col-form-label">{{ __('Jumlah Mahasiswa') }} <span class="text-danger"> *</span></label>
                                 <input id="jumlah_mahasiswa" type="text" class="form-control @error('jumlah_mahasiswa') is-invalid @enderror" name="jumlah_mahasiswa" required value="{{ $pengajaran->jumlah_mahasiswa }}">
-            
+
                                 @error('jumlah_mahasiswa')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
+
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="mb-3">
                         <label for="bukti_pengajaran" class="col-form-label">{{ __('Bukti Pengajaran') }}</label>
                         <input type="file" class="form-control @error('bukti_pengajaran') is-invalid @enderror" name="bukti_pengajaran">
@@ -131,7 +131,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        
+
                     </div>
 
                     <div class="mb-3">
@@ -147,7 +147,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        
+
                     </div>
                     <div class="row mb-3">
                         <div class="col-mb-6 d-flex justify-content-end align-items-end">

@@ -31,11 +31,11 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($all_user as $user)
+                                                @foreach ($all_user as $users)
                                                     <tr class="text-center">
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $user->nidn }}</td>
-                                                        <td>{{ $user->email }}</td>
+                                                        <td>{{ $users->nidn }}</td>
+                                                        <td>{{ $users->email }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

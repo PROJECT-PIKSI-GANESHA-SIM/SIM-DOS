@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
+@extends('layouts.akademik-dashboard')
 
 @section('title')
-    
+
 @endsection
 
 @section('content')
@@ -14,72 +14,72 @@
         </div>
         <main>
             <section class="intro">
-                <form method="POST" action="{{ route('dosen.identitas.update', [$user->id, $identitas->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dosen.identitas.update', [$users->id, $identitas->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div class="row">
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="nidn" class="col-form-label">{{ __('Nidn') }}</label>
-                                <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $user->nidn }}">
-            
+                                <label for="nidn" class="col-form-label">{{ __('NIDN') }}</label>
+                                <input id="nidn" type="text" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ $users->nidn }}">
+
                                 @error('nidn')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
-                            </div> 
+
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3 ">
-                                <label for="nip" class="col-form-label">{{ __('Nip') }}</label>
+                                <label for="nip" class="col-form-label">{{ __('NIP') }}</label>
                                 <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" required value="{{ $identitas->nip }}">
-            
+
                                 @error('nip')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
+
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="nik" class="col-form-label">{{ __('Nik') }}</label>
+                                <label for="nik" class="col-form-label">{{ __('NIK') }}</label>
                                 <input id="nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ $identitas->nik }}">
-            
+
                                 @error('nik')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
-                            </div> 
+
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3 ">
                                 <label for="nama" class="col-form-label">{{ __('Nama') }}</label>
                                 <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" required  value="{{ $identitas->nama }}">
-            
+
                                 @error('nama')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
+
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="jenis_kelamin" class="col-form-label">{{ __('Jenis Kelamin') }}</label>
                                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-select" data-bs-toggle="dropdown">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="golongan_darah" class="col-form-label">{{ __('Golongan Darah') }}</label>
                                 <select name="golongan_darah" id="golongan_darah" class="form-control form-select" data-bs-toggle="dropdown">
@@ -114,21 +114,21 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="kewarganegaraan" class="col-form-label">{{ __('Kewarganegaraan') }}</label>
                                 <input id="kewarganegaraan" type="text" class="form-control @error('kewarganegaraan') is-invalid @enderror" name="kewarganegaraan"  value="{{ $identitas->kewarganegaraan }}">
-            
+
                                 @error('kewarganegaraan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
-                            </div> 
+
+                            </div>
                         </div>
 
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="agama" class="col-form-label">{{ __('Agama') }}</label>
                                 <select name="agama" id="agama" class="form-control form-select" data-bs-toggle="dropdown">
@@ -144,7 +144,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
+
                             </div>
                         </div>
                     </div>
@@ -154,14 +154,14 @@
                             <div class="mb-3">
                                 <label for="tempat_lahir" class="col-form-label">{{ __('Tempat Lahir') }}</label>
                                 <input id="tempat_lahir" type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir"  value="{{ $identitas->tempat_lahir }}">
-            
+
                                 @error('tempat_lahir')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                
-                            </div> 
+
+                            </div>
                         </div>
 
                         <div class="col-md-4">
@@ -173,7 +173,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                        
+
                             </div>
                         </div>
 
@@ -184,17 +184,17 @@
                                     <option value="Belum Kawin" {{ $identitas->status_perkawinan == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
                                     <option value="Kawin" {{ $identitas->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
                                 </select>
-                                
+
                                 @error('status_perkawinan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                
+
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                         <div class="col-mb-6 d-flex justify-content-end align-items-end">
                             <button type="submit" class="btn btn-success btn-sm mx-3">Simpan</button>
