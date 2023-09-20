@@ -20,13 +20,13 @@ class AlamatKontak extends Model
         'kecamatan',
         'kota_kabupaten',
         'provinsi',
-        'tempat_lahir',
         'kode_pos',
         'no_telepon_rumah',
         'user_id'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }
