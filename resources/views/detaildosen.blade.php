@@ -100,12 +100,15 @@
                         $counter = 1;
                     @endphp
                     @foreach ($pendidikan as $pend)
+                        @php
+                            $jenjang_pendidikan = App\Models\JenjangPendidikan::find($pend->jenjang_pendidikan);
+                        @endphp
                         <tr>
                             <td>
                                 <center>{{ $counter }}</center>
                             </td>
                             <td>
-                                <center>{{ $pend->jenjang_pendidikan }}</center>
+                                <center>{{ $jenjang_pendidikan->name }}</center>
                             </td>
                             <td>
                                 <center>{{ $pend->gelar_singkat }}</center>
