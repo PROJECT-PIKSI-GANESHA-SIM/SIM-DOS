@@ -43,6 +43,11 @@ Route::get('/', function () {
     ]);
 });
 
+Route::fallback(function () {
+    return view('errors.404');
+});
+
+
 Route::get('/about', function () {
     return view('about', [
         "title" => "Tentang"
@@ -224,5 +229,4 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/config', [ConfigController::class, 'index'])->middleware('role:akademik')->name('config');
     Route::get('/config/create', [ConfigController::class, 'create'])->middleware('role:akademik')->name('config.create');
     Route::post('/config/create', [ConfigController::class, 'store'])->middleware('role:akademik')->name('config.store');
-
 });
