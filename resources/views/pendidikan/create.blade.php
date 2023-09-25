@@ -168,7 +168,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-md-12">
-                                        <label for="judul_penelitian" class="col-form-label">{{ __('judul Penelitian') }} <span class="text-danger"> *</span></label>
+                                        <label for="judul_penelitian" class="col-form-label">{{ __('Judul Penelitian') }} <span class="text-danger"> *</span></label>
                                         <textarea class="form-control @error('judul_penelitian') is-invalid @enderror" name="judul_penelitian" rows="3"></textarea>
                                         
                                         @error('judul_penelitian')
