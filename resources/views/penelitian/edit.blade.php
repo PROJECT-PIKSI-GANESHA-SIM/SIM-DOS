@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3 ">
-                                <label for="lama_kegiatan" class="col-form-label">{{ __('lama Kegiatan') }}</label> <span class="text-danger" style="margin-left: -8px">*</span>
+                                <label for="lama_kegiatan" class="col-form-label">{{ __('Lama Kegiatan') }}</label> <span class="text-danger" style="margin-left: -8px">*</span>
                                 <input id="lama_kegiatan" type="text" class="form-control @error('lama_kegiatan') is-invalid @enderror" name="lama_kegiatan" required value="{{ $penelitian->lama_kegiatan }}">
             
                                 @error('lama_kegiatan')

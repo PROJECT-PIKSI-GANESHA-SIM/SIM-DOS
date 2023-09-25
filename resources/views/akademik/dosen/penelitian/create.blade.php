@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3 ">
-                                <label for="lama_kegiatan" class="col-form-label">{{ __('lama Kegiatan') }} <span class="text-danger"> *</span></label>
+                                <label for="lama_kegiatan" class="col-form-label">{{ __('Lama Kegiatan') }} <span class="text-danger"> *</span></label>
                                 <input id="lama_kegiatan" type="text" class="form-control @error('lama_kegiatan') is-invalid @enderror" name="lama_kegiatan" required>
 
                                 @error('lama_kegiatan')
