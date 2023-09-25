@@ -65,9 +65,9 @@
                     </div>
 
                     <div class="mb-3 ">
-                        <label for="lokasi_kegiatan" class="col-form-label">{{ __('lokasi Kegiatan') }} <span class="text-danger"> *</span></label>
+                        <label for="lokasi_kegiatan" class="col-form-label">{{ __('Lokasi Kegiatan') }} <span class="text-danger"> *</span></label>
                         <input id="lokasi_kegiatan" type="text" class="form-control @error('lokasi_kegiatan') is-invalid @enderror" name="lokasi_kegiatan" required value="{{ $penelitian->lokasi_kegiatan }}">
-
+                        
                         @error('lokasi_kegiatan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3 ">
-                                <label for="lama_kegiatan" class="col-form-label">{{ __('lama Kegiatan') }} <span class="text-danger"> *</span></label>
+                                <label for="lama_kegiatan" class="col-form-label">{{ __('Lama Kegiatan') }} <span class="text-danger"> *</span></label>
                                 <input id="lama_kegiatan" type="text" class="form-control @error('lama_kegiatan') is-invalid @enderror" name="lama_kegiatan" required value="{{ $penelitian->lama_kegiatan }}">
 
                                 @error('lama_kegiatan')
@@ -121,7 +121,7 @@
                     <div class="mb-3">
                         <label for="jumlah_dana" class="col-form-label">{{ __('Jumlah Dana') }} <span class="text-danger"> *</span></label>
                         <input id="jumlah_dana" type="text" class="form-control @error('jumlah_dana') is-invalid @enderror" name="jumlah_dana" required value="{{ $penelitian->jumlah_dana }}">
-
+                        <span class="text-danger fst-italic">Dilarang memasukkan tanda "-"</span>
                         @error('jumlah_dana')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

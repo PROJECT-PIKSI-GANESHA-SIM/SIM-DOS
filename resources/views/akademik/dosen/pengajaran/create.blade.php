@@ -105,7 +105,7 @@
                         <div class="col-md-6">
                             <label for="jumlah_mahasiswa" class="col-form-label">{{ __('Jumlah Mahasiswa') }} <span class="text-danger"> *</span></label>
                             <input id="jumlah_mahasiswa" type="text" class="form-control @error('jumlah_mahasiswa') is-invalid @enderror" name="jumlah_mahasiswa" required>
-
+                            <span class="text-danger fst-italic">Dilarang memasukkan tanda "-"</span>
                             @error('jumlah_mahasiswa')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
