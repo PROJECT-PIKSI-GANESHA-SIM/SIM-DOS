@@ -121,7 +121,7 @@
                     <div class="mb-3">
                         <label for="biaya_kegiatan" class="col-form-label">{{ __('Biaya Kegiatan') }}</label>
                         <input id="biaya_kegiatan" type="text" class="form-control @error('biaya_kegiatan') is-invalid @enderror" name="biaya_kegiatan" required value="{{ $pengabdian->biaya_kegiatan }}">
-    
+                        <span class="text-danger fst-italic">Dilarang memasukkan tanda "-"</span>
                         @error('biaya_kegiatan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
