@@ -122,6 +122,7 @@ class DataDiriController extends Controller
         ]);
 
         $user->no_telpn = $request->no_handphone;
+        $user->save();
 
         return redirect()->route('data_diri')->with(['success' => 'Data Berhasil Diupdate!']);
 
