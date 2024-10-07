@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        {{-- <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
             <img src="assets/project-img.jpg" alt="thumbnail" class="lazy img-fluid dcd-rounded-8" height="295"
                 width="394" style="display: inline;">
             <noscript>
@@ -86,14 +86,14 @@
                     width="394" style="display: inline;">
             </noscript>
 
-            {{-- <div class="my-4">
+            <div class="my-4">
                 <div class="d-flex">
                     <h5>Firdha Raissa Nur Amalia</h5>
                 </div>
                 <p class="text-muted mb-4">Staf Akademik</p>
                 <p data-equal-height="content" style="height: 144px;">Lulusan dari Politeknik Piksi Ganesha Bandung 2023 Jenjang D3 & D4. Saat ini bertanggung jawab sebagai Staf Akademik.</p>
-            </div> --}}
-        </div>
+            </div>
+        </div> --}}
 
         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
             <img src="assets/project-img.jpg" alt="thumbnail" class="lazy img-fluid dcd-rounded-8" height="295"
