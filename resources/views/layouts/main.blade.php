@@ -19,7 +19,7 @@
         body {
             font-family: 'Poppins';
         }
-        
+
         h1,
         h2,
         h3,
@@ -149,8 +149,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #333333;
+            background: #f5f6f8;
             transition: opacity 0.75s, visibility 0.75s;
+            z-index: 9999;
         }
 
         .loader--hidden {
@@ -190,7 +191,8 @@
     <div class="container pt-4 pb-5 text-white">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ asset('assets/piksi_sim_logo.png') }}" alt="logo PIKSI SIM-DOS" class="mb-4" height="50">
+                <img src="{{ asset('assets/piksi_sim_logo.png') }}" alt="logo PIKSI SIM-DOS" class="mb-4"
+                    height="50">
                 <p>
                     Alamat : Jl. Jend. Gatot Subroto 301, Bandung 40274<br>
                     Email : piksiganeshaonline@gmail.com<br>
