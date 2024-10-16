@@ -73,7 +73,7 @@
                     },
                     'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
                 ],
-                fontNames: ['Arial', 'Courier New', 'Times New Roman', 'Verdana', 'Roboto', 'Lato', 'Poppins'],
+                fontNames: ['Poppins'],
                 fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28',
                     '30', '32', '36'
                 ],
