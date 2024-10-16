@@ -36,7 +36,6 @@ class PusatInformasiController extends Controller
 
     public function store(Request $request)
     {
-
         // Validasi Form
         $this->validate($request, [
             'title' => 'required|string|max:255',
@@ -45,10 +44,8 @@ class PusatInformasiController extends Controller
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Kondisi jika bukti pengajaran dan bukti presensi di upload
+        // Upload thumbnail jika ada
         if ($request->hasFile('thumbnail')) {
-
-            // upload bukti pengajaran
             $thumbnail = $request->file('thumbnail');
             $thumbnail->storeAs('public/akademik/pusat_informasi', $thumbnail->hashName());
 
@@ -56,13 +53,12 @@ class PusatInformasiController extends Controller
             PusatInformasi::create([
                 'title' => $request->title,
                 'date' => $request->tanggal,
-                'description' => $request->description,
+                'description' => $request->description,  // Summernote akan menyimpan URL gambar di dalam konten ini
                 'thumbnail' => $thumbnail->hashName(),
                 'status' => 0,
             ]);
         } else {
-
-            // Create Pusat Informasi
+            // Create Pusat Informasi tanpa thumbnail
             PusatInformasi::create([
                 'title' => $request->title,
                 'date' => $request->tanggal,
@@ -71,6 +67,26 @@ class PusatInformasiController extends Controller
         }
 
         return redirect()->route('pusat_informasi')->with(['success' => 'Data Berhasil Diupdate!']);
+    }
+
+    public function uploadImage(Request $request)
+    {
+        // Validasi bahwa file adalah gambar
+        $this->validate($request, [
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('file')) {
+            // Simpan gambar ke folder publik
+            $image = $request->file('file');
+            $image->storeAs('public/uploads', $image->hashName());
+
+            // Kembalikan URL gambar yang sudah di-upload
+            $imageUrl = asset('storage/uploads/' . $image->hashName());
+            return response()->json($imageUrl);
+        }
+
+        return response()->json(['error' => 'Gagal mengupload gambar.'], 400);
     }
 
     public function edit($id)
