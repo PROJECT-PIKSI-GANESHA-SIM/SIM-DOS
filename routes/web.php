@@ -213,6 +213,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/pusat_informasi', [PusatInformasiController::class, 'index'])->middleware('role:akademik')->name('pusat_informasi');
     Route::get('/pusat_informasi/create', [PusatInformasiController::class, 'create'])->middleware('role:akademik')->name('pusat_informasi.create');
     Route::post('/pusat_informasi/create', [PusatInformasiController::class, 'store'])->middleware('role:akademik')->name('pusat_informasi.store');
+    Route::post('/upload-image', [PusatInformasiController::class, 'uploadImage'])->name('upload.image');
     Route::get('/pusat_informasi/{id}/edit', [PusatInformasiController::class, 'edit'])->middleware('role:akademik')->name('pusat_informasi.edit');
     Route::delete('/pusat_informasi/delete/{id}', [PusatInformasi::class, 'destroy'])->middleware('role:akademik')->name('pusat_informasi.destroy');
     Route::get('/pusat_informasi/update', [PusatInformasiController::class, 'update_publish_status'])->middleware('role:akademik');

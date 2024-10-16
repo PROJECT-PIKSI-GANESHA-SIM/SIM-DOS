@@ -18,11 +18,12 @@
     <link href="{{ asset('/assets/vendor/fontawesome/css/brands.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/css/master.css') }}" rel="stylesheet">
-    {{-- <link href="/css/style.css" rel="stylesheet"> --}}
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
-    <!-- <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet"> -->
+
+    <!-- Summernote CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -45,18 +46,48 @@
         </div>
     </div>
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
-    {{-- <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}"></script> --}}
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="assets/vendor/chartsjs/Chart.min.js"></script>
-    <script src="assets/js/dashboard-charts.js"></script> -->
     <script src="/assets/js/script.js"></script>
+
+
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.js"></script>
+
     <script>
-        ClassicEditor
-            .create(document.querySelector('#description'))
-            .catch(error => {
-                console.error(error);
+        $(document).ready(function() {
+            $('#description').summernote({
+                height: 300,
+                callbacks: {
+                    onImageUpload: function(files) {
+                        uploadImage(files[0]);
+                    }
+                }
             });
+
+            function uploadImage(file) {
+                var data = new FormData();
+                data.append("file", file);
+                data.append("_token", "{{ csrf_token() }}"); // Tambahkan CSRF token
+
+                $.ajax({
+                    url: "{{ route('upload.image') }}", // Buat route untuk upload gambar
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    type: "POST",
+                    success: function(url) {
+                        $('#description').summernote('insertImage',
+                        url); // Insert URL gambar ke dalam editor
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+            }
+        });
     </script>
+
 </body>
 
 </html>
