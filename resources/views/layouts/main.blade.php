@@ -231,14 +231,16 @@
 
 <script>
     window.addEventListener("load", () => {
-        const loader = document.querySelector(".loader");
+    const loader = document.querySelector(".loader");
 
-        loader.classList.add("loader--hidden");
+    loader.classList.add("loader--hidden");
 
-        loader.addEventListener("transitionend", () => {
+    loader.addEventListener("transitionend", () => {
+        if (loader.parentNode) { // Check if loader has a parent
             document.body.removeChild(loader);
-        });
+        }
     });
+});
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
