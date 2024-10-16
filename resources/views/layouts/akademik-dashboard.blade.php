@@ -11,15 +11,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ $title }} | SIM DOSEN</title>
+    <title>SIM DOSEN</title>
     <link rel="icon" href="{{ asset('assets/PIKSI.png') }}">
-    <link href="{{ assets('/assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('/assets/vendor/fontawesome/css/solid.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('/assets/vendor/fontawesome/css/brands.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ assets('/assets/css/master.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/fontawesome/css/solid.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/fontawesome/css/brands.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/css/master.css') }}" rel="stylesheet">
     {{-- <link href="/css/style.css" rel="stylesheet"> --}}
-    <link href="{{ assets('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
     <!-- <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet"> -->
