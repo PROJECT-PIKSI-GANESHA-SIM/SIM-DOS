@@ -15,6 +15,9 @@
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
 
+    <!-- Tambahkan link Google Fonts untuk Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -26,6 +29,13 @@
     </script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.js"></script>
+
+    <style>
+        /* Mengatur font Poppins sebagai font default */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,11 +73,11 @@
                     },
                     'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
                 ],
-                fontNames: ['Arial', 'Courier New', 'Times New Roman', 'Verdana', 'Roboto', 'Lato'],
+                fontNames: ['Arial', 'Courier New', 'Times New Roman', 'Verdana', 'Roboto', 'Lato', 'Poppins'],
                 fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28',
                     '30', '32', '36'
                 ],
-                lineHeights: ['1', '1.5', '2'], // Menambahkan line height
+                lineHeights: ['1', '1.5', '2'],
                 toolbar: [
                     ['style', ['style']],
                     ['font', ['bold', 'italic', 'underline', 'clear']],
