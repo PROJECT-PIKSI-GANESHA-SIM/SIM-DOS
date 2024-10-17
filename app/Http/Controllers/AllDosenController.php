@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CapaianLuaran;
-use App\Models\IdentitasDiri;
-use App\Models\MenuPenunjang;
+use App\Models\User;
 use App\Models\Pendidikan;
 use App\Models\Penelitian;
 use App\Models\Pengabdian;
 use App\Models\Pengajaran;
-use App\Models\User;
+use App\Models\Kepegawaian;
 use Illuminate\Http\Request;
+use App\Models\CapaianLuaran;
+use App\Models\IdentitasDiri;
+use App\Models\MenuPenunjang;
 
 class AllDosenController extends Controller
 {
