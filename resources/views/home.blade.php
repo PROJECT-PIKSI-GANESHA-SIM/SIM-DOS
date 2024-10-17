@@ -35,7 +35,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated
                                         {{ $informasi->updated_at->format('d F Y') }}</small></p>
                                 <h5 class="card-title">{{ \Illuminate\Support\Str::limit($informasi->title, 100) }}</h5>
-                                <p class="card-text">{!! \Illuminate\Support\Str::limit($informasi->description, 100, '...') !!}</p>
+                                <p class="card-text">{!! \Illuminate\Support\Str::limit($informasi->description, 300, '...') !!}</p>
                             </div>
                         </a>
                     </div>
