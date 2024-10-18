@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>SIM DOSEN</title>
-    <link rel="icon" type="image/x-icon" href="assets/PIKSI.png">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/PIKSI.png') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,6 +35,10 @@
         .image {
             display: none;
         }
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
     }
 </style>
 
