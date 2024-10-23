@@ -18,9 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Dosen' ? 'active' : '' }}" href="{{ route('external.dosen') }}">Dosen</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ $title === 'Tentang' ? 'active' : '' }}" href="{{ route('external.about') }}">Tentang</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
