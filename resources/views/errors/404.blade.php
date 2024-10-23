@@ -32,6 +32,10 @@
             text-decoration: none;
             display: inline-block;
         }
+
+        a:hover {
+            background-color: #70009C; /* Warna ungu lebih gelap saat hover */
+        }
     </style>
 </head>
 
